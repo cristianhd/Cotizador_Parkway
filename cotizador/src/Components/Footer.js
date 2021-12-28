@@ -16,10 +16,9 @@ export default function Footer() {
     <div>
       <footer>
         <div className="group-certificate">
-            <div>
-
-          <img src={clubProducto} alt="club-de-producto"></img>
-            </div>
+          <div>
+            <img src={clubProducto} alt="club-de-producto"></img>
+          </div>
           <div className="cert-down">
             <img src={acotur} alt="acotur"></img>
             <img src={checkIn} alt="check-in"></img>
@@ -29,19 +28,28 @@ export default function Footer() {
         </div>
         <div className="foot">
           <div className="f-top">
-              <div className="info">
-
-            <span>Organizacion Parkway, Cra. 24 # 42-10, Bogotá, Colombia</span>
-              </div>
+            <div className="info">
+              <span>
+                Organizacion Parkway, Cra. 24 # 42-10, Bogotá, Colombia
+              </span>
+            </div>
             <div className="social-links">
-              <img src={instagram} alt="instagram"></img>
-              <img src={facebook} alt="facebook"></img>
-              <img src={whatsapp} alt="whatsapp"></img>
-              <img src={youtube} alt="youtube"></img>
+              <a href="/#">
+                <img src={instagram} alt="instagram" />
+              </a>
+              <a href="/#">
+                <img src={facebook} alt="facebook" />
+              </a>
+              <a href="/#">
+                <img src={whatsapp} alt="whatsapp" />
+              </a>
+              <a href="/#">
+                <img src={youtube} alt="youtube" />
+              </a>
             </div>
           </div>
           <div className="group-links">
-            <div>
+            <div className="links-left">
               <a href="https://www.colombiateinvita.com">
                 colombiateinvita.com
               </a>
@@ -52,18 +60,18 @@ export default function Footer() {
                 parkwayinternacional.com
               </a>
             </div>
-            <div>
+            <div className="links-rigth">
               <a href="/#">Terminos y condiciones</a>
             </div>
           </div>
           <div className="f-down">
             <a href="/">
               <img src={logoFoot} alt="logo-foot" />
-              <span>
-                Copyright 2021 © Organizacion Parkway | Todos los derechos
-                reservados.
-              </span>
             </a>
+            <span>
+              Copyright 2021 © Organizacion Parkway | Todos los derechos
+              reservados.
+            </span>
           </div>
         </div>
       </footer>
