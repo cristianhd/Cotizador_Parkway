@@ -4,6 +4,11 @@ import checkIn from "../assets/footer/check-in.png";
 import clubProducto from "../assets/footer/clubdeproducto.png";
 import proColombia from "../assets/footer/procolombia.png";
 import safeTravels from "../assets/footer/safe-travels.png";
+import instagram from "../assets/footer/Instagram.svg"
+import whatsapp from "../assets/footer/Whatsapp.svg"
+import facebook from "../assets/footer/Facebook.svg"
+import youtube from "../assets/footer/YouTube.svg"
+import "../style/footer.css"
 
 export default function Footer() {
     return (
@@ -20,9 +25,29 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='foot'>
-                    <div className='f-top'></div>
-                    <div className='group-links'></div>
-                    <div className='f-down'></div>
+                    <div className='f-top'>
+                        <span>Organizacion Parkway, Cra. 24 # 42-10, Bogotá, Colombia</span>
+                        <div>
+
+                        <img src={instagram} alt="instagram"></img>
+                        <img src={facebook} alt="facebook"></img>
+                        <img src={whatsapp} alt="whatsapp"></img>
+                        <img src={youtube} alt="youtube"></img>
+                        </div>
+                    </div>
+                    <div className='group-links'>
+                        <div>
+                            <a href="https://www.colombiateinvita.com">colombiateinvita.com</a>
+                            <a href="https://www.ecoturismocolombia.com">ecoturismocolombia.com</a>
+                            <a href="https://www.parkwayinternacional.com">parkwayinternacional.com</a>
+                        </div>
+                        <div>
+                            <a href="/#">Terminos y condiciones</a>
+                        </div>
+                    </div>
+                    <div className='f-down'>
+                        
+                    </div>
                 </div>
             </footer>
         </div>
