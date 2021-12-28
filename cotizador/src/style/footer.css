@@ -4,10 +4,33 @@
     height: 300px;
     background-color: #D0E3E0;
 }
+
+.group-certificate {
+    padding: 0px 139px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 30px;
+}
+.cert-down {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 a {
     text-decoration: none ;
 }
 
 .f-top{
+    margin-top: 20px;
     padding-top: 48px;
+    font-size: 15px;
+    
+}
+
+.social-links {
+    
+       margin: 10px 4px 0px 0px;
+ 
 }
