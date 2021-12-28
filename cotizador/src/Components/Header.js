@@ -7,9 +7,11 @@ export default function Header() {
   return (
     <div>
       <header>
-     
-          <img src={logo} alt="logo" className="img-logo" />
           <img src={background} alt="logo" className="img-back" />
+          <div className="logo">
+
+          <img src={logo} alt="logo" className="img-logo" />
+          </div>
           
       </header>
     </div>
