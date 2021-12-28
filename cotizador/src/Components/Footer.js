@@ -8,6 +8,7 @@ import instagram from "../assets/footer/Instagram.svg"
 import whatsapp from "../assets/footer/Whatsapp.svg"
 import facebook from "../assets/footer/Facebook.svg"
 import youtube from "../assets/footer/YouTube.svg"
+import logoFoot from "../assets/footer/logo-foot.png"
 import "../style/footer.css"
 
 export default function Footer() {
@@ -46,7 +47,10 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className='f-down'>
-                        
+                        <a href="/">
+                            <img src={logoFoot} alt="logo-foot"/>
+                            <span>Copyright 2021  ©  Organizacion Parkway | Todos los derechos reservados.</span>
+                        </a>
                     </div>
                 </div>
             </footer>
