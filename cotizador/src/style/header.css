@@ -20,3 +20,18 @@ header {
   height: 150px;
   top: 450px;
 }
+
+.down-buttom { 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* Breackpoints media queries */
+
+@media screen and (max-width: 500px) {
+  .down-buttom {
+    display: none;
+  }
+}
