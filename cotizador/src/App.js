@@ -4,11 +4,12 @@ import Cards from './Components/Cards';
 import Footer from './Components/Footer';
 import Header from './Components/Header.js';
 import Nav from"./Components/Nav.js";
+import {Container} from 'react-bootstrap'
 
 
 function App() {
   return (
-    <div className="App">
+    <Container fluid className="App">
       <Header/>
       <br/>
       <br/>
@@ -16,8 +17,8 @@ function App() {
       <Nav/>
       <CardCategory/>
       <Cards/>
-      <Footer/>
-    </div>
+     
+    </Container>
   );
 }
 

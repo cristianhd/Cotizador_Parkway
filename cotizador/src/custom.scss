@@ -1,5 +1,9 @@
 // Override default variables before the import
 $body-bg: #F1F1FF;
 
+div.container-fluid {
+    padding: 0px;
+}
+
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
