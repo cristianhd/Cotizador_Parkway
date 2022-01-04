@@ -23,16 +23,22 @@ header {
 
 .down-buttom { 
   width: 90%;
+  height: 50px;
   margin: 16px auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;  
 }
 
+.down-buttom > img {
+  width: 50px;
+  height: 50px;
+}
+
 /* Breackpoints media queries */
 
 @media screen and (max-width: 500px) {
-  .down-buttom {
+  .down-buttom > img{
     display: none;
   }
 }

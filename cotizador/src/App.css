@@ -1,6 +1,6 @@
 .App {
   margin: auto;
-  min-width: 350px;
+  min-width: 450px;
 }
 
 .main {
@@ -17,5 +17,5 @@
   background: #fff;
     
     border: 1px solid #000000;
-    min-width: 350px;
+    min-width: 450px;
 }

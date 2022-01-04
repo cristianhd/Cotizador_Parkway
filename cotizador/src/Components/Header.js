@@ -7,12 +7,18 @@ export default function Header() {
   return (
     <header>
       <div className="cont-back"></div>
-      <div className="logo">
+      <div className="logo" id="logo">
         <img src={logo} alt="logo" className="img-logo" />
       </div>
         <div className="down-buttom">
 
-        <img src={downButtom} alt="down-buttom"/>
+        
+          <img src={downButtom} alt="down-buttom" onClick={()=>window.scroll({
+  top: 400,
+  behavior: 'smooth'
+          })}/>
+          
+          
         </div>
     </header>
   );

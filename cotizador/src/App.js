@@ -11,12 +11,14 @@ function App() {
   return (
     <div fluid className="App">
       <Header/>
-    
-      <div className='main'>
+    <section className='main'>
+
+     
       <Nav/>
       <CardCategory/>
       <Cards/>
-      </div>
+    
+    </section>
     <Footer></Footer>
     </div>
   );
