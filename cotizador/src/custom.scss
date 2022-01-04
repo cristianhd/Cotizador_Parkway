@@ -1,7 +1,11 @@
 // Override default variables before the import
 $body-bg: #F1F1FF;
 
-div.container-fluid {
+div.row div.col {
+   padding: 0px;
+}
+
+div.container-fluid, div.container {
     padding: 0px;
 }
 

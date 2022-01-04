@@ -9,16 +9,16 @@ import {Container} from 'react-bootstrap'
 
 function App() {
   return (
-    <Container fluid className="App">
+    <div fluid className="App">
       <Header/>
-      <br/>
-      <br/>
-      <br/>
+    
+      <div className='main'>
       <Nav/>
       <CardCategory/>
       <Cards/>
-     
-    </Container>
+      </div>
+    <Footer></Footer>
+    </div>
   );
 }
 

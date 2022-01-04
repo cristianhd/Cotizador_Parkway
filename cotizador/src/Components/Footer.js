@@ -13,7 +13,7 @@ import "../style/footer.css";
 
 export default function Footer() {
   return (
-    <div>
+    
       <footer>
         <div className="group-certificate">
           <div>
@@ -27,54 +27,58 @@ export default function Footer() {
           </div>
         </div>
         <div className="foot">
-          <div className="f-top">
-            <div className="info">
+          <div className="wrap">
+
+
+            <div className="f-top">
+              <div className="info">
+                <span>
+                  Organizacion Parkway, Cra. 24 # 42-10, Bogotá, Colombia
+                </span>
+              </div>
+              <div className="social-links">
+                <a href="/#">
+                  <img src={instagram} alt="instagram" />
+                </a>
+                <a href="/#">
+                  <img src={facebook} alt="facebook" />
+                </a>
+                <a href="/#">
+                  <img src={whatsapp} alt="whatsapp" />
+                </a>
+                <a href="/#">
+                  <img src={youtube} alt="youtube" />
+                </a>
+              </div>
+            </div>
+            <div className="group-links">
+              <div className="links-left">
+                <a href="https://www.colombiateinvita.com">
+                  colombiateinvita.com
+                </a>
+                <a href="https://www.ecoturismocolombia.com">
+                  ecoturismocolombia.com
+                </a>
+                <a href="https://www.parkwayinternacional.com">
+                  parkwayinternacional.com
+                </a>
+              </div>
+              <div className="links-rigth">
+                <a href="/#">Terminos y condiciones</a>
+              </div>
+            </div>
+            <div className="f-down">
+              <a href="/">
+                <img src={logoFoot} alt="logo-foot" />
+              </a>
               <span>
-                Organizacion Parkway, Cra. 24 # 42-10, Bogotá, Colombia
+                Copyright 2021 © Organizacion Parkway | Todos los derechos
+                reservados.
               </span>
             </div>
-            <div className="social-links">
-              <a href="/#">
-                <img src={instagram} alt="instagram" />
-              </a>
-              <a href="/#">
-                <img src={facebook} alt="facebook" />
-              </a>
-              <a href="/#">
-                <img src={whatsapp} alt="whatsapp" />
-              </a>
-              <a href="/#">
-                <img src={youtube} alt="youtube" />
-              </a>
-            </div>
-          </div>
-          <div className="group-links">
-            <div className="links-left">
-              <a href="https://www.colombiateinvita.com">
-                colombiateinvita.com
-              </a>
-              <a href="https://www.ecoturismocolombia.com">
-                ecoturismocolombia.com
-              </a>
-              <a href="https://www.parkwayinternacional.com">
-                parkwayinternacional.com
-              </a>
-            </div>
-            <div className="links-rigth">
-              <a href="/#">Terminos y condiciones</a>
-            </div>
-          </div>
-          <div className="f-down">
-            <a href="/">
-              <img src={logoFoot} alt="logo-foot" />
-            </a>
-            <span>
-              Copyright 2021 © Organizacion Parkway | Todos los derechos
-              reservados.
-            </span>
           </div>
         </div>
       </footer>
-    </div>
+
   );
 }

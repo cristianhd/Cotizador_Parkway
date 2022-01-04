@@ -1,17 +1,42 @@
 
-.foot {
-    width: inherit;
-    height: 300px;
-    background-color: #D0E3E0;
+footer{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
+
+
+
+
 .group-certificate {
-    padding: 0px 139px;
+  
     display: flex;
     flex-direction: column;
     align-items: center;
     line-height: 30px;
+
 }
+
+.foot {
+    width: 100%;
+    height: 300px;
+    background-color: #D0E3E0;
+}
+
+.group-certificate ,
+.foot > .wrap {
+      margin: auto;
+    width: 90%;
+}
+
+
+
+
+
+
+
 .cert-down {
     width: 100%;
     display: flex;
@@ -24,8 +49,8 @@ a {
 }
 
 .f-top{
-    margin-top: 20px;
-    padding: 48px 0 0 130px;
+ 
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
    
 }
@@ -35,14 +60,13 @@ a {
 
 .social-links {
     
-       margin: 10px 4px 0px 0px;
+    
        
        
  
 }
 
 .group-links {
-    padding: 26px 130px 30px 130px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -57,7 +81,5 @@ a {
 
 .f-down {
   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }

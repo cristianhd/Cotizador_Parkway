@@ -22,10 +22,11 @@ header {
 }
 
 .down-buttom { 
+  width: 90%;
+  margin: 16px auto;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  margin-top: 16px;
+  justify-content: flex-end;  
 }
 
 /* Breackpoints media queries */
