@@ -11,12 +11,32 @@ function App() {
   return (
     <div fluid className="App">
       <Header/>
+      
     <section className='main'>
 
      
       <Nav/>
+      <br/>
+      <br/>
       <CardCategory/>
+     
+      <br/>
+      <br/>
       <Cards/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     
     </section>
     <Footer></Footer>

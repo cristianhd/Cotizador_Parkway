@@ -10,12 +10,20 @@
   align-items: center;
 
 }
+
+/* Breackpoints media queries */
+
+@media screen and (max-width: 768px) {
+  .main {
+      align-items: flex-start;
+    
+  }
+}
 .App > .main,
 .App > header,
 .App > footer {
   margin: auto;
-  background: #fff;
-    
-    border: 1px solid #000000;
+  
     min-width: 450px;
 }
+

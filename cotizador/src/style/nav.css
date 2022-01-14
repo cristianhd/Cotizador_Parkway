@@ -1,27 +1,73 @@
 .nav {
     margin: auto;
     width: 100%;
+    height: 100px;
     display: flex;
     flex-direction: row;
+    padding: 30px 70px;
+   
 }
-.wrap  {
+
+/* Breackpoints media queries */
+
+@media screen and (max-width: 768px) {
+    .nav {
+        padding: 30px 0;
+      
+    }
+  }
+ul.wrap  {
     width: inherit;
     list-style: none;
+    
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
-    border: 1px solid black;
+   
 }
-.wrap > li {
-    border: 1px solid black;
+ul.wrap > li {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    
 }
-.wrap > li > img{
+
+ul.wrap > li > .img:hover ~ a {
+   
+    font-weight: bold;
+    filter: opacity(1);
+    
+
+}
+
+
+li > .img{
+    height: 40px;
+    filter: opacity(.5);
+   
+}
+
+li > img:hover {
     height: 50px;
+    filter: opacity(1);
+    cursor: pointer;
+}
+li > a:hover {
+    color: #04101C;
+}
+
+li > .select {
+    display: none;
+}
+
+ul.wrap > li > .select:hover ~ a {
+   
+    display: block;
+
 }
 
 
-img:hover {
-    filter: opacity(1)
-}
+
+
+
+
