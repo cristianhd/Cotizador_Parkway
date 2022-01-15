@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import selected from "../../assets/nav/selected.svg";
 import {MenuItems} from "./MenuItems.js"
 import "../../style/nav.css";
+import { Link } from "react-router-dom";
 
 
 export default function Nav() {
   const [clicked,setClicked] = useState(false);
 
-  const handleClick= (name,e)=>{
+  const handleClick= (name,event)=>{
  
     setClicked(!clicked);
-    console.log(e)
+ 
    
   }
 
