@@ -1,3 +1,6 @@
+
+
+
 .nav {
     margin: auto;
     width: 100%;
@@ -18,8 +21,7 @@
   }
 ul.wrap  {
     width: inherit;
-    list-style: none;
-    
+    list-style: none;    
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -32,14 +34,44 @@ ul.wrap > li {
     
 }
 
-ul.wrap > li > .img:hover ~ a {
+.nav-links {
+/* border: 1px solid black; */
+    margin: auto;
+    width: 95px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-links > img {
+    height: 40px;
+    filter: opacity(.5);
+}
+
+.nav-links > h1 {
+    font-size: 15px;
+    text-align: center;
+    filter: opacity(1);
+    height: 22px;
+}
+ /* ul.wrap > li > .img:hover ~ a {
    
     font-weight: bold;
     filter: opacity(1);
     
 
-}
+}  */
 
+
+.nav-links:hover > img,
+.nav-links:hover > h1 {
+    height: 55px;
+    font-weight: bold;
+    filter: opacity(1);
+    color: #04101C;
+}
+/* 
 
 li > .img{
     height: 40px;
@@ -47,7 +79,7 @@ li > .img{
    
 }
 
-li > img:hover {
+li > a > img:hover {
     height: 50px;
     filter: opacity(1);
     cursor: pointer;
@@ -65,7 +97,7 @@ ul.wrap > li > .select:hover ~ a {
     display: block;
 
 }
-
+ */
 
 
 
