@@ -23,7 +23,7 @@
 .App > header,
 .App > footer {
   margin: auto;
-  
-    min-width: 450px;
+  scroll-margin: 0px;
+    min-width: 500px;
 }
 

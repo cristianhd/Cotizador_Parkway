@@ -4,12 +4,12 @@ import Cards from './Components/Cards';
 import Footer from './Components/Footer';
 import Header from './Components/Header.js';
 import Nav from "./Components/Nav/Nav.js";
-import {Container} from 'react-bootstrap'
+
 
 
 function App() {
   return (
-    <div fluid className="App">
+    <div className="App">
       <Header/>
       
     <section className='main'>
