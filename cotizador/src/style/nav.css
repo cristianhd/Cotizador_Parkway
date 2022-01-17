@@ -11,6 +11,9 @@
  
    
 }
+.active {
+    border: 1px solid black;
+}
 
 ul.wrap  {
     width: inherit;
@@ -34,13 +37,14 @@ ul.wrap > li {
 }
 
 .nav-links {
-    /* border: 1px solid black; */
+    border: none;
     margin: auto;
     width: 95px;
     height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .nav-links > img {

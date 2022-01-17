@@ -19,7 +19,7 @@ export const MenuItems = [
         cName:"nav-links"
     },
     {
-        name_category: "Traslado",
+        name_category: "Traslados",
         url:"/traslado",
         img: traslado,
         cName:"nav-links"
