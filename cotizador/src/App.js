@@ -5,12 +5,7 @@ import Cards from "./Components/Cards";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header.js";
 import Nav from "./Components/Nav/Nav.js";
-import Hospedaje from "./Components/Hospedaje";
-import Traslado from "./Components/Traslado";
-import Experiencias from "./Components/Experiencias";
-import Actividades from "./Components/Actividades";
-import Asistencia from "./Components/Asistencia";
-import { MenuItems } from "./Components/Nav/MenuItems.js";
+
 
 function App() {
 
@@ -24,24 +19,9 @@ function App() {
 
         <CardCategory/>
 
-       
-        <br />
-        <br />
+    
         <Cards />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+       
       </section>
       <Footer></Footer>
     </div>

@@ -10,6 +10,8 @@ import Traslado from './Traslado'
 export default function CardCategory() {
     return (
         <div className='container'>
+            <form>
+
            <Routes>
           <Route path="/Experiencias" element={<Experiencias/>}></Route>
           <Route path="/Hospedaje" element={<Hospedaje/>}></Route>
@@ -17,6 +19,8 @@ export default function CardCategory() {
           <Route path="/Actividades" element={<Actividades/>}></Route>
           <Route path="/Asistencia" element={<Asistencia/>}></Route>
         </Routes>
+        <button>Buscar</button>
+            </form>
 
         </div>
     )
