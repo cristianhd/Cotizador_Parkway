@@ -1,10 +1,13 @@
 import React from 'react'
+import InputPlace from './InputPlace'
 
 export default function Experiencias() {
     return (
         <div>
-            <h1>Experiencias</h1>
-            
+
+           <InputPlace name="destino"/>
+           <InputPlace name="origen"/>
+          
         </div>
     )
 }
