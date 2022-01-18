@@ -1,1 +1,8 @@
-/* No CSS *//*# sourceMappingURL=Custom.css.map */
+div.row div.col {
+  padding: 0px;
+}
+
+div.container-fluid, div.container {
+  padding: 0px;
+}
+/*# sourceMappingURL=Custom.css.map */

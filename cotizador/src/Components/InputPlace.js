@@ -1,14 +1,17 @@
-import React from 'react'
-import location from "../assets/destino-origen/location.svg"
+import React from "react";
+import location from "../assets/destino-origen/location.svg";
+import Form from "react-bootstrap/Form";
 
-export default function InputPlace({name}) {
-    return (
-        <div>
-             <span>{name}</span>
-                <div className='input-group mb-3'>
-                <img src = {location} alt="svg-location"></img>
-                <input type="text" placeholder={`ingrese el ${name}`}></input>
-            </div>
-        </div>
-    )
+export default function InputPlace({ name }) {
+  return (
+    <div className="container d-flex flex-md-row align-items-center border">
+      <div className="p-1 align-self-end">
+        <img src={location} alt="svg-location"></img>
+      </div>
+      <div className="container d-flex flex-md-column">
+        <span>{name}</span>
+        <Form.Control type="text" placeholder={`Ingrese el ${name}`} />
+      </div>
+    </div>
+  );
 }

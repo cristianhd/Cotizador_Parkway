@@ -6,11 +6,12 @@ import Asistencia from './Asistencia'
 import Experiencias from './Experiencias'
 import Hospedaje from './Hospedaje'
 import Traslado from './Traslado'
+import Form from "react-bootstrap/Form"
 
 export default function CardCategory() {
     return (
         <div className='container'>
-            <form>
+            <Form className='d-flex flex-row border justify-content-between'>
             
            <Routes>
           <Route path="/" element={<Experiencias/>}></Route>
@@ -21,10 +22,13 @@ export default function CardCategory() {
           <Route path="/Asistencia" element={<Asistencia/>}></Route>
         </Routes>
 
+            
+
        
 
         <button>Buscar</button>
-            </form>
+            </Form>
+           
 
         </div>
     )
