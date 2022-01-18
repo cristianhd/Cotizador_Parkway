@@ -1,7 +1,7 @@
 import React from "react";
 import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
-
+import "../style/inputPlace.css"
 export default function InputPlace({ name }) {
   return (
     <div className="container d-flex flex-row align-items-center border">
@@ -10,7 +10,7 @@ export default function InputPlace({ name }) {
       </div>
       <div className="container d-flex flex-column">
         <span>{name}</span>
-        <Form.Control type="text" placeholder={`Ingrese el ${name}`} />
+        <Form.Control className="input-place" type="text" placeholder={`Ingrese el ${name}`} />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Nav() {
   const [clicked, setClicked] = useState(false);
-  const [Category, setCategory] = useState(" ");
+  const [category, setCategory] = useState(" ");
 
   const handleClick = e => {
    
