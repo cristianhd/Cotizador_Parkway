@@ -7,11 +7,24 @@ import Experiencias from './Experiencias'
 import Hospedaje from './Hospedaje'
 import Traslado from './Traslado'
 import Form from "react-bootstrap/Form"
+import Button from 'react-bootstrap/Button'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import lupa from "../assets/card_product/lupa.svg"
 
 export default function CardCategory() {
+
+const handleOnSubmit = (e)=>{
+e.preventDefault();
+}
+
+
     return (
-        <div className='container p-3 border'>
-            <Form className='d-flex flex-row p-3 justify-content-between'>
+        <div className='container p-3'>
+        <Form onSubmit={handleOnSubmit} className='p-3'>
+            <Row>
+                <Col md={11}>
+                
             
            <Routes>
           <Route path="/" element={<Experiencias/>}></Route>
@@ -21,12 +34,23 @@ export default function CardCategory() {
           <Route path="/Actividades" element={<Actividades/>}></Route>
           <Route path="/Asistencia" element={<Asistencia/>}></Route>
         </Routes>
+                
+                </Col>
+                <Col md={1} className='align-self-end p-2'>
+        <Button className="button-submit" variant='primary' type="submit" >
+            <div className='lupa-wrap'>
+
+            <img src={lupa} alt="lupa"></img>
+            </div>
+        </Button>
+                
+                </Col>
+            </Row>
 
             
 
        
 
-        <button>Buscar</button>
             </Form>
            
 

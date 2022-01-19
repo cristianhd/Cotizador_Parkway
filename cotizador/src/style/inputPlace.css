@@ -21,9 +21,7 @@ border-radius: 4px;
 }
 
 
-.input-place:focus {
-    outline: none;
-}
+
 .wrap-text {
     width: 100%;
     padding-right: 10px ;

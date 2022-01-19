@@ -8,3 +8,16 @@ border-radius: 15px;
 .form-control {
     padding: 0px;
 }
+.button-submit {
+    width: 60px;
+    height: 60px;
+}
+.lupa-wrap > img {
+    width: 30px;
+    height: 30px;
+    filter: opacity(0.6);
+  }
+ .lupa-wrap > img:hover {
+    filter:opacity(1);
+    cursor: pointer;
+  }

@@ -1,0 +1,13 @@
+.room-wrap{
+  
+ height: 60px;
+ background: #FFFFFF;
+ border-radius: 4px;
+}
+
+.input-room{
+    width: 30px;
+    border:none;
+  text-align: center;
+}
+

@@ -27,7 +27,7 @@ export default function Experiencias() {
             <DatePicker />
           </Form.Group>
         </Col>
-        <Col md={3}>
+        <Col md={3} className="p-2">
           <Form.Group>
             <Rooms />
           </Form.Group>

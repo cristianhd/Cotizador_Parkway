@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import "../style/inputPlace.css"
 export default function InputPlace({ name }) {
   return (
-    <div className=" input-wrap d-flex flex-row align-items-center border ">
+    <div className=" input-wrap d-flex flex-row align-items-center">
       <div className="icon">
         <img src={location} alt="svg-location"></img>
       </div>
