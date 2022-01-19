@@ -8,8 +8,8 @@ export default function InputPlace({ name }) {
       <div className="icon">
         <img src={location} alt="svg-location"></img>
       </div>
-      <div className=" d-flex flex-column">
-        <div className="name">
+      <div className=" wrap-text d-flex flex-column">
+        <div className="name-wrap">
 
         <span >{name}</span>
         </div>

@@ -1,15 +1,23 @@
 .input-place {
     border: none;
     background: white;
+    margin: auto;
+    width: 100%
+    
     
     
     
 }
 
-.name {
-  
 
+.input-place:focus {
+    outline: none;
 }
+.wrap-text {
+    width: 100%;
+    padding-right: 10px ;
+}
+
 .input-wrap{
  margin-bottom: 10px;
  height: 60px;
@@ -22,6 +30,8 @@ border-radius: 4px;
 .form-control {
     padding: 0px;
 }
+
+
 .icon{
   height: 100%;
     width: 40px;
