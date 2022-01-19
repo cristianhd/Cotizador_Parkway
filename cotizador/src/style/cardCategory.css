@@ -5,9 +5,23 @@
   border-radius: 15px;
   font-family: SFProDisplay;
 }
-
+h2 {
+  color: white;
+  font-weight: 600;
+  font-size: 30px;
+}
+span {
+  font-weight: 600;
+  color: #ABB5BE;
+}
 .form-control {
   padding: 0px;
+
+  font-weight: 400;
+  
+}
+.form-control::placeholder {
+  color: #04101C;
 }
 .button-submit {
   width: 60px;

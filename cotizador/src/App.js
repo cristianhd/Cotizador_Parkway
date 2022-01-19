@@ -15,7 +15,7 @@ function App() {
       <Header />
 
       <section className="main">
-        {/* <Nav /> */}
+        <Nav />
 
         <br></br>
         <br></br>
