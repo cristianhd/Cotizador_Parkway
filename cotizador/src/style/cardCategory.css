@@ -17,7 +17,7 @@ span {
 .form-control {
   padding: 0px;
 
-  font-weight: 700;
+  font-weight: 100;
   
 }
 .form-control::placeholder {
