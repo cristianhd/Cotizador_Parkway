@@ -1,3 +1,14 @@
+.place > .input-wrap{
+
+ height: 60px;
+background: #FFFFFF;
+
+border: 1px solid #CED4DA;
+box-sizing: border-box;
+border-radius: 4px;
+}
+
+
 .input-place {
     border: none;
     background: white;
@@ -18,18 +29,6 @@
     padding-right: 10px ;
 }
 
-.input-wrap{
-
- height: 60px;
-background: #FFFFFF;
-
-border: 1px solid #CED4DA;
-box-sizing: border-box;
-border-radius: 4px;
-}
-.form-control {
-    padding: 0px;
-}
 
 
 .icon{

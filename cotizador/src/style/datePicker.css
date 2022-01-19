@@ -1,0 +1,26 @@
+.date-wrap {
+    background: #FFFFFF;
+    height: 60px;
+  
+    
+    
+    border: 1px solid #CED4DA;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.check-in{
+
+    border-right: 1px solid #CED4DA; 
+}
+.check-in, .check-out {
+    background: #FFFFFF;
+    padding: 5px;
+    text-align: center;
+ 
+
+}
+
+.input-date {
+    border:none;
+    text-align: center;
+}

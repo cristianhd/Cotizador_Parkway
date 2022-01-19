@@ -16,14 +16,14 @@ export default function Experiencias() {
       <div></div>
       <h2>Experiencias</h2>
       <Row>
-        <Col md={6}>
-          <Form.Group className="d-flex flex-row gap-2">
+        <Col md={6} className="p-2">
+          <Form.Group className="place d-flex flex-row gap-2">
             <InputPlace name="Destino" />
             <InputPlace name="Origen" />
           </Form.Group>
         </Col>
-        <Col md={3}>
-          <Form.Group>
+        <Col md={3} className="p-2">
+          <Form.Group className="date">
             <DatePicker />
           </Form.Group>
         </Col>

@@ -1,23 +1,24 @@
-import React from 'react'
-import Form from 'react-bootstrap/Form'
+import React from "react";
+import Form from "react-bootstrap/Form";
+import "../style/datePicker.css";
 
 export default function DatePicker() {
- 
-  
-    return (
-       
-         
-      
-        <div className="date-wrap h-100 d-flex flex-row">
-          <div className="">
-            <Form.Control className="" placeholder="Check-in"></Form.Control>
-            <span>19-01-2022</span>
-          </div>
-          <div className="">
-            <Form.Control className="" placeholder="Check-out"></Form.Control>
-            <span>20-01-2022</span>
-          </div>
-        </div>
-     
-    )
+  return (
+    <div className="date-wrap d-flex flex-row">
+      <div className="check-in">
+        <span>Check-out</span>
+        <Form.Control
+          className="input-date"
+          placeholder="20-01-2022"
+        ></Form.Control>
+      </div>
+      <div className="check-out">
+        <span>Check-in</span>
+        <Form.Control
+          className="input-date"
+          placeholder="20-01-2022"
+        ></Form.Control>
+      </div>
+    </div>
+  );
 }
