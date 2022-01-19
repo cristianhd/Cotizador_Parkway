@@ -17,7 +17,7 @@ export default function Experiencias() {
       <h2>Experiencias</h2>
       <Row>
         <Col md={6}>
-          <Form.Group className={()=>"d-flex" + (window.screen.width >= 768 ? "flex-column":"flex-row")}>
+          <Form.Group className="d-flex flex-row gap-2">
             <InputPlace name="Destino" />
             <InputPlace name="Origen" />
           </Form.Group>
