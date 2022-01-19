@@ -20,7 +20,7 @@ e.preventDefault();
 
 
     return (
-        <div className='container p-3'>
+        <div className='card-product p-3'>
         <Form onSubmit={handleOnSubmit} className='p-3'>
             <Row>
                 <Col md={11}>

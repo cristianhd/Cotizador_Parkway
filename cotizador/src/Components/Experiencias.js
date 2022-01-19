@@ -17,8 +17,8 @@ export default function Experiencias() {
       <h2>Experiencias</h2>
       <Row>
         <Col md={6} className="p-2">
-          <Form.Group className="place d-flex flex-row gap-2">
-            <InputPlace name="Destino" />
+          <Form.Group className="place d-flex flex-row justify-content-between gap-2">
+            <InputPlace className=""name="Destino" />
             <InputPlace name="Origen" />
           </Form.Group>
         </Col>
