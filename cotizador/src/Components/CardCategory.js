@@ -10,8 +10,8 @@ import Form from "react-bootstrap/Form"
 
 export default function CardCategory() {
     return (
-        <div className='container'>
-            <Form className='d-flex flex-row border justify-content-between'>
+        <div className='container p-3 border'>
+            <Form className='d-flex flex-row p-3 justify-content-between'>
             
            <Routes>
           <Route path="/" element={<Experiencias/>}></Route>

@@ -1,3 +1,37 @@
 .input-place {
+    border: none;
+    background: white;
+    
+    
+    
+}
 
+.name {
+  
+
+}
+.input-wrap{
+ margin-bottom: 10px;
+ height: 60px;
+background: #FFFFFF;
+
+border: 1px solid #CED4DA;
+box-sizing: border-box;
+border-radius: 4px;
+}
+.form-control {
+    padding: 0px;
+}
+.icon{
+  height: 100%;
+    width: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 5px;
+    
+    
+ 
+   
 }

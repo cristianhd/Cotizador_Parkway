@@ -4,12 +4,15 @@ import Form from "react-bootstrap/Form";
 import "../style/inputPlace.css"
 export default function InputPlace({ name }) {
   return (
-    <div className="container d-flex flex-row align-items-center border">
-      <div className="p-1 align-self-end">
+    <div className=" input-wrap d-flex flex-row align-items-center border ">
+      <div className="icon">
         <img src={location} alt="svg-location"></img>
       </div>
-      <div className="container d-flex flex-column">
-        <span>{name}</span>
+      <div className=" d-flex flex-column">
+        <div className="name">
+
+        <span >{name}</span>
+        </div>
         <Form.Control className="input-place" type="text" placeholder={`Ingrese el ${name}`} />
       </div>
     </div>

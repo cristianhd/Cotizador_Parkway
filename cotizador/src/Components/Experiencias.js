@@ -6,12 +6,15 @@ import DatePicker from "./DatePicker";
 import InputPlace from "./InputPlace";
 import Rooms from "./Rooms";
 import "../style/experiencias.css"
+import Hospedaje from "./Hospedaje";
 
 export default function Experiencias() {
   let screenWidth = window.screen.width;
   
   return (
-    <div className="d-flex" style={{ width: 1000 }}>
+    <div className="d-flex flex-column">
+      <div></div>
+      <h2>Experiencias</h2>
       <Row>
         <Col md={6}>
           <Form.Group className={()=>"d-flex" + (window.screen.width >= 768 ? "flex-column":"flex-row")}>

@@ -1,3 +1,6 @@
 .container {
     width: inherit;
+    height: auto;
+    background: #219653;
+border-radius: 15px;
 }
