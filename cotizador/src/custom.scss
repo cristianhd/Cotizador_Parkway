@@ -2,7 +2,9 @@
 $body-bg: #F1F1FF;
 $btn-primary-color:#054AD4;
 
-
+body{
+    background-color: $body-bg;
+}
 .btn-primary {
     background-color: $btn-primary-color;
 }

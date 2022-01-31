@@ -14,7 +14,7 @@ export default function Header() {
 
         
           <img src={downButtom} alt="down-buttom" onClick={()=>window.scroll({
-  top: 300,
+  top: 325,
   behavior: 'smooth'
           })}/>
           

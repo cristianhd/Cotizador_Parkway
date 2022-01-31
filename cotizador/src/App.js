@@ -16,18 +16,14 @@ function App() {
 
       <section className="main">
         <Nav />
-
-        <br></br>
-        <br></br>
-        <br></br>
-
-        <br></br> <br></br>
-        <br></br>
-
         <CardCategory/>
 
-    
-        <Cards />
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
        
       </section>
       <Footer></Footer>
