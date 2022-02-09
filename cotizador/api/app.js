@@ -37,7 +37,7 @@ app.get("/api/experiencias", (req,res,next)=>{
 app.post("/api/experiencias", (req,res,next)=>{
 
   const experiencias = req.body
-  console.log(experiencias)
+ 
 
  Experiencia.insertMany(experiencias).then(result => {
     res.json(result)
