@@ -1,0 +1,8 @@
+.card{
+    padding: 20px;
+    width: 350px;
+}
+.card > img {
+    
+    align-items: center;
+}

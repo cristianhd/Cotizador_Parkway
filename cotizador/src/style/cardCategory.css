@@ -1,6 +1,6 @@
 .card-product {
-  width: inherit;
-  height: auto;
+  width: 100%;
+  height: 200px;
   background: #219653;
   border-radius: 15px;
   font-family: SFProDisplay;
