@@ -1,4 +1,3 @@
-import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import CardCategory from "./Components/CardCategory";
 import Cards from "./Components/Cards";

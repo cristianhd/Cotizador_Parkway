@@ -32,7 +32,7 @@ export default function CardComponent({
         </Card.Text>
         <div className="d-flex justify-content-end">
           <Button variant="primary">
-            Cotizar  >
+            Cotizar
           </Button>
         </div>
       </Card.Body>

@@ -1,12 +1,12 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import "../style/cards.css";
 import Card from "./CardComponent";
 
 export default function Cards() {
   return (
     <div className="cards">
-      <Row xs={1} md={2} lg={2} xl={3} className="mt-3">
+      <Row xs={1} md={2} lg={2} xl={3}>
         <Col className="w-auto">
           <Card
             title={"El paraiso Amazonico"}
