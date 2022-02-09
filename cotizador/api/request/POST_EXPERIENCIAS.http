@@ -1,0 +1,94 @@
+POST http://localhost:3000/api/experiencias
+
+Content-Type: application/json
+[
+
+    {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Wata Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    }
+]

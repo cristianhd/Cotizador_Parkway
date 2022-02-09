@@ -1,13 +1,13 @@
+require("./mongo")
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require("cors")
-require("./mongo")
 
-
-
+const Experiencia = require("./models/Experiencias")
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -28,10 +28,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes //
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.get("/api/experiencias", (req,res,next)=>{
+  Experiencia.find().then(Experiencias=>{
+    res.json(Experiencias)
+  })
+})
 
+app.post("/api/experiencias", (req,res,next)=>{
 
+  const experiencias = req.body
+  console.log(experiencias)
+
+ Experiencia.insertMany(experiencias).then(result => {
+    res.json(result)
+  })
+})
 // Middlewares //
 
 // catch 404 and forward to error handler
