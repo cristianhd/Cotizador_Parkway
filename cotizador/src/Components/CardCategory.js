@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import "../style/cardCategory.css";
 import Actividades from "./Actividades";
 import Asistencia from "./Asistencia";
 import Experiencias from "./Experiencias";
@@ -11,6 +10,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import lupa from "../assets/card_product/lupa.svg";
+import "../style/cardCategory.css";
 
 export default function CardCategory() {
   const handleOnSubmit = (e) => {

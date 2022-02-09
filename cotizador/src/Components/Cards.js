@@ -6,7 +6,7 @@ import Card from "./CardComponent";
 export default function Cards() {
   return (
     <div className="cards">
-      <Row xs={1} md={2} lg={2} xl={3}>
+      <Row xs={1} md={2} lg={2} xl={3} className="gap-5 justify-content-between">
         <Col className="w-auto">
           <Card
             title={"El paraiso Amazonico"}

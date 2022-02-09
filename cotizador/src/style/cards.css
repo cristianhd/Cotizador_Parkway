@@ -1,8 +1,6 @@
-.cards {
-    
+.cards {    
    width: 100%;
-background-color:red;
-   border: 1px solid black;;
+   margin-bottom: 200px;
 }
 
 .cards > .row {
