@@ -1,8 +1,11 @@
 .card{
     padding: 20px;
     width: 350px;
-    height: 480px;
+    height: 600px;
     align-items: center;
+    border: 5px solid #D0E3E0;
+    box-sizing: border-box;
+border-radius: 15px;
 }
 .container-img{
   height: 310px;

@@ -17,8 +17,8 @@ export default function CardComponent({
         <Card.Img variant="top" src={photos} />
       </div>
       <div className="container-body d-flex justify-content-start">
-        <Card.Body className="p-4">
-          <Card.Title>{title}</Card.Title>
+        <Card.Body className="">
+          <Card.Title className="mb-4"><h1>{title}</h1></Card.Title>
           <Card.Subtitle>{hotel}</Card.Subtitle>
           <Card.Subtitle>
             {origin}-{destino}

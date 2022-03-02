@@ -4,10 +4,10 @@ Content-Type: application/json
 [
 
     {
-        "title": "Amazonas el paraiso",
-        "destino": "Amazonas",
+        "title": "Medellin el paraiso",
+        "destino": "Medellin",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Medellin Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
@@ -18,7 +18,7 @@ Content-Type: application/json
         "title": "Amazonas el paraiso",
         "destino": "Amazonas",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Amazonas Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
@@ -26,10 +26,10 @@ Content-Type: application/json
             ]
     },
      {
-        "title": "Amazonas el paraiso",
+        "title": "Capurgana el paraiso",
         "destino": "Amazonas",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Capurgana1 Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
@@ -37,10 +37,10 @@ Content-Type: application/json
             ]
     },
      {
-        "title": "Amazonas el paraiso",
+        "title": "Capurgana el paraiso",
         "destino": "Amazonas",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Capurgana2 Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
@@ -48,10 +48,10 @@ Content-Type: application/json
             ]
     },
      {
-        "title": "Amazonas el paraiso",
-        "destino": "Amazonas",
+        "title": "Paipa el paraiso",
+        "destino": "Paipa",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Paipa Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
@@ -59,10 +59,10 @@ Content-Type: application/json
             ]
     },
      {
-        "title": "Amazonas el paraiso",
-        "destino": "Amazonas",
+        "title": "Manizales el paraiso",
+        "destino": "Manizales",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Manizales Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
@@ -70,10 +70,10 @@ Content-Type: application/json
             ]
     },
      {
-        "title": "Amazonas el paraiso",
+        "title": "Amazonas el paraiso2",
         "destino": "Amazonas",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Amazonas2 Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
@@ -81,10 +81,21 @@ Content-Type: application/json
             ]
     },
      {
-        "title": "Amazonas el paraiso",
-        "destino": "Amazonas",
+        "title": "Santa Marta el paraiso",
+        "destino": "Santa Marta",
         "origen": "Bogotá",
-        "hotel": "Wata Hotel",
+        "hotel": "Santa Marta Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    }
+    {
+        "title": "Nuqui el paraiso",
+        "destino": "Nuqui",
+        "origen": "Bogotá",
+        "hotel": "Nuqui Hotel",
         "traslado": "Avión",
         "price": [
             {"room": "sencilla", "pesos": "200.000cop"},
