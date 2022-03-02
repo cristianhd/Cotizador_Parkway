@@ -1,4 +1,5 @@
 require("./mongo")
+require('dotenv').config()
 
 const createError = require('http-errors');
 const express = require('express');
@@ -6,6 +7,18 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require("cors")
+const { auth } = require('express-openid-connect');
+const { requiresAuth } = require('express-openid-connect');
+
+// config Auth0
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.SECRET,
+  baseURL: process.env.BASEURL,
+  clientID: process.env.CLIENTID,
+  issuerBaseURL: process.env.ISSUER
+};
 
 const Experiencia = require("./models/Experiencias")
 const indexRouter = require('./routes/index');
@@ -26,7 +39,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Auth 0
+
+app.use(auth(config));
+
 // Routes //
+
+app.get("/",(req,res,next)=>{
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+})
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 app.get("/api/experiencias", (req,res,next)=>{
   Experiencia.find().then(Experiencias=>{
