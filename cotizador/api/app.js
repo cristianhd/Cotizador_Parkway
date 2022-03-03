@@ -7,24 +7,28 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require("cors")
-const { auth } = require('express-openid-connect');
-const { requiresAuth } = require('express-openid-connect');
-
-// config Auth0
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: process.env.SECRET,
-  baseURL: process.env.BASEURL,
-  clientID: process.env.CLIENTID,
-  issuerBaseURL: process.env.ISSUER
-};
+var jwt = require('express-jwt');
+var jwks = require('jwks-rsa');
 
 const Experiencia = require("./models/Experiencias")
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const { default: axios } = require("axios");
 
-// Config //
+// Config Auth0
+const jwtVerify = jwt({
+  secret: jwks.expressJwtSecret({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: 'https://dev-ascvuavf.us.auth0.com/.well-known/jwks.json'
+}),
+audience: 'https:/www.cotizador-api.com',
+issuer: 'https://dev-ascvuavf.us.auth0.com/',
+algorithms: ['RS256']
+}).unless({path:["/","/api/experiencias"]})
+
+// Config 
 const app = express();
 
 
@@ -41,15 +45,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Auth 0
 
-app.use(auth(config));
+
+app.use(jwtVerify);
+
 
 // Routes //
 
 app.get("/",(req,res,next)=>{
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+  res.render('index', { title: 'API PARKWAY' });
 })
-app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
+app.get('/protected', async (req, res) => {
+  
+  try {
+
+    const accessToken = req.headers.authorization.split(" ")[1];
+    const response = await axios.get("https://dev-ascvuavf.us.auth0.com/userinfo",{
+      headers: {
+        authorization: `Bearer ${accessToken}`
+      }
+    })    
+    
+    const infoUser = response.data;
+    console.log(infoUser)
+    res.send(infoUser)
+    
+  } catch (error) {
+    res.send(error.message)
+  }
 });
 
 app.get("/api/experiencias", (req,res,next)=>{
@@ -60,7 +82,7 @@ app.get("/api/experiencias", (req,res,next)=>{
 
 app.post("/api/experiencias", (req,res,next)=>{
 
-  const experiencias = req.body
+  const experiencias = req.body;
  
 
  Experiencia.insertMany(experiencias).then(result => {
