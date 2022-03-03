@@ -1,6 +1,5 @@
 header {
   margin: auto;
- 
 }
 
 .cont-back {
@@ -10,25 +9,31 @@ header {
   background: url("../assets/header/Fondo.png") no-repeat center;
   background-size: cover;
 }
-.logo {
-  display: flex;
-  justify-content: center;
-}
-
-.img-logo {
+.profile-logo {
   position: absolute;
+  margin: auto;
   width: 150px;
   height: 150px;
   top: 425px;
+  display: flex;
+  justify-content: center;
+  border-radius: 150px;
+  border: 10px solid rgba(255, 255, 255, 0.49);
 }
 
-.down-buttom { 
+.profile-logo > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 150px; 
+}
+
+.down-buttom {
   width: 90%;
   height: 50px;
   margin: 16px auto;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;  
+  justify-content: space-between;
 }
 
 .down-buttom > img {
@@ -37,14 +42,14 @@ header {
   filter: opacity(0.6);
 }
 .down-buttom > img:hover {
-  filter:opacity(1);
+  filter: opacity(1);
   cursor: pointer;
 }
 
 /* Breackpoints media queries */
 
 @media screen and (max-width: 500px) {
-  .down-buttom > img{
+  .down-buttom > img {
     display: none;
   }
 }

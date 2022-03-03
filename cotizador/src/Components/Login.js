@@ -53,8 +53,7 @@ export default function Login() {
           <button onClick={callApiProtected}>API PROTECTED</button>
         </li>
       </ul>user
-      <img src={user.picture} alt={user.name}></img>
-      <h3>{user.name}</h3>
+     
     </div>
   );
 }
