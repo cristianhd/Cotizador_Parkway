@@ -10,16 +10,16 @@ import Nav from "./Components/Nav/Nav.js";
 function App() {
   const [data, setData] = useState([]);
   
-  // useEffect(() => {
-  //   axios
-  //     .get('http://localhost:3000/api/experiencias')
-  //     .then((response) => {
-  //       setData(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [setData]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/api/experiencias')
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [setData]);
 console.log(data)
   
   return (

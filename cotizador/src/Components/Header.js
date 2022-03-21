@@ -38,6 +38,8 @@ export default function Header() {
     // .then(res=> console.log(res.data))
     // .catch(error=>console.error(error))
   };
+
+  console.log(user)
   return (
     <header>
       <div className="cont-back">
@@ -51,7 +53,7 @@ export default function Header() {
 
       <div className="down-buttom">
         <div>
-          <h3>{isAuthenticated ? user.name : <></>}</h3>
+          <h5>{isAuthenticated ? user.name : <></>}</h5>
         </div>
         <img
           src={downButtom}

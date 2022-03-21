@@ -1,6 +1,9 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import loginIcon from "../assets/header/login.svg";
+import logoutIcon from "../assets/header/logout.svg";
+import "../style/login.css"
 
 export default function Login() {
   const {
@@ -23,8 +26,8 @@ export default function Login() {
       const token = await getAccessTokenSilently();
       const response = await axios.get("http://localhost:3000/protected", {
         headers: {
-          authorization: `Bearer ${token}`
-        }
+          authorization: `Bearer ${token}`,
+        },
       });
       console.log(response.data);
     } catch (error) {
@@ -36,24 +39,37 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className="w-100 d-flex justify-content-end">
       <ul>
-        <li>
-          <button onClick={loginWithRedirect}>Iniciar Sesión</button>
+        {isAuthenticated ? 
+        (
+          <li>
+            <button onClick={logout} className="d-flex justify-content-between">
+            <img src={logoutIcon} alt="login-icon"></img>
+              
+              Cerrar Sesión
+              
+              </button>
+          </li>
+        ) : (
+          <li>
+  
+            <button onClick={loginWithRedirect} className="d-flex justify-content-between">
+              
+            <img src={loginIcon} alt="logout-icon"></img>
+              Iniciar Sesión</button>
         </li>
-        <li>
-          <button onClick={logout}>Cerrar Sesión</button>
-        </li>
+        )}
+{/*         
         <h3>User is {isAuthenticated ? "Login" : "Logout"}</h3>
 
-        <li>
+        {/* <li>
           <button onClick={callApi}>API</button>
         </li>
         <li>
           <button onClick={callApiProtected}>API PROTECTED</button>
-        </li>
-      </ul>user
-     
+        </li> */} 
+      </ul>
     </div>
   );
 }
