@@ -1,0 +1,105 @@
+POST http://localhost:3000/api/experiencias
+
+Content-Type: application/json
+[
+
+    {
+        "title": "Medellin el paraiso",
+        "destino": "Medellin",
+        "origen": "Bogotá",
+        "hotel": "Medellin Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Amazonas Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Capurgana el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Capurgana1 Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Capurgana el paraiso",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Capurgana2 Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Paipa el paraiso",
+        "destino": "Paipa",
+        "origen": "Bogotá",
+        "hotel": "Paipa Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Manizales el paraiso",
+        "destino": "Manizales",
+        "origen": "Bogotá",
+        "hotel": "Manizales Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Amazonas el paraiso2",
+        "destino": "Amazonas",
+        "origen": "Bogotá",
+        "hotel": "Amazonas2 Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    },
+     {
+        "title": "Santa Marta el paraiso",
+        "destino": "Santa Marta",
+        "origen": "Bogotá",
+        "hotel": "Santa Marta Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    }
+    {
+        "title": "Nuqui el paraiso",
+        "destino": "Nuqui",
+        "origen": "Bogotá",
+        "hotel": "Nuqui Hotel",
+        "traslado": "Avión",
+        "price": [
+            {"room": "sencilla", "pesos": "200.000cop"},
+            {"room":"doble", "pesos": "250.000cop"}
+            ]
+    }
+]

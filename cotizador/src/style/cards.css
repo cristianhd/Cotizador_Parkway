@@ -1,4 +1,9 @@
-.container-cards {
-    height: 1000px;
+.cards {    
+   width: 100%;
+   margin-bottom: 200px;
+}
 
+.cards > .row {
+    margin: 0px;
+ 
 }

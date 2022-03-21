@@ -1,0 +1,23 @@
+.card{
+    padding: 20px;
+    width: 350px;
+    height: 600px;
+    align-items: center;
+    border: 5px solid #D0E3E0;
+    box-sizing: border-box;
+border-radius: 15px;
+}
+.container-img{
+  height: 310px;
+  width: 250px;
+  padding: 10px;
+
+}
+.container-body{
+    
+    width: inherit;
+}
+.container-img > img {
+    width: 30px;
+    align-items: center;
+}

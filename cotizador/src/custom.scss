@@ -2,14 +2,9 @@
 $body-bg: #F1F1FF;
 $btn-primary-color:#054AD4;
 
-body{
-    background-color: $body-bg;
-}
-.btn-primary {
-    background-color: $btn-primary-color;
-}
 div.row div.col {
-   padding: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 div.container-fluid, div.container {
@@ -18,5 +13,7 @@ div.container-fluid, div.container {
 
 
 
+
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+
+@import "../node_modules/bootstrap/scss/bootstrap";
