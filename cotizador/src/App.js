@@ -12,7 +12,7 @@ function App() {
   
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/experiencias')
+      .get('http://localhost:3001/products/Experiencias')
       .then((response) => {
         setData(response.data);
       })

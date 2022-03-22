@@ -43,7 +43,7 @@ export default function Login() {
       <ul>
         {isAuthenticated ? 
         (
-          <li>
+          <li className="">
             <button onClick={logout} className="d-flex justify-content-between">
             <img src={logoutIcon} alt="login-icon"></img>
               

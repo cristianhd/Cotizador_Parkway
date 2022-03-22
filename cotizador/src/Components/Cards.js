@@ -10,7 +10,7 @@ export default function Cards({ data }) {
       <Row xs={1} md={2} lg={2} xl={3} className="gap-5 justify-content-center">
         {data &&
           data.map((document) => (
-            <Col className="w-auto">
+            <Col className="w-auto align-items-center">
               <Card
                 title={document.title}
                 hotel={document.hotel}

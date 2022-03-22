@@ -16,8 +16,10 @@ export default function CardComponent({
       <div className="container-img d-flex justify-content-center">
         <Card.Img variant="top" src={photos} />
       </div>
-      <div className="container-body d-flex justify-content-start">
-        <Card.Body className="">
+      <div className=" d-flex justify-content-start">
+        <Card.Body className="container-body">
+          <div>
+
           <Card.Title className="mb-4"><h1>{title}</h1></Card.Title>
           <Card.Subtitle>{hotel}</Card.Subtitle>
           <Card.Subtitle>
@@ -31,8 +33,9 @@ export default function CardComponent({
                 </Card.Text>
               </div>
             ))}
+          </div>
 
-          <div className="d-flex justify-content-end">
+          <div className="container-button">
             <Button variant="primary">Cotizar</Button>
           </div>
         </Card.Body>
