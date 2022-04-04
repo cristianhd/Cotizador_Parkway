@@ -1,4 +1,4 @@
-POST http://localhost:3000/api/experiencias
+POST http://localhost:3001/products/experiencias
 
 Content-Type: application/json
 [
@@ -90,7 +90,7 @@ Content-Type: application/json
             {"room": "sencilla", "pesos": "200.000cop"},
             {"room":"doble", "pesos": "250.000cop"}
             ]
-    }
+    },
     {
         "title": "Nuqui el paraiso",
         "destino": "Nuqui",
