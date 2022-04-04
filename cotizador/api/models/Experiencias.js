@@ -6,19 +6,20 @@ const experienciaSchema = new Schema({
   origen: { type: String, require: true },
   destination: { type: String, require: true },
   hotel: { type: String, require: true },
-  typeRoom: [
+  room: [
     {
-      nameRoom: { type: String, require: true },
+      type: { type: String, require: true },
       price: { type: String, require: true },
-    }
+      rangeAgeKids: String,
+    },
   ],
   transport: String,
   activeDate: { type: String, require: true },
   disableDate: { type: String, require: true },
   description: String,
-  activeProduct: {type:Boolean,require:true}
+  activeProduct: { type: Boolean, require: true },
 });
 
-const Experiencia = model("Experiencias", experienciaSchema);
+const Experiencias = model("Experiencias", experienciaSchema);
 
-module.exports = Experiencia;
+module.exports = Experiencias;

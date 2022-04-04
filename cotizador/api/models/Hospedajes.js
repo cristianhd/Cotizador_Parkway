@@ -5,11 +5,12 @@ const hospedajeSchema = new Schema({
   provider: { type: String, require: true },
   origen: { type: String, require: true },
   destination: { type: String, require: true },
-  typeRoom: [
+  room: [
     {
-      nameRoom: { type: String, require: true },
+      type: { type: String, require: true },
       highSeason: { type: String, require: true },
       lowSeason: { type: String, require: true },
+      rangeAgeKids: String
     }
   ],
   activeDate: { type: String, require: true },
@@ -18,6 +19,6 @@ const hospedajeSchema = new Schema({
   activeProduct: {type:Boolean,require:true}
 });
 
-const Hospedaje = model("Hospedaje", hospedajeSchema);
+const Hospedajes = model("Hospedaje", hospedajeSchema);
 
-module.exports = Hospedaje;
+module.exports = Hospedajes;

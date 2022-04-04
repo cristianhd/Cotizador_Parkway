@@ -1,16 +1,13 @@
-const Experiencia = require("../models/Experiencias");
-const Hospedaje = require("../models/Hospedajes");
+const Experiencias = require("../models/Experiencias");
+const Hospedajes = require("../models/Hospedajes");
+const Traslados = require("../models/Traslados");
+const Actividades = require("../models/Actividades");
+const Asistencias = require("../models/Asistencias");
 
 function findExperiencias(req, res, next) {
-  const typeProduct = req.params.type.toLowerCase();
-
-  if (typeProduct !== "Experiencias") {
-    next();
-  }
-
   try {
-    Experiencia.find().then((Experiencias) => {
-      res.json(Experiencias);
+    Experiencias.find().then((experiencias) => {
+      res.json(experiencias);
     });
   } catch (error) {
     res.send(error.message);
@@ -18,62 +15,129 @@ function findExperiencias(req, res, next) {
 }
 
 function findHospedaje(req, res, next) {
-  const typeProduct = req.params.type.toLowerCase();
-
-  if (typeProduct !== "hospedaje") {
-    console.log(req.params.type);
-  }
-
   try {
-    Hospedaje.find().then((Hospedaje) => {
-      res.json(Hospedaje);
+    Hospedajes.find().then((hospedajes) => {
+      res.json(hospedajes);
     });
   } catch (error) {
     res.send(error.message);
   }
 }
 
-function postExperiencia(req, res, next) {
-  const typeProduct = req.params.type.toLowerCase();
-
-  if (typeProduct !== "experiencias") {
-    next();
-  }
-  console.log(req.body);
-  console.log(typeProduct);
-  const experiencias = req.body;
-
+function findTraslados(req, res, next) {
   try {
-    Experiencia.insertMany(experiencias).then((result) => {
-      res.json(result);
+    Traslados.find().then((traslados) => {
+      res.json(traslados);
     });
   } catch (error) {
     res.send(error.message);
   }
 }
 
-function postHospedajes(req, res, next) {
-  const typeProduct = req.params.type.toLowerCase();
-
-  if (typeProduct !== "hospedajes") {
-    console.log(req.params.type);
-  }
-  console.log(req.body);
-  console.log(typeProduct);
-  const hospedajes = req.body;
-
+function findActividades(req, res, next) {
   try {
-    Hospedaje.insertMany(hospedajes).then( async (result) => {
-      await res.json(result);
+    Actividades.find().then((actividades) => {
+      res.json(actividades);
     });
   } catch (error) {
     res.send(error.message);
   }
 }
 
+function findAsistencias(req, res, next) {
+  try {
+    Asistencias.find().then((asistencias) => {
+      res.json(asistencias);
+    });
+  } catch (error) {
+    res.send(error.message);
+  }
+}
+
+function addExperiencias(req, res, next) {
+  const { experiencias } = req.body;
+  if (experiencias === undefined) {
+    res.status(200).send({ msg: "no data" });
+  } else {
+    try {
+      Experiencias.insertMany(experiencias).then((result) => {
+        res.json(result);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+}
+
+function addHospedajes(req, res, next) {
+  const { hospedajes } = req.body;
+  if (hospedajes === undefined) {
+    res.status(200).send({ msg: "no data" });
+  } else {
+    try {
+      Hospedajes.insertMany(hospedajes).then((result) => {
+        res.json(result);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+}
+
+function addTraslados(req, res, next) {
+  const { traslados } = req.body;
+
+  if (traslados === undefined) {
+    res.status(200).send({ msg: "no data" });
+  } else {
+    try {
+      Traslados.insertMany(traslados).then((result) => {
+        res.json(result);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+}
+
+function addActividades(req, res, next) {
+  const { actividades } = req.body;
+  if (actividades === undefined) {
+    res.status(200).send({ msg: "no data" });
+  } else {
+    try {
+      Actividades.insertMany(actividades).then((result) => {
+        res.json(result);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+}
+
+function addAsistencias(req, res, next) {
+  const { asistencias } = req.body;
+  if (asistencias === undefined) {
+    res.status(200).send({ msg: "no data" });
+  } else {
+    try {
+      Asistencias.insertMany(asistencias).then((result) => {
+        res.json(result);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+}
 module.exports = {
   findExperiencias,
   findHospedaje,
-  postExperiencia,
-  postHospedajes,
+  findTraslados,
+  findActividades,
+  findAsistencias,
+  addExperiencias,
+  addHospedajes,
+  addTraslados,
+  addActividades,
+  addAsistencias,
 };

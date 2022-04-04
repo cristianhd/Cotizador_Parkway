@@ -2,104 +2,104 @@ POST http://localhost:3001/products/experiencias
 
 Content-Type: application/json
 [
+{
+    "name":"El Paraiso paisa2",
+    "provider": "Organización Parkway",
+    "origen": "Bogotá",
+    "destination": "Risaralda",
+    "hotel": "El Viento",
+    "room": [
+        {
+            "type": "niños",
+            "price": "$300.000",
+            "rangeAgeKids": "2-12"
+        },
+        {
+            "type": "sencilla",
+            "price": "$400.000"
+        },
+        {
+            "type": "doble",
+            "price": "$500.000"
+        },
+        {
+            "type": "triple",
+            "price": "$600.000"
+        }
+    ],
+    "transport": "Avión",
+    "activeDate": "n/a",
+    "disableDate": "n/a",
+    "description": "n/a",
+    "activeProduct": true
+}
 
-    {
-        "title": "Medellin el paraiso",
-        "destino": "Medellin",
-        "origen": "Bogotá",
-        "hotel": "Medellin Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-     {
-        "title": "Amazonas el paraiso",
-        "destino": "Amazonas",
-        "origen": "Bogotá",
-        "hotel": "Amazonas Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-     {
-        "title": "Capurgana el paraiso",
-        "destino": "Amazonas",
-        "origen": "Bogotá",
-        "hotel": "Capurgana1 Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-     {
-        "title": "Capurgana el paraiso",
-        "destino": "Amazonas",
-        "origen": "Bogotá",
-        "hotel": "Capurgana2 Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-     {
-        "title": "Paipa el paraiso",
-        "destino": "Paipa",
-        "origen": "Bogotá",
-        "hotel": "Paipa Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-     {
-        "title": "Manizales el paraiso",
-        "destino": "Manizales",
-        "origen": "Bogotá",
-        "hotel": "Manizales Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-     {
-        "title": "Amazonas el paraiso2",
-        "destino": "Amazonas",
-        "origen": "Bogotá",
-        "hotel": "Amazonas2 Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-     {
-        "title": "Santa Marta el paraiso",
-        "destino": "Santa Marta",
-        "origen": "Bogotá",
-        "hotel": "Santa Marta Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    },
-    {
-        "title": "Nuqui el paraiso",
-        "destino": "Nuqui",
-        "origen": "Bogotá",
-        "hotel": "Nuqui Hotel",
-        "traslado": "Avión",
-        "price": [
-            {"room": "sencilla", "pesos": "200.000cop"},
-            {"room":"doble", "pesos": "250.000cop"}
-            ]
-    }
 ]
+
+//Hospedajes
+
+{
+    "name":"Las Palmas",
+    "provider": "Organización Parkway",
+    "origen": "Bogotá",
+    "destination": "Risaralda",
+    "room": [
+        {
+            "type": "niños",
+            "highSeason": "$300.000",
+            "lowSeason": "$250.000",
+            "rangeAgeKids": "2-10"
+        },
+        {
+            "type": "sencilla",
+            "highSeason": "4300.000",
+            "lowSeason": "$350.000",
+        },
+        {
+            "type": "doble",
+            "highSeason": "5300.000",
+            "lowSeason": "$450.000",
+        }
+    ],
+    "activeDate": "n/a",
+    "disableDate": "n/a",
+    "description": "n/a",
+    "activeProduct": true
+}
+
+//Traslados
+
+{
+   "provider": "Organización Parkway",
+    "origen": "Bogotá",
+    "destination": "Risaralda",
+    "price": "$30.000",
+    "pax": "1",
+    "description": "n/a",
+    "activeProduct": true
+    
+}
+
+//Actividades
+
+{
+    "name": "Paseo por Bogotá",
+    "provider": "Organización Parkway",
+    "destination": "Risaralda",
+    "price": "$30.000",
+    "pax": "1",
+    "description": "n/a",
+    "activeProduct": true
+}
+
+//Asistencias
+
+{
+    "name": "Colsanitas",
+    "provider": "Organización Parkway",
+    "destination": "Nacional",
+    "price": "$30.000",
+    "pax": "1",
+    "description": "n/a",
+    "activeProduct": true
+}
