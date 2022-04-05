@@ -1,4 +1,4 @@
-button {
+li > button {
     width: 150px;
     margin: 50px;
     border: none;

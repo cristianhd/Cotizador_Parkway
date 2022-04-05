@@ -8,12 +8,7 @@ export default function Nav() {
   const [clicked, setClicked] = useState(false);
   const [category, setCategory] = useState(" ");
 
-  const handleClick = e => {
-   
-   
-
-   
-  };
+  
 
   useEffect(() => {
     return () => {};
@@ -26,7 +21,7 @@ export default function Nav() {
           return (
             <li key={index} >
               <NavLink to={item.name_category} className={({isActive}) => isActive ? "active" : ""}>
-                <button type="submit" className={item.cName} onSubmit={handleClick(item.name_category)}>
+                <button type="submit" className={item.cName}>
                   <img src={item.img} alt={item.name_category} />
                
                   <h1>{item.name_category}</h1>

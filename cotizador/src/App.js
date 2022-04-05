@@ -1,26 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
-import CardCategory from "./Components/CardCategory";
+import CardProduct from "./Components/CardProduct";
 import Cards from "./Components/Cards";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header.js";
 import Nav from "./Components/Nav/Nav.js";
 
 function App() {
-  const [data, setData] = useState([]);
-  
-  useEffect(() => {
-    axios
-      .get('http://localhost:3001/products/Experiencias')
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [setData]);
-console.log(data)
+ 
   
   return (
     <div className="App">
@@ -28,8 +16,8 @@ console.log(data)
 
       <section className="main">
         <Nav />
-        <CardCategory />
-        <Cards data ={data}/>
+        <CardProduct />
+        
       </section>
       <Footer></Footer>
     </div>
