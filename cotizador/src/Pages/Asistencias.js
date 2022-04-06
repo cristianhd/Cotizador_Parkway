@@ -29,7 +29,7 @@ export default function Asistencias() {
   return (
     <div className="w-100 d-flex flex-column">
       <div className="card-product p-3 h-100">
-        <h2>Hospedaje</h2>
+        <h2>Asistencia</h2>
         <Form onSubmit={handleOnSubmit} className="p-3">
           <Row>
             <Col md={6} className="p-2">
