@@ -20,7 +20,7 @@ export default function Nav() {
         {MenuItems.map((item, index) => {
           return (
             <li key={index} >
-              <NavLink to={item.name_category} className={({isActive}) => isActive ? "active" : ""}>
+              <NavLink to={item.url} className={({isActive}) => isActive ? "active" : ""}>
                 <button type="submit" className={item.cName}>
                   <img src={item.img} alt={item.name_category} />
                

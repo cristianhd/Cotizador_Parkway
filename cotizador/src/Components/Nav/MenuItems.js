@@ -14,13 +14,13 @@ export const MenuItems = [
     },
     {
         name_category: "Hospedaje",
-        url:"/hospedaje",
+        url:"/hospedajes",
         img: hospedaje,
         cName:"nav-links"
     },
     {
         name_category: "Traslados",
-        url:"/traslado",
+        url:"/traslados",
         img: traslado,
         cName:"nav-links"
     },
@@ -32,7 +32,7 @@ export const MenuItems = [
     },
     {
         name_category: "Asistencia",
-        url:"/asistencia",
+        url:"/asistencias",
         img: asistencia,
         cName:"nav-links"
     }

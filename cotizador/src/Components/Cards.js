@@ -4,7 +4,7 @@ import "../style/cards.css";
 import Card from "./CardComponent";
 import Form from "react-bootstrap/Form";
 
-export default function Cards({ data }) {
+export default function   Cards({ data }) {
   console.log(data);
   return (
     <div className="cards">
