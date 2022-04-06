@@ -15,14 +15,14 @@ export default function Experiencias() {
   const [experiencias, setExperiencias] = useState();
 
   useEffect(() => {
-    // axios
-    //   .get("http://localhost:3001/products/experiencias")
-    //   .then((response) => {
-    //     setExperiencias(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    axios
+      .get("http://localhost:3001/products/experiencias")
+      .then((response) => {
+        setExperiencias(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [setExperiencias]);
 
   console.log(experiencias);

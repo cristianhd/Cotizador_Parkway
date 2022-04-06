@@ -17,7 +17,7 @@ export default function   Cards({ data }) {
                 hotel={document.hotel}
                 priceRooms={document.price}
                 origin={document.origen}
-                destino={document.destino}
+                destino={document.destination}
               ></Card>
             </Col>
           ))}

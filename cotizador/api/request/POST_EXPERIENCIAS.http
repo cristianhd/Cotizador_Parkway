@@ -41,7 +41,6 @@ Content-Type: application/json
 {
     "name":"Las Palmas",
     "provider": "Organización Parkway",
-    "origen": "Bogotá",
     "destination": "Risaralda",
     "room": [
         {

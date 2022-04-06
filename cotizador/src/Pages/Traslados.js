@@ -8,6 +8,8 @@ import Rooms from "../Components/Rooms";
 import DatePicker from "../Components/DatePicker";
 import axios from "axios";
 import Cards from "../Components/Cards.js";
+import { Button } from "react-bootstrap";
+import lupa from "../assets/card_product/lupa.svg";
 
 export default function Traslados() {
   const [traslados, setTraslados] = useState();
@@ -43,10 +45,21 @@ export default function Traslados() {
                 <DatePicker />
               </Form.Group>
             </Col>
-            <Col md={3} className="p-2">
+            <Col md={2} className="p-2">
               <Form.Group>
                 <Pax />
               </Form.Group>
+            </Col>
+            <Col md={1} className="align-self-end p-2">
+              <div className="lupa-wrap">
+                <Button
+                  className="button-submit"
+                  variant="primary"
+                  type="submit"
+                >
+                  <img src={lupa} alt="lupa"></img>
+                </Button>
+              </div>
             </Col>
           </Row>
         </Form>

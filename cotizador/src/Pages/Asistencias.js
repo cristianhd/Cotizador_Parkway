@@ -8,6 +8,8 @@ import Rooms from "../Components/Rooms";
 import DatePicker from "../Components/DatePicker";
 import Cards from "../Components/Cards.js";
 import axios from "axios";
+import { Button } from "react-bootstrap";
+import lupa from "../assets/card_product/lupa.svg";
 
 export default function Asistencias() {
   const [asistencias, setAsistencias] = useState();
@@ -32,21 +34,26 @@ export default function Asistencias() {
         <h2>Asistencia</h2>
         <Form onSubmit={handleOnSubmit} className="p-3">
           <Row>
-            <Col md={6} className="p-2">
+            <Col md={9} className="p-2">
               <Form.Group className="place d-flex flex-row justify-content-between gap-2">
                 <InputPlace className="" name="Destino" />
-                <InputPlace name="Origen" />
               </Form.Group>
             </Col>
-            <Col md={3} className="p-2">
-              <Form.Group className="date">
-                <DatePicker />
-              </Form.Group>
-            </Col>
-            <Col md={3} className="p-2">
+            <Col md={2} className="p-2">
               <Form.Group>
                 <Pax />
               </Form.Group>
+            </Col>
+            <Col md={1} className="align-self-end p-2">
+              <div className="lupa-wrap">
+                <Button
+                  className="button-submit"
+                  variant="primary"
+                  type="submit"
+                >
+                  <img src={lupa} alt="lupa"></img>
+                </Button>
+              </div>
             </Col>
           </Row>
         </Form>
