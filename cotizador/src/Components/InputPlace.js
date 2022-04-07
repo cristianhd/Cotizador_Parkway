@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
-import "../style/inputPlace.css"
-export default function InputPlace({ name }) {
+import "../style/inputPlace.css";
+export default function InputPlace({ name, labelName, value, onChange }) {
+  console.log(onChange);
+
   return (
     <div className=" input-wrap d-flex flex-row align-items-center">
       <div className="icon">
@@ -10,10 +12,16 @@ export default function InputPlace({ name }) {
       </div>
       <div className=" wrap-text d-flex flex-column">
         <div className="name-wrap">
-
-        <span >{name}</span>
+          <span>{labelName}</span>
         </div>
-        <Form.Control className="input-place" type="text" placeholder={`Ingrese el ${name}`} />
+        <Form.Control
+          className="input-place"
+          name={name}
+          type="text"
+          placeholder={`Ingrese el ${labelName}`}
+          value={value}
+          onChange={(e) => onChange(e)}
+        />
       </div>
     </div>
   );

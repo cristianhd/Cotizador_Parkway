@@ -2,16 +2,16 @@
 
 const intialState={
     data: [],
-    activeItemNav: "Experiencias"
+    querySearch: []
 }
 
 export function rootReducer(state= intialState, action){
     switch (action.type){
 
-        case "SET_ITEM_NAV": 
+        case "GET_SEARCH_EXPERIENCIAS": 
             return {
                 ...state,
-                activeItemNav: action.payload
+                querySearch: action.payload
             }
     
         default:

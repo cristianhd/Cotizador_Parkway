@@ -5,8 +5,15 @@ const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
 
 function findExperiencias(req, res, next) {
+  const {
+    origin,
+    destination
+  } = req.query
+  console.log(origin,destination);
+
   try {
-    Experiencias.find().then((experiencias) => {
+    Experiencias.find({origin,destination}).then((experiencias) => {
+      console.log(experiencias)
       res.json(experiencias);
     });
   } catch (error) {

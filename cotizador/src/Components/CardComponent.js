@@ -4,13 +4,13 @@ import Button from "react-bootstrap/Button";
 import photos from "../assets/card/camara-fotografica.svg";
 import "../style/card.css";
 export default function CardComponent({
-  title,
+  name,
   hotel,
-  priceRooms,
+  rooms,
   origin,
-  destino,
+  destination,
 }) {
-  console.log(priceRooms);
+  console.log(rooms);
   return (
     <Card>
       <div className="container-img d-flex justify-content-center">
@@ -20,16 +20,16 @@ export default function CardComponent({
         <Card.Body className="container-body">
           <div>
 
-          <Card.Title className="mb-4"><h1>{title}</h1></Card.Title>
+          <Card.Title className="mb-4"><h1>{name}</h1></Card.Title>
           <Card.Subtitle>{hotel}</Card.Subtitle>
           <Card.Subtitle>
-            {origin}-{destino}
+            {origin}-{destination}
           </Card.Subtitle>
-          {priceRooms &&
-            priceRooms.map((type) => (
+          {rooms &&
+            rooms.map((room,index) => (
               <div>
                 <Card.Text>
-                  {type.room} - {type.pesos}
+                  {room.type} - {room.price}
                 </Card.Text>
               </div>
             ))}

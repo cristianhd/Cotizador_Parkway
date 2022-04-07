@@ -10,6 +10,6 @@ const actividadeSchema = new Schema({
   activeProduct: { type: Boolean, require: true },
 });
 
-const Actividades = model("Hospedajes", actividadeSchema);
+const Actividades = model("actividades", actividadeSchema);
 
 module.exports = Actividades;

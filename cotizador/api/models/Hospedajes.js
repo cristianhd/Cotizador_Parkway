@@ -3,7 +3,6 @@ const { Schema, model } = require("mongoose");
 const hospedajeSchema = new Schema({
   name: { type: String, unique: true, require: true },
   provider: { type: String, require: true },
-  origen: { type: String, require: true },
   destination: { type: String, require: true },
   room: [
     {

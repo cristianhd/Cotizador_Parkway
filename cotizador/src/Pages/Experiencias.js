@@ -10,26 +10,42 @@ import axios from "axios";
 import Cards from "../Components/Cards";
 import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
+import { getSearchExperiencias } from "../Redux/action";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Experiencias() {
   const [experiencias, setExperiencias] = useState();
+  const stateRedux = useSelector(state=>state);
+  
+    console.log(stateRedux.querySearch );
 
+  const [form, setForm] = useState({
+    origin: "",
+    destination: "",
+  });
+
+  const dispatch = useDispatch();
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/products/experiencias")
-      .then((response) => {
-        setExperiencias(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [setExperiencias]);
+    setExperiencias(stateRedux.querySearch.querySearch) 
+  }, [stateRedux]);
 
   console.log(experiencias);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    dispatch(getSearchExperiencias(form.origin,form.destination));
+   
   };
+
+  function handleOnChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  }
   return (
     <div className="w-100 d-flex flex-column">
       <div className="card-product p-3 h-100">
@@ -38,8 +54,18 @@ export default function Experiencias() {
           <Row>
             <Col md={5} className="p-2">
               <Form.Group className="place d-flex flex-row justify-content-between gap-2">
-                <InputPlace className="" name="Destino" />
-                <InputPlace name="Origen" />
+                <InputPlace
+                  name="origin"
+                  labelName="Origen"
+                  value={form.origin}
+                  onChange={handleOnChange}
+                />
+                <InputPlace
+                  name="destination"
+                  labelName="Destino"
+                  value={form.destination}
+                  onChange={handleOnChange}
+                />
               </Form.Group>
             </Col>
             <Col md={3} className="p-2">
@@ -54,18 +80,21 @@ export default function Experiencias() {
             </Col>
             <Col md={1} className="align-self-end p-2">
               <div className="lupa-wrap">
-            <Button className="button-submit" variant="primary" type="submit">
-                <img src={lupa} alt="lupa"></img>
-            </Button>
+                <Button
+                  className="button-submit"
+                  variant="primary"
+                  type="submit"
+                >
+                  <img src={lupa} alt="lupa"></img>
+                </Button>
               </div>
-          </Col>
+            </Col>
           </Row>
         </Form>
       </div>
       <div>
-        <Cards data ={experiencias}/>
+        <Cards data={experiencias} />
       </div>
-    
     </div>
   );
 }

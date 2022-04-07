@@ -3,10 +3,72 @@ POST http://localhost:3001/products/experiencias
 Content-Type: application/json
 [
 {
+    "name":"El Paraiso paisa",
+    "provider": "Organización Parkway",
+    "origin": "Bogota",
+    "destination": "Risaralda",
+    "hotel": "El Viento",
+    "room": [
+        {
+            "type": "niños",
+            "price": "$300.000",
+            "rangeAgeKids": "2-12"
+        },
+        {
+            "type": "sencilla",
+            "price": "$400.000"
+        },
+        {
+            "type": "doble",
+            "price": "$500.000"
+        },
+        {
+            "type": "triple",
+            "price": "$600.000"
+        }
+    ],
+    "transport": "Avión",
+    "activeDate": "n/a",
+    "disableDate": "n/a",
+    "description": "n/a",
+    "activeProduct": true
+},
+{
     "name":"El Paraiso paisa2",
     "provider": "Organización Parkway",
-    "origen": "Bogotá",
-    "destination": "Risaralda",
+    "origin": "Bogota",
+    "destination": "Medellin",
+    "hotel": "El Viento",
+    "room": [
+        {
+            "type": "niños",
+            "price": "$300.000",
+            "rangeAgeKids": "2-12"
+        },
+        {
+            "type": "sencilla",
+            "price": "$400.000"
+        },
+        {
+            "type": "doble",
+            "price": "$500.000"
+        },
+        {
+            "type": "triple",
+            "price": "$600.000"
+        }
+    ],
+    "transport": "Avión",
+    "activeDate": "n/a",
+    "disableDate": "n/a",
+    "description": "n/a",
+    "activeProduct": true
+},
+{
+    "name":"El Paraiso paisa3",
+    "provider": "Organización Parkway",
+    "origin": "Bogota",
+    "destination": "Medellin",
     "hotel": "El Viento",
     "room": [
         {
@@ -41,7 +103,61 @@ Content-Type: application/json
 {
     "name":"Las Palmas",
     "provider": "Organización Parkway",
-    "destination": "Risaralda",
+    "destination": "Bucaramamga",
+    "room": [
+        {
+            "type": "niños",
+            "highSeason": "$300.000",
+            "lowSeason": "$250.000",
+            "rangeAgeKids": "2-10"
+        },
+        {
+            "type": "sencilla",
+            "highSeason": "4300.000",
+            "lowSeason": "$350.000",
+        },
+        {
+            "type": "doble",
+            "highSeason": "5300.000",
+            "lowSeason": "$450.000",
+        }
+    ],
+    "activeDate": "n/a",
+    "disableDate": "n/a",
+    "description": "n/a",
+    "activeProduct": true
+},
+{
+    "name":"Las Palmas",
+    "provider": "Organización Parkway",
+    "destination": "Medellin",
+    "room": [
+        {
+            "type": "niños",
+            "highSeason": "$300.000",
+            "lowSeason": "$250.000",
+            "rangeAgeKids": "2-10"
+        },
+        {
+            "type": "sencilla",
+            "highSeason": "4300.000",
+            "lowSeason": "$350.000",
+        },
+        {
+            "type": "doble",
+            "highSeason": "5300.000",
+            "lowSeason": "$450.000",
+        }
+    ],
+    "activeDate": "n/a",
+    "disableDate": "n/a",
+    "description": "n/a",
+    "activeProduct": true
+},
+{
+    "name":"Las Palmas",
+    "provider": "Organización Parkway",
+    "destination": "Bogota",
     "room": [
         {
             "type": "niños",
@@ -70,17 +186,52 @@ Content-Type: application/json
 
 {
    "provider": "Organización Parkway",
-    "origen": "Bogotá",
+    "origin": "Medellin",
+    "destination": "Bucaramanga",
+    "price": "$30.000",
+    "pax": "1",
+    "description": "n/a",
+    "activeProduct": true    
+},
+{
+   "provider": "Organización Parkway",
+    "origin": "Bogota",
+    "destination": "Medellin",
+    "price": "$30.000",
+    "pax": "1",
+    "description": "n/a",
+    "activeProduct": true    
+},
+{
+   "provider": "Organización Parkway",
+    "origin": "Bogotá",
+    "destination": "Medellin",
+    "price": "$30.000",
+    "pax": "1",
+    "description": "n/a",
+    "activeProduct": true    
+}
+
+//Actividades
+
+{
+    "name": "Paseo por Bogotá",
+    "provider": "Organización Parkway",
+    "destination": "Medellin",
+    "price": "$30.000",
+    "pax": "1",
+    "description": "n/a",
+    "activeProduct": true
+},
+{
+    "name": "Paseo por Bogotá",
+    "provider": "Organización Parkway",
     "destination": "Risaralda",
     "price": "$30.000",
     "pax": "1",
     "description": "n/a",
     "activeProduct": true
-    
-}
-
-//Actividades
-
+},
 {
     "name": "Paseo por Bogotá",
     "provider": "Organización Parkway",
@@ -98,7 +249,6 @@ Content-Type: application/json
     "provider": "Organización Parkway",
     "destination": "Nacional",
     "price": "$30.000",
-    "pax": "1",
     "description": "n/a",
     "activeProduct": true
 }

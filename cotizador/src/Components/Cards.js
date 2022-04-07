@@ -5,7 +5,8 @@ import Card from "./CardComponent";
 import Form from "react-bootstrap/Form";
 
 export default function   Cards({ data }) {
-  console.log(data);
+  
+
   return (
     <div className="cards">
       <Row xs={1} md={2} lg={2} xl={3} className="gap-5 justify-content-center">
@@ -13,11 +14,11 @@ export default function   Cards({ data }) {
           data.map((document) => (
             <Col className="w-auto align-items-center">
               <Card
-                title={document.title}
+                name={document.name}
                 hotel={document.hotel}
-                priceRooms={document.price}
-                origin={document.origen}
-                destino={document.destination}
+                rooms={document.room}
+                origin={document.origin}
+                destination={document.destination}
               ></Card>
             </Col>
           ))}
