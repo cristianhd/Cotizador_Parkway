@@ -22,8 +22,13 @@ function findExperiencias(req, res, next) {
 }
 
 function findHospedaje(req, res, next) {
+  const {
+    destination
+  } = req.query
+  console.log(destination);
+  
   try {
-    Hospedajes.find().then((hospedajes) => {
+    Hospedajes.find({destination}).then((hospedajes) => {
       res.json(hospedajes);
     });
   } catch (error) {
@@ -32,8 +37,12 @@ function findHospedaje(req, res, next) {
 }
 
 function findTraslados(req, res, next) {
+  const {
+    origin,
+    destination
+  } = req.query
   try {
-    Traslados.find().then((traslados) => {
+    Traslados.find({origin,destination}).then((traslados) => {
       res.json(traslados);
     });
   } catch (error) {
@@ -42,8 +51,12 @@ function findTraslados(req, res, next) {
 }
 
 function findActividades(req, res, next) {
+  const {
+    destination
+  } = req.query
+
   try {
-    Actividades.find().then((actividades) => {
+    Actividades.find({destination}).then((actividades) => {
       res.json(actividades);
     });
   } catch (error) {
@@ -52,8 +65,12 @@ function findActividades(req, res, next) {
 }
 
 function findAsistencias(req, res, next) {
+  const {
+    destination
+  } = req.query
+
   try {
-    Asistencias.find().then((asistencias) => {
+    Asistencias.find({destination}).then((asistencias) => {
       res.json(asistencias);
     });
   } catch (error) {
