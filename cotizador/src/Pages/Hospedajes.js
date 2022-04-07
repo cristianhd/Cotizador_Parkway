@@ -9,24 +9,49 @@ import Cards from "../Components/Cards";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { getSearch } from "../Redux/action";
 
 export default function Hospedajes() {
   const [hospedajes, setHospedajes] = useState();
+  const {querySearch} = useSelector((state) => state);
+  const query = querySearch.querySearch;
+  const dispatch = useDispatch();
+
+  const [form, setForm] = useState({
+    destination: "",
+  });
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/products/hospedajes")
-      .then((response) => {
-        setHospedajes(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [setHospedajes]);
+    setHospedajes(query);
+  }, [query]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    dispatch(getSearch(form.origin, form.destination, "hospedajes"));
   };
+
+  function handleOnChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  }
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3001/products/hospedajes")
+  //     .then((response) => {
+  //       setHospedajes(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, [setHospedajes]);
+
   return (
     <div className="w-100 d-flex flex-column">
       <div className="card-product p-3 h-100">
@@ -35,7 +60,12 @@ export default function Hospedajes() {
           <Row>
             <Col md={5} className="p-2">
               <Form.Group className="place d-flex flex-row justify-content-between gap-2">
-                <InputPlace className="" name="Destino" />
+                <InputPlace
+                  name="destination"
+                  labelName="Destino"
+                  value={form.destination}
+                  onChange={handleOnChange}
+                />
               </Form.Group>
             </Col>
             <Col md={3} className="p-2">
@@ -63,7 +93,7 @@ export default function Hospedajes() {
         </Form>
       </div>
       <div>
-        <Cards data={undefined} />
+        <Cards data={hospedajes} />
       </div>
     </div>
   );

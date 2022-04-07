@@ -10,14 +10,15 @@ import axios from "axios";
 import Cards from "../Components/Cards";
 import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
-import { getSearchExperiencias } from "../Redux/action";
+import { getSearch } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Experiencias() {
   const [experiencias, setExperiencias] = useState();
-  const stateRedux = useSelector(state=>state);
-  
-    console.log(stateRedux.querySearch );
+
+  const {querySearch} = useSelector((state) => state);
+
+  const query = querySearch.querySearch;
 
   const [form, setForm] = useState({
     origin: "",
@@ -26,21 +27,18 @@ export default function Experiencias() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    setExperiencias(stateRedux.querySearch.querySearch) 
-  }, [stateRedux]);
-
-  console.log(experiencias);
+    setExperiencias(query);
+  }, [query]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(getSearchExperiencias(form.origin,form.destination));
-   
+    dispatch(getSearch(form.origin, form.destination,"experiencias"));
   };
 
   function handleOnChange(e) {
     const name = e.target.name;
     const value = e.target.value;
-    
+
     setForm({
       ...form,
       [name]: value,

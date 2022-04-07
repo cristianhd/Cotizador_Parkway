@@ -1,78 +1,19 @@
 import axios from "axios";
 
-const GET_SEARCH_EXPERIENCIAS = "GET_SEARCH_EXPERIENCIAS",
-  GET_SEARCH_HOSPEDAJE = "GET_SEARCH_HOSPEDAJE",
-  GET_SEARCH_TRASLADOS = "GET_SEARCH_TRASLADOS",
-  GET_SEARCH_ACTIVIDADES = "GET_SEARCH_ACTIVIDADES",
-  GET_SEARCH_ASISTENCIAS = "GET_SEARCH_ASISTENCIAS";
+const GET_SEARCH = "GET_SEARCH";
 
-export function getSearchExperiencias(origin, destination) {
+export function getSearch(origin, destination, typeProduct) {
   return (dispatch) => {
     axios
       .get(
-        `http://localhost:3001/products/experiencias?origin=${origin}&destination=${destination}`
+        `http://localhost:3001/products/${typeProduct}?origin=${origin}&destination=${destination}`
       )
       .then((res) => {
+        console.log(res.data);
         dispatch({
-          type: GET_SEARCH_EXPERIENCIAS,
-          payload: { querySearch: res.data },
+          type: GET_SEARCH,
+          payload: { querySearch: res.data, typeProduct },
         });
       });
   };
 }
-
-// export function getSearch(breed) {
-//   return (dispatch) => {
-//     axios.get(`http://localhost:3001/dogs?name=${breed}`).then((res) => {
-//       dispatch({
-//         type: GET_SEARCH,
-//         payload: {
-//           search: breed,
-//           data: res.data,
-//         },
-//       });
-//     });
-//   };
-// }
-
-// export function getSearch(breed) {
-//   return (dispatch) => {
-//     axios.get(`http://localhost:3001/dogs?name=${breed}`).then((res) => {
-//       dispatch({
-//         type: GET_SEARCH,
-//         payload: {
-//           search: breed,
-//           data: res.data,
-//         },
-//       });
-//     });
-//   };
-// }
-
-// export function getSearch(breed) {
-//   return (dispatch) => {
-//     axios.get(`http://localhost:3001/dogs?name=${breed}`).then((res) => {
-//       dispatch({
-//         type: GET_SEARCH,
-//         payload: {
-//           search: breed,
-//           data: res.data,
-//         },
-//       });
-//     });
-//   };
-// }
-
-// export function getSearch(breed) {
-//   return (dispatch) => {
-//     axios.get(`http://localhost:3001/dogs?name=${breed}`).then((res) => {
-//       dispatch({
-//         type: GET_SEARCH,
-//         payload: {
-//           search: breed,
-//           data: res.data,
-//         },
-//       });
-//     });
-//   };
-// }

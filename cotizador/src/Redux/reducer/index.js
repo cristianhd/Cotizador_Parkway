@@ -8,10 +8,11 @@ const intialState={
 export function rootReducer(state= intialState, action){
     switch (action.type){
 
-        case "GET_SEARCH_EXPERIENCIAS": 
+        case "GET_SEARCH": 
             return {
                 ...state,
-                querySearch: action.payload
+                querySearch: action.payload,
+                typeProduct: action.payload
             }
     
         default:
