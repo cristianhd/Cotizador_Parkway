@@ -3,7 +3,7 @@ import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
 import "../style/inputPlace.css";
 export default function InputPlace({ name, labelName, value, onChange }) {
-  console.log(onChange);
+  
 
   return (
     <div className=" input-wrap d-flex flex-row align-items-center">

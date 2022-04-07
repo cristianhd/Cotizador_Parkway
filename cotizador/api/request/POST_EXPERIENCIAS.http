@@ -215,7 +215,7 @@ Content-Type: application/json
 //Actividades
 
 {
-    "name": "Paseo por Bogotá",
+    "name": "Paseo por Bogotá1",
     "provider": "Organización Parkway",
     "destination": "Medellin",
     "price": "$30.000",
@@ -224,7 +224,7 @@ Content-Type: application/json
     "activeProduct": true
 },
 {
-    "name": "Paseo por Bogotá",
+    "name": "Paseo por Bogotá2",
     "provider": "Organización Parkway",
     "destination": "Risaralda",
     "price": "$30.000",
@@ -233,7 +233,7 @@ Content-Type: application/json
     "activeProduct": true
 },
 {
-    "name": "Paseo por Bogotá",
+    "name": "Paseo por Bogotá3",
     "provider": "Organización Parkway",
     "destination": "Risaralda",
     "price": "$30.000",

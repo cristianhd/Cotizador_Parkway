@@ -10,24 +10,45 @@ import axios from "axios";
 import Cards from "../Components/Cards.js";
 import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
+import { getSearch } from "../Redux/action/index.js";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Traslados() {
+  const dispatch = useDispatch();
   const [traslados, setTraslados] = useState();
+  const { querySearch } = useSelector((state) => state);
+  const query = querySearch.querySearch;
+
+  const [form, setForm] = useState({
+    origin: "",
+    destination: "",
+  });
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/products/traslados")
-      .then((response) => {
-        setTraslados(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [setTraslados]);
+    setTraslados(query);
+  }, [query]);
 
+  useEffect(() => {
+    setTraslados([]);
+  }, []);
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    dispatch(getSearch(form.origin, form.destination, "Traslados"));
   };
+
+  function handleOnChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  }
+
+ 
+
+  
   return (
     <div className="w-100 d-flex flex-column">
       <div className="card-product p-3 h-100">
@@ -36,8 +57,18 @@ export default function Traslados() {
           <Row>
             <Col md={6} className="p-2">
               <Form.Group className="place d-flex flex-row justify-content-between gap-2">
-                <InputPlace className="" name="Destino" />
-                <InputPlace name="Origen" />
+                <InputPlace
+                  name="origin"
+                  labelName="Origen"
+                  value={form.origin}
+                  onChange={handleOnChange}
+                />
+                <InputPlace
+                  name="destination"
+                  labelName="Destino"
+                  value={form.destination}
+                  onChange={handleOnChange}
+                />
               </Form.Group>
             </Col>
             <Col md={3} className="p-2">
@@ -65,7 +96,7 @@ export default function Traslados() {
         </Form>
       </div>
       <div>
-        <Cards data={undefined} />
+        <Cards data={traslados} />
       </div>
     </div>
   );

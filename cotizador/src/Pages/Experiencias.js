@@ -14,10 +14,9 @@ import { getSearch } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Experiencias() {
-  const [experiencias, setExperiencias] = useState();
-
+  const dispatch = useDispatch();
+  const [experiencias, setExperiencias] = useState([]);
   const {querySearch} = useSelector((state) => state);
-
   const query = querySearch.querySearch;
 
   const [form, setForm] = useState({
@@ -25,10 +24,13 @@ export default function Experiencias() {
     destination: "",
   });
 
-  const dispatch = useDispatch();
   useEffect(() => {
     setExperiencias(query);
   }, [query]);
+
+  useEffect(()=>{
+    setExperiencias([])
+  },[])
 
   const handleOnSubmit = (e) => {
     e.preventDefault();

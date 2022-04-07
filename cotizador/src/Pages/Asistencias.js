@@ -10,24 +10,41 @@ import Cards from "../Components/Cards.js";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
+import { getSearch } from "../Redux/action/index.js";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Asistencias() {
-  const [asistencias, setAsistencias] = useState();
+  const dispatch = useDispatch();
+  const [asistencias, setAsistencias] = useState([]);
+  const { querySearch } = useSelector((state) => state);
+  const query = querySearch.querySearch;
+
+  const [form, setForm] = useState({
+    destination: "",
+  });
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/products/asistencias")
-      .then((response) => {
-        setAsistencias(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [setAsistencias]);
+    setAsistencias(query);
+  }, [query]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    dispatch(getSearch(form.origin,form.destination, "asistencias"));
   };
+
+  useEffect(()=>{
+    setAsistencias([])
+  },[])
+
+  function handleOnChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  }
   return (
     <div className="w-100 d-flex flex-column">
       <div className="card-product p-3 h-100">
@@ -36,7 +53,12 @@ export default function Asistencias() {
           <Row>
             <Col md={9} className="p-2">
               <Form.Group className="place d-flex flex-row justify-content-between gap-2">
-                <InputPlace className="" name="Destino" />
+                <InputPlace
+                  name="destination"
+                  labelName="Destino"
+                  value={form.destination}
+                  onChange={handleOnChange}
+                />
               </Form.Group>
             </Col>
             <Col md={2} className="p-2">
@@ -59,7 +81,7 @@ export default function Asistencias() {
         </Form>
       </div>
       <div>
-        <Cards data={undefined} />
+        <Cards data={asistencias} />
       </div>
     </div>
   );

@@ -25,10 +25,15 @@ export default function Hospedajes() {
   useEffect(() => {
     setHospedajes(query);
   }, [query]);
+  
+  useEffect(() => {
+    setHospedajes([]);
+  }, []);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     dispatch(getSearch(form.origin, form.destination, "hospedajes"));
+    
   };
 
   function handleOnChange(e) {
