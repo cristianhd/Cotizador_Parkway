@@ -6,6 +6,7 @@ import Cards from "./Components/Cards";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header.js";
 import Nav from "./Components/Nav/Nav.js";
+import Home from "./Pages/Home";
 
 function App() {
  
@@ -15,9 +16,8 @@ function App() {
       <Header />
 
       <section className="main">
-        <Nav />
-        <CardProduct />
-        
+       
+        <Home></Home>
       </section>
       <Footer></Footer>
     </div>
