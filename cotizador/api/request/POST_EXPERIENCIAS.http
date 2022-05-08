@@ -7,86 +7,32 @@ Content-Type: application/json
     "provider": "Organización Parkway",
     "origin": "Bogota",
     "destination": "Risaralda",
-    "hotel": "El Viento",
-    "room": [
+    "accommodation": [
         {
-            "type": "niños",
-            "price": "$300.000",
-            "rangeAgeKids": "2-12"
-        },
-        {
-            "type": "sencilla",
-            "price": "$400.000"
-        },
-        {
-            "type": "doble",
-            "price": "$500.000"
-        },
-        {
-            "type": "triple",
-            "price": "$600.000"
-        }
-    ],
-    "transport": "Avión",
-    "activeDate": "n/a",
-    "disableDate": "n/a",
-    "description": "n/a",
-    "activeProduct": true
-},
-{
-    "name":"El Paraiso paisa2",
-    "provider": "Organización Parkway",
-    "origin": "Bogota",
-    "destination": "Medellin",
-    "hotel": "El Viento",
-    "room": [
-        {
-            "type": "niños",
-            "price": "$300.000",
-            "rangeAgeKids": "2-12"
-        },
-        {
-            "type": "sencilla",
-            "price": "$400.000"
-        },
-        {
-            "type": "doble",
-            "price": "$500.000"
-        },
-        {
-            "type": "triple",
-            "price": "$600.000"
-        }
-    ],
-    "transport": "Avión",
-    "activeDate": "n/a",
-    "disableDate": "n/a",
-    "description": "n/a",
-    "activeProduct": true
-},
-{
-    "name":"El Paraiso paisa3",
-    "provider": "Organización Parkway",
-    "origin": "Bogota",
-    "destination": "Medellin",
-    "hotel": "El Viento",
-    "room": [
-        {
-            "type": "niños",
-            "price": "$300.000",
-            "rangeAgeKids": "2-12"
-        },
-        {
-            "type": "sencilla",
-            "price": "$400.000"
-        },
-        {
-            "type": "doble",
-            "price": "$500.000"
-        },
-        {
-            "type": "triple",
-            "price": "$600.000"
+            "hotel":"El Viento",            
+            "room": [
+                {
+                    "type": "niños",
+                    "highSeasonPrice": "$300.000",
+                    "lowSeasonPrice": "$250.000",
+                    "rangeAgeKids": "2-12"
+                },
+                {
+                    "type": "sencilla",
+                    "highSeasonPrice": "$300.000",
+                    "lowSeasonPrice": "$250.000",
+                },
+                {
+                    "type": "doble",
+                    "highSeasonPrice": "$300.000",
+                    "lowSeasonPrice": "$250.000",
+                },
+                {
+                    "type": "triple",
+                    "highSeasonPrice": "$300.000",
+                    "lowSeasonPrice": "$250.000",
+                }
+            ]
         }
     ],
     "transport": "Avión",
@@ -107,77 +53,23 @@ Content-Type: application/json
     "room": [
         {
             "type": "niños",
-            "highSeason": "$300.000",
-            "lowSeason": "$250.000",
+            "highSeasonPrice": "$300.000",
+            "lowSeasonPrice": "$250.000",
             "rangeAgeKids": "2-10"
         },
         {
             "type": "sencilla",
-            "highSeason": "4300.000",
-            "lowSeason": "$350.000",
+            "highSeasonPrice": "4300.000",
+            "lowSeasonPrice": "$350.000",
         },
         {
             "type": "doble",
-            "highSeason": "5300.000",
-            "lowSeason": "$450.000",
+            "highSeasonPrice": "5300.000",
+            "lowSeasonPrice": "$450.000",
         }
     ],
-    "activeDate": "n/a",
-    "disableDate": "n/a",
-    "description": "n/a",
-    "activeProduct": true
-},
-{
-    "name":"Villa María",
-    "provider": "Organización Parkway",
-    "destination": "Medellin",
-    "room": [
-        {
-            "type": "niños",
-            "highSeason": "$300.000",
-            "lowSeason": "$250.000",
-            "rangeAgeKids": "2-10"
-        },
-        {
-            "type": "sencilla",
-            "highSeason": "4300.000",
-            "lowSeason": "$350.000",
-        },
-        {
-            "type": "doble",
-            "highSeason": "5300.000",
-            "lowSeason": "$450.000",
-        }
-    ],
-    "activeDate": "n/a",
-    "disableDate": "n/a",
-    "description": "n/a",
-    "activeProduct": true
-},
-{
-    "name":"Hollywood",
-    "provider": "Organización Parkway",
-    "destination": "Bogota",
-    "room": [
-        {
-            "type": "niños",
-            "highSeason": "$300.000",
-            "lowSeason": "$250.000",
-            "rangeAgeKids": "2-10"
-        },
-        {
-            "type": "sencilla",
-            "highSeason": "4300.000",
-            "lowSeason": "$350.000",
-        },
-        {
-            "type": "doble",
-            "highSeason": "5300.000",
-            "lowSeason": "$450.000",
-        }
-    ],
-    "activeDate": "n/a",
-    "disableDate": "n/a",
+    "highSeasonDate": "n/a",
+    "lowSeasonDate": "n/a",
     "description": "n/a",
     "activeProduct": true
 }
@@ -192,24 +84,6 @@ Content-Type: application/json
     "pax": "1",
     "description": "n/a",
     "activeProduct": true    
-},
-{
-   "provider": "Organización Parkway",
-    "origin": "Bogota",
-    "destination": "Medellin",
-    "price": "$30.000",
-    "pax": "1",
-    "description": "n/a",
-    "activeProduct": true    
-},
-{
-   "provider": "Organización Parkway",
-    "origin": "Bogotá",
-    "destination": "Medellin",
-    "price": "$30.000",
-    "pax": "1",
-    "description": "n/a",
-    "activeProduct": true    
 }
 
 //Actividades
@@ -218,24 +92,6 @@ Content-Type: application/json
     "name": "Paseo por Bogotá1",
     "provider": "Organización Parkway",
     "destination": "Medellin",
-    "price": "$30.000",
-    "pax": "1",
-    "description": "n/a",
-    "activeProduct": true
-},
-{
-    "name": "Paseo por Bogotá2",
-    "provider": "Organización Parkway",
-    "destination": "Risaralda",
-    "price": "$30.000",
-    "pax": "1",
-    "description": "n/a",
-    "activeProduct": true
-},
-{
-    "name": "Paseo por Bogotá3",
-    "provider": "Organización Parkway",
-    "destination": "Risaralda",
     "price": "$30.000",
     "pax": "1",
     "description": "n/a",

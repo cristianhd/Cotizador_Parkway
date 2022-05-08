@@ -18,7 +18,7 @@ export default function DatePicker() {
         </div>
         <div className="picker">
 
-        <DateRangePicker initialSettings={{ startDate: hoy }}>
+        <DateRangePicker className="hola" initialSettings={{ startDate: hoy }}>
           <Form.Control type="text" className="input-c">
           </Form.Control>
         </DateRangePicker>

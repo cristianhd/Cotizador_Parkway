@@ -19,30 +19,30 @@ export default function CardComponent({
       <div className=" d-flex justify-content-start">
         <Card.Body className="container-body">
           <div>
-
-          <Card.Title className="mb-4"><h1>{name}</h1></Card.Title>
-          <Card.Subtitle>{hotel}</Card.Subtitle>
-          <Card.Subtitle>
-            {origin}-{destination}
-          </Card.Subtitle>
-          {rooms &&
-            rooms.map((room,index) => (
-              <div>
-                {room.price ? 
-                
-                <Card.Text>
-                  {room.type} - {room.price}
-                </Card.Text> :
-                  <Card.Text>
-                  {room.type} - TA: {room.highSeason} - TB:{room.lowSeason}
-                </Card.Text>
-
-                }
-              </div>
-            ))}
+            <Card.Title className="mb-4">{name}</Card.Title>
+            <Card.Subtitle>
+              <span className="sub">Hotel {hotel}</span><br></br>
+              <span className="sub">
+                {origin}-{destination} 
+              </span> 
+            </Card.Subtitle>
+            {rooms &&
+              rooms.map((room, index) => (
+                <div>
+                  {room.price ? (
+                    <Card.Text>
+                      {room.type} - {room.price}
+                    </Card.Text>
+                  ) : (
+                    <Card.Text>
+                      {room.type} - TA: {room.highSeason} - TB:{room.lowSeason}
+                    </Card.Text>
+                  )}
+                </div>
+              ))}
           </div>
 
-          <div className="container-button">
+          <div className="container-button ">
             <Button variant="primary">Cotizar</Button>
           </div>
         </Card.Body>

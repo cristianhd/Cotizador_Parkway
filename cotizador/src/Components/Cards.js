@@ -8,7 +8,7 @@ export default function Cards({ data }) {
     <div className="cards">
       <Row 
         xs={1} md={2} lg={2} xl={3} 
-        className="gap-5 justify-content-center">
+        className="gap-5 justify-content-start">
         {data &&
           data.map((document) => (
             <Col className="w-auto align-items-center">

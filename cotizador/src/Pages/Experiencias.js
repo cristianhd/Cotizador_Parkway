@@ -30,6 +30,10 @@ export default function Experiencias() {
 
   useEffect(()=>{
     setExperiencias([])
+    window.scroll({
+      top: 700,
+      behavior: "smooth",
+    })
   },[])
 
   const handleOnSubmit = (e) => {
