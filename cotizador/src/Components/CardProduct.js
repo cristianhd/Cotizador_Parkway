@@ -15,7 +15,6 @@ export default function CardProduct() {
   return (
 
       <Routes>
-        <Route path="/" element={<Experiencias />}></Route>
         <Route path="/experiencias" element={<Experiencias />}></Route>
         <Route path="/hospedajes" element={<Hospedajes />}></Route>
         <Route path="/traslados" element={<Traslados />}></Route>
