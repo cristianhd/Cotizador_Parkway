@@ -4,7 +4,7 @@
   background: #219653;
   border-radius: 15px;
   font-family: SFProDisplay;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 h2 {
   color: white;
@@ -16,13 +16,14 @@ span {
   color: #ABB5BE;
 }
 .form-control {
+  color:#04101C;
   padding: 0px;
 
-  font-weight: 100;
+  font-weight: 600;
   
 }
 .form-control::placeholder {
-  color: #04101C;
+  font-weight: 100; 
 }
 .button-submit {
   width: 60px;
