@@ -14,12 +14,6 @@ export default function Header() {
     getAccessTokenSilently,
   } = useAuth0();
 
-  const callApi = () => {
-    axios
-      .get("http://localhost:3000")
-      .then((res) => console.log(res.data))
-      .catch((error) => console.error(error.message));
-  };
 
   const callApiProtected = async () => {
     try {

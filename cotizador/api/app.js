@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Auth 0
 
 
-// app.use(jwtVerify);
+app.use(jwtVerify);
 
 // Routes //
 app.get("/",(req,res,next)=>{
@@ -56,26 +56,7 @@ app.get("/",(req,res,next)=>{
 })
 app.use("/",routes)
 
-// app.get('/protected', async (req, res) => {
-  
-//   try {
 
-//     const accessToken = req.headers.authorization.split(" ")[1];
-//     const response = await axios.get("https://dev-ascvuavf.us.auth0.com/userinfo",{
-//       headers: {
-//         authorization: `Bearer ${accessToken}`
-//       }
-//     })    
-    
-//     const infoUser = response.data;
-//     console.log(infoUser)
-//     console.log(accessToken);
-//     res.send(infoUser)
-    
-//   } catch (error) {
-//     res.send(error.message)
-//   }
-// });
 
 // app.get("/api/product/:type", (req,res,next)=>{
 //   const typeProduct = req.params.type;

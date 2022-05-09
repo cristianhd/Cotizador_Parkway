@@ -1,5 +1,7 @@
 const User = require("../models/Users");
 
+
+
 function findAllUser(req, res, next) {
   try {
     User.find().then((user) => {
