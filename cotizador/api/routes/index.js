@@ -5,7 +5,7 @@ const usersRoutes = require('./users')
 const productsRoutes = require('./products.js')
 
 
-// router.use('/users', usersRoutes)
+router.use('/users', usersRoutes)
 router.use('/products', productsRoutes)
 
 module.exports = router;

@@ -51,11 +51,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(jwtVerify);
 
 // Routes //
+app.get("/",(req,res,next)=>{
+  res.render('index', { title: 'API PARKWAY' });
+})
 app.use("/",routes)
 
-// app.get("/",(req,res,next)=>{
-//   res.render('index', { title: 'API PARKWAY' });
-// })
 // app.get('/protected', async (req, res) => {
   
 //   try {

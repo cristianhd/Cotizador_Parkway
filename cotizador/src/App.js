@@ -20,16 +20,17 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Nav></Nav>
+
       <section className="main">
+        <Nav/>
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-     
+          <Route exact path="/" element={<Experiencias/>}></Route>
           <Route path="/planes" element={<Experiencias />}></Route>
-        <Route path="/hospedajes" element={<Hospedajes />}></Route>
-        <Route path="/traslados" element={<Traslados />}></Route>
-        <Route path="/actividades" element={<Actividades />}></Route>
-        <Route path="/asistencias" element={<Asistencias />}></Route>
+          <Route path="/hospedajes" element={<Hospedajes />}></Route>
+          <Route path="/traslados" element={<Traslados />}></Route>
+          <Route path="/actividades" element={<Actividades />}></Route>
+          <Route path="/asistencias" element={<Asistencias />}></Route>
+        
         </Routes>
       </section>
       <Footer></Footer>
