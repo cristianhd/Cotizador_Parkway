@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 async function VerifyToken(req, res, next) {
   try {
     const accessToken = req.headers.authorization.split(" ")[1];
@@ -13,7 +15,7 @@ async function VerifyToken(req, res, next) {
     const infoUser = response.data;
     console.log(infoUser);
     console.log(accessToken);
-    res.send(infoUser);
+  
     next();
   } catch (error) {
     res.send(error.message);

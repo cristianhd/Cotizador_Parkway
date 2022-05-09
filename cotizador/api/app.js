@@ -14,7 +14,7 @@ var jwks = require('jwks-rsa');
 const Experiencia = require("./models/Experiencias")
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const { default: axios } = require("axios");
+
 const { renderHomeApi } = require("./controllers/home");
 
 // Config Auth0

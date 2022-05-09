@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import loginIcon from "../assets/header/login.svg";
@@ -6,6 +6,8 @@ import logoutIcon from "../assets/header/logout.svg";
 import "../style/login.css"
 
 export default function Login() {
+const [jwt,setJwt] = useState(null);
+
   const {
     loginWithRedirect,
     logout,
@@ -13,7 +15,20 @@ export default function Login() {
     isAuthenticated,
     getAccessTokenSilently,
   } = useAuth0();
+  
+  useEffect(() => {
+    async function setToken(){
+      const token = await getAccessTokenSilently()
+      setJwt(token);
+    }
+    setToken()
+  }, [getAccessTokenSilently])
+  
+  
+   
 
+  console.log(jwt)
+  
   const callApi = () => {
     axios
       .get("http://localhost:3000")
