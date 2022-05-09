@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import Nav from "../Components/Nav/Nav";
 
 export default function Provider() {
   return (
-    <div>Provider</div>
-  )
+    <>
+      <Nav />
+    </>
+  );
 }

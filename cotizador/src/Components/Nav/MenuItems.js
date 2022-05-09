@@ -7,8 +7,8 @@ import asistencia from "../../assets/nav/asistencia.svg";
 
 export const MenuItems = [
     {
-        name_category: "Experiencias",
-        url:"/experiencias",
+        name_category: "Planes",
+        url:"/planes",
         img: experiencias,
         cName:"nav-links"
     },
