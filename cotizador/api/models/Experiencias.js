@@ -5,12 +5,17 @@ const experienciaSchema = new Schema({
   provider: { type: String, require: true },
   origin: { type: String, require: true },
   destination: { type: String, require: true },
-  hotel: { type: String, require: true },
-  room: [
+  accommodation: [
     {
-      type: { type: String, require: true },
-      price: { type: String, require: true },
-      rangeAgeKids: String,
+      hotel: { type: String, require: true },
+      room: [
+        {
+          type: { type: String, require: true },
+          highSeason: { type: String, require: true },
+          lowSeason: { type: String, require: true },
+          rangeAgeKids: String,
+        },
+      ],
     },
   ],
   transport: String,
