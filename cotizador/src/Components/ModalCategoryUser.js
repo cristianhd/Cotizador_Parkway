@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/esm/Modal";
 import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/esm/Form";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function ModalCategoryUser() {
   const [show, setShow] = useState(true);
   const [categoryUser,setCategoryUser] = useState(null)
+  const { user } = useAuth0();
 
   const handleClose = () => {
-
+    
     setShow(false);
+  
   }
 
   const handleChange = (e)=>{
@@ -17,7 +20,7 @@ export default function ModalCategoryUser() {
     setCategoryUser(category)
   }
   
-  console.log(categoryUser)
+  console.log(user,categoryUser)
 
   return (
     <div>
