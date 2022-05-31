@@ -30,7 +30,7 @@ export default function CardComponent({
               rooms.map((room, index) => (
                 <div>
                   {room.price ? (
-                    <Card.Text>
+                    <Card.Text >
                       {room.type} - {room.price}
                     </Card.Text>
                   ) : (
