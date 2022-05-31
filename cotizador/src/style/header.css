@@ -33,7 +33,7 @@ header {
   margin: 16px auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .down-buttom > img {

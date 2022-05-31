@@ -3,16 +3,19 @@ import logo from "../assets/header/Logo.png";
 import downButtom from "../assets/header/chevron-circle-down.svg";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
+import ModalCategoryUser from './ModalCategoryUser';
 
 export default function Profile() {
 
-const [existUser,setExistUser] = useState(null)
-      
+  
+  const [existUser,setExistUser] = useState(null)
+  
   const {
     user,
     isAuthenticated,
     getAccessTokenSilently,
   } = useAuth0();
+  console.log(user)
 
   useEffect(() => {
     const callApiProtected = async () => {
@@ -25,6 +28,7 @@ const [existUser,setExistUser] = useState(null)
             {
               headers: {
                 authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
               },
             }
           );
@@ -39,29 +43,27 @@ const [existUser,setExistUser] = useState(null)
 },[getAccessTokenSilently,user])
 console.log(existUser)
 
+ 
+if (!existUser) {
+  return <ModalCategoryUser/>;
+}else{
+
   return (
     <div>
         <div className="d-flex justify-content-center">
         <div className="profile-logo">
-          <img src={isAuthenticated ? user.picture : logo} alt="profile-logo" />
+          <img src={user.picture} alt="profile-logo" />
         </div>
       </div>
-
-      <div className="down-buttom">
+  
+      
         <div>
-          <h5>{isAuthenticated ? user.name : <></>}</h5>
+          <h5>{user.name}</h5>
         </div>
-        <img
-          src={downButtom}
-          alt="down-buttom"
-          onClick={() =>
-            window.scroll({
-              top: 325,
-              behavior: "smooth",
-            })
-          }
-        />
-      </div>
+       
+      
     </div>
   )
+}
+
 }

@@ -7,34 +7,34 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import Loading from "./Loading";
 import Profile from "./Profile";
+import Logo from "./Logo";
 
 export default function Header() {
-  const [jwt, setJwt] = useState(null);
-  const [existUser, setExistUser] = useState(null);
-  
-  const {
-    user,
-    isAuthenticated,
-    getAccessTokenSilently,
-    isLoading
-  } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
 
-
-
-  console.log(isLoading)
   if (isLoading) {
     return <Loading />;
   }
 
- 
-
-  console.log(user)
   return (
     <header>
       <div className="cont-back">
-        <Login/>
+        <Login />
       </div>
-      <Profile/>
+      {isAuthenticated ? <Profile/> : <Logo/>}
+      
+      <div className="down-buttom">
+        <img
+          src={downButtom}
+          alt="down-buttom"
+          onClick={() =>
+            window.scroll({
+              top: 325,
+              behavior: "smooth",
+            })
+          }
+        />
+      </div>
     </header>
   );
 }
