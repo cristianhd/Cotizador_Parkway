@@ -22,8 +22,8 @@ export default function Profile() {
           {
             headers: {
               authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
+              "Content-Type": "application/json"
+            }
           }
         );
 
