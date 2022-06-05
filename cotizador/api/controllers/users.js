@@ -15,7 +15,7 @@ function findAllUser(req, res, next) {
 }
 
 function addUser(req, res, next) {
-  const { user } = req.body;
+  const user = req.body;
 
   try {
     User.create(user).then((user) => {

@@ -8,7 +8,8 @@ async function VerifyToken(req, res, next) {
       {
         headers: {
           authorization: `Bearer ${accessToken}`,
-        },
+          "Content-Type": "application/json"
+        }
       }
     );
 
