@@ -18,6 +18,12 @@ const usersRouter = require('./routes/users');
 const { renderHomeApi } = require("./controllers/home");
 
 // Config Auth0
+
+var unprotected = [
+  /\/products*/,
+  /favicon.ico/
+]
+
 const jwtVerify = jwt({
   secret: jwks.expressJwtSecret({
       cache: true,
@@ -28,7 +34,7 @@ const jwtVerify = jwt({
 audience: 'https:/www.cotizador-api.com',
 issuer: 'https://dev-ascvuavf.us.auth0.com/',
 algorithms: ['RS256']
-}).unless({path:["/","/api/product"]})
+}).unless({path:unprotected})
 
 // Config 
 const app = express();

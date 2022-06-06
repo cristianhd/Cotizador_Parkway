@@ -12,6 +12,7 @@ import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
 import { getSearch } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
+import NewProduct from "../Components/NewProduct";
 
 export default function Experiencias() {
   const dispatch = useDispatch();
@@ -98,6 +99,7 @@ export default function Experiencias() {
       </div>
       <div>
         <Cards data={experiencias} />
+        <NewProduct/>
       </div>
     </div>
   );

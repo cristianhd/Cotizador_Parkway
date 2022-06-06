@@ -17,6 +17,7 @@ import Hospedajes from "./Pages/Hospedajes";
 import Provider from "./Pages/Provider";
 import Traslados from "./Pages/Traslados";
 import { useAuth0 } from "@auth0/auth0-react";
+import NewProduct from "./Components/NewProduct";
 
 function App() {
  
@@ -38,6 +39,7 @@ function App() {
           <Route path="/asistencias" element={<Asistencias />}></Route>
         
         </Routes>
+        
       </section>
       <Footer></Footer>
     </div>

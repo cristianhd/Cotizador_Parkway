@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const GET_SEARCH = "GET_SEARCH",
-  CREATE_USER = "CREATE_USER";
+  CREATE_USER = "CREATE_USER",
+  CREATE_PRODUCT= "CREATE_PRODUCT";
 
 export function getSearch(origin, destination, typeProduct) {
   return (dispatch) => {
@@ -32,6 +33,18 @@ export function createUser(data,token) {
       .then((r) => {
         console.log(r);
         dispatch({ type: CREATE_USER });
+      });
+  };
+}
+
+export function createProduct(data,typeProduct) {
+  return (dispatch) => {
+    console.log(data)
+    axios
+      .post("http://localhost:3001/products", data)
+      .then((r) => {
+        console.log(r);
+        dispatch({ type: CREATE_PRODUCT });
       });
   };
 }

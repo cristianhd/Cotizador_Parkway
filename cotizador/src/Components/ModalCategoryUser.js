@@ -14,7 +14,7 @@ export default function ModalCategoryUser() {
 
   const { name, nickname, sub, picture, email } = user;
   const category = categoryUser;
-  const data = {
+  const User = {
     name,
     nickname,
     sub,
@@ -24,8 +24,8 @@ export default function ModalCategoryUser() {
   };
   const handleSave = async() => {
     const token = await getAccessTokenSilently();
-    console.log(data)
-    dispatch(createUser(data,token));
+    
+    dispatch(createUser(User,token));
     setShow(false);
   };
 
@@ -34,7 +34,7 @@ export default function ModalCategoryUser() {
     setCategoryUser(category);
   };
 
-  console.log("data", data);
+  
 
   return (
     <div>

@@ -20,6 +20,7 @@ export default function Cards({ data }) {
                 destination={document.destination}
               ></Card>
             </Col>
+            
           ))}
       </Row>
     </div>

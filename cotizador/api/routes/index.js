@@ -7,6 +7,6 @@ const { VerifyToken } = require('../controllers/protected');
 
 
 router.use('/users', VerifyToken, usersRoutes)
-router.use('/products', VerifyToken ,  productsRoutes)
+router.use('/products', productsRoutes)
 
 module.exports = router;

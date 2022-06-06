@@ -9,7 +9,7 @@ function findExperiencias(req, res, next) {
     origin,
     destination
   } = req.query
-  console.log(origin,destination);
+  console.log("Hola");
 
   try {
     Experiencias.find({origin,destination}).then((experiencias) => {
