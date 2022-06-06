@@ -25,6 +25,8 @@ export default function Experiencias() {
     destination: "",
   });
 
+  console.log(query)
+
   useEffect(() => {
     setExperiencias(query);
   }, [query]);

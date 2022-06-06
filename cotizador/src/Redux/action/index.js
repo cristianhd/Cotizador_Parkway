@@ -41,7 +41,7 @@ export function createProduct(data,typeProduct) {
   return (dispatch) => {
     console.log(data)
     axios
-      .post("http://localhost:3001/products", data)
+      .post(`http://localhost:3001/products/${typeProduct}`, data)
       .then((r) => {
         console.log(r);
         dispatch({ type: CREATE_PRODUCT });

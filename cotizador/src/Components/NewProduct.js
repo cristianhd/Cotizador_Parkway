@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
 import photos from "../assets/card/camara-fotografica.svg";
-import { createProduct } from "../Redux/action";
 import ModalPlanes from "./Planes/ModalPlanes";
 
 export default function NewProduct() {

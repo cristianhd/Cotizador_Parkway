@@ -3,42 +3,32 @@ POST http://localhost:3001/products/experiencias
 Content-Type: application/json
 [
 {
-    "name":"El Paraiso paisa",
-    "provider": "Organización Parkway",
-    "origin": "Bogota",
-    "destination": "Risaralda",
-    "accommodation": [
-        {
-            "hotel":"El Viento",            
-            "room": [
-                {
-                    "type": "niños",
-                    "highSeasonPrice": "$300.000",
-                    "lowSeasonPrice": "$250.000",
-                    "rangeAgeKids": "2-12"
-                },
-                {
-                    "type": "sencilla",
-                    "highSeasonPrice": "$300.000",
-                    "lowSeasonPrice": "$250.000",
-                },
-                {
-                    "type": "doble",
-                    "highSeasonPrice": "$300.000",
-                    "lowSeasonPrice": "$250.000",
-                },
-                {
-                    "type": "triple",
-                    "highSeasonPrice": "$300.000",
-                    "lowSeasonPrice": "$250.000",
-                }
-            ]
-        }
+    "title":"La magia del Gran Río Amazonas turista boutique",
+    "description": "Niño 2 a 12 años , 3 noches 4 dias",
+    "provider": "Siempre Colombia",
+    "origin": "Bogotá",
+    "destination": "Amazonas",                
+    "transport": "Traslados internos en automovil, y lancha a motor",
+        "room": [
+            {
+                "type": "niños",
+                "price": "945.000"
+            },
+            {
+                "type": "Sencilla",
+                "price": "945.000"
+            },
+            {
+                "type": "Doble",
+                "price": "998.000"
+            },
+            {
+                "type": "Triple",
+                "price": "1.140.000"
+            }
     ],
-    "transport": "Avión",
-    "activeDate": "n/a",
+    "activeDate": "febrero a enero 2023",
     "disableDate": "n/a",
-    "description": "n/a",
     "activeProduct": true
 }
 
