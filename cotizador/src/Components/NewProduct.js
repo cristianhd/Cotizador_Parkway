@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 import photos from "../assets/card/camara-fotografica.svg";
 import ModalPlanes from "./Planes/ModalPlanes";
 
-export default function NewProduct() {
+export default function NewProduct({typeProduct}) {
   const dispatch = useDispatch();
-
+console.log(typeProduct)
   return (
     <Card>
       <div className="container-img d-flex justify-content-center">
@@ -16,7 +16,7 @@ export default function NewProduct() {
       <div className=" d-flex justify-content-start">
         <Card.Body className="container-body">
           <div>
-            <ModalPlanes active={false} />
+            <ModalPlanes typeProduct={typeProduct}/>
           </div>
         </Card.Body>
       </div>
