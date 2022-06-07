@@ -34,35 +34,7 @@ Content-Type: application/json
 
 ]
 
-//Hospedajes
 
-{
-    "name":"Las Palmas",
-    "provider": "Organización Parkway",
-    "destination": "Bucaramamga",
-    "room": [
-        {
-            "type": "niños",
-            "highSeasonPrice": "$300.000",
-            "lowSeasonPrice": "$250.000",
-            "rangeAgeKids": "2-10"
-        },
-        {
-            "type": "sencilla",
-            "highSeasonPrice": "4300.000",
-            "lowSeasonPrice": "$350.000",
-        },
-        {
-            "type": "doble",
-            "highSeasonPrice": "5300.000",
-            "lowSeasonPrice": "$450.000",
-        }
-    ],
-    "highSeasonDate": "n/a",
-    "lowSeasonDate": "n/a",
-    "description": "n/a",
-    "activeProduct": true
-}
 
 //Traslados
 

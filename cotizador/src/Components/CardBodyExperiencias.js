@@ -7,9 +7,9 @@ export default function CardBodyExperiencias({
   description,
   rooms,
   origin,
-  destination
+  destination,
 }) {
-    console.log(title)
+  console.log(title);
   return (
     <div>
       <Card.Body className="container-body">

@@ -1,20 +1,63 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 
 export default function FormPlanes() {
   return (
     <div>
-      <Form className="p-3">
-          <Row>
-            <Col md={4} className="p-2">
-              <Form.Group className="d-flex flex-row">
-                <Form.Label>Columna 1</Form.Label> 
-              </Form.Group>
-            </Col>
-          </Row>
-        </Form>
+      <Form>
+        <Form.Group className="mb-3">
+          <Form.Label>Titulo</Form.Label>
+          <Form.Control type="text" placeholder="" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Proveedor</Form.Label>
+          <Form.Control type="text" placeholder="" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Origen</Form.Label>
+          <Form.Control type="text" placeholder="" />
+          <Form.Label>Destino</Form.Label>
+          <Form.Control type="input" placeholder="" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Trasporte</Form.Label>
+          <Form.Control type="text" placeholder="" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Habitaciones</Form.Label>
+          <Form.Control type="text" placeholder="" />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          
+          <Form.Check type="radio" label="Niños" />
+          <Form.Label>Price</Form.Label>
+          <Form.Control type="text" placeholder="" />
+        </Form.Group>
+        <Form.Group className="mb-3">
+        </Form.Group>
+      </Form>
     </div>
   );
 }
