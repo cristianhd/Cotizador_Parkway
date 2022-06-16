@@ -6,10 +6,11 @@ import axios from "axios";
 import ModalCategoryUser from "./ModalCategoryUser";
 
 export default function Profile() {
-  const [existUser, setExistUser] = useState(null);
+  const [existUser, setExistUser] = useState(true);
+  const [infoUser, setInfoUser] = useState();
 
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  console.log(user);
+  
 
   useEffect(() => {
     const callApiProtected = async () => {
@@ -22,12 +23,17 @@ export default function Profile() {
           {
             headers: {
               authorization: `Bearer ${token}`,
-              "Content-Type": "application/json"
-            }
+              "Content-Type": "application/json",
+            },
           }
         );
 
-        setExistUser(response.data);
+        if (response.data !== null) {
+          setInfoUser(response.data);
+        }
+        if (response.data === false) {
+          setExistUser(response.data);
+        }
       } catch (error) {
         console.error(error.message);
       }
@@ -35,19 +41,25 @@ export default function Profile() {
     callApiProtected();
   }, [getAccessTokenSilently, user]);
   console.log(existUser);
+  console.log(infoUser);
 
   return (
     <div>
       {!existUser && <ModalCategoryUser />}
-      <div className="d-flex justify-content-center">
-        <div className="profile-logo">
-          <img src={user.picture} alt="profile-logo" />
-        </div>
-      </div>
 
-      <div>
-        <h5>{user.name}</h5>
-      </div>
+      {infoUser && (
+        <div>
+          <div className="d-flex justify-content-center">
+            <div className="profile-logo">
+              <img src={infoUser.picture} alt="profile-logo" />
+            </div>
+          </div>
+          <div>
+            <h5>{infoUser.name}</h5>
+            <h6>{infoUser.category}</h6>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
