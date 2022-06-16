@@ -1,7 +1,5 @@
 const User = require("../models/Users");
 
-
-
 function findAllUser(req, res, next) {
   // try {
   //   User.find().then((user) => {
@@ -11,7 +9,7 @@ function findAllUser(req, res, next) {
   // } catch (error) {
   //   res.send(error.message);
   // }
-  res.send("Todo ok")
+  res.send("Todo ok");
 }
 
 function addUser(req, res, next) {
@@ -31,15 +29,21 @@ function existUser(req, res, next) {
   const { sub } = req.query;
 
   try {
-    User.exists({sub},function (err, doc) {
-      const response = doc ? true : false ;
-      if (err){
-          console.log(err)
-      }else{
-          res.status(200).send(response)
+    User.exists({ sub }, function (err, doc) {
+      const exist = doc ? true : false;
+
+      if (doc) {
+        User.findById(doc).then((user) => {
+          res.status(200).json(user);
+        });
+      } else {
+        res.status(200).send(exist);
       }
-  });
-    
+
+      if (err) {
+        console.log(err);
+      } 
+    });
   } catch (error) {
     res.send(error.message);
   }
@@ -47,5 +51,5 @@ function existUser(req, res, next) {
 module.exports = {
   findAllUser,
   addUser,
-  existUser
+  existUser,
 };

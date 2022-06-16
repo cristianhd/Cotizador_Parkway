@@ -4,7 +4,7 @@ Content-Type: application/json
 [
 {
     "title":"La magia del Gran Río Amazonas turista boutique",
-    "description": "Niño 2 a 12 años , 3 noches 4 dias",
+    "description": "Sencilla,Doble,Triple,Niño 2 a 12 años , 3 noches 4 dias",
     "provider": "Siempre Colombia",
     "origin": "Bogotá",
     "destination": "Amazonas",                
@@ -16,7 +16,7 @@ Content-Type: application/json
             },
             {
                 "type": "Sencilla",
-                "price": "945.000"
+                "price": "1.140.000"
             },
             {
                 "type": "Doble",
@@ -24,10 +24,167 @@ Content-Type: application/json
             },
             {
                 "type": "Triple",
-                "price": "1.140.000"
+                "price": "945.000"
             }
     ],
-    "activeDate": "febrero a enero 2023",
+    "activeDate": ["Todo el año"],
+    "disableDate": "n/a",
+    "activeProduct": true
+},
+{
+    "title":"La magia del Gran Río Amazonas turista superior",
+    "description": "Sencilla,Doble,Triple,Niño 2 a 12 años ,3 noches 4 dias",
+    "provider": "Siempre Colombia",
+    "origin": "Bogotá",
+    "destination": "Amazonas",                
+    "transport": "Traslados internos en automovil, y lancha a motor",
+        "room": [
+            {
+                "type": "niños",
+                "price": "1.045.000"
+            },
+            {
+                "type": "Sencilla",
+                "price": "1.640.000"
+            },
+            {
+                "type": "Doble",
+                "price": "1.308.000"
+            },
+            {
+                "type": "Triple",
+                "price": "1.640.000"
+            }
+    ],
+    "activeDate": ["Todo el año"],
+    "disableDate": "n/a",
+    "activeProduct": true
+},
+{
+    "title":"Compartiendo con la comunidad Tikuna turista superior",
+    "description": "Sencilla,Doble,Triple,Niño 2 a 12 años ,3 noches 4 dias",
+    "provider": "Siempre Colombia",
+    "origin": "Bogotá",
+    "destination": "Amazonas",                
+    "transport": "Traslados internos en automovil, y lancha a motor",
+        "room": [
+            {
+                "type": "niños",
+                "price": "1.199.000"
+            },
+            {
+                "type": "Sencilla",
+                "price": "1.640.000"
+            },
+            {
+                "type": "Doble",
+                "price": "1.308.000"
+            },
+            {
+                "type": "Triple",
+                "price": "1.199.000"
+            }
+    ],
+    "activeDate": ["Todo el año"],
+    "disableDate": "n/a",
+    "activeProduct": true
+},
+{
+    "title":"Compartiendo con la cultura Wayuu turista premium",
+    "description": "Sencilla.Doble,Triple,Cuádruple, Niños 5 a 10,4 noches 5 días",
+    "provider": "Siempre Colombia",
+    "origin": "Bogotá",
+    "destination": "La Guajira",                
+    "transport": "Traslados internos en automovil 4x4",
+        "room": [
+            {
+                "type": "niños",
+                "price": "965.000"
+            },
+            {
+                "type": "Sencilla",
+                "price": "3.555.000"
+            },
+            {
+                "type": "Doble",
+                "price": "2.305.000"
+            },
+            {
+                "type": "Triple",
+                "price": "1.849.000"
+            },
+             {
+                "type": "Cuádruple",
+                "price": "1.748.000"
+            }
+    ],
+    "activeDate": ["Todo el año"],
+    "disableDate": "n/a",
+    "activeProduct": true
+},
+{
+    "title":"Compartiendo con la cultura Wayuu turista superio",
+    "description": "Sencilla.Doble,Triple,Cuádruple, Niños 5 a 10,4 noches 5 días",
+    "provider": "Siempre Colombia",
+    "origin": "Bogotá",
+    "destination": "La Guajira",                
+    "transport": "Traslados internos en automovil 4x4",
+        "room": [
+            {
+                "type": "niños",
+                "price": "928.000"
+            },
+            {
+                "type": "Sencilla",
+                "price": "$3.375.000"
+            },
+            {
+                "type": "Doble",
+                "price": "2.185.000"
+            },
+            {
+                "type": "Triple",
+                "price": "1.808.000"
+            },
+             {
+                "type": "Cuádruple",
+                "price": "1.675.000"
+            }
+    ],
+    "activeDate": ["Todo el año"],
+    "disableDate": "n/a",
+    "activeProduct": true
+},
+{
+    "title":"Compartiendo con la cultura Wayuu turista turista",
+    "description": "Sencilla.Doble,Triple,Cuádruple, Niños 5 a 10,4 noches 5 días",
+    "provider": "Siempre Colombia",
+    "origin": "Bogotá",
+    "destination": "La Guajira",                
+    "transport": "Traslados internos en automovil 4x4",
+        "room": [
+            {
+                "type": "niños",
+                "price": "878.000"
+            },
+            {
+                "type": "Sencilla",
+                "price": "3.278.000",
+            },
+            {
+                "type": "Doble",
+                "price": "2.085.000"
+            },
+            {
+                "type": "Triple",
+                "price": "1.755.000"
+            },
+             {
+                "type": "Cuádruple",
+                "price": "1.608.000"
+            }
+    ],
+    "activeDate": ["Todo el año"],
     "disableDate": "n/a",
     "activeProduct": true
 }

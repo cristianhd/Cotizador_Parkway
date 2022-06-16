@@ -10,11 +10,11 @@ const experienciaSchema = new Schema({
   room: [
     {
       type: { type: String, require: true },
-      price: { type: String, require: true }
-    }
+      price: { type: String, require: true },
+    },
   ],
-  activeDate: { type: String, require: true },
-  disableDate: { type: String, require: true },
+  activeDate: [{ type: String, require: true }],
+  disableDate: [{ type: String, require: true }],
   activeProduct: { type: Boolean, require: true },
 });
 

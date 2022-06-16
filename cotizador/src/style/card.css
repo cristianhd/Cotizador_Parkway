@@ -1,7 +1,7 @@
 .card {
   padding: 10px;
-  width: 250px;
-  height: 400px;
+  width: 300px;
+  
   align-items: center;
   border: 5px solid #d0e3e0;
   box-sizing: border-box;
@@ -10,18 +10,19 @@
 }
 
 .card.body{
-    font-family: SFProDisplay;
+  
     color: #04101c;
-    background-color: red;
+ 
+
 }
 .card-title {
-     font-size: 25px;
+     font-size: 24px;
  
  
 }
 .sub {
     color: #04101c;
-    font-weight: 400;
+    font-weight: 600;
     font-style: italic;
 }
 .card-subtitle {
@@ -30,11 +31,21 @@
     padding: 2px 0px ;
 }
 
-.card-text{
-  font-size: 17px;
-    line-height: 100%;
+.card-text {
+  font-weight: 800;
+}
+
+.card-text > li {
+  font-size: 15px;
+  
     font-weight: 400;
-    margin-bottom: 10px;
+
+}
+
+.card-text > p {
+  font-size: 15px;
+  font-weight: 600;
+
 }
 .container-img {
   height: 150px;
@@ -42,8 +53,8 @@
   padding: 10px;
 }
 .container-body {
-  width: inherit;
-  height: 250px;
+
+  
   font-weight: 100;
 }
 .container-button {
