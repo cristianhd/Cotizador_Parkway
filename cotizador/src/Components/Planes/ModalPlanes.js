@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FormTraslados from "../Traslados/FormTraslados";
 import FormActividades from "../Actividades/FormActividades";
 import FormaAsistencia from "../Asistencia/FormaAsistencia";
+import { createProduct } from "../../Redux/action";
 
 export default function ModalPlanes({ typeProduct }) {
   const dispatch = useDispatch();
@@ -13,8 +14,9 @@ export default function ModalPlanes({ typeProduct }) {
   const [show, setShow] = useState();
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const handleSave = () => {
-    // dispatch(createProduct(data, TypeProduct));
+  const handleSave = (data,typeProduct) => {
+    // dispatch(createProduct(data, typeProduct));
+    console.log("Hola")
   };
   console.log(typeProduct);
 
@@ -22,19 +24,16 @@ export default function ModalPlanes({ typeProduct }) {
     <div>
       <Modal show={show} onHide={handleClose} scrollable size="xl">
         <Modal.Header closeButton>
-          <Modal.Title>NUEVA EXPERIENCIA</Modal.Title>
+          <Modal.Title>Agregar {typeProduct}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          {typeProduct === "Experiencias" && <FormPlanes />}
+        
+        
+          {typeProduct === "Experiencia" && <FormPlanes handleSave={handleSave} />}
           {typeProduct === "Traslado" && <FormTraslados />}
-          {typeProduct === "Actividades" && <FormActividades />}
+          {typeProduct === "Actividad" && <FormActividades />}
           {typeProduct === "Asistencia" && <FormaAsistencia />}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleSave}>
-            Guardar
-          </Button>
-        </Modal.Footer>
+        
+        
       </Modal>
 
       <div className="container-button ">
