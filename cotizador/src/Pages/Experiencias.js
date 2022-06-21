@@ -101,7 +101,7 @@ export default function Experiencias() {
       </div>
       <div>
         <Cards data={experiencias} />
-        <NewProduct typeProduct="Experiencia"/>
+        <NewProduct typeProduct="experiencias"/>
       </div>
     </div>
   );

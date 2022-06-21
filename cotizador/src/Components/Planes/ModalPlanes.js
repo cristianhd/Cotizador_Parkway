@@ -14,8 +14,8 @@ export default function ModalPlanes({ typeProduct }) {
   const [show, setShow] = useState();
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const handleSave = (data,typeProduct) => {
-    // dispatch(createProduct(data, typeProduct));
+  const handleSave = (data) => {
+    dispatch(createProduct(data, typeProduct));
     console.log("Hola")
   };
   console.log(typeProduct);
@@ -24,11 +24,11 @@ export default function ModalPlanes({ typeProduct }) {
     <div>
       <Modal show={show} onHide={handleClose} scrollable size="xl">
         <Modal.Header closeButton>
-          <Modal.Title>Agregar {typeProduct}</Modal.Title>
+          <Modal.Title>Agregar</Modal.Title>
         </Modal.Header>
         
         
-          {typeProduct === "Experiencia" && <FormPlanes handleSave={handleSave} />}
+          {typeProduct === "experiencias" && <FormPlanes handleSave={handleSave} />}
           {typeProduct === "Traslado" && <FormTraslados />}
           {typeProduct === "Actividad" && <FormActividades />}
           {typeProduct === "Asistencia" && <FormaAsistencia />}

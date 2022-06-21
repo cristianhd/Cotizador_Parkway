@@ -13,6 +13,7 @@ import RoomForm from "./RoomForm";
 export default function FormPlanes({ handleSave }) {
   const [currentChecked, setCurrentChecked] = useState([]);
   const [disabled, setDisabled] = useState(false);
+  
 
   const [form, setForm] = useState({
     title: "",
@@ -47,6 +48,12 @@ export default function FormPlanes({ handleSave }) {
     "Fin Año",
     "Temporada Ballenas",
   ];
+
+  function handleOnSubmit(e){
+    e.preventDefault()
+    handleSave(form)
+    alert("Plan Creado")
+}
 
   function handleonChange(e) {
     const name = e.target.name;
@@ -209,7 +216,7 @@ export default function FormPlanes({ handleSave }) {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleSave()}>
+        <Button variant="primary" type="submit" onClick={handleOnSubmit}>
           Guardar
         </Button>
       </Modal.Footer>
