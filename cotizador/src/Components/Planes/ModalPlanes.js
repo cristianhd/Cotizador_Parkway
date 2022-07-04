@@ -22,7 +22,7 @@ export default function ModalPlanes({ typeProduct }) {
 
   return (
     <div>
-      <Modal show={show} onHide={handleClose} scrollable size="xl">
+      <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
           <Modal.Title>Agregar</Modal.Title>
         </Modal.Header>

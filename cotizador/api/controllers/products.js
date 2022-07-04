@@ -79,7 +79,7 @@ function findAsistencias(req, res, next) {
 }
 
 function addExperiencias(req, res, next) {
-  const experiencias = req.body;
+  const {experiencias} = req.body;
   if (experiencias === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {

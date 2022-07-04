@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 
-export default function RoomForm({handleOnChangeRoom}) {
+export default function RoomForm({ handleOnChangeRoom }) {
   const [checkedItem, setCheckedItem] = useState({});
-  const [currentChecked, setCurrentChecked] = useState([]);
+  const [currentChecked, setCurrentChecked] = useState(["sencilla"]);
   const [room, setRoom] = useState({});
   const [valueRoom, setValueRoom] = useState([]);
 
@@ -31,7 +31,7 @@ export default function RoomForm({handleOnChangeRoom}) {
       ...room,
       [name]: price,
     });
-    handleOnChangeRoom(room)
+    handleOnChangeRoom(room);
   }
 
   // useEffect(() => {
@@ -43,85 +43,99 @@ export default function RoomForm({handleOnChangeRoom}) {
 
   console.log(room, currentChecked);
   return (
-    <Form.Group className="mb-3">
+    <>
       <Form.Label>ACOMODACIÓN</Form.Label>
-      <Form.Check
-        name="sencilla"
-        type="checkbox"
-        label="Sencilla"
-        onChange={handleOnChangeCheckbox}
-      />
-      <Form.Control
-        type="text"
-        name="sencilla"
-        placeholder="Precio"
-        onChange={handleOnChangeControl}
-        disabled={!currentChecked.includes("sencilla")}
-      />
-      <Form.Check
-        name="doble"
-        type="checkbox"
-        label="Doble"
-        onChange={handleOnChangeCheckbox}
-      />
-      <Form.Control
-        type="text"
-        name="doble"
-        placeholder="Precio"
-        onChange={handleOnChangeControl}
-        disabled={!currentChecked.includes("doble")}
-      />
-      <Form.Check
-        name="triple"
-        type="checkbox"
-        label="Triple"
-        onChange={handleOnChangeCheckbox}
-      />
-      <Form.Control
-        type="text"
-        name="triple"
-        placeholder="Precio"
-        onChange={handleOnChangeControl}
-        disabled={!currentChecked.includes("triple")}
-      />
-      <Form.Check
-        name="cuadruple"
-        type="checkbox"
-        label="Cuadruple"
-        onChange={handleOnChangeCheckbox}
-      />
-      <Form.Control
-        type="text"
-        name="cuadruple"
-        placeholder="Precio"
-        onChange={handleOnChangeControl}
-        disabled={!currentChecked.includes("cuadruple")}
-      />
-      <Form.Check
-        name="quintuple"
-        type="checkbox"
-        label="Quintuple"
-        onChange={handleOnChangeCheckbox}
-      />
-      <Form.Control
-        type="text"
-        name="quintuple"
-        placeholder="Precio"
-        onChange={handleOnChangeControl}
-        disabled={!currentChecked.includes("quintuple")}
-      />
-      <Form.Check
-        name="niños"
-        type="checkbox"
-        label="Niños"
-        onChange={handleOnChangeCheckbox}
-      />
+      <Form.Group as={Col} className="p-3">
+        <Form.Check
+          name="sencilla"
+          type="checkbox"
+          label="Sencilla"
+          checked
+          onChange={handleOnChangeCheckbox}
+        />
+        <Form.Control
+          required
+          type="text"
+          name="sencilla"
+          placeholder="$"
+          onChange={handleOnChangeControl}
+          disabled={!currentChecked.includes("sencilla")}
+        />
+      </Form.Group>
+      <Form.Group as={Col} className="p-3">
+        <Form.Check
+          name="doble"
+          type="checkbox"
+          label="Doble"
+          onChange={handleOnChangeCheckbox}
+        />
+        <Form.Control
+          type="text"
+          name="doble"
+          placeholder="$"
+          onChange={handleOnChangeControl}
+          disabled={!currentChecked.includes("doble")}
+        />
+      </Form.Group>
+      <Form.Group as={Col} className="p-3">
+        <Form.Check
+          name="triple"
+          type="checkbox"
+          label="Triple"
+          onChange={handleOnChangeCheckbox}
+        />
+        <Form.Control
+          type="text"
+          name="triple"
+          placeholder="$"
+          onChange={handleOnChangeControl}
+          disabled={!currentChecked.includes("triple")}
+        />
+      </Form.Group>
+      <Form.Group as={Col} className="p-3">
+        <Form.Check
+          name="cuadruple"
+          type="checkbox"
+          label="Cuadruple"
+          onChange={handleOnChangeCheckbox}
+        />
+        <Form.Control
+          type="text"
+          name="cuadruple"
+          placeholder="$"
+          onChange={handleOnChangeControl}
+          disabled={!currentChecked.includes("cuadruple")}
+        />
+      </Form.Group>
+      <Form.Group as={Col} className="p-3">
+        <Form.Check
+          name="quintuple"
+          type="checkbox"
+          label="Quintuple"
+          onChange={handleOnChangeCheckbox}
+        />
+        <Form.Control
+          type="text"
+          name="quintuple"
+          placeholder="$"
+          onChange={handleOnChangeControl}
+          disabled={!currentChecked.includes("quintuple")}
+        />
+      </Form.Group>
+      <Form.Group as={Col} className="p-3">
+        <Form.Check
+          name="niños"
+          type="checkbox"
+          label="Niños"
+          onChange={handleOnChangeCheckbox}
+        />
 
-      <Form.Control
-        type="text"
-        placeholder="Precio"
-        disabled={!currentChecked.includes("niños")}
-      />
-    </Form.Group>
+        <Form.Control
+          type="text"
+          placeholder="$"
+          disabled={!currentChecked.includes("niños")}
+        />
+      </Form.Group>
+    </>
   );
 }
