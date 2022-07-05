@@ -12,22 +12,13 @@ import {
   ToggleButtonGroup,
 } from "react-bootstrap";
 import RoomForm from "./RoomForm";
-import Validation from "./validatio";
 
 export default function FormPlanes({ handleSave }) {
   const [currentChecked, setCurrentChecked] = useState([]);
   const [disabled, setDisabled] = useState(false);
   const [validated, setValidated] = useState(false);
 
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    destination: "",
-    transport: "",
-    room: [],
-    activeDate: [],
-    disableDate: [],
-  });
+  const [form, setForm] = useState({});
   const [checkedItem, setCheckedItem] = useState({});
   const meses = [
     "Ene",
@@ -54,13 +45,13 @@ export default function FormPlanes({ handleSave }) {
   ];
 
   function handleOnSubmit(e) {
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
+    const formEvent = e.currentTarget;
+    e.preventDefault();
+    if (formEvent.checkValidity() === false) {
       e.stopPropagation();
     } else {
       handleSave(form);
-      alert("Plan Creado");
+      
     }
     setValidated(true);
   }
@@ -97,7 +88,7 @@ export default function FormPlanes({ handleSave }) {
     console.log(name, value);
     setForm({
       ...form,
-      [name]: value.toUpperCase(),
+      [name]: value,
     });
   }
 
@@ -209,7 +200,8 @@ export default function FormPlanes({ handleSave }) {
             </Col>
             <Col className="p-3">
               <Form.Label>NO APLICA</Form.Label>
-              <Form.Group className="p-1 m-1">
+
+              <Form.Group className="p-1 m-1 ">
                 {Eventuales.map((evento, index) => {
                   let value = evento.replace(/\s/g, "");
                   return (
@@ -232,21 +224,30 @@ export default function FormPlanes({ handleSave }) {
             </Col>
           </Row>
           <Row className="m-1">
-            <Form.Group className="p-3">
-              <FloatingLabel
-                controlId="floatingTextarea"
-                label="DESCRIPCION"
-                className="m-1"
-              >
+            <Form.Group as={Col} className="p-3">
+              <FloatingLabel required label="DESCRIPCION" className="m-1">
                 <Form.Control
+                  required
                   as="textarea"
-                  placeholder="Leave a comment here"
+                  placeholder="Escribe una descripción"
                   name="description"
                   value={form.description}
                   onChange={handleOnChangeForm}
                 />
               </FloatingLabel>
             </Form.Group>
+            <Col className="p-3">
+              <Form.Label>FOTOS</Form.Label>
+              <Form.Group className="p-1 m-1">
+                <Form.Control
+                  type="file"
+                  accept=".jpg,.png"
+                  name="photo"
+                  value={form.photo}
+                  onChange={handleOnChangeForm}
+                />
+              </Form.Group>
+            </Col>
           </Row>
 
           <Modal.Footer>

@@ -1,7 +1,8 @@
 const { Schema, model } = require("mongoose");
 
 const experienciaSchema = new Schema({
-  title: { type: String, require: true},
+  title: { type: String, require: true },
+  photo: { data: Buffer, contentType: String },
   provider: { type: String, require: true },
   description: String,
   origin: { type: String, require: true },

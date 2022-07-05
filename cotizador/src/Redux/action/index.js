@@ -2,7 +2,7 @@ import axios from "axios";
 
 const GET_SEARCH = "GET_SEARCH",
   CREATE_USER = "CREATE_USER",
-  CREATE_PRODUCT= "CREATE_PRODUCT";
+  CREATE_PRODUCT = "CREATE_PRODUCT";
 
 export function getSearch(origin, destination, typeProduct) {
   return (dispatch) => {
@@ -20,15 +20,15 @@ export function getSearch(origin, destination, typeProduct) {
   };
 }
 
-export function createUser(data,token) {
+export function createUser(data, token) {
   return (dispatch) => {
-    console.log(data)
+    console.log(data);
     axios
       .post("http://localhost:3001/users", data, {
         headers: {
           authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       })
       .then((r) => {
         console.log(r);
@@ -37,11 +37,13 @@ export function createUser(data,token) {
   };
 }
 
-export function createProduct(data,typeProduct) {
+export function createProduct(data, typeProduct) {
   return (dispatch) => {
-    console.log(data)
+    console.log({[typeProduct] :data})
     axios
-      .post(`http://localhost:3001/products/${typeProduct}`, data)
+      .post(`http://localhost:3001/products/${typeProduct}`, {
+        [typeProduct]: data,
+      })
       .then((r) => {
         console.log(r);
         dispatch({ type: CREATE_PRODUCT });

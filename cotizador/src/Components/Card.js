@@ -12,7 +12,7 @@ export default function CardComponent({ data }) {
       <Card.Header>
         
       <div className="container-img d-flex justify-content-center">
-        <Card.Img variant="top" src={photos} />
+        <Card.Img variant="top" src={data.photos || photos} />
       </div>
       </Card.Header>
       <div className=" d-flex justify-content-start">
