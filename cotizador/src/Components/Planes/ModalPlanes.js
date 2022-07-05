@@ -31,9 +31,9 @@ export default function ModalPlanes({ typeProduct }) {
         {typeProduct === "experiencias" && (
           <FormPlanes handleSave={handleSave} />
         )}
-        {typeProduct === "Traslado" && <FormTraslados />}
-        {typeProduct === "Actividad" && <FormActividades />}
-        {typeProduct === "Asistencia" && <FormaAsistencia />}
+        {typeProduct === "traslados" && <FormTraslados handleSave={handleSave}/>}
+        {typeProduct === "actividades" && <FormActividades />}
+        {typeProduct === "asistencias" && <FormaAsistencia />}
       </Modal>
 
       <div className="container-button ">

@@ -16,7 +16,7 @@ export default function FormTraslados({ handleSave }) {
   function handleOnChangeForm(e) {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
+
     setForm({
       ...form,
       [name]: value,
@@ -32,6 +32,8 @@ export default function FormTraslados({ handleSave }) {
     }
     setValidated(true);
   }
+
+  console.log(form)
   return (
     <>
       <Modal.Body>

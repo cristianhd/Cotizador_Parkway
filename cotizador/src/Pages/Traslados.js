@@ -98,7 +98,7 @@ export default function Traslados() {
       </div>
       <div>
         <Cards data={traslados} />
-        <NewProduct typeProduct="Traslado"/>
+        <NewProduct typeProduct="traslados"/>
       </div>
     </div>
   );
