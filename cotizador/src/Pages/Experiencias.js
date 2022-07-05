@@ -8,7 +8,7 @@ import Rooms from "../Components/Rooms";
 import "../style/experiencias.css";
 import axios from "axios";
 import Cards from "../Components/Cards";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
 import { getSearch } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ import NewProduct from "../Components/NewProduct";
 export default function Experiencias() {
   const dispatch = useDispatch();
   const [experiencias, setExperiencias] = useState([]);
-  const {querySearch} = useSelector((state) => state);
+  const { querySearch } = useSelector((state) => state);
   const query = querySearch.querySearch;
 
   const [form, setForm] = useState({
@@ -25,23 +25,23 @@ export default function Experiencias() {
     destination: "",
   });
 
-  console.log(query)
+  console.log(query);
 
   useEffect(() => {
     setExperiencias(query);
   }, [query]);
 
-  useEffect(()=>{
-    setExperiencias([])
+  useEffect(() => {
+    setExperiencias([]);
     window.scroll({
       top: 700,
       behavior: "smooth",
-    })
-  },[])
+    });
+  }, []);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(getSearch(form.origin, form.destination,"experiencias"));
+    dispatch(getSearch(form.origin, form.destination, "experiencias"));
   };
 
   function handleOnChange(e) {
@@ -99,9 +99,9 @@ export default function Experiencias() {
           </Row>
         </Form>
       </div>
-      <div>
+      <div className="d-flex flex-wrap justify-content-evenly m-0 w-inherit ">
         <Cards data={experiencias} />
-        <NewProduct typeProduct="experiencias"/>
+        <NewProduct typeProduct="experiencias" />
       </div>
     </div>
   );
