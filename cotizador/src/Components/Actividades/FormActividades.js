@@ -94,7 +94,7 @@ export default function FormActividades({ handleSave }) {
           </Row>
           <Row className="m-1">
             <Form.Group as={Col} className="p-3">
-              <FloatingLabel required label="Descripcion" className="m-1">
+              <FloatingLabel required label="DESCRIPCION" className="m-1">
                 <Form.Control
                   required
                   as="textarea"
@@ -105,7 +105,20 @@ export default function FormActividades({ handleSave }) {
                 />
               </FloatingLabel>
             </Form.Group>
+            <Col className="p-3">
+              <Form.Label>FOTOS</Form.Label>
+              <Form.Group className="p-1 m-1">
+                <Form.Control
+                  type="file"
+                  accept=".jpg,.png"
+                  name="photo"
+                  value={form.photo}
+                  onChange={handleOnChangeForm}
+                />
+              </Form.Group>
+            </Col>
           </Row>
+
 
           <Modal.Footer>
             <Button variant="primary" type="submit">
