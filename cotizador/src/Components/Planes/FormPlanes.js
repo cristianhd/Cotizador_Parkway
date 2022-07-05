@@ -6,6 +6,7 @@ import {
   ButtonGroup,
   Col,
   FloatingLabel,
+  InputGroup,
   Modal,
   Row,
   ToggleButton,
@@ -106,64 +107,72 @@ export default function FormPlanes({ handleSave }) {
       <Modal.Body>
         <Form noValidate validated={validated} onSubmit={handleOnSubmitForm}>
           <Row className="m-1">
-            <Form.Group as={Col} className="p-3">
-              <Form.Label>TITULO</Form.Label>
-              <Form.Control
-                required
-                name="title"
-                type="text"
-                placeholder=""
-                value={form.title}
-                onChange={handleOnChangeForm}
-              />
+            <Form.Group as={Col}>
+              <InputGroup className="p-3">
+                <InputGroup.Text>Titulo</InputGroup.Text>
+                <Form.Control
+                  required
+                  name="title"
+                  type="input"
+                  placeholder=""
+                  value={form.title}
+                  onChange={handleOnChangeForm}
+                />
+              </InputGroup>
             </Form.Group>
-
-            <Form.Group as={Col} className="p-3">
-              <Form.Label>PROVEEDOR</Form.Label>
-              <Form.Control
-                required
-                name="provider"
-                type="input"
-                placeholder=""
-                value={form.provider}
-                onChange={handleOnChangeForm}
-              />
+            <Form.Group as={Col}>
+              <InputGroup className="p-3">
+                <InputGroup.Text>Origen</InputGroup.Text>
+                <Form.Control
+                  required
+                  name="origin"
+                  type="input"
+                  placeholder=""
+                  value={form.origin}
+                  onChange={handleOnChangeForm}
+                />
+              </InputGroup>
             </Form.Group>
-
-            <Form.Group as={Col} className="p-3">
-              <Form.Label>TRANSPORTE</Form.Label>
-              <Form.Control
-                required
-                name="transport"
-                type="input"
-                placeholder=""
-                value={form.transport}
-                onChange={handleOnChangeForm}
-              />
+            <Form.Group as={Col}>
+              <InputGroup className="p-3">
+                <InputGroup.Text>Destino</InputGroup.Text>
+                <Form.Control
+                  required
+                  name="destination"
+                  type="input"
+                  placeholder=""
+                  value={form.destination}
+                  onChange={handleOnChangeForm}
+                />
+              </InputGroup>
             </Form.Group>
           </Row>
           <Row className="m-1">
-            <Form.Group as={Col} className="p-3">
-              <Form.Label>ORIGEN</Form.Label>
-              <Form.Control
-                required
-                name="origin"
-                type="input"
-                placeholder=""
-                value={form.origin}
-                onChange={handleOnChangeForm}
-              />
+            <Form.Group as={Col}>
+              <InputGroup className="p-3">
+                <InputGroup.Text>Transporte</InputGroup.Text>
+                <Form.Control
+                  required
+                  name="transport"
+                  type="input"
+                  placeholder=""
+                  value={form.transport}
+                  onChange={handleOnChangeForm}
+                />
+              </InputGroup>
             </Form.Group>
-            <Form.Group as={Col} className="p-3">
-              <Form.Label>DESTINO</Form.Label>
-              <Form.Control
-                required
-                name="destination"
-                type="input"
-                placeholder=""
-                value={form.destination}
-                onChange={handleOnChangeForm}
-              />
+            <Form.Group as={Col}>
+              <InputGroup className="p-3">
+                <InputGroup.Text>Proveedor</InputGroup.Text>
+                <Form.Control
+                  required
+                  name="provider"
+                  type="input"
+                  placeholder=""
+                  value={form.provider}
+                  onChange={handleOnChangeForm}
+                />
+              </InputGroup>
             </Form.Group>
           </Row>
           <Row className="m-1">
