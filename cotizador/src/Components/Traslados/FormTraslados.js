@@ -85,6 +85,7 @@ export default function FormTraslados({ handleSave }) {
                 <InputGroup.Text>$ COP</InputGroup.Text>
                 <Form.Control
                   name="price"
+                  value={form.price}
                   onChange={handleOnChangeForm}
                   required
                 />

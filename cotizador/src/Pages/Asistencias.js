@@ -12,6 +12,7 @@ import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
 import { getSearch } from "../Redux/action/index.js";
 import { useDispatch, useSelector } from "react-redux";
+import NewProduct from "../Components/NewProduct";
 
 export default function Asistencias() {
   const dispatch = useDispatch();
@@ -82,6 +83,7 @@ export default function Asistencias() {
       </div>
       <div>
         <Cards data={asistencias} />
+        <NewProduct typeProduct="asistencias"/>
       </div>
     </div>
   );
