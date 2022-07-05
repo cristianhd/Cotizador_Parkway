@@ -2,33 +2,26 @@ const { Router } = require("express");
 
 const {
   findExperiencias,
-  findHospedaje,
   findTraslados,
   findActividades,
   findAsistencias,
   addExperiencias,
-  addHospedajes,
   addTraslados,
   addActividades,
-  addAsistencias
+  addAsistencias,
 } = require("../controllers/products.js");
 const router = Router();
 
 router.get("/experiencias", findExperiencias);
-router.post("/experiencias",addExperiencias);
-
-router.get("/hospedajes", findHospedaje);
-router.post("/hospedajes",addHospedajes);
+router.post("/experiencias", addExperiencias);
 
 router.get("/traslados", findTraslados);
-router.post("/traslados",addTraslados);
+router.post("/traslados", addTraslados);
 
 router.get("/actividades", findActividades);
-router.post("/actividades",addActividades);
+router.post("/actividades", addActividades);
 
 router.get("/asistencias", findAsistencias);
-router.post("/asistencias",addAsistencias);
-
-
+router.post("/asistencias", addAsistencias);
 
 module.exports = router;
