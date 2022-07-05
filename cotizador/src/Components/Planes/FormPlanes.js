@@ -15,9 +15,7 @@ import RoomForm from "./RoomForm";
 
 export default function FormPlanes({ handleSave }) {
   const [currentChecked, setCurrentChecked] = useState([]);
-  const [disabled, setDisabled] = useState(false);
   const [validated, setValidated] = useState(false);
-
   const [form, setForm] = useState({});
   const [checkedItem, setCheckedItem] = useState({});
   const meses = [
@@ -44,16 +42,25 @@ export default function FormPlanes({ handleSave }) {
     "Temporada Ballenas",
   ];
 
-  function handleOnSubmit(e) {
+  function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
     e.preventDefault();
     if (formEvent.checkValidity() === false) {
       e.stopPropagation();
     } else {
       handleSave(form);
-      
     }
     setValidated(true);
+  }
+
+  function handleOnChangeForm(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log(name, value);
+    setForm({
+      ...form,
+      [name]: value,
+    });
   }
 
   function handleonChange(e) {
@@ -82,16 +89,6 @@ export default function FormPlanes({ handleSave }) {
     });
   }
 
-  function handleOnChangeForm(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(name, value);
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  }
-
   function handleOnChangeRoom(rooms) {
     var room = Object.keys(rooms).map(function (type) {
       return { type: type, Price: rooms[type] };
@@ -107,7 +104,7 @@ export default function FormPlanes({ handleSave }) {
   return (
     <>
       <Modal.Body>
-        <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleOnSubmitForm}>
           <Row className="m-1">
             <Form.Group as={Col} className="p-3">
               <Form.Label>TITULO</Form.Label>

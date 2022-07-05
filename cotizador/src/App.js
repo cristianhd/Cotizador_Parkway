@@ -31,7 +31,7 @@ function App() {
       <section className="main">
         <Nav/>
         <Routes>
-          <Route exact path="/" element={<Experiencias/>}></Route>
+      
           <Route path="/planes" element={<Experiencias />}></Route>
           <Route path="/traslados" element={<Traslados />}></Route>
           <Route path="/actividades" element={<Actividades />}></Route>
