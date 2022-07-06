@@ -81,7 +81,7 @@ export default function Asistencias() {
           </Row>
         </Form>
       </div>
-      <div>
+      <div className="d-flex flex-wrap justify-content-evenly m-5 w-inherit ">
         <Cards data={asistencias} />
         <NewProduct typeProduct="asistencias"/>
       </div>

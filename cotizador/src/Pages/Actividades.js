@@ -77,7 +77,7 @@ export default function Actividades() {
           </Row>
         </Form>
       </div>
-      <div>
+      <div className="d-flex flex-wrap justify-content-evenly m-5 w-inherit ">
         <Cards data={actividades} />
         <NewProduct typeProduct="actividades"/>
       </div>

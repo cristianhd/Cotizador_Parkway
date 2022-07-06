@@ -99,7 +99,7 @@ export default function Experiencias() {
           </Row>
         </Form>
       </div>
-      <div className="d-flex flex-wrap justify-content-evenly m-0 w-inherit ">
+      <div className="d-flex flex-wrap justify-content-evenly m-5 w-inherit ">
         <Cards data={experiencias} />
         <NewProduct typeProduct="experiencias" />
       </div>

@@ -11,7 +11,7 @@ export default function CardComponent({ data }) {
   const handleClose = () => setShow(false);
   console.log(data);
   return (
-    <Card className="m-3">
+    <Card className="m-2 p-0">
       <Card.Header>
         <div className="container-img d-flex justify-content-center">
           <Card.Img variant="top" src={data.photos || photos} />
@@ -24,7 +24,6 @@ export default function CardComponent({ data }) {
           description={data.description}
           origin={data.origin}
           destination={data.destination}
-          price={data.price_ta || data.price_tb}
         />
       </Card.Body>
 
@@ -34,27 +33,28 @@ export default function CardComponent({ data }) {
         </Button>
       </Card.Footer>
       <Modal show={show} onHide={handleClose} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>{data.title}</Modal.Title>
-        </Modal.Header>
+        {data.title && (
+          <Modal.Header closeButton>
+            <Modal.Title>{data.title}</Modal.Title>
+          </Modal.Header>
+        )}
         <Modal.Body>
-        <Card.Title className="mb-4">{data.title}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">
-        {data.origin}-{data.destination}
-      </Card.Subtitle>
-      <Card.Text>
-        <p>{data.description}</p>
-      </Card.Text>
-
-      {data.room &&
-        data.room.map((room, index) => (
-          <Card.Text key={index}>
-            <li>
-              {room.type}: {room.price}
-            </li>
+          <Card.Subtitle className="mb-2 text-muted">
+            {data.origin}-{data.destination}
+          </Card.Subtitle>
+          <Card.Text>
+            <p>{data.description}</p>
           </Card.Text>
-        ))}
-      {data.price && <Card.Text> Precio: ${data.price}</Card.Text>}
+
+          {data.room &&
+            data.room.map((room, index) => (
+              <Card.Text key={index}>
+                <li>
+                  {room.type}: {room.price}
+                </li>
+              </Card.Text>
+            ))}
+          {data.price && <Card.Text> Precio: ${data.price}</Card.Text>}
         </Modal.Body>
       </Modal>
     </Card>

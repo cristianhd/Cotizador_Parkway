@@ -96,7 +96,7 @@ export default function Traslados() {
           </Row>
         </Form>
       </div>
-      <div>
+      <div className="d-flex flex-wrap justify-content-evenly m-5 w-inherit ">
         <Cards data={traslados} />
         <NewProduct typeProduct="traslados"/>
       </div>
