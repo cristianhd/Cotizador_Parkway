@@ -2,7 +2,7 @@ const Experiencias = require("../models/Experiencias");
 const Traslados = require("../models/Traslados");
 const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
-const Places = require("../models/Places");
+
 
 function findExperiencias(req, res, next) {
   const { origin, destination } = req.query;
@@ -47,19 +47,6 @@ function findAsistencias(req, res, next) {
   try {
     Asistencias.find({ destination }).then((asistencias) => {
       res.json(asistencias);
-    });
-  } catch (error) {
-    res.send(error.message);
-  }
-}
-
-function findPlaces(req, res, next) {
-  const {place} = req.query;
-  
-  console.log(place)
-  try {
-    Places.find({name: { $regex: '.*' + place + '.*' } }).limit(5).then((places) => {
-      res.json(places);
     });
   } catch (error) {
     res.send(error.message);
@@ -147,7 +134,6 @@ module.exports = {
   findTraslados,
   findActividades,
   findAsistencias,
-  findPlaces,
   addExperiencias,
   addTraslados,
   addActividades,

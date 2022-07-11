@@ -21,7 +21,8 @@ const { renderHomeApi } = require("./controllers/home");
 
 var unprotected = [
   /\/products*/,
-  /favicon.ico/
+  /favicon.ico/,
+  /\/places*/
 ]
 
 const jwtVerify = jwt({
