@@ -24,7 +24,7 @@ export function getSearch(origin, destination, typeProduct) {
 export function getSearchPlaces(query) {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/products/places?place=${query}`)
+      .get(`http://localhost:3001/places?place=${query}`)
       .then((res) => {
         console.log(res.data);
         dispatch({

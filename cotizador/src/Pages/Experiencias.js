@@ -17,24 +17,22 @@ import NewProduct from "../Components/NewProduct";
 export default function Experiencias() {
   const dispatch = useDispatch();
   const [experiencias, setExperiencias] = useState([]);
-  const [places, setPlaces] = useState([]);
+  const [suggest, setSuggest] = useState([]);
   const { querySearch, queryPlaces } = useSelector((state) => state);
   const query = querySearch.querySearch;
-  const suggestPlaces = queryPlaces.queryPlaces
+  const suggestPlaces = queryPlaces.queryPlaces;
 
   const [form, setForm] = useState({
     origin: "",
     destination: "",
   });
 
-  console.log(suggestPlaces);
-
   useEffect(() => {
     setExperiencias(query);
   }, [query]);
   useEffect(() => {
-    setPlaces(suggestPlaces);
-  }, []);
+    setSuggest(suggestPlaces);
+  }, [suggestPlaces]);
 
   useEffect(() => {
     setExperiencias([]);
@@ -44,6 +42,7 @@ export default function Experiencias() {
     });
   }, []);
 
+  console.log("suggest", suggest);
   const handleOnSubmit = (e) => {
     e.preventDefault();
     dispatch(getSearch(form.origin, form.destination, "experiencias"));
@@ -53,7 +52,8 @@ export default function Experiencias() {
     const name = e.target.name;
     const value = e.target.value;
 
-    if(name==="origin" || name==="destination") dispatch(getSearchPlaces(value))
+    if (name === "origin" || name === "destination")
+      dispatch(getSearchPlaces(value));
 
     setForm({
       ...form,
@@ -73,14 +73,15 @@ export default function Experiencias() {
                   labelName="Origen"
                   value={form.origin}
                   onChange={handleOnChange}
-                  places={places}
+                  suggest={suggest}
                 />
+                
                 <InputPlace
                   name="destination"
                   labelName="Destino"
                   value={form.destination}
                   onChange={handleOnChange}
-                  places={places}
+                  suggest={suggest}
                 />
               </Form.Group>
             </Col>

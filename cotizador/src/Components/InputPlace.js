@@ -8,9 +8,9 @@ export default function InputPlace({
   labelName,
   value,
   onChange,
-  places
+  suggest
 }) {
-  console.log(places)
+  console.log(suggest)
   return (
     <div className=" input-wrap d-flex flex-row align-items-center">
       <div className="icon">
@@ -28,8 +28,9 @@ export default function InputPlace({
           value={value}
           onChange={(e) => onChange(e)}
         />
-       
+      
       </div>
+      
     </div>
   );
 }
