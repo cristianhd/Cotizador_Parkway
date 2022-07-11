@@ -2,6 +2,7 @@ const Experiencias = require("../models/Experiencias");
 const Traslados = require("../models/Traslados");
 const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
+const Places = require("../models/Places");
 
 function findExperiencias(req, res, next) {
   const { origin, destination } = req.query;
@@ -52,15 +53,44 @@ function findAsistencias(req, res, next) {
   }
 }
 
-function addExperiencias(req, res, next) {
+function findPlaces(req, res, next) {
+  const {place} = req.query;
+  
+  console.log(place)
+  try {
+    Places.find({name: { $regex: '.*' + place + '.*' } }).limit(5).then((places) => {
+      res.json(places);
+    });
+  } catch (error) {
+    res.send(error.message);
+  }
+}
+
+async function addExperiencias(req, res, next) {
   const { experiencias } = req.body;
+  const places = await Places.find();
+  console.log(experiencias);
+  console.log(places)
+
   if (experiencias === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
+      experiencias.forEach(async (experiencia, index) => {
+        const { origin, destination } = experiencia;
+
+        if (!places.some((place) => place.name === origin)) {
+          places.push({ name: origin });
+        }
+        if (!places.some((place) => place.name === destination)) {
+          places.push({ name: destination });
+        }
+      });
+
       Experiencias.insertMany(experiencias).then((result) => {
         res.json(result);
       });
+      await Places.create(places);
     } catch (error) {
       res.send(error.message);
     }
@@ -117,6 +147,7 @@ module.exports = {
   findTraslados,
   findActividades,
   findAsistencias,
+  findPlaces,
   addExperiencias,
   addTraslados,
   addActividades,

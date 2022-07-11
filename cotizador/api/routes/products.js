@@ -9,6 +9,7 @@ const {
   addTraslados,
   addActividades,
   addAsistencias,
+  findPlaces,
 } = require("../controllers/products.js");
 const router = Router();
 
@@ -23,5 +24,7 @@ router.post("/actividades", addActividades);
 
 router.get("/asistencias", findAsistencias);
 router.post("/asistencias", addAsistencias);
+
+router.get("/places", findPlaces);
 
 module.exports = router;

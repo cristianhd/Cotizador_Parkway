@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const GET_SEARCH = "GET_SEARCH",
+  GET_SEARCH_PLACES = "GET_SEARCH_PLACES",
   CREATE_USER = "CREATE_USER",
   CREATE_PRODUCT = "CREATE_PRODUCT";
 
@@ -15,6 +16,20 @@ export function getSearch(origin, destination, typeProduct) {
         dispatch({
           type: GET_SEARCH,
           payload: { querySearch: res.data, typeProduct },
+        });
+      });
+  };
+}
+
+export function getSearchPlaces(query) {
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/products/places?place=${query}`)
+      .then((res) => {
+        console.log(res.data);
+        dispatch({
+          type: GET_SEARCH_PLACES,
+          payload: { queryPlaces: res.data },
         });
       });
   };
@@ -39,10 +54,10 @@ export function createUser(data, token) {
 
 export function createProduct(data, typeProduct) {
   return (dispatch) => {
-    console.log({[typeProduct] :data})
+    console.log({ [typeProduct]: data });
     axios
       .post(`http://localhost:3001/products/${typeProduct}`, {
-        [typeProduct]: data,
+        [typeProduct]: [data],
       })
       .then((r) => {
         console.log(r);

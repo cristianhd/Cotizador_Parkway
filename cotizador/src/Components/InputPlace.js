@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
 import "../style/inputPlace.css";
-export default function InputPlace({ name, labelName, value, onChange }) {
-  
-
+import { Button } from "react-bootstrap";
+export default function InputPlace({
+  name,
+  labelName,
+  value,
+  onChange,
+  places
+}) {
+  console.log(places)
   return (
     <div className=" input-wrap d-flex flex-row align-items-center">
       <div className="icon">
@@ -22,6 +28,7 @@ export default function InputPlace({ name, labelName, value, onChange }) {
           value={value}
           onChange={(e) => onChange(e)}
         />
+       
       </div>
     </div>
   );

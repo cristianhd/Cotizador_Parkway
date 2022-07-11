@@ -33,11 +33,9 @@ export default function CardComponent({ data }) {
         </Button>
       </Card.Footer>
       <Modal show={show} onHide={handleClose} size="lg">
-        {data.title && (
-          <Modal.Header closeButton>
-            <Modal.Title>{data.title}</Modal.Title>
-          </Modal.Header>
-        )}
+        <Modal.Header closeButton>
+          {data.title && <Modal.Title>{data.title}</Modal.Title>}
+        </Modal.Header>
         <Modal.Body>
           <Card.Subtitle className="mb-2 text-muted">
             {data.origin}-{data.destination}
@@ -54,7 +52,7 @@ export default function CardComponent({ data }) {
                 </li>
               </Card.Text>
             ))}
-          {data.price && <Card.Text> Precio: ${data.price}</Card.Text>}
+          {data.price && <Card.Text> Precio: {data.price}</Card.Text>}
         </Modal.Body>
       </Modal>
     </Card>

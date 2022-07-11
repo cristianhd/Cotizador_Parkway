@@ -10,26 +10,31 @@ import axios from "axios";
 import Cards from "../Components/Cards";
 import { Button, Container } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
-import { getSearch } from "../Redux/action";
+import { getSearch, getSearchPlaces } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import NewProduct from "../Components/NewProduct";
 
 export default function Experiencias() {
   const dispatch = useDispatch();
   const [experiencias, setExperiencias] = useState([]);
-  const { querySearch } = useSelector((state) => state);
+  const [places, setPlaces] = useState([]);
+  const { querySearch, queryPlaces } = useSelector((state) => state);
   const query = querySearch.querySearch;
+  const suggestPlaces = queryPlaces.queryPlaces
 
   const [form, setForm] = useState({
     origin: "",
     destination: "",
   });
 
-  console.log(query);
+  console.log(suggestPlaces);
 
   useEffect(() => {
     setExperiencias(query);
   }, [query]);
+  useEffect(() => {
+    setPlaces(suggestPlaces);
+  }, []);
 
   useEffect(() => {
     setExperiencias([]);
@@ -47,6 +52,8 @@ export default function Experiencias() {
   function handleOnChange(e) {
     const name = e.target.name;
     const value = e.target.value;
+
+    if(name==="origin" || name==="destination") dispatch(getSearchPlaces(value))
 
     setForm({
       ...form,
@@ -66,12 +73,14 @@ export default function Experiencias() {
                   labelName="Origen"
                   value={form.origin}
                   onChange={handleOnChange}
+                  places={places}
                 />
                 <InputPlace
                   name="destination"
                   labelName="Destino"
                   value={form.destination}
                   onChange={handleOnChange}
+                  places={places}
                 />
               </Form.Group>
             </Col>
