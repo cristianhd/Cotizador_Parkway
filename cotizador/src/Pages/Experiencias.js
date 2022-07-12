@@ -98,8 +98,8 @@ export default function Experiencias() {
       <div className="card-product p-3 h-100">
         <h2>Planes</h2>
         <Form onSubmit={handleOnSubmit} className="p-3">
-          <Row>
-            <Form.Group as={Col} md={5} className="p-1 d-flex">
+          <Row className="p-1">
+            <Form.Group as={Col} md={5} className="p-1 d-flex flex-row justify-content-between">
               <InputPlace
                 name="origin"
                 labelName="Origen"
@@ -120,26 +120,18 @@ export default function Experiencias() {
               />
             </Form.Group>
 
-            <Col md={3} className="p-2">
-              <Form.Group className="date">
-                <DatePicker />
-              </Form.Group>
-            </Col>
-            <Col md={2} className="p-2">
-              <Form.Group>
-                <Rooms />
-              </Form.Group>
-            </Col>
-            <Col md={1} className="align-self-end p-2">
-              <div className="lupa-wrap">
-                <Button
-                  className="button-submit"
-                  variant="primary"
-                  type="submit"
-                >
-                  <img src={lupa} alt="lupa"></img>
-                </Button>
-              </div>
+            <Form.Group as={Col} md={3} className="p-1">
+              <DatePicker />
+            </Form.Group>
+
+            <Form.Group as={Col} md={3} className="d-flex flex-row justify-content-between">
+              <Rooms />
+            </Form.Group>
+
+            <Col md={1} className="align-self-end p-1">
+              <Button className="button-submit" variant="primary" type="submit">
+                <img src={lupa} alt="lupa"></img>
+              </Button>
             </Col>
           </Row>
         </Form>
