@@ -12,7 +12,7 @@ export default function DatePicker() {
   return (
     <FloatingLabel className="" label="Fechas">
       <DateRangePicker
-      className=""
+        className=""
         initialSettings={{
           startDate: today,
           locale: {
@@ -20,7 +20,10 @@ export default function DatePicker() {
           },
         }}
       >
-        <Form.Control type="text" placeholder="sadsa" className="text-center"></Form.Control>
+        <Form.Control
+          type="text"
+          className="text-center"
+        ></Form.Control>
       </DateRangePicker>
     </FloatingLabel>
   );
