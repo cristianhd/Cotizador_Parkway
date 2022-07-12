@@ -6,10 +6,10 @@ function findPlaces(req, res, next) {
   const regex = ".*" + place + ".*";
 
   console.log(place);
-  // if (place === undefined) {
-  //   // cuando no viene ninguna consulta
-  //   next();
-  // } else {
+  if (place === undefined) {
+    // cuando no viene ninguna consulta
+    next();
+  } else {
     try {
       Places.find({ name: { $regex: regex } })
         .limit(5)
@@ -19,7 +19,7 @@ function findPlaces(req, res, next) {
     } catch (error) {
       res.send(error.message);
     }
-  // }
+  }
 }
 
 function findAllPlaces(req, res, next) {

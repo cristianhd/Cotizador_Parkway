@@ -2,11 +2,11 @@ const Experiencias = require("../models/Experiencias");
 const Traslados = require("../models/Traslados");
 const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
+const Places = require("../models/Places");
 
 
 function findExperiencias(req, res, next) {
   const { origin, destination } = req.query;
-  console.log("Hola");
 
   try {
     Experiencias.find({ origin, destination }).then((experiencias) => {
@@ -74,7 +74,7 @@ async function addExperiencias(req, res, next) {
         }
       });
 
-      Experiencias.insertMany(experiencias).then((result) => {
+      Experiencias.create(experiencias).then((result) => {
         res.json(result);
       });
       await Places.create(places);
@@ -84,31 +84,55 @@ async function addExperiencias(req, res, next) {
   }
 }
 
-function addTraslados(req, res, next) {
+async function addTraslados(req, res, next) {
   const { traslados } = req.body;
+  const places = await Places.find();
 
   if (traslados === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Traslados.insertMany(traslados).then((result) => {
+      traslados.forEach(async (traslado, index) => {
+        const { origin, destination } = traslado;
+
+        if (!places.some((place) => place.name === origin)) {
+          places.push({ name: origin });
+        }
+        if (!places.some((place) => place.name === destination)) {
+          places.push({ name: destination });
+        }
+      });
+
+      Traslados.create(traslados).then((result) => {
         res.json(result);
       });
+      await Places.create(places);
     } catch (error) {
       res.send(error.message);
     }
   }
 }
 
-function addActividades(req, res, next) {
+async function addActividades(req, res, next) {
   const { actividades } = req.body;
+  const places = await Places.find();
+
   if (actividades === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Actividades.insertMany(actividades).then((result) => {
+      actividades.forEach(async (actividad, index) => {
+        const { destination } = actividad;
+
+        if (!places.some((place) => place.name === destination)) {
+          places.push({ name: destination });
+        }
+      });
+
+      Actividades.create(actividades).then((result) => {
         res.json(result);
       });
+      await Places.create(places);
     } catch (error) {
       res.send(error.message);
     }
@@ -121,7 +145,7 @@ function addAsistencias(req, res, next) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Asistencias.insertMany(asistencias).then((result) => {
+      Asistencias.create(asistencias).then((result) => {
         res.json(result);
       });
     } catch (error) {
