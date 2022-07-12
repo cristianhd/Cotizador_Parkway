@@ -1,15 +1,18 @@
 import axios from "axios";
 
+
 const GET_SEARCH = "GET_SEARCH",
   GET_SEARCH_PLACES = "GET_SEARCH_PLACES",
   CREATE_USER = "CREATE_USER",
   CREATE_PRODUCT = "CREATE_PRODUCT";
 
+  const BaseUrl = process.env.BASE_URL;
+
 export function getSearch(origin, destination, typeProduct) {
   return (dispatch) => {
     axios
       .get(
-        `http://localhost:3001/products/${typeProduct}?origin=${origin}&destination=${destination}`
+        `${BaseUrl}/products/${typeProduct}?origin=${origin}&destination=${destination}`
       )
       .then((res) => {
         console.log(res.data);
@@ -24,7 +27,7 @@ export function getSearch(origin, destination, typeProduct) {
 export function getSearchPlaces(query) {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/places?place=${query}`)
+      .get(`${BaseUrl}/places?place=${query}`)
       .then((res) => {
         console.log(res.data);
         dispatch({
@@ -39,7 +42,7 @@ export function createUser(data, token) {
   return (dispatch) => {
     console.log(data);
     axios
-      .post("http://localhost:3001/users", data, {
+      .post(`${BaseUrl}/user`, data, {
         headers: {
           authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -56,7 +59,7 @@ export function createProduct(data, typeProduct) {
   return (dispatch) => {
     console.log({ [typeProduct]: data });
     axios
-      .post(`http://localhost:3001/products/${typeProduct}`, {
+      .post(`${BaseUrl}/products/${typeProduct}`, {
         [typeProduct]: [data],
       })
       .then((r) => {
