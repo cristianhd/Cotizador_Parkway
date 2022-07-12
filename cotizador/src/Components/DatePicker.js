@@ -4,26 +4,24 @@ import "../style/datePicker.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
 import DateRangePicker from "react-bootstrap-daterangepicker";
+import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 
 export default function DatePicker() {
-  const tiempoTranscurrido = Date.now();
-  const hoy = new Date(tiempoTranscurrido);
+  var today = new Date().toLocaleDateString("en-GB"); // en-GB Formato ingles DD/MM/YYYY
 
   return (
-    <div className="date-wrap d-flex flex-colum">
-      <div className="dates">
-        <div className="d-flex flex-row justify-content-around">
-          <span>Entrada</span>
-          <span>Salida</span>
-        </div>
-        <div className="picker">
-
-        <DateRangePicker className="hola" initialSettings={{ startDate: hoy }}>
-          <Form.Control type="text" className="input-c">
-          </Form.Control>
-        </DateRangePicker>
-      </div>
-        </div>
-    </div>
+    <FloatingLabel className="" label="Fechas">
+      <DateRangePicker
+      className=""
+        initialSettings={{
+          startDate: today,
+          locale: {
+            format: "DD-MM-YYYY",
+          },
+        }}
+      >
+        <Form.Control type="text" placeholder="sadsa" className="text-center"></Form.Control>
+      </DateRangePicker>
+    </FloatingLabel>
   );
 }
