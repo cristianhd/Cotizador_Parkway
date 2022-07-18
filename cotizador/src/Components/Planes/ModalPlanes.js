@@ -19,7 +19,6 @@ export default function ModalPlanes({ typeProduct }) {
     setShow(false);
     alert("Producto Creado");
   };
-  console.log(typeProduct);
 
   return (
     <div>

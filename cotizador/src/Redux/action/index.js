@@ -6,7 +6,7 @@ const GET_SEARCH = "GET_SEARCH",
   CREATE_USER = "CREATE_USER",
   CREATE_PRODUCT = "CREATE_PRODUCT";
 
-  const BaseUrl = process.env.BASE_URL;
+  const BaseUrl = process.env.REACT_APP_BASE_URL;
 
 export function getSearch(origin, destination, typeProduct) {
   return (dispatch) => {
@@ -25,9 +25,10 @@ export function getSearch(origin, destination, typeProduct) {
 }
 
 export function getSearchPlaces(query) {
+  console.log(BaseUrl)
   return (dispatch) => {
     axios
-      .get(`${BaseUrl}/places?place=${query}`)
+      .get(`https://${BaseUrl}/places?place=${query}`)
       .then((res) => {
         console.log(res.data);
         dispatch({

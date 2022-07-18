@@ -20,7 +20,6 @@ export default function InputPlace({
   show,
   suggestOnclick,
 }) {
-  console.log(suggest);
   const target = useRef(null);
   return (
     <div

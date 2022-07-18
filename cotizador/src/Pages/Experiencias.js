@@ -57,7 +57,6 @@ export default function Experiencias() {
   };
 
   const handleSuggestOnclick = (name, value) => {
-    console.log(name, value);
     setForm({
       ...form,
       [name]: value,
@@ -99,7 +98,11 @@ export default function Experiencias() {
         <h2>Planes</h2>
         <Form onSubmit={handleOnSubmit} className="p-3">
           <Row className="p-1">
-            <Form.Group as={Col} md={5} className="p-1 d-flex flex-row justify-content-between">
+            <Form.Group
+              as={Col}
+              md={5}
+              className="p-1 d-flex flex-row justify-content-between"
+            >
               <InputPlace
                 name="origin"
                 labelName="Origen"
@@ -124,7 +127,11 @@ export default function Experiencias() {
               <DatePicker />
             </Form.Group>
 
-            <Form.Group as={Col} md={3} className="d-flex flex-row justify-content-between">
+            <Form.Group
+              as={Col}
+              md={3}
+              className="d-flex flex-row justify-content-between"
+            >
               <Rooms />
             </Form.Group>
 

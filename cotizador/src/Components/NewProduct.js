@@ -6,7 +6,6 @@ import photos from "../assets/card/camara-fotografica.svg";
 import ModalPlanes from "./Planes/ModalPlanes";
 
 export default function NewProduct({ typeProduct }) {
-  console.log(typeProduct);
   return (
     <Card>
       <div className="container-img d-flex justify-content-center">

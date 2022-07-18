@@ -22,7 +22,8 @@ const { renderHomeApi } = require("./controllers/home");
 var unprotected = [
   /\/products*/,
   /favicon.ico/,
-  /\/places*/
+  /\/places*/,
+  /\/api/,
 ]
 
 const jwtVerify = jwt({
@@ -58,7 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(jwtVerify);
 
 // Routes //
-app.get("/",(req,res,next)=>{
+app.get("/api",(req,res,next)=>{
   res.render('index', { title: 'API PARKWAY' });
 })
 app.use("/",routes)
