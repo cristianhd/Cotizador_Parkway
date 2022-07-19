@@ -2,13 +2,7 @@ import React, { useRef, useState } from "react";
 import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
 import "../style/inputPlace.css";
-import {
-  Button,
-  ButtonGroup,
-  FloatingLabel,
-  InputGroup,
-  Overlay,
-} from "react-bootstrap";
+import { ButtonGroup, FloatingLabel, Overlay } from "react-bootstrap";
 import SuggestPlaces from "./SuggestPlaces";
 
 export default function InputPlace({
@@ -23,8 +17,8 @@ export default function InputPlace({
   const target = useRef(null);
   return (
     <div
-      className="mx-1 p-1 w-100 d-flex flex-row align-items-center rounded"
-      style={{ backgroundColor: "white" }}
+      className="input-place mx-1 p-1 w-100 d-flex flex-row align-items-center rounded"
+      
     >
       <div className="px-2 py-2">
         <svg

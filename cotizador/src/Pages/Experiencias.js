@@ -6,21 +6,13 @@ import DatePicker from "../Components/DatePicker";
 import InputPlace from "../Components/InputPlace";
 import Rooms from "../Components/Rooms";
 import "../style/experiencias.css";
-import axios from "axios";
 import Cards from "../Components/Cards";
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  FloatingLabel,
-  Overlay,
-  OverlayTrigger,
-} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import lupa from "../assets/card_product/lupa.svg";
 import { getSearch, getSearchPlaces } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import NewProduct from "../Components/NewProduct";
-import SuggestPlaces from "../Components/SuggestPlaces";
+
 
 export default function Experiencias() {
   const dispatch = useDispatch();
@@ -94,8 +86,8 @@ export default function Experiencias() {
 
   return (
     <div className="w-100 d-flex flex-column">
-      <div className="bg-primary p-3 h-100">
-        <h2>Planes</h2>
+      <div className="card-product p-3">
+        <h2 className="">Planes</h2>
         <Form onSubmit={handleOnSubmit} className="p-3">
           <Row className="p-1">
             <Form.Group

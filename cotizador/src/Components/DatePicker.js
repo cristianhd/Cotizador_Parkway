@@ -11,7 +11,7 @@ export default function DatePicker() {
 
   return (
     <div
-      className="p-1 d-flex flex-row align-items-center rounded"
+      className="date-picker p-1 d-flex flex-row align-items-center rounded"
       style={{ backgroundColor: "white" }}
     >
       <div className="px-2 py-2">

@@ -1,9 +1,12 @@
 .card-product {
-    width: 100%;
-    height: 200px;
-    border: 1px solid blue;
-    background-color: black;
-    border-radius: 15px;
-    font-family: SFProDisplay;
-    margin-bottom: 10px;
-  }
+  background-color: #2da160;
+  color: #fff;
+  border-radius: 15px;
+}
+
+.input-place , .date-picker {
+  color: black;
+  background-color: #fff;
+  margin: auto;
+  width: 100%;
+}

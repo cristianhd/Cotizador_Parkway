@@ -1,4 +1,18 @@
 // _config.scss
-$body-color: yellow;
+$body-color: #04101C;
+$body-bg: #fff;
 $primary: #054AD4;
-$secondary: #06A773;
+$secondary: #D0E3E0;
+$terciary: #06A773;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary
+);
+
+$custom-colors: (
+  "terciary": $terciary
+);
+
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
