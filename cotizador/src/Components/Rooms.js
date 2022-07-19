@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/esm/Form";
+import Pax from "../Components/Pax"
 import user from "../assets/user-icon.svg";
 import bed from "../assets/card_product/bed.svg";
 import "../style/room.css";
@@ -18,10 +19,10 @@ export default function Rooms() {
   };
   return (
     <div
-      className="m-1 w-100 d-flex flex-row align-items-center rounded"
+      className="rooms m-1 w-100 d-flex flex-row align-items-center rounded"
       style={{ backgroundColor: "white" }}
     >
-      <FloatingLabel className="w-100 mx-1" label="Habitaciones">
+      <FloatingLabel className="w-100 mx-1 " label="Habitaciones">
         <Form.Control
           className="text-center border-0 shadow-none"
           type="number"
@@ -33,18 +34,7 @@ export default function Rooms() {
           placeholder="Ingrese la cantidad de habitaciones"
         ></Form.Control>
       </FloatingLabel>
-      <FloatingLabel className="w-100 mx-1" label="Pax">
-        <Form.Control
-          className="text-center border-0 shadow-none"
-          type="number"
-          name="pax"
-          min="1"
-          max=""
-          value={pax}
-          onChange={handleOnchange}
-          placeholder="Ingrese la cantidad de pasajeros"
-        ></Form.Control>
-      </FloatingLabel>
+      <Pax handleOnchange={handleOnchange} pax={pax}/>
     </div>
   );
 }

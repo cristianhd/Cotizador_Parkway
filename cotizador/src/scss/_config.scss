@@ -14,5 +14,11 @@ $custom-colors: (
   "terciary": $terciary
 );
 
+.input-place , .date-picker, .rooms {
+  color: black;
+  background-color: #fff;
+  margin: auto;
+  width: 100%;
+}
 
 $theme-colors: map-merge($theme-colors, $custom-colors);

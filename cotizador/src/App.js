@@ -12,16 +12,20 @@ function App() {
   return (
     <div className="m-0">
       <section>
-        <Header/>
+        <Header />
       </section>
       <section className=" mx-3 p-1 border border-dark">
-        <Nav />
-        <Routes>
-          <Route path="/planes" element={<Experiencias />}></Route>
-          <Route path="/traslados" element={<Traslados />}></Route>
-          <Route path="/actividades" element={<Actividades />}></Route>
-          <Route path="/asistencias" element={<Asistencias />}></Route>
-        </Routes>
+        <nav>
+          <Nav />
+        </nav>
+        <section className="searchBar">
+          <Routes>
+            <Route path="/planes" element={<Experiencias />}></Route>
+            <Route path="/traslados" element={<Traslados />}></Route>
+            <Route path="/actividades" element={<Actividades />}></Route>
+            <Route path="/asistencias" element={<Asistencias />}></Route>
+          </Routes>
+        </section>
       </section>
       <section>
         <Footer />

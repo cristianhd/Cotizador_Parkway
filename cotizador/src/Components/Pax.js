@@ -1,22 +1,20 @@
-import React from 'react'
+import React from "react";
+import { FloatingLabel } from "react-bootstrap";
 import Form from "react-bootstrap/esm/Form";
-import user from "../assets/user-icon.svg";
 
-export default function pax() {
-    return (
-        <div className="room-wrap text-center border">
-        <div>
-          <span>Pasajeros</span>
-        </div>
-        <div className="d-flex flex-row justify-content-around">
-          <div className="d-flex flex-row">
-            <div className="icon p-1 align-self-center">
-              <img src={user} alt="user"></img>
-            </div>
-            <Form.Control className="input-room" placeholder="2"></Form.Control>
-          </div>
-          
-        </div>
-      </div>
-    )
+export default function pax({ handleOnchange, pax }) {
+  return (
+    <FloatingLabel className="w-100 mx-1" label="Pax">
+      <Form.Control
+        className="text-center border-0 shadow-none"
+        type="number"
+        name="pax"
+        min="1"
+        max=""
+        value={pax}
+        onChange={handleOnchange}
+        placeholder="Ingrese la cantidad de pasajeros"
+      ></Form.Control>
+    </FloatingLabel>
+  );
 }
