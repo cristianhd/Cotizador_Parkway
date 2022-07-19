@@ -17,7 +17,7 @@ export default function InputPlace({
   const target = useRef(null);
   return (
     <div
-      className="input-place mx-1 p-1 w-100 d-flex flex-row align-items-center rounded"
+      className="input-place p-1 d-flex flex-row align-items-center rounded"
       
     >
       <div className="px-2 py-2">

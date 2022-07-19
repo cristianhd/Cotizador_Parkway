@@ -14,7 +14,7 @@ function App() {
       <section>
         <Header />
       </section>
-      <section className=" mx-3 p-1 border border-dark">
+      <section className=" mx-5 p-1">
         <nav>
           <Nav />
         </nav>

@@ -28,7 +28,6 @@ export default function DatePicker() {
       </div>
       <FloatingLabel className="p-0 w-100  " label="Fechas">
         <DateRangePicker
-          className=""
           initialSettings={{
             startDate: today,
             locale: {

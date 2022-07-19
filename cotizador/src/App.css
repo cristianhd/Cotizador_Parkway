@@ -1,8 +1,11 @@
 .input-place, .date-picker, .rooms {
   color: black;
   background-color: #fff;
-  margin: auto;
   width: 100%;
+}
+
+.search-button {
+  border-radius: 5px;
 }
 
 :root {

@@ -17,8 +17,13 @@ $custom-colors: (
 .input-place , .date-picker, .rooms {
   color: black;
   background-color: #fff;
-  margin: auto;
+ 
   width: 100%;
+}
+
+.search-button {
+  border-radius: 5px;
+ 
 }
 
 $theme-colors: map-merge($theme-colors, $custom-colors);

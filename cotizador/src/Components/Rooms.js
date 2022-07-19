@@ -19,7 +19,7 @@ export default function Rooms() {
   };
   return (
     <div
-      className="rooms m-1 w-100 d-flex flex-row align-items-center rounded"
+      className="rooms w-100 d-flex flex-row align-items-center rounded"
       style={{ backgroundColor: "white" }}
     >
       <FloatingLabel className="w-100 mx-1 " label="Habitaciones">

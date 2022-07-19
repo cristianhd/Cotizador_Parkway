@@ -13,7 +13,6 @@ import { getSearch, getSearchPlaces } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import NewProduct from "../Components/NewProduct";
 
-
 export default function Experiencias() {
   const dispatch = useDispatch();
   const [experiencias, setExperiencias] = useState([]);
@@ -87,13 +86,13 @@ export default function Experiencias() {
   return (
     <div className="w-100 d-flex flex-column">
       <div className="card-product p-3">
-        <h2 className="">Planes</h2>
+        <h2>Planes</h2>
         <Form onSubmit={handleOnSubmit} className="p-3">
           <Row className="p-1">
             <Form.Group
+              className="gap-1 p-1 d-flex flex-row justify-content-between"
               as={Col}
               md={5}
-              className="p-1 d-flex flex-row justify-content-between"
             >
               <InputPlace
                 name="origin"
@@ -122,16 +121,32 @@ export default function Experiencias() {
             <Form.Group
               as={Col}
               md={3}
-              className="d-flex flex-row justify-content-between"
+              className="p-1 d-flex flex-row justify-content-between"
             >
               <Rooms />
             </Form.Group>
-
-            <Col md={1} className="align-self-end p-1">
-              <Button className="button-submit" variant="primary" type="submit">
-                <img src={lupa} alt="lupa"></img>
+            <Form.Group
+              as={Col}
+              md={1}
+              className="p-2 d-flex justify-content-center align-items-center"
+            >
+              <Button
+                className="search-button w-100 h-100 "
+                variant="primary"
+                type="submit"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="35"
+                  height="35"
+                  fill="currentColor"
+                  className="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
               </Button>
-            </Col>
+            </Form.Group>
           </Row>
         </Form>
       </div>
