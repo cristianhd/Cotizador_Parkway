@@ -1,30 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import "./custom.scss";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { Provider } from 'react-redux';
-import store from '../src/Redux/store';
+import { Provider } from "react-redux";
+import store from "../src/Redux/store";
 
 ReactDOM.render(
   <Provider store={store}>
-
-  <React.StrictMode>
-    <BrowserRouter>
-      <Auth0Provider
-        domain="dev-ascvuavf.us.auth0.com"
-        clientId="uUrXX199qFCQUOV5i94fc47p2sBTR27b"
-        redirectUri={window.location.origin}
-        audience="https:/www.cotizador-api.com"
-        scope="openid profile email"
-      >
-        <App />
-      </Auth0Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Auth0Provider
+          domain="dev-ascvuavf.us.auth0.com"
+          clientId="uUrXX199qFCQUOV5i94fc47p2sBTR27b"
+          redirectUri={window.location.origin}
+          audience="https:/www.cotizador-api.com"
+          scope="openid profile email"
+        >
+          <App />
+        </Auth0Provider>
+      </BrowserRouter>
+    </React.StrictMode>
   </Provider>,
   document.getElementById("root")
 );

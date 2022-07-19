@@ -94,7 +94,7 @@ export default function Experiencias() {
 
   return (
     <div className="w-100 d-flex flex-column">
-      <div className="card-product p-3 h-100">
+      <div className="bg-primary p-3 h-100">
         <h2>Planes</h2>
         <Form onSubmit={handleOnSubmit} className="p-3">
           <Row className="p-1">

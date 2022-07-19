@@ -15,11 +15,11 @@ export default function Footer() {
   return (
     
       <footer>
-        <div className="group-certificate">
-          <div>
+        <div className="border d-none d-lg-block">
+          <div className="">
             <img src={clubProducto} alt="club-de-producto"></img>
           </div>
-          <div className="cert-down">
+          <div className="">
             <img src={acotur} alt="acotur"></img>
             <img src={checkIn} alt="check-in"></img>
             <img src={proColombia} alt="pro-colombia"></img>
