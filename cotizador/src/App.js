@@ -14,18 +14,18 @@ function App() {
       <section>
         <Header />
       </section>
-      <section className=" mx-5 p-1">
-        <nav>
+      <section className="mx-3">
+        <nav className="m-3 p-1">
           <Nav />
         </nav>
-        <section className="searchBar">
-          <Routes>
-            <Route path="/planes" element={<Experiencias />}></Route>
-            <Route path="/traslados" element={<Traslados />}></Route>
-            <Route path="/actividades" element={<Actividades />}></Route>
-            <Route path="/asistencias" element={<Asistencias />}></Route>
-          </Routes>
-        </section>
+      </section>
+      <section className="mx-3 p-1">
+        <Routes>
+          <Route path="/planes" element={<Experiencias />}></Route>
+          <Route path="/traslados" element={<Traslados />}></Route>
+          <Route path="/actividades" element={<Actividades />}></Route>
+          <Route path="/asistencias" element={<Asistencias />}></Route>
+        </Routes>
       </section>
       <section>
         <Footer />

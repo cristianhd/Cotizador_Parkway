@@ -92,7 +92,7 @@ export default function Experiencias() {
             <Form.Group
               className="gap-1 p-1 d-flex flex-row justify-content-between"
               as={Col}
-              md={5}
+              md={6}
             >
               <InputPlace
                 name="origin"
@@ -120,7 +120,7 @@ export default function Experiencias() {
 
             <Form.Group
               as={Col}
-              md={3}
+              md={2}
               className="p-1 d-flex flex-row justify-content-between"
             >
               <Rooms />
@@ -128,24 +128,26 @@ export default function Experiencias() {
             <Form.Group
               as={Col}
               md={1}
-              className="p-2 d-flex justify-content-center align-items-center"
+              className="p-1 "
             >
-              <Button
-                className="search-button w-100 h-100 "
-                variant="primary"
-                type="submit"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="35"
-                  height="35"
-                  fill="currentColor"
-                  className="bi bi-search"
-                  viewBox="0 0 16 16"
+              <div className="w-100 h-100 d-flex justify-content-center align-items-center">
+                <Button
+                  className=" shadow-none border-0 w-100 h-100"
+                  variant="primary"
+                  type="submit"
                 >
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-              </Button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="currentColor"
+                    className="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                </Button>
+              </div>
             </Form.Group>
           </Row>
         </Form>

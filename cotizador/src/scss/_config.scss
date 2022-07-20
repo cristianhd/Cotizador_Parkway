@@ -1,29 +1,26 @@
 // _config.scss
-$body-color: #04101C;
+$body-color: #04101c;
 $body-bg: #fff;
-$primary: #054AD4;
-$secondary: #D0E3E0;
-$terciary: #06A773;
+$primary: #054ad4;
+$secondary: #d0e3e0;
+$terciary: #06a773;
 
 $theme-colors: (
   "primary": $primary,
-  "secondary": $secondary
+  "secondary": $secondary,
 );
 
 $custom-colors: (
-  "terciary": $terciary
+  "terciary": $terciary,
 );
 
-.input-place , .date-picker, .rooms {
+.input-place,
+.date-picker,
+.rooms {
   color: black;
   background-color: #fff;
- 
-  width: 100%;
-}
 
-.search-button {
-  border-radius: 5px;
- 
+  width: 100%;
 }
 
 $theme-colors: map-merge($theme-colors, $custom-colors);

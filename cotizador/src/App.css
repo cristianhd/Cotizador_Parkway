@@ -1,11 +1,9 @@
-.input-place, .date-picker, .rooms {
+.input-place,
+.date-picker,
+.rooms {
   color: black;
   background-color: #fff;
   width: 100%;
-}
-
-.search-button {
-  border-radius: 5px;
 }
 
 :root {
@@ -31,9 +29,9 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #054AD4;
-  --bs-secondary: #D0E3E0;
-  --bs-terciary: #06A773;
+  --bs-primary: #054ad4;
+  --bs-secondary: #d0e3e0;
+  --bs-terciary: #06a773;
   --bs-primary-rgb: 5, 74, 212;
   --bs-secondary-rgb: 208, 227, 224;
   --bs-terciary-rgb: 6, 167, 115;
@@ -48,7 +46,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #04101C;
+  --bs-body-color: #04101c;
   --bs-body-bg: #fff;
 }
 
@@ -227,7 +225,7 @@ sup {
 }
 
 a {
-  color: #054AD4;
+  color: #054ad4;
   text-decoration: underline;
 }
 
@@ -2015,7 +2013,7 @@ progress {
 }
 
 .link-primary {
-  color: #054AD4;
+  color: #054ad4;
 }
 
 .link-primary:hover, .link-primary:focus {
@@ -2023,7 +2021,7 @@ progress {
 }
 
 .link-secondary {
-  color: #D0E3E0;
+  color: #d0e3e0;
 }
 
 .link-secondary:hover, .link-secondary:focus {
@@ -2031,7 +2029,7 @@ progress {
 }
 
 .link-terciary {
-  color: #06A773;
+  color: #06a773;
 }
 
 .link-terciary:hover, .link-terciary:focus {
@@ -2473,15 +2471,15 @@ progress {
 }
 
 .border-primary {
-  border-color: #054AD4 !important;
+  border-color: #054ad4 !important;
 }
 
 .border-secondary {
-  border-color: #D0E3E0 !important;
+  border-color: #d0e3e0 !important;
 }
 
 .border-terciary {
-  border-color: #06A773 !important;
+  border-color: #06a773 !important;
 }
 
 .border-white {
