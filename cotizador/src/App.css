@@ -1,9 +1,14 @@
 .input-place,
 .date-picker,
 .rooms {
-  color: black;
+  color: #04101c;
   background-color: #fff;
   width: 100%;
+}
+
+.App {
+  min-width: 400px;
+  color: #04101c;
 }
 
 :root {

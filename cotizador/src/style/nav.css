@@ -1,21 +1,42 @@
 .nav-links {
-  border: none;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-around;
+}
+.button-link {
+  filter: opacity(0.5);
+}
+.button-link:focus {
+  border-bottom: 3px solid #04101c;
+  filter: opacity(1);
+}
+.button-link:hover {
+
+  filter: opacity(1);
+
+
 }
 
 .nav-links > img {
-  height: 40px;
-  filter: opacity(0.5);
+  height: 50px;
+  width: 50px;
+  filter: opacity(0.8);
 }
 
 .nav-links > h1 {
-  font-size: 15px;
+  font-size: 14px;
   text-align: center;
-  filter: opacity(1);
-  text-decoration: none;
+  color: #04101c;
+}
+.nav-bar {
+  width: 75%;
+}
+
+@media (max-width: 500px) {
+  .nav-bar {
+    width: 100%;
+  }
 }

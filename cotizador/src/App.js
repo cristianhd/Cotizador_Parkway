@@ -10,16 +10,16 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="m-0">
+    <div className="App m-0">
       <section>
         <Header />
       </section>
       <section className="mx-3">
-        <nav className="m-3 p-1">
+        <nav className="mt-5 p-1 d-flex justify-content-center align-item-center">
           <Nav />
         </nav>
       </section>
-      <section className="mx-3 p-1">
+      <section className="m-3 p-1">
         <Routes>
           <Route path="/planes" element={<Experiencias />}></Route>
           <Route path="/traslados" element={<Traslados />}></Route>

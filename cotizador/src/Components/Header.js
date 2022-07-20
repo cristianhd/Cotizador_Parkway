@@ -29,7 +29,7 @@ export default function Header() {
           alt="down-buttom"
           onClick={() =>
             window.scroll({
-              top: 325,
+              top: 400,
               behavior: "smooth",
             })
           }
