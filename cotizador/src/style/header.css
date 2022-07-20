@@ -27,10 +27,9 @@ header {
   border-radius: 150px; 
 }
 
-.down-buttom {
-  width: 90%;
+.down-buttom, .up-buttom {
   height: 50px;
-  margin: 16px auto;
+  
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -41,7 +40,14 @@ header {
   height: 50px;
   filter: opacity(0.6);
 }
-.down-buttom > img:hover {
+
+.up-buttom > img {
+  width: 50px;
+  height: 50px;
+  filter: opacity(0.6);
+  transform: rotate(180deg); 
+}
+.down-buttom, .up-buttom > img:hover {
   filter: opacity(1);
   cursor: pointer;
 }

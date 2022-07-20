@@ -1,13 +1,11 @@
-li > button {
-    width: 150px;
-    margin: 50px;
-    border: none;
-    background:none;
-    color: #D0E3E0;
- 
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-  
+.login-button {
+  width: 150px;
+  margin: 50px;
+  border: none;
+  background: none;
+  color: #d0e3e0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 21px;
 }
