@@ -7,8 +7,19 @@ import Asistencias from "./Pages/Asistencias";
 import Experiencias from "./Pages/Experiencias";
 import Traslados from "./Pages/Traslados";
 import "./App.css";
+import Cards from "./Components/Cards";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
+  const [data, setData] = useState([]);
+  const { querySearch, typeProduct } = useSelector((state) => state);
+  const query = querySearch.querySearch;
+  const currentTypeProduct = "experiencias";
+
+  useEffect(() => {
+    setData(query);
+  }, [query]);
   return (
     <div className="App m-0">
       <section>
@@ -21,11 +32,17 @@ function App() {
       </section>
       <section className="m-3 p-1">
         <Routes>
-          <Route path="/planes" element={<Experiencias />}></Route>
+          <Route exact path="/" element={<Experiencias/>}></Route>
+          <Route path="/experiencias" element={<Experiencias />}></Route>
           <Route path="/traslados" element={<Traslados />}></Route>
           <Route path="/actividades" element={<Actividades />}></Route>
           <Route path="/asistencias" element={<Asistencias />}></Route>
         </Routes>
+      </section>
+      <section className="m-5 p-3">
+        <div className="mx-4 p-1 d-flex flex-row flex-wrap justify-content-around">
+          <Cards data={data} typeProduct={currentTypeProduct} />
+        </div>
       </section>
       <section>
         <Footer />

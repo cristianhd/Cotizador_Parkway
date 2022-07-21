@@ -11,7 +11,7 @@ export default function CardComponent({ data }) {
   const handleClose = () => setShow(false);
   console.log(data);
   return (
-    <Card className="m-2 p-0">
+    <Card className="my-3">
       <Card.Header>
         <div className="container-img d-flex justify-content-center">
           <Card.Img variant="top" src={data.photos || photos} />

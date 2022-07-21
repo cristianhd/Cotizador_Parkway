@@ -15,7 +15,7 @@ import NewProduct from "../Components/NewProduct";
 
 export default function Experiencias() {
   const dispatch = useDispatch();
-  const [experiencias, setExperiencias] = useState([]);
+  const [typeProduct, setTypeProduct] = useState("");
   const [suggest, setSuggest] = useState([]);
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
@@ -28,14 +28,14 @@ export default function Experiencias() {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    setExperiencias(query);
+    const type = window.location.pathname.slice(1) 
+    setTypeProduct(type);
   }, [query]);
   useEffect(() => {
     setSuggest(suggestPlaces);
   }, [suggestPlaces]);
 
   useEffect(() => {
-    setExperiencias([]);
     window.scroll({
       top: 600,
       behavior: "smooth",
@@ -44,7 +44,7 @@ export default function Experiencias() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(getSearch(form.origin, form.destination, "experiencias"));
+    dispatch(getSearch(form.origin, form.destination, typeProduct));
   };
 
   const handleSuggestOnclick = (name, value) => {
@@ -138,10 +138,6 @@ export default function Experiencias() {
             </Form.Group>
           </Row>
         </Form>
-      </div>
-      <div className="d-flex flex-wrap justify-content-evenly m-5 w-inherit ">
-        <Cards data={experiencias} />
-        <NewProduct typeProduct="experiencias" />
       </div>
     </div>
   );

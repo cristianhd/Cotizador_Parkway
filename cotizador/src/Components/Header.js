@@ -33,7 +33,7 @@ export default function Header() {
       <div className="cont-back">{isLoading ? <Loading /> : <Login />}</div>
       {isAuthenticated ? <Profile /> : <Logo />}
 
-      <div className={stateButtom ? "up-buttom m-3 p-1" : "down-buttom m-3 p-1"}>
+      <div className={stateButtom ? "up-buttom m-5 p-1" : "down-buttom m-5 p-1"}>
         <img
           src={iconButtom}
           alt="icon-buttom"

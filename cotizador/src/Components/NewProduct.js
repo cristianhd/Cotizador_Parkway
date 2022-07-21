@@ -7,7 +7,7 @@ import ModalPlanes from "./Planes/ModalPlanes";
 
 export default function NewProduct({ typeProduct }) {
   return (
-    <Card>
+    <Card className="p-1">
       <div className="container-img d-flex justify-content-center">
         <Card.Img variant="top" src={photos} />
       </div>
