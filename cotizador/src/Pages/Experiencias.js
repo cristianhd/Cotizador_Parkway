@@ -16,43 +16,40 @@ import NewProduct from "../Components/NewProduct";
 export default function Experiencias() {
   const dispatch = useDispatch();
   const [typeProduct, setTypeProduct] = useState("");
-  const [suggest, setSuggest] = useState([]);
+
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
-  const { querySearch, queryPlaces } = useSelector((state) => state);
+  const { querySearch } = useSelector((state) => state);
 
   const query = querySearch.querySearch;
-  const suggestPlaces = queryPlaces.queryPlaces;
-  const type = window.location.pathname.slice(1) 
+
+  const type = window.location.pathname.slice(1);
 
   const [form, setForm] = useState({});
 
+  useEffect(() => {}, [query]);
+
   useEffect(() => {
-  }, [query]);
-  useEffect(() => {
-    setSuggest(suggestPlaces);
-  }, [suggestPlaces]);
-  
-  useEffect(() => {    
-    (type==="") ?  setTypeProduct("experiencias") : setTypeProduct(type);
+    type === "" ? setTypeProduct("experiencias") : setTypeProduct(type);
     window.scroll({
       top: 600,
       behavior: "smooth",
     });
-  }, [type]);
+  }, []);
 
   const handleOnSubmit = (e) => {
-    
     const formEvent = e.currentTarget;
     e.preventDefault();
     if (formEvent.checkValidity() === false) {
+      setValidated(true);
       e.stopPropagation();
     } else {
       dispatch(getSearch(form.origin, form.destination, typeProduct));
+      setForm({ origin: "", destination: "" });
+      setValidated(false);
     }
-    setValidated(true);
   };
 
   const handleSuggestOnclick = (name, value) => {
@@ -70,20 +67,18 @@ export default function Experiencias() {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (name === "origin" || name === "destination") {
-      if (name === "origin" && value !== "") {
-        setShowOrigin(true);
-      } else {
-        setShowOrigin(false);
-      }
-      if (name === "destination" && value !== "") {
-        setShowDestination(true);
-      } else {
-        setShowDestination(false);
-      }
-
-      dispatch(getSearchPlaces(value));
+    if (name === "origin" && value !== "") {
+      setShowOrigin(true);
+    } else {
+      setShowOrigin(false);
     }
+    if (name === "destination" && value !== "") {
+      setShowDestination(true);
+    } else {
+      setShowDestination(false);
+    }
+
+    dispatch(getSearchPlaces(value));
 
     setForm({
       ...form,
@@ -95,7 +90,12 @@ export default function Experiencias() {
     <div className="d-flex flex-column align-items-center">
       <div className="card-product p-4">
         <h2>Planes</h2>
-        <Form noValidate validated={validated} onSubmit={handleOnSubmit} className="">
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleOnSubmit}
+          className=""
+        >
           <Row className="p-1">
             <Form.Group
               className="gap-1 p-1 d-flex flex-row justify-content-between"
@@ -107,7 +107,6 @@ export default function Experiencias() {
                 labelName="Origen"
                 value={form.origin}
                 onChange={handleOnChange}
-                suggest={suggest}
                 suggestOnclick={handleSuggestOnclick}
                 show={showOrigin}
               />
@@ -116,7 +115,6 @@ export default function Experiencias() {
                 labelName="Destino"
                 value={form.destination}
                 onChange={handleOnChange}
-                suggest={suggest}
                 suggestOnclick={handleSuggestOnclick}
                 show={showDestination}
               />
