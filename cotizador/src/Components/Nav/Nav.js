@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import selected from "../../assets/nav/selected.svg";
 import { MenuItems } from "./MenuItems.js";
 import "../../style/nav.css";
@@ -6,6 +6,12 @@ import { NavLink } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 
 export default function Nav() {
+  const [RefButton, setRefButton] = useState(useRef(null));
+
+  useEffect(() => {
+    RefButton.current.focus();
+  }, [RefButton]);
+
   return (
     <Row className="nav-bar">
       {MenuItems.map((item, index) => {
@@ -15,6 +21,7 @@ export default function Nav() {
               <div className="w-100 d-flex justify-content-center ">
                 <Button
                   variant="outline-ligth"
+                  ref={index === 0 ? RefButton : null}
                   className="button-link m-0 p-1 shadow-none rounded"
                 >
                   <div className="nav-links p-1">
