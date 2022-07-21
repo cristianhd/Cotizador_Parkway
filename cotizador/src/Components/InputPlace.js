@@ -1,20 +1,36 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
 import "../style/inputPlace.css";
-import { ButtonGroup, FloatingLabel, Overlay } from "react-bootstrap";
+import {
+  Button,
+  ButtonGroup,
+  FloatingLabel,
+  Overlay,
+  OverlayTrigger,
+  Popover,
+} from "react-bootstrap";
 import SuggestPlaces from "./SuggestPlaces";
+import { useSelector } from "react-redux";
 
 export default function InputPlace({
   name,
   labelName,
   value,
   onChange,
-  suggest,
   show,
-  suggestOnclick,
+  suggestOnclick
 }) {
+  const [suggest, setSuggest] = useState([]);
+
+  const { queryPlaces } = useSelector((state) => state);
+  const suggestPlaces = queryPlaces.queryPlaces;
   const target = useRef(null);
+
+  useEffect(() => {
+    setSuggest(suggestPlaces);
+  }, [suggestPlaces]);
+
   return (
     <div className="input-place p-1 d-flex flex-row align-items-center rounded">
       <div className="px-2 py-2">
@@ -30,35 +46,32 @@ export default function InputPlace({
         </svg>
       </div>
 
-      <FloatingLabel
-        id={`input-${labelName}`}
-        ref={target}
-        required
-        label={labelName}
-        className=""
-      >
-        <Form.Control
-          required
-          className="shadow-none border-0 "
-          name={name}
-          type="text"
-          placeholder={`Ingrese el ${labelName}`}
-          value={value}
-          onChange={onChange}
-        />
-      </FloatingLabel>
-
-      <Overlay target={target.current} show={show} placement="bottom">
-        {({ placement, arrowProps, show: _show, popper, ...props }) => (
-          <ButtonGroup vertical className="p-1" {...props}>
+      <OverlayTrigger
+        show={show}
+        placement="bottom"
+        overlay={
+          <Popover className="my-2">
             <SuggestPlaces
               suggest={suggest}
               onClick={suggestOnclick}
+              show={show}
               name={name}
             />
-          </ButtonGroup>
-        )}
-      </Overlay>
+          </Popover>
+        }
+      >
+        <FloatingLabel id={`input-${labelName}`} label={labelName} ref={target}>
+          <Form.Control
+            required
+            className="shadow-none border-0 "
+            name={name}
+            type="text"
+            placeholder={`Ingrese el ${labelName}`}
+            value={value}
+            onChange={onChange}
+          />
+        </FloatingLabel>
+      </OverlayTrigger>
     </div>
   );
 }

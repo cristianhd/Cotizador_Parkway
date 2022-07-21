@@ -16,8 +16,10 @@ import NewProduct from "../Components/NewProduct";
 
 export default function Traslados() {
   const dispatch = useDispatch();
-  const [traslados, setTraslados] = useState();
+  const [typeProduct, setTypeProduct] = useState("");
+  const [validated, setValidated] = useState(false);
   const { querySearch } = useSelector((state) => state);
+  const type = window.location.pathname.slice(1);
   const query = querySearch.querySearch;
 
   const [form, setForm] = useState({
@@ -26,15 +28,17 @@ export default function Traslados() {
   });
 
   useEffect(() => {
-    setTraslados(query);
-  }, [query]);
-
-  useEffect(() => {
-    setTraslados([]);
+    type === "" ? setTypeProduct("experiencias") : setTypeProduct(type);
   }, []);
   const handleOnSubmit = (e) => {
+    const formEvent = e.currentTarget;
     e.preventDefault();
-    dispatch(getSearch(form.origin, form.destination, "Traslados"));
+    if (formEvent.checkValidity() === false) {
+      e.stopPropagation();
+    } else {
+      dispatch(getSearch(form.origin, form.destination, typeProduct));
+    }
+    setValidated(true);
   };
 
   function handleOnChange(e) {
@@ -47,31 +51,38 @@ export default function Traslados() {
     });
   }
 
- 
-
-  
   return (
     <div className="w-100 d-flex flex-column">
       <div className="card-product p-3 h-100">
         <h2>Traslados</h2>
-        <Form onSubmit={handleOnSubmit} className="p-3">
-          <Row>
-            <Col md={6} className="p-2">
-              <Form.Group className="place d-flex flex-row justify-content-between gap-2">
-                <InputPlace
-                  name="origin"
-                  labelName="Origen"
-                  value={form.origin}
-                  onChange={handleOnChange}
-                />
-                <InputPlace
-                  name="destination"
-                  labelName="Destino"
-                  value={form.destination}
-                  onChange={handleOnChange}
-                />
-              </Form.Group>
-            </Col>
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleOnSubmit}
+          className=""
+        >
+          <Row className="p-1">
+            <Form.Group
+              className="gap-1 p-1 d-flex flex-row justify-content-between"
+              as={Col}
+              md={6}
+            >
+              <InputPlace
+                name="origin"
+                labelName="Origen"
+                value={form.origin}
+                onChange={handleOnChange}
+               
+              />
+              <InputPlace
+                name="destination"
+                labelName="Destino"
+                value={form.destination}
+                onChange={handleOnChange}
+             
+              />
+            </Form.Group>
+
             <Col md={3} className="p-2">
               <Form.Group className="date">
                 <DatePicker />
@@ -95,10 +106,6 @@ export default function Traslados() {
             </Col>
           </Row>
         </Form>
-      </div>
-      <div className="d-flex flex-wrap justify-content-evenly m-5 w-inherit ">
-        <Cards data={traslados} />
-        <NewProduct typeProduct="traslados"/>
       </div>
     </div>
   );
