@@ -1,3 +1,7 @@
 .popover {
-    width: 200px;
+  width: 200px;
+}
+.bs-popover-bottom > .popover-arrow::after,
+.bs-popover-auto[data-popper-placement^="bottom"] > .popover-arrow::after {
+  border-bottom-color:  #343a40;
 }

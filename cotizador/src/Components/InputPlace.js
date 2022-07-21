@@ -50,7 +50,7 @@ export default function InputPlace({
         show={show}
         placement="bottom"
         overlay={
-          <Popover className="my-2">
+          <Popover className="">
             <SuggestPlaces
               suggest={suggest}
               onClick={suggestOnclick}
