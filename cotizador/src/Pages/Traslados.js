@@ -1,107 +1,129 @@
-import React, { useEffect, useState } from "react";
-import Pax from "../Components/Pax.js";
+import React, { useEffect, useRef, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import InputPlace from "../Components/InputPlace";
-import Rooms from "../Components/Rooms";
+import Button from "react-bootstrap/Button";
 import DatePicker from "../Components/DatePicker";
-import axios from "axios";
-import Cards from "../Components/Cards.js";
-import { Button } from "react-bootstrap";
+import InputPlace from "../Components/InputPlace";
+import Pax from "../Components/Pax";
 import lupa from "../assets/card_product/lupa.svg";
-import { getSearch } from "../Redux/action/index.js";
-import { useDispatch, useSelector } from "react-redux";
-import NewProduct from "../Components/NewProduct";
+import { getSearch, getSearchPlaces } from "../Redux/action";
+import { useDispatch } from "react-redux";
+import "../style/experiencias.css";
 
 export default function Traslados() {
+  const typeProduct = "traslados";
+  const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
   const dispatch = useDispatch();
-  const typeProduct = "traslados"
+
+  const [form, setForm] = useState({});
+  const [showOrigin, setShowOrigin] = useState(false);
+  const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
-  const { querySearch } = useSelector((state) => state);
-  const type = window.location.pathname.slice(1);
-  const query = querySearch.querySearch;
 
-  const [form, setForm] = useState({
-    origin: "",
-    destination: "",
-  });
+  useEffect(() => {
+    window.scroll({
+      top: 600,
+      behavior: "smooth",
+    });
+  }, []);
 
- 
   const handleOnSubmit = (e) => {
     const formEvent = e.currentTarget;
     e.preventDefault();
     if (formEvent.checkValidity() === false) {
+      setValidated(true);
       e.stopPropagation();
     } else {
       dispatch(getSearch(form.origin, form.destination, typeProduct));
+      setValidated(false);
     }
-    setValidated(true);
   };
 
-  function handleOnChange(e) {
+  const handleSuggestOnclick = (name, value) => {
+    setForm({
+      ...form,
+      [name]: value,
+    });
+    setShowOrigin(false);
+    setShowDestination(false);
+  };
+
+  const handleOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+
+    if (name === "origin" && value !== "") {
+      setShowOrigin(true);
+    } else {
+      setShowOrigin(false);
+    }
+    if (name === "destination" && value !== "") {
+      setShowDestination(true);
+    } else {
+      setShowDestination(false);
+    }
+
+    dispatch(getSearchPlaces(value));
 
     setForm({
       ...form,
       [name]: value,
     });
-  }
+  };
 
   return (
-    <div className="w-100 d-flex flex-column">
-      <div className="card-product p-3 h-100">
-        <h2>Traslados</h2>
+    <div className="d-flex flex-column align-items-center">
+      <div className="card-product p-4">
+        <h2>{title}</h2>
         <Form
           noValidate
           validated={validated}
           onSubmit={handleOnSubmit}
-          className=""
+          autoComplete="off"
         >
           <Row className="p-1">
             <Form.Group
               className="gap-1 p-1 d-flex flex-row justify-content-between"
               as={Col}
-              md={6}
+              md={8}
             >
               <InputPlace
                 name="origin"
                 labelName="Origen"
                 value={form.origin}
                 onChange={handleOnChange}
-               
+                suggestOnclick={handleSuggestOnclick}
+                show={showOrigin}
               />
               <InputPlace
                 name="destination"
                 labelName="Destino"
                 value={form.destination}
                 onChange={handleOnChange}
-             
+                suggestOnclick={handleSuggestOnclick}
+                show={showDestination}
               />
             </Form.Group>
 
-            <Col md={3} className="p-2">
-              <Form.Group className="date">
-                <DatePicker />
-              </Form.Group>
-            </Col>
-            <Col md={2} className="p-2">
-              <Form.Group>
-                <Pax />
-              </Form.Group>
-            </Col>
-            <Col md={1} className="align-self-end p-2">
-              <div className="lupa-wrap">
+            <Form.Group
+              as={Col}
+              md={3}
+              className="gap-1 p-1 d-flex flex-row justify-content-between"
+            >
+              <Pax handleOnChange={handleOnChange} value={form.pax} />
+            </Form.Group>
+            <Form.Group as={Col} md={1} className="p-1 ">
+              <div className="w-100 h-100 d-flex justify-content-center align-items-center">
                 <Button
-                  className="button-submit"
+                  className=" shadow-none border-0 w-100 h-100"
                   variant="primary"
                   type="submit"
                 >
                   <img src={lupa} alt="lupa"></img>
                 </Button>
               </div>
-            </Col>
+            </Form.Group>
           </Row>
         </Form>
       </div>
