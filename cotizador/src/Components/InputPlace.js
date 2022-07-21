@@ -60,7 +60,7 @@ export default function InputPlace({
           </Popover>
         }
       >
-        <FloatingLabel id={`input-${labelName}`} label={labelName}>
+        <FloatingLabel className="w-100" id={`input-${labelName}`} label={labelName}>
           <Form.Control
             required
             className="shadow-none border-0 "

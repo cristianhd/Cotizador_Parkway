@@ -8,7 +8,7 @@ import { FloatingLabel } from "react-bootstrap";
 
 export default function Rooms({ value, handleOnchange }) {
   return (
-    <FloatingLabel className="rooms w-100 m-0 rounded" label="Hab">
+    <FloatingLabel className="rooms w-100 m-0 p-1 rounded" label="Hab">
       <Form.Control
         required
         className="text-center border-0 shadow-none"
