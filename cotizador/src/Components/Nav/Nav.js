@@ -6,11 +6,11 @@ import { NavLink } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 
 export default function Nav() {
-  const [RefButton, setRefButton] = useState(useRef(null));
+  const RefButton = useRef(null)
 
   useEffect(() => {
     RefButton.current.focus();
-  }, [RefButton]);
+  }, []);
 
   return (
     <Row className="nav-bar">
