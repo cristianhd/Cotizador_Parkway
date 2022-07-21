@@ -19,6 +19,7 @@ export default function Experiencias() {
   const [suggest, setSuggest] = useState([]);
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
+  const [validated, setValidated] = useState(false);
 
   const { querySearch, queryPlaces } = useSelector((state) => state);
 
@@ -43,9 +44,15 @@ export default function Experiencias() {
   }, [type]);
 
   const handleOnSubmit = (e) => {
-    console.log(typeProduct)
+    
+    const formEvent = e.currentTarget;
     e.preventDefault();
-    dispatch(getSearch(form.origin, form.destination, typeProduct));
+    if (formEvent.checkValidity() === false) {
+      e.stopPropagation();
+    } else {
+      dispatch(getSearch(form.origin, form.destination, typeProduct));
+    }
+    setValidated(true);
   };
 
   const handleSuggestOnclick = (name, value) => {
@@ -88,7 +95,7 @@ export default function Experiencias() {
     <div className="d-flex flex-column align-items-center">
       <div className="card-product p-4">
         <h2>Planes</h2>
-        <Form onSubmit={handleOnSubmit} className="">
+        <Form noValidate validated={validated} onSubmit={handleOnSubmit} className="">
           <Row className="p-1">
             <Form.Group
               className="gap-1 p-1 d-flex flex-row justify-content-between"
