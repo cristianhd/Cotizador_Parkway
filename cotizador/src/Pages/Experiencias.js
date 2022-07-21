@@ -24,25 +24,26 @@ export default function Experiencias() {
 
   const query = querySearch.querySearch;
   const suggestPlaces = queryPlaces.queryPlaces;
+  const type = window.location.pathname.slice(1) 
 
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    const type = window.location.pathname.slice(1) 
-    setTypeProduct(type);
   }, [query]);
   useEffect(() => {
     setSuggest(suggestPlaces);
   }, [suggestPlaces]);
-
-  useEffect(() => {
+  
+  useEffect(() => {    
+    (type==="") ?  setTypeProduct("experiencias") : setTypeProduct(type);
     window.scroll({
       top: 600,
       behavior: "smooth",
     });
-  }, []);
+  }, [type]);
 
   const handleOnSubmit = (e) => {
+    console.log(typeProduct)
     e.preventDefault();
     dispatch(getSearch(form.origin, form.destination, typeProduct));
   };

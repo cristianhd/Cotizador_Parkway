@@ -32,7 +32,7 @@ function App() {
       </section>
       <section className="m-3 p-1">
         <Routes>
-          <Route exact path="/" element={<Experiencias/>}></Route>
+          <Route exact path="/" element={<Experiencias />}></Route>
           <Route path="/experiencias" element={<Experiencias />}></Route>
           <Route path="/traslados" element={<Traslados />}></Route>
           <Route path="/actividades" element={<Actividades />}></Route>
@@ -44,8 +44,10 @@ function App() {
           <Cards data={data} typeProduct={currentTypeProduct} />
         </div>
       </section>
-      <section>
-        <Footer />
+      <section className="">
+        <footer>
+          <Footer />
+        </footer>
       </section>
     </div>
   );

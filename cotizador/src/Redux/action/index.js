@@ -9,6 +9,7 @@ const BaseUrl = process.env.REACT_APP_BASE_URL;
 
 export function getSearch(origin, destination, typeProduct) {
   return (dispatch) => {
+    console.log(typeProduct)
     axios
       .get(
         `/products/${typeProduct}?origin=${origin}&destination=${destination}`
