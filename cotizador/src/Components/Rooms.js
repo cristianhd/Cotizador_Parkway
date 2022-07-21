@@ -6,33 +6,20 @@ import bed from "../assets/card_product/bed.svg";
 import "../style/room.css";
 import { FloatingLabel } from "react-bootstrap";
 
-export default function Rooms() {
-  const [rooms, setRooms] = useState("");
-  const [pax, setPax] = useState("");
-
-  const handleOnchange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    if (name === "rooms") setRooms(value);
-    if (name === "pax") setPax(value);
-  };
+export default function Rooms({ value, handleOnchange }) {
   return (
-    <div className="rooms w-100 d-flex flex-row align-items-center rounded">
-      <FloatingLabel className="w-100 mx-1 " label="Hab">
-        <Form.Control
-          required
-          className="text-center border-0 shadow-none"
-          type="number"
-          name="rooms"
-          min="1"
-          max="5"
-          value={rooms}
-          onChange={handleOnchange}
-          placeholder="Ingrese la cantidad de habitaciones"
-        ></Form.Control>
-      </FloatingLabel>
-      <Pax handleOnchange={handleOnchange} pax={pax} />
-    </div>
+    <FloatingLabel className="rooms w-100 m-0 rounded" label="Hab">
+      <Form.Control
+        required
+        className="text-center border-0 shadow-none"
+        type="number"
+        name="rooms"
+        min="1"
+        max="5"
+        value={value}
+        onChange={handleOnchange}
+        placeholder="Ingrese la cantidad de habitaciones"
+      ></Form.Control>
+    </FloatingLabel>
   );
 }

@@ -2,16 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import DatePicker from "../Components/DatePicker";
 import InputPlace from "../Components/InputPlace";
 import Rooms from "../Components/Rooms";
-import "../style/experiencias.css";
-import Cards from "../Components/Cards";
-import { Button } from "react-bootstrap";
+import Pax from "../Components/Pax";
 import lupa from "../assets/card_product/lupa.svg";
 import { getSearch, getSearchPlaces } from "../Redux/action";
-import { useDispatch, useSelector } from "react-redux";
-import NewProduct from "../Components/NewProduct";
+import { useDispatch } from "react-redux";
+import "../style/experiencias.css";
 
 export default function Experiencias() {
   const typeProduct = "experiencias";
@@ -51,9 +50,7 @@ export default function Experiencias() {
     setShowDestination(false);
   };
 
-  console.log(form);
-
-  function handleOnChange(e) {
+  const handleOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -74,7 +71,7 @@ export default function Experiencias() {
       ...form,
       [name]: value,
     });
-  }
+  };
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -117,9 +114,10 @@ export default function Experiencias() {
             <Form.Group
               as={Col}
               md={2}
-              className="p-1 d-flex flex-row justify-content-between"
+              className="gap-1 p-1 d-flex flex-row justify-content-between"
             >
-              <Rooms />
+              <Rooms handleOnChange={handleOnChange} value={form.rooms}/>
+              <Pax handleOnChange={handleOnChange} value={form.pax}/>
             </Form.Group>
             <Form.Group as={Col} md={1} className="p-1 ">
               <div className="w-100 h-100 d-flex justify-content-center align-items-center">

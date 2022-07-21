@@ -16,7 +16,8 @@ $custom-colors: (
 
 .input-place,
 .date-picker,
-.rooms {
+.rooms,
+.pax {
   color: #04101c;
   background-color: #fff;
   width: 100%;
@@ -25,6 +26,15 @@ $custom-colors: (
 .App {
   min-width: 400px;
   color: #04101c;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
