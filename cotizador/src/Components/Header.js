@@ -11,7 +11,7 @@ import Logo from "./Logo";
 
 export default function Header() {
   const { isLoading, isAuthenticated } = useAuth0();
-  const [stateButtom, setStateButtom] = useState(false);
+  const [stateButtom, setStateButtom] = useState(false); // true: up false: down
 
   const handleDownButtom = () => {
     setStateButtom(true);

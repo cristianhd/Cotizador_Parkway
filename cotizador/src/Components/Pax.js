@@ -6,6 +6,7 @@ export default function pax({ handleOnchange, pax }) {
   return (
     <FloatingLabel className="w-100 mx-1" label="Pax">
       <Form.Control
+        required
         className="text-center border-0 shadow-none"
         type="number"
         name="pax"

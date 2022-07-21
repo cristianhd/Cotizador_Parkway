@@ -14,30 +14,21 @@ import { useDispatch, useSelector } from "react-redux";
 import NewProduct from "../Components/NewProduct";
 
 export default function Experiencias() {
+  const typeProduct = "experiencias";
+  const CurrentpathName = window.location.pathname.slice(1);
   const dispatch = useDispatch();
-  const [typeProduct, setTypeProduct] = useState("");
 
+  const [form, setForm] = useState({});
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
-  const { querySearch } = useSelector((state) => state);
-
-  const query = querySearch.querySearch;
-
-  const type = window.location.pathname.slice(1);
-
-  const [form, setForm] = useState({});
-
-  useEffect(() => {}, [query]);
-
   useEffect(() => {
-    type === "" ? setTypeProduct("experiencias") : setTypeProduct(type);
     window.scroll({
-      top: 600,
+      top: CurrentpathName === "" ? 0 : 600,
       behavior: "smooth",
     });
-  }, []);
+  }, [CurrentpathName]);
 
   const handleOnSubmit = (e) => {
     const formEvent = e.currentTarget;
@@ -47,7 +38,6 @@ export default function Experiencias() {
       e.stopPropagation();
     } else {
       dispatch(getSearch(form.origin, form.destination, typeProduct));
-      setForm({ origin: "", destination: "" });
       setValidated(false);
     }
   };
@@ -94,7 +84,7 @@ export default function Experiencias() {
           noValidate
           validated={validated}
           onSubmit={handleOnSubmit}
-          className=""
+          autoComplete="off"
         >
           <Row className="p-1">
             <Form.Group

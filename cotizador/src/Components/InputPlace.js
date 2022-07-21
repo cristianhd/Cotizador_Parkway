@@ -25,7 +25,7 @@ export default function InputPlace({
 
   const { queryPlaces } = useSelector((state) => state);
   const suggestPlaces = queryPlaces.queryPlaces;
-  const target = useRef(null);
+
 
   useEffect(() => {
     setSuggest(suggestPlaces);
@@ -60,7 +60,7 @@ export default function InputPlace({
           </Popover>
         }
       >
-        <FloatingLabel id={`input-${labelName}`} label={labelName} ref={target}>
+        <FloatingLabel id={`input-${labelName}`} label={labelName}>
           <Form.Control
             required
             className="shadow-none border-0 "
@@ -69,6 +69,7 @@ export default function InputPlace({
             placeholder={`Ingrese el ${labelName}`}
             value={value}
             onChange={onChange}
+            autoComplete
           />
         </FloatingLabel>
       </OverlayTrigger>

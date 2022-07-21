@@ -16,7 +16,7 @@ import NewProduct from "../Components/NewProduct";
 
 export default function Traslados() {
   const dispatch = useDispatch();
-  const [typeProduct, setTypeProduct] = useState("");
+  const typeProduct = "traslados"
   const [validated, setValidated] = useState(false);
   const { querySearch } = useSelector((state) => state);
   const type = window.location.pathname.slice(1);
@@ -27,9 +27,7 @@ export default function Traslados() {
     destination: "",
   });
 
-  useEffect(() => {
-    type === "" ? setTypeProduct("experiencias") : setTypeProduct(type);
-  }, []);
+ 
   const handleOnSubmit = (e) => {
     const formEvent = e.currentTarget;
     e.preventDefault();

@@ -7,8 +7,8 @@ import "../style/room.css";
 import { FloatingLabel } from "react-bootstrap";
 
 export default function Rooms() {
-  const [rooms, setRooms] = useState("1");
-  const [pax, setPax] = useState("2");
+  const [rooms, setRooms] = useState("");
+  const [pax, setPax] = useState("");
 
   const handleOnchange = (e) => {
     const name = e.target.name;
@@ -21,6 +21,7 @@ export default function Rooms() {
     <div className="rooms w-100 d-flex flex-row align-items-center rounded">
       <FloatingLabel className="w-100 mx-1 " label="Hab">
         <Form.Control
+          required
           className="text-center border-0 shadow-none"
           type="number"
           name="rooms"
