@@ -10,7 +10,6 @@ import Profile from "./Profile";
 import Logo from "./Logo";
 
 export default function Header() {
-  const { isLoading, isAuthenticated } = useAuth0();
   const [stateButtom, setStateButtom] = useState(false); // true: up false: down
 
   const handleDownButtom = () => {
@@ -30,15 +29,24 @@ export default function Header() {
 
   return (
     <header>
-      <div className="cont-back">{isLoading ? <Loading /> : <Login />}</div>
-      {isAuthenticated ? <Profile /> : <Logo />}
+      <div className="cont-back">
+        <Login />
+      </div>
 
-      <div className={stateButtom ? "up-buttom m-5 p-1" : "down-buttom m-5 p-1"}>
-        <img
-          src={iconButtom}
-          alt="icon-buttom"
-          onClick={stateButtom ? () => handleUpButtom() : () => handleDownButtom()}
-        />
+      <Profile />
+
+      <div className="w-100 d-flex flex-row justify-content-end">
+        <div
+          className={stateButtom ? "up-buttom m-5 p-1" : "down-buttom m-5 p-1"}
+        >
+          <img
+            src={iconButtom}
+            alt="icon-buttom"
+            onClick={
+              stateButtom ? () => handleUpButtom() : () => handleDownButtom()
+            }
+          />
+        </div>
       </div>
     </header>
   );

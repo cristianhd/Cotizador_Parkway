@@ -69,7 +69,7 @@ export default function InputPlace({
             placeholder={`Ingrese el ${labelName}`}
             value={value}
             onChange={onChange}
-            autoComplete
+            autoComplete="off"
           />
         </FloatingLabel>
       </OverlayTrigger>

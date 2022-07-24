@@ -6,14 +6,18 @@ import logoutIcon from "../assets/header/logout.svg";
 import "../style/login.css";
 import CategoryUser from "./Loading";
 import { Button } from "react-bootstrap";
+import Loading from "./Loading";
 
 export default function Login() {
   const {
     loginWithRedirect,
     logout,
+    isLoading,
 
     isAuthenticated,
   } = useAuth0();
+
+
 
   return (
     <div className="w-100 d-flex justify-content-end">
@@ -21,7 +25,7 @@ export default function Login() {
         <Button
           variant="outline"
           onClick={logout}
-          className="shadow-none "
+          className="shadow-none p-0 m-0"
         >
           <div className="login-button d-flex justify-content-around">
             <img src={logoutIcon} alt="logout-icon"></img>

@@ -41,7 +41,7 @@ export function createUser(data, token) {
   return (dispatch) => {
     console.log(data);
     axios
-      .post(`/user`, data, {
+      .post(`/users`, data, {
         headers: {
           authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
