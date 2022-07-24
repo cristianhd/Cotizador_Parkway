@@ -35,9 +35,9 @@ export default function Header() {
 
       <Profile />
 
-      <div className="w-100 d-flex flex-row justify-content-end">
+      <div className="w-100 mt-5">
         <div
-          className={stateButtom ? "up-buttom m-5 p-1" : "down-buttom m-5 p-1"}
+          className={stateButtom ? "up-buttom " : "down-buttom"}
         >
           <img
             src={iconButtom}

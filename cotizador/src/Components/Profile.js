@@ -61,7 +61,7 @@ export default function Profile() {
           />
         </div>
         {infoUser && (
-          <div className="mx-5">
+          <div className="profile-data m-auto">
             <h5>{infoUser.name}</h5>
             <h6>{infoUser.category}</h6>
           </div>

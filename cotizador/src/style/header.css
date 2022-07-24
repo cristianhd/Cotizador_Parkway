@@ -30,10 +30,14 @@ header {
   border-radius: 150px;
 }
 
+.profile-data {
+  width: 90%;
+}
 .down-buttom,
 .up-buttom {
+  width: 95%;
+  margin: auto;
   height: 50px;
-
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
