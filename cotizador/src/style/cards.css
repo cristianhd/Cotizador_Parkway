@@ -1,6 +1,8 @@
 
-
-.cards > .row {
-    margin: 0px;
- 
+.cards-flex {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
 }
