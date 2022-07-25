@@ -67,7 +67,7 @@ export default function Actividades() {
 
   return (
     <div className="d-flex flex-column align-items-center">
-      <div className="card-product p-4">
+      <div className="card-product p-3">
         <h2>{title}</h2>
         <Form
           noValidate
