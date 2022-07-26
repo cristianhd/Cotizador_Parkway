@@ -19,9 +19,10 @@ export default function ModalPlanes({ typeProduct }) {
     setShow(false);
     alert("Producto Creado");
   };
+  console.log(typeProduct)
 
   return (
-    <div>
+    <>
       <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
           <Modal.Title>Agregar Producto</Modal.Title>
@@ -40,12 +41,15 @@ export default function ModalPlanes({ typeProduct }) {
           <FormaAsistencia handleSave={handleSave} />
         )}
       </Modal>
-
-      <div className="container-button ">
-        <Button variant="primary" onClick={handleShow}>
+      <div className="w-50 m-auto">
+        <Button
+          className="w-100 rounded-pill"
+          variant="primary"
+          onClick={handleShow}
+        >
           +
         </Button>
       </div>
-    </div>
+    </>
   );
 }

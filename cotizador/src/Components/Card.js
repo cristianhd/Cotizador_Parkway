@@ -85,7 +85,7 @@ export default function CardComponent({ data }) {
             )}
           </Card.Subtitle>
 
-          <Card.Text className="m-1 p-3 text-center d-flex flex-row align-items-center justify-content-between">
+          <Card.Text className="m-1 p-3 text-center d-flex flex-row align-items-center justify-content-evenly">
             {data.room &&
               data.room.map((room, index) => (
                 <div key={index}>

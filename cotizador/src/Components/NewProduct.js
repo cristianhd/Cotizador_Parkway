@@ -8,14 +8,14 @@ import ModalPlanes from "./Planes/ModalPlanes";
 export default function NewProduct({ typeProduct }) {
   return (
     <Card className="p-1">
-      <div className="container-img d-flex justify-content-center">
-        <Card.Img variant="top" src={photos} />
-      </div>
-      <div className=" d-flex justify-content-start">
-        <Card.Body className="container-body">
-          <ModalPlanes typeProduct={typeProduct} />
-        </Card.Body>
-      </div>
+      <Card.Header className="w-100">
+        <div className="container-img d-flex justify-content-center">
+          <Card.Img variant="top" src={photos} />
+        </div>
+      </Card.Header>
+      <Card.Body className="w-100">
+        <ModalPlanes typeProduct={typeProduct} />
+      </Card.Body>
     </Card>
   );
 }

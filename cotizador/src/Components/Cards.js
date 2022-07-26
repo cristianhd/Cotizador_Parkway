@@ -4,13 +4,14 @@ import CardComponent from "./Card";
 import "../style/cards.css";
 import NewProduct from "./NewProduct";
 
-export default function Cards({ data }) {
+export default function Cards({ data, typeProduct }) {
   return (
     <div className="cards-flex m-auto gap-5">
       {data &&
         data.map((data, index) => (
           <CardComponent key={index} data={data}></CardComponent>
         ))}
+      <NewProduct typeProduct={typeProduct}></NewProduct>
     </div>
   );
 }

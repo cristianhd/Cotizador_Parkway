@@ -15,7 +15,7 @@ function App() {
   const [data, setData] = useState([]);
   const { querySearch, typeProduct } = useSelector((state) => state);
   const query = querySearch.querySearch;
-  const currentTypeProduct = "experiencias";
+  const currentTypeProduct = window.location.pathname.slice(1);
 
   useEffect(() => {
     setData(query);
@@ -40,7 +40,7 @@ function App() {
         </Routes>
       </section>
       <section className="m-5 p-1">
-        <Cards data={data} />
+        <Cards data={data} typeProduct={currentTypeProduct} />
       </section>
       <section className="">
         <footer>

@@ -8,7 +8,7 @@ export default function CardBody({ title, description, origin, destination }) {
     <>
       <div className="mb-3">
         {title && (
-          <Card.Title className="text-center d-flex align-items-center">
+          <Card.Title className="w-100 d-flex align-items-center justify-content-center">
             {UpperTitle}
           </Card.Title>
         )}
