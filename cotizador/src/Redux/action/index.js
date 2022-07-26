@@ -18,14 +18,14 @@ export function getSearch(origin, destination, typeProduct) {
         console.log(res.data);
         dispatch({
           type: GET_SEARCH,
-          payload: { querySearch: res.data, typeProduct },
+          payload: { querySearch: res.data},
         });
       });
   };
 }
 
 export function getSearchPlaces(query) {
-  console.log(BaseUrl);
+  
   return (dispatch) => {
     axios.get(`/places?place=${query}`).then((res) => {
       console.log("response", res.data);

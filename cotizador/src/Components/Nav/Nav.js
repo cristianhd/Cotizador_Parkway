@@ -4,9 +4,17 @@ import { MenuItems } from "./MenuItems.js";
 import "../../style/nav.css";
 import { NavLink } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 export default function Nav() {
-  const RefButton = useRef(null)
+  const RefButton = useRef(null);
+  const dispatch = useDispatch();
+
+  const handleCleanQuery = () => {
+    dispatch({
+      type: "CLEAN_QUERY_SEARCH",
+    });
+  };
 
   useEffect(() => {
     RefButton.current.focus();
@@ -23,6 +31,7 @@ export default function Nav() {
                   variant="outline-ligth"
                   ref={index === 0 ? RefButton : null}
                   className="button-link m-0 p-1 shadow-none rounded"
+                  onClick={handleCleanQuery}
                 >
                   <div className="nav-links p-1">
                     <img src={item.img} alt={item.name_category} />

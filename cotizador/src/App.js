@@ -16,10 +16,13 @@ function App() {
   const { querySearch, typeProduct } = useSelector((state) => state);
   const query = querySearch.querySearch;
   const currentTypeProduct = window.location.pathname.slice(1);
+  console.log(currentTypeProduct)
 
   useEffect(() => {
     setData(query);
   }, [query]);
+
+ 
   return (
     <div className="App m-0">
       <section>

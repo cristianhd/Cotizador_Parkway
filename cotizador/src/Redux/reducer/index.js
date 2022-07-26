@@ -1,7 +1,7 @@
 const intialState = {
   data: [],
   querySearch: [],
-  queryPlaces:[]
+  queryPlaces: [],
 };
 
 export function rootReducer(state = intialState, action) {
@@ -15,7 +15,12 @@ export function rootReducer(state = intialState, action) {
     case "GET_SEARCH_PLACES":
       return {
         ...state,
-        queryPlaces: action.payload
+        queryPlaces: action.payload,
+      };
+    case "CLEAN_QUERY_SEARCH":
+      return {
+        ...state,
+        querySearch: [],
       };
 
     default:
