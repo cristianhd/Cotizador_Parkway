@@ -58,14 +58,16 @@ export default function Profile() {
             className=""
             src={infoUser ? infoUser.picture : logo}
             alt="profile-img"
-            referrerpolicy="no-referrer"
+            referrerPolicy="no-referrer"
           />
         </div>
         {infoUser && (
           <div className="profile-data m-auto">
             <div className="d-flex flex-row">
               <h5>{infoUser.name}</h5>
-              <div className="profile-badge badge bg-success m-1 p-1">activo</div>
+              <div className="profile-badge badge bg-success m-1 p-1">
+                activo
+              </div>
             </div>
 
             <h6>{infoUser.category}</h6>
