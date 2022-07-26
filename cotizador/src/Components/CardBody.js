@@ -1,25 +1,15 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { UpperCaseStr } from "../Utils/funtions";
 
-export default function CardBody({
-  title,
-  description,
-  origin,
-  destination,
-}) {
-  const UpperCaseTitle = (str) => {
-    const words = str.split(" ");
-    const titleUpperCase = words.map((word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    });
-    return titleUpperCase.join(" ");
-  };
+export default function CardBody({ title, description, origin, destination }) {
+  const UpperTitle = UpperCaseStr(title);
   return (
     <>
       <div className="mb-3">
         {title && (
           <Card.Title className="text-center d-flex align-items-center">
-            {UpperCaseTitle(title)}
+            {UpperTitle}
           </Card.Title>
         )}
         <Card.Subtitle className="m-0 d-flex justify-content-evenly">

@@ -18,10 +18,6 @@
   font-weight: 400;
 }
 
-.card-text {
-  font-weight: 800;
-}
-
 .card-text > p {
   font-size: 13px;
   font-weight: 600;
@@ -38,7 +34,6 @@
 
 .card-footer {
   height: 60px;
-  
 }
 
 .card-footer > button {
