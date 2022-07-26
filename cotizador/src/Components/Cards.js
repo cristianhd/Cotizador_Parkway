@@ -6,7 +6,7 @@ import NewProduct from "./NewProduct";
 
 export default function Cards({ data }) {
   return (
-    <div className="cards-flex m-auto gap-3">
+    <div className="cards-flex m-auto gap-5">
       {data &&
         data.map((data, index) => (
           <CardComponent key={index} data={data}></CardComponent>

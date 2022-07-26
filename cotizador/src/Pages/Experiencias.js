@@ -14,6 +14,7 @@ import "../style/experiencias.css";
 
 export default function Experiencias() {
   const typeProduct = "experiencias";
+  const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
   const CurrentpathName = window.location.pathname.slice(1);
   const dispatch = useDispatch();
 
@@ -76,7 +77,7 @@ export default function Experiencias() {
   return (
     <div className="d-flex flex-column align-items-center">
       <div className="card-product p-3">
-        <h2>Planes</h2>
+        <h2>{title}</h2>
         <Form
           noValidate
           validated={validated}
