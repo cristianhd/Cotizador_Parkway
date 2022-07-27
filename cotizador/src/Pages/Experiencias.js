@@ -18,14 +18,20 @@ export default function Experiencias() {
   const CurrentpathName = window.location.pathname.slice(1);
   const dispatch = useDispatch();
 
-  const [form, setForm] = useState({ origin: "", destination: "" });
+  const [form, setForm] = useState({
+    origin: "",
+    destination: "",
+    date: "",
+    rooms: "",
+    pax: "",
+  });
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
   useEffect(() => {
     window.scroll({
-      top: CurrentpathName === "" ? 0 : 600,
+      top: CurrentpathName === "" ? 0 : 625,
       behavior: "smooth",
     });
   }, [CurrentpathName]);
@@ -40,7 +46,7 @@ export default function Experiencias() {
       dispatch(getSearch(form.origin, form.destination, typeProduct));
       setValidated(false);
     }
-    setForm({ origin: "", destination: "", date: "", rooms:"", pax:"" });
+    setForm({ origin: "", destination: "", date: "", rooms: "", pax: "" });
   };
 
   const handleSuggestOnclick = (name, value) => {
@@ -55,7 +61,7 @@ export default function Experiencias() {
   const handleOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-
+    console.log(name, value);
     if (name === "origin" && value !== "") {
       setShowOrigin(true);
     } else {

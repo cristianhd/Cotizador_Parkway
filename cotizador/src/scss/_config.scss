@@ -3,16 +3,12 @@ $body-color: #04101c;
 $body-bg: #fff;
 $primary: #054ad4;
 $secondary: #d0e3e0;
-$terciary: #06a773;
 
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
 );
 
-$custom-colors: (
-  "terciary": $terciary,
-);
 
 .input-place,
 .date-picker,
