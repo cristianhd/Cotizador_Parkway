@@ -18,7 +18,7 @@ export default function Experiencias() {
   const CurrentpathName = window.location.pathname.slice(1);
   const dispatch = useDispatch();
 
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({ origin: "", destination: "" });
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
@@ -40,6 +40,7 @@ export default function Experiencias() {
       dispatch(getSearch(form.origin, form.destination, typeProduct));
       setValidated(false);
     }
+    setForm({ origin: "", destination: "", date: "", rooms:"", pax:"" });
   };
 
   const handleSuggestOnclick = (name, value) => {
@@ -73,6 +74,8 @@ export default function Experiencias() {
       [name]: value,
     });
   };
+
+  console.log("formSearch", form);
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -109,7 +112,7 @@ export default function Experiencias() {
             </Form.Group>
 
             <Form.Group as={Col} md={3} className="p-1">
-              <DatePicker />
+              <DatePicker handleOnChange={handleOnChange} value={form.date} />
             </Form.Group>
 
             <Form.Group
@@ -117,8 +120,8 @@ export default function Experiencias() {
               md={2}
               className="gap-1 p-1 d-flex flex-row justify-content-between"
             >
-              <Rooms handleOnChange={handleOnChange} value={form.rooms}/>
-              <Pax handleOnChange={handleOnChange} value={form.pax}/>
+              <Rooms handleOnChange={handleOnChange} value={form.rooms} />
+              <Pax handleOnChange={handleOnChange} value={form.pax} />
             </Form.Group>
             <Form.Group as={Col} md={1} className="p-1 ">
               <div className="w-100 h-100 d-flex justify-content-center align-items-center">
