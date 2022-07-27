@@ -1,13 +1,11 @@
 .popover {
   width: 100%;
-  color: var(--bs-secondary)
+  color: var(--bs-secondary);
 }
 
 .suggest > button:hover {
-  color:white
+  color: #BFE2E2;
 }
-
-
 
 .bs-popover-bottom > .popover-arrow::after,
 .bs-popover-auto[data-popper-placement^="bottom"] > .popover-arrow::after {

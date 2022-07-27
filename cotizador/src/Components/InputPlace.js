@@ -25,6 +25,8 @@ export default function InputPlace({
 
   const { queryPlaces } = useSelector((state) => state);
   const suggestPlaces = queryPlaces.queryPlaces;
+  const screenWidth = window.screen.width
+  console.log(screenWidth)
 
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function InputPlace({
 
       <OverlayTrigger
         show={show}
-        placement="bottom"
+        placement={screenWidth < 800 ? "bottom": "top"}
         overlay={
           <Popover className="">
             <SuggestPlaces
