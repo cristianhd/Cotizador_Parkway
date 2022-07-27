@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
 import { Button, Modal } from "react-bootstrap";
-import FormPlanes from "./FormPlanes";
+import FormPlanes from "./Planes/FormPlanes";
 import { useDispatch, useSelector } from "react-redux";
-import FormTraslados from "../Traslados/FormTraslados";
-import FormActividades from "../Actividades/FormActividades";
-import FormaAsistencia from "../Asistencia/FormaAsistencia";
-import { createProduct } from "../../Redux/action";
+import FormTraslados from "./Traslados/FormTraslados";
+import FormActividades from "./Actividades/FormActividades";
+import FormaAsistencia from "./Asistencia/FormaAsistencia";
+import { createProduct } from "../Redux/action";
+import { UpperCaseStr } from "../Utils/funtions";
 
-export default function ModalPlanes({ typeProduct }) {
+export default function ModalNewProduct({ typeProduct }) {
   const dispatch = useDispatch();
 
   const [show, setShow] = useState();
@@ -25,7 +26,7 @@ export default function ModalPlanes({ typeProduct }) {
     <>
       <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
-          <Modal.Title>Agregar Producto</Modal.Title>
+          <Modal.Title>Agregar {UpperCaseStr(typeProduct)}</Modal.Title>
         </Modal.Header>
 
         {typeProduct === "experiencias" && (

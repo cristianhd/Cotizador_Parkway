@@ -13,6 +13,7 @@ import {
   ToggleButtonGroup,
 } from "react-bootstrap";
 import RoomForm from "./RoomForm";
+import FloatingInput from "../FloatingInput";
 
 export default function FormPlanes({ handleSave }) {
   const [currentChecked, setCurrentChecked] = useState([]);
@@ -105,76 +106,63 @@ export default function FormPlanes({ handleSave }) {
   return (
     <>
       <Modal.Body>
-        <Form noValidate validated={validated} onSubmit={handleOnSubmitForm}>
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleOnSubmitForm}
+          autoComplete="off"
+        >
           <Row className="m-1">
-            <Form.Group as={Col}>
-              <InputGroup className="p-3">
-                <InputGroup.Text>Titulo</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="title"
-                  type="input"
-                  placeholder=""
-                  value={form.title}
-                  onChange={handleOnChangeForm}
-                />
-              </InputGroup>
-            </Form.Group>
-            <Form.Group as={Col}>
-              <InputGroup className="p-3">
-                <InputGroup.Text>Origen</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="origin"
-                  type="input"
-                  placeholder=""
-                  value={form.origin}
-                  onChange={handleOnChangeForm}
-                />
-              </InputGroup>
-            </Form.Group>
-            <Form.Group as={Col}>
-              <InputGroup className="p-3">
-                <InputGroup.Text>Destino</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="destination"
-                  type="input"
-                  placeholder=""
-                  value={form.destination}
-                  onChange={handleOnChangeForm}
-                />
-              </InputGroup>
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="title"
+                labelName="Titulo"
+                value={form.title}
+                onChange={handleOnChangeForm}
+              />
             </Form.Group>
           </Row>
+
           <Row className="m-1">
-            <Form.Group as={Col}>
-              <InputGroup className="p-3">
-                <InputGroup.Text>Transporte</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="transport"
-                  type="input"
-                  placeholder=""
-                  value={form.transport}
-                  onChange={handleOnChangeForm}
-                />
-              </InputGroup>
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="origin"
+                labelName="Origen"
+                value={form.origin}
+                onChange={handleOnChangeForm}
+              />
             </Form.Group>
-            <Form.Group as={Col}>
-              <InputGroup className="p-3">
-                <InputGroup.Text>Proveedor</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="provider"
-                  type="input"
-                  placeholder=""
-                  value={form.provider}
-                  onChange={handleOnChangeForm}
-                />
-              </InputGroup>
+
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="destination"
+                labelName="Destino"
+                value={form.destination}
+                onChange={handleOnChangeForm}
+              />
             </Form.Group>
           </Row>
+
+          <Row className="m-1">
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="transport"
+                labelName="Transporte"
+                value={form.trasnport}
+                onChange={handleOnChangeForm}
+              />
+            </Form.Group>
+
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="provider"
+                labelName="Proveedor"
+                value={form.provider}
+                onChange={handleOnChangeForm}
+              />
+            </Form.Group>
+          </Row>
+
           <Row className="m-1">
             <RoomForm handleOnChangeRoom={handleOnChangeRoom} />
           </Row>

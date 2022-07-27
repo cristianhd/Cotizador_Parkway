@@ -3,7 +3,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
 import photos from "../assets/card/camara-fotografica.svg";
-import ModalPlanes from "./Planes/ModalPlanes";
+import ModalNewProduct from "./ModalNewProduct";
+
 
 export default function NewProduct({ typeProduct }) {
   return (
@@ -14,7 +15,7 @@ export default function NewProduct({ typeProduct }) {
         </div>
       </Card.Header>
       <Card.Body className="w-100">
-        <ModalPlanes typeProduct={typeProduct} />
+        <ModalNewProduct typeProduct={typeProduct} />
       </Card.Body>
     </Card>
   );

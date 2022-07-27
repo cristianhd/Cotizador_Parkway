@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Col, Form, InputGroup } from "react-bootstrap";
+import FloatingInput from "../FloatingInput";
+import { UpperCaseStr } from "../../Utils/funtions";
 
 export default function RoomForm({ handleOnChangeRoom }) {
   const [checkedItem, setCheckedItem] = useState({});
   const [currentChecked, setCurrentChecked] = useState([]);
   const [room, setRoom] = useState({});
-  const Regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/g;
+  const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple"];
 
   function handleOnChangeCheckbox(e) {
     const name = e.target.name;
@@ -23,7 +25,7 @@ export default function RoomForm({ handleOnChangeRoom }) {
     });
   }
 
-  function handleOnChangeControl(e) {
+  function handleOnChangeInput(e) {
     const name = e.target.name;
     const price = e.target.value.replace(/[.$]/g, "");
 
@@ -33,92 +35,34 @@ export default function RoomForm({ handleOnChangeRoom }) {
     });
     handleOnChangeRoom(room);
   }
+  console.log(currentChecked);
 
   return (
     <>
-      <Form.Label>ACOMODACIÓN</Form.Label>
-      <InputGroup hasValidation as={Col} className="p-3">
-        <Form.Check
-          name="sencilla"
-          type="checkbox"
-          label="Sencilla"
-          onChange={handleOnChangeCheckbox}
-          required
-        />
-        <InputGroup>
-          <InputGroup.Text>$ COP</InputGroup.Text>
-          <Form.Control
-            name="sencilla"
-            onChange={handleOnChangeControl}
-            disabled={!currentChecked.includes("sencilla")}
-            required
-          />
-        </InputGroup>
-      </InputGroup>
-      <InputGroup hasValidation as={Col} className="p-3">
-        <Form.Check
-          name="doble"
-          type="checkbox"
-          label="Doble"
-          onChange={handleOnChangeCheckbox}
-        />
-        <InputGroup>
-          <InputGroup.Text>$ COP</InputGroup.Text>
-          <Form.Control
-            name="doble"
-            onChange={handleOnChangeControl}
-            disabled={!currentChecked.includes("doble")}
-          />
-        </InputGroup>
-      </InputGroup>
-      <InputGroup hasValidation as={Col} className="p-3">
-        <Form.Check
-          name="triple"
-          type="checkbox"
-          label="Triple"
-          onChange={handleOnChangeCheckbox}
-        />
-        <InputGroup>
-          <InputGroup.Text>$ COP</InputGroup.Text>
-          <Form.Control
-            name="triple"
-            onChange={handleOnChangeControl}
-            disabled={!currentChecked.includes("triple")}
-          />
-        </InputGroup>
-      </InputGroup>
-      <InputGroup hasValidation as={Col} className="p-3">
-        <Form.Check
-          name="cuadruple"
-          type="checkbox"
-          label="Cuadruple"
-          onChange={handleOnChangeCheckbox}
-        />
-        <InputGroup>
-          <InputGroup.Text>$ COP</InputGroup.Text>
-          <Form.Control
-            name="cuadruple"
-            onChange={handleOnChangeControl}
-            disabled={!currentChecked.includes("cuadruple")}
-          />
-        </InputGroup>
-      </InputGroup>
-      <InputGroup hasValidation as={Col} className="p-3">
-        <Form.Check
-          name="quintuple"
-          type="checkbox"
-          label="Quintuple"
-          onChange={handleOnChangeCheckbox}
-        />
-        <InputGroup>
-          <InputGroup.Text>$ COP</InputGroup.Text>
-          <Form.Control
-            name="quintuple"
-            onChange={handleOnChangeControl}
-            disabled={!currentChecked.includes("quintuple")}
-          />
-        </InputGroup>
-      </InputGroup>
+      <Form.Label>Habitaciones</Form.Label>
+
+      {typeRooms.map((typeRoom, index) => {
+        console.log(currentChecked, typeRoom);
+        console.log(currentChecked.includes(typeRoom));
+        return (
+          <Form.Group className="" as={Col}>
+            <Form.Check
+              name={typeRoom}
+              type="checkbox"
+              label={UpperCaseStr(typeRoom)}
+              onChange={handleOnChangeCheckbox}
+            />
+            <FloatingInput
+              name={typeRoom}
+              labelName="COP"
+              type="number"
+              value={room.typeRoom}
+              onChange={handleOnChangeInput}
+              disabled={!currentChecked.includes(typeRoom)}
+            />
+          </Form.Group>
+        );
+      })}
     </>
   );
 }

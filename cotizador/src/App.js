@@ -15,7 +15,7 @@ function App() {
   const [data, setData] = useState([]);
   const { querySearch, typeProduct } = useSelector((state) => state);
   const query = querySearch.querySearch;
-  const currentTypeProduct = window.location.pathname.slice(1);
+  const currentTypeProduct = window.location.pathname === "/" ? "experiencias" : window.location.pathname.slice(1);
   console.log(currentTypeProduct)
 
   useEffect(() => {
