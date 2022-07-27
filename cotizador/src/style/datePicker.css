@@ -1,0 +1,8 @@
+.daterangepicker {
+    top: 520px !important ;
+    right: 170px !important;
+    
+}
+.daterangepicker:before, .daterangepicker:after {
+    position: relative !important ;
+}
