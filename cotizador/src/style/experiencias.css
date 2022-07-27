@@ -1,6 +1,6 @@
 .card-product {
   width: 90%;
-  color: #BFE2E2;
+  color: white;
   border-radius: 10px;
   box-shadow: var(--shadow-elevation-high);
 }

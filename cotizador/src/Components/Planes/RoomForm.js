@@ -27,7 +27,7 @@ export default function RoomForm({ handleOnChangeRoom }) {
 
   function handleOnChangeInput(e) {
     const name = e.target.name;
-    const price = e.target.value.replace(/[.$]/g, "");
+    const price = e.target.value;
 
     setRoom({
       ...room,
@@ -42,8 +42,6 @@ export default function RoomForm({ handleOnChangeRoom }) {
       <Form.Label>Habitaciones</Form.Label>
 
       {typeRooms.map((typeRoom, index) => {
-        console.log(currentChecked, typeRoom);
-        console.log(currentChecked.includes(typeRoom));
         return (
           <Col>
             <Form.Check
@@ -55,6 +53,7 @@ export default function RoomForm({ handleOnChangeRoom }) {
             <InputGroup>
               <InputGroup.Text>$</InputGroup.Text>
               <Form.Control
+                required
                 name={typeRoom}
                 type="number"
                 value={room.typeRoom}

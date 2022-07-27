@@ -94,7 +94,7 @@ export default function FormPlanes({ handleSave }) {
 
   function handleOnChangeRoom(rooms) {
     var room = Object.keys(rooms).map(function (type) {
-      return { type: type, Price: rooms[type] };
+      return { type: type, price: rooms[type] };
     });
 
     setForm({
