@@ -6,6 +6,7 @@ import {
   ButtonGroup,
   Col,
   FloatingLabel,
+  FormGroup,
   InputGroup,
   Modal,
   Row,
@@ -148,7 +149,7 @@ export default function FormPlanes({ handleSave }) {
               <FloatingInput
                 name="transport"
                 labelName="Transporte"
-                value={form.trasnport}
+                value={form.transport}
                 onChange={handleOnChangeForm}
               />
             </Form.Group>
@@ -231,7 +232,6 @@ export default function FormPlanes({ handleSave }) {
               </FloatingLabel>
             </Form.Group>
             <Col className="p-3">
-              <Form.Label>FOTOS</Form.Label>
               <Form.Group className="p-1 m-1">
                 <Form.Control
                   type="file"

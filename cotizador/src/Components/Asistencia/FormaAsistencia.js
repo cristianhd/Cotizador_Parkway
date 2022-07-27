@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FloatingInput from "../FloatingInput";
 import {
   Button,
   Col,
@@ -39,71 +40,53 @@ export default function FormaAsistencia({ handleSave }) {
       <Modal.Body>
         <Form noValidate validated={validated} onSubmit={handleOnSubmitForm}>
           <Row className="m-1">
-            <Form.Group as={Col}>
-              <InputGroup className="p-3">
-                <InputGroup.Text>Titulo</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="origin"
-                  type="input"
-                  placeholder=""
-                  value={form.title}
-                  onChange={handleOnChangeForm}
-                />
-              </InputGroup>
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="title"
+                labelName="Titulo"
+                value={form.title}
+                onChange={handleOnChangeForm}
+              />
             </Form.Group>
-            <Form.Group as={Col}>
-              <InputGroup className="p-3">
-                <InputGroup.Text>Destino</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="destination"
-                  type="input"
-                  placeholder=""
-                  value={form.destination}
-                  onChange={handleOnChangeForm}
-                />
-              </InputGroup>
+
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="destination"
+                labelName="Destino"
+                value={form.destination}
+                onChange={handleOnChangeForm}
+              />
+            </Form.Group>
+          </Row>
+
+          <Row className="m-1">
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="provider"
+                labelName="Proveedor"
+                value={form.provider}
+                onChange={handleOnChangeForm}
+              />
+            </Form.Group>
+
+            <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="price"
+                labelName="Precio"
+                type="number"
+                value={form.price}
+                onChange={handleOnChangeForm}
+              />
             </Form.Group>
           </Row>
           <Row className="m-1">
-            <Form.Group as={Col} className="p-3">
-              <InputGroup>
-                <InputGroup.Text>Proveedor</InputGroup.Text>
-                <Form.Control
-                  name="provider"
-                  type="input"
-                  placeholder=""
-                  value={form.provider}
-                  onChange={handleOnChangeForm}
-                  required
-                />
-              </InputGroup>
-            </Form.Group>
-            <Form.Group as={Col} className="p-3">
-              <InputGroup>
-                <InputGroup.Text>$ COP</InputGroup.Text>
-                <Form.Control
-                  name="price"
-                  value={form.price}
-                  onChange={handleOnChangeForm}
-                  required
-                />
-              </InputGroup>
-            </Form.Group>
-          </Row>
-          <Row className="m-1">
-            <Form.Group as={Col} className="p-3">
-              <FloatingLabel required label="Descripcion" className="m-1">
-                <Form.Control
-                  required
-                  as="textarea"
-                  placeholder="Escribe una descripción"
-                  name="description"
-                  value={form.description}
-                  onChange={handleOnChangeForm}
-                />
-              </FloatingLabel>
+          <Form.Group className="" as={Col}>
+              <FloatingInput
+                name="description"
+                labelName="Descripción"
+                value={form.description}
+                onChange={handleOnChangeForm}
+              />
             </Form.Group>
           </Row>
 

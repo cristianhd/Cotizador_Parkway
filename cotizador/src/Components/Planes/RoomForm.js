@@ -45,22 +45,25 @@ export default function RoomForm({ handleOnChangeRoom }) {
         console.log(currentChecked, typeRoom);
         console.log(currentChecked.includes(typeRoom));
         return (
-          <Form.Group className="" as={Col}>
+          <Col>
             <Form.Check
               name={typeRoom}
               type="checkbox"
               label={UpperCaseStr(typeRoom)}
               onChange={handleOnChangeCheckbox}
             />
-            <FloatingInput
-              name={typeRoom}
-              labelName="COP"
-              type="number"
-              value={room.typeRoom}
-              onChange={handleOnChangeInput}
-              disabled={!currentChecked.includes(typeRoom)}
-            />
-          </Form.Group>
+            <InputGroup>
+              <InputGroup.Text>$</InputGroup.Text>
+              <Form.Control
+                name={typeRoom}
+                type="number"
+                value={room.typeRoom}
+                onChange={handleOnChangeInput}
+                disabled={!currentChecked.includes(typeRoom)}
+                className="shadow-none"
+              />
+            </InputGroup>
+          </Col>
         );
       })}
     </>
