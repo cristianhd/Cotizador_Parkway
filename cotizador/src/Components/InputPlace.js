@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
+import { UpperCaseStr } from "../Utils/funtions";
 import "../style/inputPlace.css";
 import {
   Button,
@@ -69,7 +70,7 @@ export default function InputPlace({
             name={name}
             type="text"
             placeholder={`Ingrese el ${labelName}`}
-            value={value}
+            value={UpperCaseStr(value)}
             onChange={onChange}
             autoComplete="off"
           />

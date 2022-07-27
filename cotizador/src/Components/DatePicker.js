@@ -12,10 +12,7 @@ export default function DatePicker({ handleOnChange, value }) {
   var tomorrow = moment(today).add(1, "days");
 
   return (
-    <div
-      className="date-picker p-1 d-flex flex-row align-items-center rounded"
-      style={{ backgroundColor: "white" }}
-    >
+    <div className="date-picker p-1 d-flex flex-row align-items-center rounded">
       <div className="px-2 py-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,15 @@
 import React from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
+import { UpperCaseStr } from "../Utils/funtions";
 
-export default function FloatingInput({name, labelName, value, onChange, disabled, type}) {
+export default function FloatingInput({
+  name,
+  labelName,
+  value,
+  onChange,
+  disabled,
+  type,
+}) {
   return (
     <>
       <FloatingLabel
@@ -16,7 +24,7 @@ export default function FloatingInput({name, labelName, value, onChange, disable
           type={type}
           step="1"
           placeholder={`Ingrese el ${labelName}`}
-          value={value}
+          value={UpperCaseStr(value)}
           onChange={onChange}
           autoComplete="off"
           disabled={disabled}
