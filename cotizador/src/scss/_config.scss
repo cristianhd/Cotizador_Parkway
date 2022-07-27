@@ -1,14 +1,13 @@
-// _config.scss
+
 $body-color: #04101c;
 $body-bg: #fff;
-$primary: #054ad4;
-$secondary: #d0e3e0;
+$primary: #0473A9;
+$secondary: #04BC5C;
 
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
+  "primary":    $primary,
+  "secondary":  $secondary,
 );
-
 
 .input-place,
 .date-picker,
@@ -22,6 +21,7 @@ $theme-colors: (
 .App {
   min-width: 400px;
   color: #04101c;
+  
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -33,4 +33,5 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-$theme-colors: map-merge($theme-colors, $custom-colors);
+@import "../../node_modules/bootstrap/scss/bootstrap";
+

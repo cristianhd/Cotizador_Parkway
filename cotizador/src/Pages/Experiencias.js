@@ -85,7 +85,7 @@ export default function Experiencias() {
 
   return (
     <div className="d-flex flex-column align-items-center">
-      <div className="card-product p-3">
+      <div className="card-product bg-secondary p-3">
         <h2>{title}</h2>
         <Form
           noValidate
