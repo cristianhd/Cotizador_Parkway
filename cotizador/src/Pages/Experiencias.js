@@ -23,7 +23,7 @@ export default function Experiencias() {
     destination: "",
     date: "",
     rooms: "",
-    pax: "",
+    pax: ""
   });
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
