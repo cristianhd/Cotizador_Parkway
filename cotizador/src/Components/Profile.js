@@ -15,7 +15,7 @@ export default function Profile() {
     useAuth0();
 
   useEffect(() => {
-    const callApiProtected = async () => {
+    const callApi = async () => {
       try {
         const token = await getAccessTokenSilently();
         const sub = user.sub;
@@ -41,8 +41,8 @@ export default function Profile() {
         console.error(error.message);
       }
     };
-    callApiProtected();
-  }, [getAccessTokenSilently, user]);
+    if(isAuthenticated) callApi();
+  }, [getAccessTokenSilently, user, isAuthenticated]);
   console.log(existUser);
   console.log(infoUser);
   console.log("load", isLoading, "Auth", isAuthenticated, "info", infoUser);

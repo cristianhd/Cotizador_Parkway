@@ -6,7 +6,7 @@ import NewProduct from "./NewProduct";
 
 export default function Cards({ data, typeProduct }) {
   useEffect(() => {
-    window.scroll({ top: 750, behavior: "smooth" });
+    if(data && data.length > 0) window.scroll({ top: 750, behavior: "smooth" });
   },[data]);
   return (
     <div className="cards-flex m-auto gap-5">
