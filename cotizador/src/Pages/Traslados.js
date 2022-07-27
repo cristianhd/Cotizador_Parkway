@@ -23,7 +23,7 @@ export default function Traslados() {
 
   useEffect(() => {
     window.scroll({
-      top: 600,
+      top: 625,
       behavior: "smooth",
     });
   }, []);

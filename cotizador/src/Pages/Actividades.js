@@ -21,7 +21,7 @@ export default function Actividades() {
 
   useEffect(() => {
     window.scroll({
-      top: 600,
+      top: 625,
       behavior: "smooth",
     });
   }, []);
