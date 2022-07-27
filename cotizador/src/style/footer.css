@@ -28,6 +28,10 @@ footer {
   justify-content: space-between;
 }
 
+.foot {
+  background: linear-gradient(270deg, #BFE2E2 0%, var(--bs-primary) 100%);
+}
+
 .f-top,
 .group-links {
   padding: 5px;
