@@ -43,10 +43,11 @@ export default function DatePicker({ handleOnChange, value }) {
             required
             name="date"
             value={value}
-            onChange={handleOnChange}
             type="text"
             placeholder="Ingrese las Fechas"
             className="text-center border-0 shadow-none"
+            onChange={handleOnChange}
+            inputMode="none"
           ></Form.Control>
         </DateRangePicker>
       </FloatingLabel>
