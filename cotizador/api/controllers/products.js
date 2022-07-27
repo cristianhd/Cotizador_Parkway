@@ -56,22 +56,23 @@ function findAsistencias(req, res, next) {
 async function addExperiencias(req, res, next) {
   const { experiencias } = req.body;
   const places = await Places.find();
-  console.log(experiencias);
-  console.log(places)
+
 
   if (experiencias === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
       experiencias.forEach(async (experiencia, index) => {
-        const { origin, destination } = experiencia;
-
+        const { origin, destination,room } = experiencia;
+console.log(room[0].price.replace("$","").replace(".",""))
         if (!places.some((place) => place.name === origin)) {
           places.push({ name: origin });
         }
         if (!places.some((place) => place.name === destination)) {
           places.push({ name: destination });
         }
+
+        room.map((room,index)=>room.price.replace("$","").replace(".",""))
       });
 
       Experiencias.create(experiencias).then((result) => {
