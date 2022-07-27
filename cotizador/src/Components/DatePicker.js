@@ -7,7 +7,7 @@ import DateRangePicker from "react-bootstrap-daterangepicker";
 import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 import moment from "moment";
 
-export default function DatePicker({ handleOnChange,value}) {
+export default function DatePicker({ handleOnChange, value }) {
   var today = moment();
   var tomorrow = moment(today).add(1, "days");
 
@@ -30,7 +30,7 @@ export default function DatePicker({ handleOnChange,value}) {
       </div>
       <FloatingLabel className="p-0 w-100  " label="Fechas">
         <DateRangePicker
-        onApply={handleOnChange}
+          onApply={handleOnChange}
           initialSettings={{
             startDate: today,
             endDate: tomorrow,
@@ -43,10 +43,10 @@ export default function DatePicker({ handleOnChange,value}) {
             required
             name="date"
             value={value}
+            onChange={handleOnChange}
             type="text"
-            placeholder="das"
+            placeholder="Ingrese las Fechas"
             className="text-center border-0 shadow-none"
-          
           ></Form.Control>
         </DateRangePicker>
       </FloatingLabel>

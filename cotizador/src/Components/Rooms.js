@@ -6,7 +6,8 @@ import bed from "../assets/card_product/bed.svg";
 import "../style/room.css";
 import { FloatingLabel } from "react-bootstrap";
 
-export default function Rooms({ value, handleOnchange }) {
+export default function Rooms({ value, handleOnChange }) {
+  
   return (
     <FloatingLabel className="rooms w-100 m-0 p-1 rounded" label="Hab">
       <Form.Control
@@ -14,11 +15,10 @@ export default function Rooms({ value, handleOnchange }) {
         className="text-center border-0 shadow-none"
         type="number"
         name="rooms"
-        min="1"
-        max="5"
         value={value}
-        onChange={handleOnchange}
+        onChange={handleOnChange}
         placeholder="Ingrese la cantidad de habitaciones"
+        autoComplete="off"
       ></Form.Control>
     </FloatingLabel>
   );
