@@ -47,7 +47,7 @@ export default function Footer() {
           </Col>
         </Row>
       </div>
-      <div className="foot">
+      <div className="foot p-3">
         <div className="wrap">
           <div className="f-top">
             <div className="info">

@@ -11,6 +11,7 @@ export function rootReducer(state = intialState, action) {
         ...state,
         querySearch: action.payload,
         typeProduct: action.payload,
+        queryPlaces:[]
       };
     case "GET_SEARCH_PLACES":
       return {

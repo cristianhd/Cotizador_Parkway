@@ -26,7 +26,7 @@ export default function InputPlace({
   const { queryPlaces } = useSelector((state) => state);
   const suggestPlaces = queryPlaces.queryPlaces;
   const screenWidth = window.screen.width
-  console.log(screenWidth)
+  
 
 
   useEffect(() => {
