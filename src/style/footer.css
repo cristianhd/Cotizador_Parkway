@@ -29,7 +29,7 @@ footer {
 }
 
 .foot {
-  background: linear-gradient(270deg, #BFE2E2 0%, var(--bs-primary) 100%);
+  background: #E5E5E5;
 }
 
 .f-top,
