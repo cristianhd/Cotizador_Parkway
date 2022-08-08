@@ -99,7 +99,7 @@ export default function CardComponent({ data }) {
                 </div>
               ))}
 
-            {data.price && <div> Precio: {pesosFormat.format(data.price)}</div>}
+            {data.price && <div> Precio: {data.price}</div>}
           </div>
         </Modal.Body>
       </Modal>

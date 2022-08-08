@@ -64,7 +64,7 @@ async function addExperiencias(req, res, next) {
     try {
       experiencias.forEach(async (experiencia, index) => {
         const { origin, destination,room } = experiencia;
-console.log(room[0].price.replace("$","").replace(".",""))
+
         if (!places.some((place) => place.name === origin)) {
           places.push({ name: origin });
         }
@@ -102,6 +102,7 @@ async function addTraslados(req, res, next) {
         if (!places.some((place) => place.name === destination)) {
           places.push({ name: destination });
         }
+        traslado.price.replace("$","").replace(".","")
       });
 
       Traslados.create(traslados).then((result) => {
