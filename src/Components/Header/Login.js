@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
-import loginIcon from "../assets/header/login.svg";
-import logoutIcon from "../assets/header/logout.svg";
-import "../style/login.css";
-import CategoryUser from "./Loading";
+import loginIcon from "../../assets/header/login.svg";
+import logoutIcon from "../../assets/header/logout.svg";
 import { Button } from "react-bootstrap";
-import Loading from "./Loading";
+import "../../style/login.css";
 
 export default function Login() {
-  const {
-    loginWithRedirect,
-    logout,
-    isLoading,
-
-    isAuthenticated,
-  } = useAuth0();
-
-
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   return (
     <div className="w-100 d-flex justify-content-end">

@@ -1,19 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer";
-import Header from "./Components/Header.js";
+import Header from "./Components/Header/Header.js";
 import Nav from "./Components/Nav/Nav.js";
 import Actividades from "./Pages/Actividades";
 import Asistencias from "./Pages/Asistencias";
 import Experiencias from "./Pages/Experiencias";
 import Traslados from "./Pages/Traslados";
-import "./App.css";
 import Cards from "./Components/Cards";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
-  const { querySearch, typeProduct } = useSelector((state) => state);
+  const { querySearch} = useSelector((state) => state);
   const query = querySearch.querySearch;
   const currentTypeProduct = window.location.pathname === "/" ? "experiencias" : window.location.pathname.slice(1);
   console.log(currentTypeProduct)

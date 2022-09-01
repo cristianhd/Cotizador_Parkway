@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/header/Logo.png";
-import downButtom from "../assets/header/chevron-circle-down.svg";
+import logo from "../../assets/header/Logo.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import ModalCategoryUser from "./ModalCategoryUser";
+import ModalNewUser from "./ModalNewUser";
 import Loading from "./Loading";
-import { Modal } from "react-bootstrap";
 
 export default function Profile() {
   const [existUser, setExistUser] = useState(true);
@@ -41,7 +39,7 @@ export default function Profile() {
         console.error(error.message);
       }
     };
-    if(isAuthenticated) callApi();
+    if (isAuthenticated) callApi();
   }, [getAccessTokenSilently, user, isAuthenticated]);
   console.log(existUser);
   console.log(infoUser);
@@ -49,7 +47,7 @@ export default function Profile() {
 
   return (
     <>
-      {!existUser && <ModalCategoryUser />}
+      {!existUser && <ModalNewUser />}
       {isAuthenticated && !infoUser && <Loading></Loading>}
 
       <div className="profile w-100">

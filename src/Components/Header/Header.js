@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
-import logo from "../assets/header/Logo.png";
-import iconButtom from "../assets/header/chevron-circle-down.svg";
-import "../style/header.css";
+import React, { useState } from "react";
+import iconButtom from "../../assets/header/chevron-circle-down.svg";
+import "../../style/header.css";
 import Login from "./Login";
-import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
-import Loading from "./Loading";
 import Profile from "./Profile";
-import Logo from "./Logo";
 
 export default function Header() {
   const [stateButtom, setStateButtom] = useState(false); // true: up false: down
@@ -29,6 +24,7 @@ export default function Header() {
 
   return (
     <header>
+      
       <div className="cont-back">
         <Login />
       </div>
@@ -36,9 +32,7 @@ export default function Header() {
       <Profile />
 
       <div className="w-100 mt-5">
-        <div
-          className={stateButtom ? "up-buttom " : "down-buttom"}
-        >
+        <div className={stateButtom ? "up-buttom " : "down-buttom"}>
           <img
             src={iconButtom}
             alt="icon-buttom"

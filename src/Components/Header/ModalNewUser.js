@@ -4,9 +4,9 @@ import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/esm/Form";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
-import { createUser } from "../Redux/action";
+import { createUser } from "../../Redux/action";
 
-export default function ModalCategoryUser() {
+export default function ModalNewUser() {
   const [show, setShow] = useState(true);
   const [categoryUser, setCategoryUser] = useState(null);
   const { user, getAccessTokenSilently } = useAuth0();
