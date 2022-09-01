@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import selected from "../../assets/nav/selected.svg";
+import React, { useEffect, useRef } from "react";
 import { MenuItems } from "./MenuItems.js";
-import "../../style/nav.css";
 import { NavLink } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import "../../style/nav.css";
 
 export default function Nav() {
   const RefButton = useRef(null);
