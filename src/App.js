@@ -6,7 +6,7 @@ import Actividades from "./Components/SearchForm/Actividades";
 import Asistencias from "./Components/SearchForm/Asistencias";
 import Experiencias from "./Components/SearchForm/Experiencias";
 import Traslados from "./Components/SearchForm/Traslados";
-import Cards from "./Components/Cards";
+import Cards from "./Components/Cards/Cards";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./App.css";

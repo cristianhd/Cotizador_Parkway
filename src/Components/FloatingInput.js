@@ -1,6 +1,6 @@
 import React from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import { UpperCaseStr } from "../Utils/funtions";
+import { UpperCaseStr } from "../Utils/UpperCaseStr";
 
 export default function FloatingInput({
   name,

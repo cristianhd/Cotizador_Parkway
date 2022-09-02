@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import photos from "../assets/card/camara-fotografica.svg";
+import photos from "../../assets/card/camara-fotografica.svg";
 import { Modal } from "react-bootstrap";
 import CardBody from "./CardBody";
-import "../style/card.css";
-import { UpperCaseStr } from "../Utils/funtions";
+import "../../style/card.css";
+import { UpperCaseStr } from "../../Utils/UpperCaseStr";
 
 export default function CardComponent({ data }) {
   const [show, setShow] = useState();

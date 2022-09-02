@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import location from "../assets/card_product/location.svg";
 import Form from "react-bootstrap/Form";
-import { UpperCaseStr } from "../Utils/funtions";
+import { UpperCaseStr } from "../Utils/UpperCaseStr";
 import "../style/inputPlace.css";
 import {
   Button,

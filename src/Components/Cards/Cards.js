@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { Col, Container, Row } from "react-bootstrap";
 import CardComponent from "./Card";
-import "../style/cards.css";
-import NewProduct from "./NewProduct";
+import NewProduct from "../NewProduct";
+import "../../style/cards.css";
 
 export default function Cards({ data, typeProduct }) {
   useEffect(() => {
