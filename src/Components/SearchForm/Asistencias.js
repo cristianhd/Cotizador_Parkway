@@ -1,40 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import DatePicker from "../Components/DatePicker";
-import InputPlace from "../Components/InputPlace";
-import Rooms from "../Components/Rooms";
-import Pax from "../Components/Pax";
-import lupa from "../assets/card_product/lupa.svg";
-import { getSearch, getSearchPlaces } from "../Redux/action";
+import InputPlace from "../InputPlace";
+import Pax from "../Pax";
+import lupa from "../../assets/card_product/lupa.svg";
+import { getSearch, getSearchPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
-import "../style/experiencias.css";
+import "../../style/experiencias.css";
 
-export default function Experiencias() {
-  const typeProduct = "experiencias";
+export default function Asistencias() {
+  const typeProduct = "asistencias";
   const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
-  const CurrentpathName = window.location.pathname.slice(1);
   const dispatch = useDispatch();
 
-  const [form, setForm] = useState({
-    origin: "",
-    destination: "",
-    date: "",
-    rooms: "",
-    pax: ""
-  });
-  const [showOrigin, setShowOrigin] = useState(false);
+  const [form, setForm] = useState({});
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
   useEffect(() => {
     window.scroll({
-      top: CurrentpathName === "" ? 0 : 625,
+      top: 625,
       behavior: "smooth",
     });
-  }, [CurrentpathName]);
+  }, []);
 
   const handleOnSubmit = (e) => {
     const formEvent = e.currentTarget;
@@ -46,7 +36,6 @@ export default function Experiencias() {
       dispatch(getSearch(form.origin, form.destination, typeProduct));
       setValidated(false);
     }
-    setForm({ origin: "", destination: "", date: "", rooms: "", pax: "" });
   };
 
   const handleSuggestOnclick = (name, value) => {
@@ -54,20 +43,15 @@ export default function Experiencias() {
       ...form,
       [name]: value,
     });
-    setShowOrigin(false);
+
     setShowDestination(false);
   };
 
   const handleOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
-    if (name === "origin" && value !== "") {
-      setShowOrigin(true);
-    } else {
-      setShowOrigin(false);
-    }
-    if (name === "destination" && value !== "") {
+
+    if (value !== "") {
       setShowDestination(true);
     } else {
       setShowDestination(false);
@@ -80,8 +64,6 @@ export default function Experiencias() {
       [name]: value,
     });
   };
-
-  console.log("formSearch", form);
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -97,16 +79,8 @@ export default function Experiencias() {
             <Form.Group
               className="gap-1 p-1 d-flex flex-row justify-content-between"
               as={Col}
-              md={6}
+              md={8}
             >
-              <InputPlace
-                name="origin"
-                labelName="Origen"
-                value={form.origin}
-                onChange={handleOnChange}
-                suggestOnclick={handleSuggestOnclick}
-                show={showOrigin}
-              />
               <InputPlace
                 name="destination"
                 labelName="Destino"
@@ -117,16 +91,11 @@ export default function Experiencias() {
               />
             </Form.Group>
 
-            <Form.Group as={Col} md={3} className="p-1">
-              <DatePicker handleOnChange={handleOnChange} value={form.date} />
-            </Form.Group>
-
             <Form.Group
               as={Col}
-              md={2}
+              md={3}
               className="gap-1 p-1 d-flex flex-row justify-content-between"
             >
-              <Rooms handleOnChange={handleOnChange} value={form.rooms} />
               <Pax handleOnChange={handleOnChange} value={form.pax} />
             </Form.Group>
             <Form.Group as={Col} md={1} className="p-1 ">
