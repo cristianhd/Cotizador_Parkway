@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import Form from "react-bootstrap/Form";
-import "../style/datePicker.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
 import DateRangePicker from "react-bootstrap-daterangepicker";
 import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 import moment from "moment";
+import "../../style/datePicker.css";
 
 export default function DatePicker({ handleOnChange, value }) {
   var today = moment();

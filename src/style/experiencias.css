@@ -2,5 +2,6 @@
   width: 90%;
   color: white;
   border-radius: 10px;
+  background-color: #2da160;
   box-shadow: var(--shadow-elevation-high);
 }

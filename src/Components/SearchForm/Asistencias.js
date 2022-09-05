@@ -3,8 +3,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import InputPlace from "../InputPlace";
-import Pax from "../Pax";
+import InputPlace from "./InputPlace";
+import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
 import { getSearch, getSearchPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
@@ -67,7 +67,7 @@ export default function Asistencias() {
 
   return (
     <div className="d-flex flex-column align-items-center">
-      <div className="card-product bg-secondary p-3">
+      <div className="card-product p-3">
         <h2>{title}</h2>
         <Form
           noValidate
