@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FloatingInput from "../FloatingInput";
+import FloatingInput from "./FloatingInput";
 import {
   Button,
   Col,
@@ -10,7 +10,7 @@ import {
   Row,
 } from "react-bootstrap";
 
-export default function FormaAsistencia({ handleSave }) {
+export default function FormActividades({ handleSave }) {
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({});
 
@@ -80,7 +80,7 @@ export default function FormaAsistencia({ handleSave }) {
             </Form.Group>
           </Row>
           <Row className="m-1">
-          <Form.Group className="" as={Col}>
+            <Form.Group className="" as={Col}>
               <FloatingInput
                 name="description"
                 labelName="Descripción"

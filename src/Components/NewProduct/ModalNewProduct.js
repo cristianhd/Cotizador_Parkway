@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 import { Button, Modal } from "react-bootstrap";
-import FormPlanes from "./Planes/FormPlanes";
-import { useDispatch, useSelector } from "react-redux";
-import FormTraslados from "./Traslados/FormTraslados";
-import FormActividades from "./Actividades/FormActividades";
-import FormaAsistencia from "./Asistencia/FormaAsistencia";
-import { createProduct } from "../Redux/action";
-import { UpperCaseStr } from "../Utils/UpperCaseStr";
+import FormPlanes from "./FormPlanes";
+import { useDispatch } from "react-redux";
+import FormTraslados from "./FormTraslados";
+import FormActividades from "./FormActividades";
+import FormAsistencia from "./FormAsistencias";
+import { createProduct } from "../../Redux/action";
+import { UpperCaseStr } from "../../Utils/UpperCaseStr";
 
 export default function ModalNewProduct({ typeProduct }) {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function ModalNewProduct({ typeProduct }) {
     setShow(false);
     alert("Producto Creado");
   };
-  console.log(typeProduct)
+  console.log(typeProduct);
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function ModalNewProduct({ typeProduct }) {
           <FormActividades handleSave={handleSave} />
         )}
         {typeProduct === "asistencias" && (
-          <FormaAsistencia handleSave={handleSave} />
+          <FormAsistencia handleSave={handleSave} />
         )}
       </Modal>
       <div className="w-50 m-auto">

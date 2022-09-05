@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CardComponent from "./Card";
-import NewProduct from "../NewProduct";
+import NewProduct from "../NewProduct/NewProduct";
 import "../../style/cards.css";
 
 export default function Cards({ data, typeProduct }) {

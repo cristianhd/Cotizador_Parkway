@@ -3,7 +3,7 @@ import { Col, Form, InputGroup } from "react-bootstrap";
 
 import { UpperCaseStr } from "../../Utils/UpperCaseStr";
 
-export default function RoomForm({ handleOnChangeRoom }) {
+export default function FormRooms({ handleOnChangeRoom }) {
   const [checkedItem, setCheckedItem] = useState({});
   const [currentChecked, setCurrentChecked] = useState([]);
   const [room, setRoom] = useState({});

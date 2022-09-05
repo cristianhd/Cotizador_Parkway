@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FloatingInput from "../FloatingInput";
+import FloatingInput from "./FloatingInput";
 import {
   Button,
   Col,
@@ -10,7 +10,7 @@ import {
   Row,
 } from "react-bootstrap";
 
-export default function FormActividades({ handleSave }) {
+export default function FormTraslados({ handleSave }) {
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({});
 
@@ -34,17 +34,17 @@ export default function FormActividades({ handleSave }) {
     setValidated(true);
   }
 
-  console.log(form);
+  console.log(form)
   return (
     <>
-      <Modal.Body>
+     <Modal.Body>
         <Form noValidate validated={validated} onSubmit={handleOnSubmitForm}>
           <Row className="m-1">
             <Form.Group className="" as={Col}>
               <FloatingInput
-                name="title"
-                labelName="Titulo"
-                value={form.title}
+                name="origin"
+                labelName="Origen"
+                value={form.origin}
                 onChange={handleOnChangeForm}
               />
             </Form.Group>
@@ -80,7 +80,7 @@ export default function FormActividades({ handleSave }) {
             </Form.Group>
           </Row>
           <Row className="m-1">
-            <Form.Group className="" as={Col}>
+          <Form.Group className="" as={Col}>
               <FloatingInput
                 name="description"
                 labelName="Descripción"

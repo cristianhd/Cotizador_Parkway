@@ -13,8 +13,8 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "react-bootstrap";
-import RoomForm from "./RoomForm";
-import FloatingInput from "../FloatingInput";
+import FormRooms from "./FormRooms";
+import FloatingInput from "./FloatingInput";
 
 export default function FormPlanes({ handleSave }) {
   const [currentChecked, setCurrentChecked] = useState([]);
@@ -165,7 +165,7 @@ export default function FormPlanes({ handleSave }) {
           </Row>
 
           <Row className="m-1">
-            <RoomForm handleOnChangeRoom={handleOnChangeRoom} />
+            <FormRooms handleOnChangeRoom={handleOnChangeRoom} />
           </Row>
           <Row className="m-1">
             <Col className="p-3">
