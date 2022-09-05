@@ -5,7 +5,7 @@ import photos from "../../assets/card/camara-fotografica.svg";
 import { Modal } from "react-bootstrap";
 import CardBody from "./CardBody";
 import "../../style/card.css";
-import { UpperCaseStr } from "../../Utils/UpperCaseStr";
+import { UpperCaseStr } from "../../utils/UpperCaseStr";
 
 export default function CardComponent({ data }) {
   const [show, setShow] = useState();

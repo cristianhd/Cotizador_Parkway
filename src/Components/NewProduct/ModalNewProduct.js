@@ -7,7 +7,7 @@ import FormTraslados from "./FormTraslados";
 import FormActividades from "./FormActividades";
 import FormAsistencia from "./FormAsistencias";
 import { createProduct } from "../../Redux/action";
-import { UpperCaseStr } from "../../Utils/UpperCaseStr";
+import { UpperCaseStr } from "../../utils/UpperCaseStr";
 
 export default function ModalNewProduct({ typeProduct }) {
   const dispatch = useDispatch();

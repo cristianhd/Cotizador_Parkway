@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { UpperCaseStr } from "../../Utils/UpperCaseStr";
+import { UpperCaseStr } from "../../utils/UpperCaseStr";
 
 export default function CardBody({ title, description, origin, destination }) {
   const UpperTitle = UpperCaseStr(title);

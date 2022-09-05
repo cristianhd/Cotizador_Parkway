@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Form, InputGroup } from "react-bootstrap";
 
-import { UpperCaseStr } from "../../Utils/UpperCaseStr";
+import { UpperCaseStr } from "../../utils/UpperCaseStr";
 
 export default function FormRooms({ handleOnChangeRoom }) {
   const [checkedItem, setCheckedItem] = useState({});
