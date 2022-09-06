@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { UpperCaseStr } from "../../Utils/UpperCaseStr";
+import { UpperCaseStr } from "../../utils/UpperCaseStr";
 import "../../style/inputPlace.css";
 import {
   Button,

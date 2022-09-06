@@ -1,15 +1,15 @@
 import React from "react";
-import acotur from "../assets/footer/acotur.png";
-import checkIn from "../assets/footer/check-in.png";
-import clubProducto from "../assets/footer/clubdeproducto.png";
-import proColombia from "../assets/footer/procolombia.png";
-import safeTravels from "../assets/footer/safe-travels.png";
-import instagram from "../assets/footer/Instagram.svg";
-import whatsapp from "../assets/footer/Whatsapp.svg";
-import facebook from "../assets/footer/Facebook.svg";
-import youtube from "../assets/footer/YouTube.svg";
-import logoFoot from "../assets/footer/logo-foot.png";
-import "../style/footer.css";
+import acotur from "../../assets/footer/acotur.png";
+import checkIn from "../../assets/footer/check-in.png";
+import clubProducto from "../../assets/footer/clubdeproducto.png";
+import proColombia from "../../assets/footer/procolombia.png";
+import safeTravels from "../../assets/footer/safe-travels.png";
+import instagram from "../../assets/footer/Instagram.svg";
+import whatsapp from "../../assets/footer/Whatsapp.svg";
+import facebook from "../../assets/footer/Facebook.svg";
+import youtube from "../../assets/footer/YouTube.svg";
+import logoFoot from "../../assets/footer/logo-foot.png";
+import "../../style/footer.css";
 import { Col, Row } from "react-bootstrap";
 
 export default function Footer() {

@@ -33,6 +33,8 @@
   width: 75%;
 }
 
+/* Breackpoints media queries */
+
 @media (max-width: 500px) {
   .nav-bar {
     width: 100%;

@@ -1,7 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/esm/Form";
 import { FloatingLabel } from "react-bootstrap";
-import "../../style/room.css";
 
 export default function Rooms({ value, handleOnChange }) {
   
