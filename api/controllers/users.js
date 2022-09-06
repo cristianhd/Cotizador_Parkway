@@ -17,7 +17,6 @@ function addUser(req, res, next) {
 
   try {
     User.create(user).then((user) => {
-      console.log(user);
       res.json(user);
     });
   } catch (error) {
@@ -34,7 +33,7 @@ function existUser(req, res, next) {
 
       if (doc) {
         User.findById(doc).then((user) => {
-          res.status(200).json(user);
+          res.json(user);
         });
       } else {
         res.status(200).send(exist);

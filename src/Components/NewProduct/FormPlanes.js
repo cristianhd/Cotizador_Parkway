@@ -59,7 +59,7 @@ export default function FormPlanes({ handleSave }) {
   function handleOnChangeForm(e) {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
+
     setForm({
       ...form,
       [name]: value,
@@ -69,7 +69,6 @@ export default function FormPlanes({ handleSave }) {
   function handleonChange(e) {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name);
     const checked = e.target.checked;
 
     if (currentChecked.includes(value)) {
@@ -102,7 +101,6 @@ export default function FormPlanes({ handleSave }) {
       room,
     });
   }
-  console.log(form);
 
   return (
     <>

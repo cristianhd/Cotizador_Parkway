@@ -20,7 +20,6 @@ export default function ModalNewProduct({ typeProduct }) {
     setShow(false);
     alert("Producto Creado");
   };
-  console.log(typeProduct);
 
   return (
     <>

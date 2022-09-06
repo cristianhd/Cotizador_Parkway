@@ -8,19 +8,18 @@ async function VerifyToken(req, res, next) {
       {
         headers: {
           authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       }
     );
 
     const infoUser = response.data;
-    console.log(infoUser);
-    console.log(accessToken);
-  
-   next();
+    res.json(infoUser);
+    next();
+    
   } catch (error) {
     res.send(error.message);
   }
 }
 
-module.exports = {VerifyToken};
+module.exports = { VerifyToken };

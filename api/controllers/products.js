@@ -10,7 +10,6 @@ function findExperiencias(req, res, next) {
 
   try {
     Experiencias.find({ origin, destination }).then((experiencias) => {
-      console.log(experiencias);
       res.json(experiencias);
     });
   } catch (error) {

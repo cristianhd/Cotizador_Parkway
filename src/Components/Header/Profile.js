@@ -17,7 +17,6 @@ export default function Profile() {
       try {
         const token = await getAccessTokenSilently();
         const sub = user.sub;
-        console.log(sub);
         const response = await axios.get(
           `http://localhost:3001/users/exist?sub=${sub}`,
           {
@@ -27,7 +26,6 @@ export default function Profile() {
             },
           }
         );
-        console.log(response);
 
         if (response.data !== null) {
           setInfoUser(response.data);
@@ -41,9 +39,6 @@ export default function Profile() {
     };
     if (isAuthenticated) callApi();
   }, [getAccessTokenSilently, user, isAuthenticated]);
-  console.log(existUser);
-  console.log(infoUser);
-  console.log("load", isLoading, "Auth", isAuthenticated, "info", infoUser);
 
   return (
     <>

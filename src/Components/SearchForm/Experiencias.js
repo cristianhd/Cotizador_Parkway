@@ -10,7 +10,7 @@ import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
 import { getSearch, getSearchPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
-import "../../style/cardProduct.css"
+import "../../style/cardProduct.css";
 
 export default function SearchExperiencias() {
   const typeProduct = "experiencias";
@@ -23,7 +23,7 @@ export default function SearchExperiencias() {
     destination: "",
     date: "",
     rooms: "",
-    pax: ""
+    pax: "",
   });
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
@@ -61,7 +61,7 @@ export default function SearchExperiencias() {
   const handleOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
+
     if (name === "origin" && value !== "") {
       setShowOrigin(true);
     } else {
@@ -80,8 +80,6 @@ export default function SearchExperiencias() {
       [name]: value,
     });
   };
-
-  console.log("formSearch", form);
 
   return (
     <div className="d-flex flex-column align-items-center">

@@ -34,10 +34,9 @@ export default function FormTraslados({ handleSave }) {
     setValidated(true);
   }
 
-  console.log(form)
   return (
     <>
-     <Modal.Body>
+      <Modal.Body>
         <Form noValidate validated={validated} onSubmit={handleOnSubmitForm}>
           <Row className="m-1">
             <Form.Group className="" as={Col}>
@@ -80,7 +79,7 @@ export default function FormTraslados({ handleSave }) {
             </Form.Group>
           </Row>
           <Row className="m-1">
-          <Form.Group className="" as={Col}>
+            <Form.Group className="" as={Col}>
               <FloatingInput
                 name="description"
                 labelName="Descripción"

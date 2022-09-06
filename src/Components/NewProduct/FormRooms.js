@@ -35,7 +35,6 @@ export default function FormRooms({ handleOnChangeRoom }) {
     });
     handleOnChangeRoom(room);
   }
-  console.log(currentChecked);
 
   return (
     <>

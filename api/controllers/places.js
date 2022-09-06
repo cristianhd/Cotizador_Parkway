@@ -5,7 +5,6 @@ function findPlaces(req, res, next) {
 
   const regex = ".*" + place + ".*";
 
-  console.log(place);
   if (place === undefined) {
     // cuando no viene ninguna consulta
     next();

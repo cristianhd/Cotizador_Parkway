@@ -9,26 +9,22 @@ const BaseUrl = process.env.REACT_APP_BASE_URL;
 
 export function getSearch(origin, destination, typeProduct) {
   return (dispatch) => {
-    console.log(typeProduct)
     axios
       .get(
         `/products/${typeProduct}?origin=${origin}&destination=${destination}`
       )
       .then((res) => {
-        console.log(res.data);
         dispatch({
           type: GET_SEARCH,
-          payload: { querySearch: res.data},
+          payload: { querySearch: res.data },
         });
       });
   };
 }
 
 export function getSearchPlaces(query) {
-  
   return (dispatch) => {
     axios.get(`/places?place=${query}`).then((res) => {
-      console.log("response", res.data);
       dispatch({
         type: GET_SEARCH_PLACES,
         payload: { queryPlaces: res.data },
@@ -39,7 +35,6 @@ export function getSearchPlaces(query) {
 
 export function createUser(data, token) {
   return (dispatch) => {
-    console.log(data);
     axios
       .post(`/users`, data, {
         headers: {
@@ -47,8 +42,7 @@ export function createUser(data, token) {
           "Content-Type": "application/json",
         },
       })
-      .then((r) => {
-        console.log(r);
+      .then((res) => {
         dispatch({ type: CREATE_USER });
       });
   };
@@ -56,13 +50,11 @@ export function createUser(data, token) {
 
 export function createProduct(data, typeProduct) {
   return (dispatch) => {
-    console.log({ [typeProduct]: data });
     axios
       .post(`/products/${typeProduct}`, {
         [typeProduct]: [data],
       })
-      .then((r) => {
-        console.log(r);
+      .then((res) => {
         dispatch({ type: CREATE_PRODUCT });
       });
   };

@@ -11,7 +11,6 @@ export default function CardComponent({ data }) {
   const [show, setShow] = useState();
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  console.log(data);
   const UpperTitle = UpperCaseStr(data.title);
 
   var options = { style: "currency", currency: "COP",  minimumFractionDigits: "0" };

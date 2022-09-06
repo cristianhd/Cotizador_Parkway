@@ -34,7 +34,6 @@ export default function FormActividades({ handleSave }) {
     setValidated(true);
   }
 
-  console.log(form);
   return (
     <>
       <Modal.Body>

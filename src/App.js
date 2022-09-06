@@ -13,16 +13,17 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
-  const { querySearch} = useSelector((state) => state);
+  const { querySearch } = useSelector((state) => state);
   const query = querySearch.querySearch;
-  const currentTypeProduct = window.location.pathname === "/" ? "experiencias" : window.location.pathname.slice(1);
-  console.log(currentTypeProduct)
+  const currentTypeProduct =
+    window.location.pathname === "/"
+      ? "experiencias"
+      : window.location.pathname.slice(1);
 
   useEffect(() => {
     setData(query);
   }, [query]);
 
- 
   return (
     <div className="App m-0">
       <section>
