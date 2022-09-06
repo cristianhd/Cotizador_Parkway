@@ -8,18 +8,20 @@ import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
 import { getSearch, getSearchPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
-import "../../style/cardProduct.css"
+import "../../style/cardProduct.css";
 
 export default function Traslados() {
-  const typeProduct = "traslados";
+  const typeProduct = window.location.pathname.slice(1);
   const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
   const dispatch = useDispatch();
 
+  // local states
   const [form, setForm] = useState({});
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
+  // window scroll top-smooth
   useEffect(() => {
     window.scroll({
       top: 625,
@@ -27,6 +29,7 @@ export default function Traslados() {
     });
   }, []);
 
+  // handlers
   const handleOnSubmit = (e) => {
     const formEvent = e.currentTarget;
     e.preventDefault();

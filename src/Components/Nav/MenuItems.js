@@ -7,7 +7,7 @@ import asistencia from "../../assets/nav/asistencia.svg";
 export const MenuItems = [
   {
     name_category: "Planes",
-    url: "/experiencias",
+    url: "/planes",
     img: experiencias,
   },
   {

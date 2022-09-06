@@ -8,17 +8,19 @@ import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
 import { getSearch, getSearchPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
-import "../../style/cardProduct.css"
+import "../../style/cardProduct.css";
 
 export default function Actividades() {
-  const typeProduct = "actividades";
+  const typeProduct = window.location.pathname.slice(1);
   const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
   const dispatch = useDispatch();
 
+  // local states
   const [form, setForm] = useState({});
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
+  // window scroll top-smooth
   useEffect(() => {
     window.scroll({
       top: 625,

@@ -12,12 +12,15 @@ import { getSearch, getSearchPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
 
-export default function SearchExperiencias() {
-  const typeProduct = "experiencias";
+export default function Planes() {
+  const typeProduct = window.location.pathname.slice(1);
   const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
-  const CurrentpathName = window.location.pathname.slice(1);
   const dispatch = useDispatch();
 
+  // local states
+  const [showOrigin, setShowOrigin] = useState(false);
+  const [showDestination, setShowDestination] = useState(false);
+  const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
     origin: "",
     destination: "",
@@ -25,17 +28,16 @@ export default function SearchExperiencias() {
     rooms: "",
     pax: "",
   });
-  const [showOrigin, setShowOrigin] = useState(false);
-  const [showDestination, setShowDestination] = useState(false);
-  const [validated, setValidated] = useState(false);
 
+  // window scroll top-smooth
   useEffect(() => {
     window.scroll({
-      top: CurrentpathName === "" ? 0 : 625,
+      top: typeProduct === "" ? 0 : 625,
       behavior: "smooth",
     });
-  }, [CurrentpathName]);
+  }, [typeProduct]);
 
+  // handlers
   const handleOnSubmit = (e) => {
     const formEvent = e.currentTarget;
     e.preventDefault();
