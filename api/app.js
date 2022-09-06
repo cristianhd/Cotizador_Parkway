@@ -11,12 +11,6 @@ const routes = require("./routes/index.js");
 var jwt = require("express-jwt");
 var jwks = require("jwks-rsa");
 
-const Experiencia = require("./models/Experiencias");
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-
-const { renderHomeApi } = require("./controllers/home");
-
 // Config Auth0
 
 var unprotected = [/\/products*/, /favicon.ico/, /\/places*/, /\/api/];
