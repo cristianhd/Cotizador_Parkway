@@ -4,6 +4,7 @@ const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
 const Places = require("../models/Places");
 
+// controller query product
 
 function findExperiencias(req, res, next) {
   const { origin, destination } = req.query;
@@ -52,17 +53,18 @@ function findAsistencias(req, res, next) {
   }
 }
 
+// controller add product
+
 async function addExperiencias(req, res, next) {
   const { experiencias } = req.body;
   const places = await Places.find();
-
 
   if (experiencias === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
       experiencias.forEach(async (experiencia, index) => {
-        const { origin, destination,room } = experiencia;
+        const { origin, destination, room } = experiencia;
 
         if (!places.some((place) => place.name === origin)) {
           places.push({ name: origin });
@@ -71,7 +73,7 @@ async function addExperiencias(req, res, next) {
           places.push({ name: destination });
         }
 
-        room.map((room,index)=>room.price.replace("$","").replace(".",""))
+        room.map((room, index) => room.price.replace("$", "").replace(".", ""));
       });
 
       Experiencias.create(experiencias).then((result) => {
@@ -101,7 +103,7 @@ async function addTraslados(req, res, next) {
         if (!places.some((place) => place.name === destination)) {
           places.push({ name: destination });
         }
-        traslado.price.replace("$","").replace(".","")
+        traslado.price.replace("$", "").replace(".", "");
       });
 
       Traslados.create(traslados).then((result) => {
@@ -140,7 +142,7 @@ async function addActividades(req, res, next) {
   }
 }
 
-function addAsistencias(req, res, next) {
+async function addAsistencias(req, res, next) {
   const { asistencias } = req.body;
   if (asistencias === undefined) {
     res.status(200).send({ msg: "no data" });

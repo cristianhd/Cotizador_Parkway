@@ -2,7 +2,7 @@ const { default: axios } = require("axios");
 
 async function VerifyToken(req, res, next) {
   try {
-    const accessToken = req.headers.authorization.split(" ")[1];
+    const accessToken = req.headers.authorization.split(" ")[1]; // token autorización
     const response = await axios.get(
       "https://dev-ascvuavf.us.auth0.com/userinfo",
       {

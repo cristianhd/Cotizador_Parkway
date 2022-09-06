@@ -1,6 +1,5 @@
 require("./mongo");
 require("dotenv").config();
-
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -8,12 +7,12 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 const routes = require("./routes/index.js");
-var jwt = require("express-jwt");
-var jwks = require("jwks-rsa");
+const jwt = require("express-jwt");
+const jwks = require("jwks-rsa");
 
-// Config Auth0
+// config Auth0
 
-var unprotected = [/\/products*/, /favicon.ico/, /\/places*/, /\/api/];
+const unprotected = [/\/products*/, /favicon.ico/, /\/places*/, /\/api/];
 
 const jwtVerify = jwt({
   secret: jwks.expressJwtSecret({
@@ -27,38 +26,28 @@ const jwtVerify = jwt({
   algorithms: ["RS256"],
 }).unless({ path: unprotected });
 
-// Config
+// config server
 const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+// middlewares
 app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
-//Auth 0
-
 app.use(jwtVerify);
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", ["*"]);
-  res.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
 
-// Routes //
+// routes
 app.get("/api", (req, res, next) => {
   res.render("index", { title: "API PARKWAY" });
 });
 
 app.use("/", routes);
-
-// Middlewares //
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

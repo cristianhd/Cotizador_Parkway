@@ -2,7 +2,6 @@ const Places = require("../models/Places");
 
 function findPlaces(req, res, next) {
   const { place } = req.query;
-
   const regex = ".*" + place + ".*";
 
   if (place === undefined) {
@@ -10,6 +9,7 @@ function findPlaces(req, res, next) {
     next();
   } else {
     try {
+      // consulta 5 primeros resultados
       Places.find({ name: { $regex: regex } })
         .limit(5)
         .then((places) => {
