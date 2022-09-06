@@ -10,7 +10,7 @@ import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
 import { getSearch, getSearchPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
-import "../../style/experiencias.css";
+import "../../style/cardProduct.css"
 
 export default function SearchExperiencias() {
   const typeProduct = "experiencias";

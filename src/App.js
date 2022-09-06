@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header/Header.js";
-import Nav from "./Components/Nav/Nav.js";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
+import Nav from "./Components/Nav/Nav";
 import Actividades from "./Components/SearchForm/Actividades";
 import Asistencias from "./Components/SearchForm/Asistencias";
 import Experiencias from "./Components/SearchForm/Experiencias";
