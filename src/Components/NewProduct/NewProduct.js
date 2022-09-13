@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useDispatch } from "react-redux";
 import photos from "../../assets/card/camara-fotografica.svg";
 import ModalNewProduct from "./ModalNewProduct";
-
 
 export default function NewProduct({ typeProduct }) {
   return (
