@@ -9,7 +9,7 @@ export default function Profile() {
   const [existUser, setExistUser] = useState(true);
   const [infoUser, setInfoUser] = useState();
 
-  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
+  const { user, isAuthenticated, getAccessTokenSilently } =
     useAuth0();
 
   useEffect(() => {

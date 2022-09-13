@@ -9,12 +9,16 @@ import { UpperCaseStr } from "../../utils/UpperCaseStr";
 
 export default function CardComponent({ data }) {
   const [show, setShow] = useState();
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
   const UpperTitle = UpperCaseStr(data.title);
-
+  
+  // format currency COP
   var options = { style: "currency", currency: "COP",  minimumFractionDigits: "0" };
   var pesosFormat = new Intl.NumberFormat("es-CO", options);
+
+  //handlers 
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
 
   return (
     <Card className="h-auto">

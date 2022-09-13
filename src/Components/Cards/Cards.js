@@ -4,9 +4,12 @@ import NewProduct from "../NewProduct/NewProduct";
 import "../../style/cards.css";
 
 export default function Cards({ data, typeProduct }) {
+  // window scroll top-smooth
   useEffect(() => {
-    if(data && data.length > 0) window.scroll({ top: 750, behavior: "smooth" });
-  },[data]);
+    if (data && data.length > 0)
+      window.scroll({ top: 750, behavior: "smooth" });
+  }, [data]);
+
   return (
     <div className="cards-flex m-auto gap-5">
       {data &&

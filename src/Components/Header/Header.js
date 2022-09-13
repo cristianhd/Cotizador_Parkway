@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import iconButtom from "../../assets/header/chevron-circle-down.svg";
-import "../../style/header.css";
 import Login from "./Login";
 import Profile from "./Profile";
+import "../../style/header.css";
 
 export default function Header() {
   const [stateButtom, setStateButtom] = useState(false); // true: up false: down
 
+// handler
   const handleDownButtom = () => {
     setStateButtom(true);
     window.scroll({

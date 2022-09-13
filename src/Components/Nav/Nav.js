@@ -9,12 +9,14 @@ export default function Nav() {
   const RefButton = useRef(null);
   const dispatch = useDispatch();
 
+// clean all data global state (redux) querySearch 
   const handleCleanQuery = () => {
     dispatch({
       type: "CLEAN_QUERY_SEARCH",
     });
   };
 
+  // set focus button navbar in Planes index 0
   useEffect(() => {
     RefButton.current.focus();
   }, []);
