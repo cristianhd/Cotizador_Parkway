@@ -23,7 +23,7 @@ function App() {
       ? "planes"
       : window.location.pathname.slice(1);
 
-  // set data in local state
+  // set result query data in local state
   useEffect(() => {
     setData(query);
   }, [query]);

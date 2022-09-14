@@ -1,15 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { UpperCaseStr } from "../../utils/UpperCaseStr";
 import "../../style/inputPlace.css";
-import {
-  Button,
-  ButtonGroup,
-  FloatingLabel,
-  Overlay,
-  OverlayTrigger,
-  Popover,
-} from "react-bootstrap";
+import { FloatingLabel, OverlayTrigger, Popover } from "react-bootstrap";
 import SuggestPlaces from "./SuggestPlaces";
 import { useSelector } from "react-redux";
 
@@ -19,16 +12,14 @@ export default function InputPlace({
   value,
   onChange,
   show,
-  suggestOnclick
+  suggestOnclick,
 }) {
   const [suggest, setSuggest] = useState([]);
-
   const { queryPlaces } = useSelector((state) => state);
   const suggestPlaces = queryPlaces.queryPlaces;
-  const screenWidth = window.screen.width
-  
+  const screenWidth = window.screen.width;
 
-
+  // set suggest places in local state
   useEffect(() => {
     setSuggest(suggestPlaces);
   }, [suggestPlaces]);
@@ -50,7 +41,7 @@ export default function InputPlace({
 
       <OverlayTrigger
         show={show}
-        placement={screenWidth < 800 ? "bottom": "top"}
+        placement={screenWidth < 800 ? "bottom" : "top"}
         overlay={
           <Popover className="">
             <SuggestPlaces
@@ -62,7 +53,11 @@ export default function InputPlace({
           </Popover>
         }
       >
-        <FloatingLabel className="w-100" id={`input-${labelName}`} label={labelName}>
+        <FloatingLabel
+          className="w-100"
+          id={`input-${labelName}`}
+          label={labelName}
+        >
           <Form.Control
             required
             className="shadow-none border-0 "

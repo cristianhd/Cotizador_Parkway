@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonGroup } from "react-bootstrap";
+import { Button} from "react-bootstrap";
 
 export default function SuggestPlaces({ suggest, onClick, name }) {
   return (
