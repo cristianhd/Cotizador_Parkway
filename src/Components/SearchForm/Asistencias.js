@@ -15,7 +15,7 @@ export default function Asistencias() {
   const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
   const dispatch = useDispatch();
 
-  // local states
+  // local state
   const [form, setForm] = useState({});
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);

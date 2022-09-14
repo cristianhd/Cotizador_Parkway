@@ -17,7 +17,7 @@ export default function Planes() {
   const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
   const dispatch = useDispatch();
 
-  // local states
+  // local state
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
