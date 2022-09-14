@@ -10,9 +10,10 @@ import { createProduct } from "../../Redux/action";
 import { UpperCaseStr } from "../../utils/UpperCaseStr";
 
 export default function ModalNewProduct({ typeProduct }) {
+  const [show, setShow] = useState();
   const dispatch = useDispatch();
 
-  const [show, setShow] = useState();
+  //handlers
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const handleSave = (data) => {

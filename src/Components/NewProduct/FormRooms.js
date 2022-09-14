@@ -9,6 +9,7 @@ export default function FormRooms({ handleOnChangeRoom }) {
   const [room, setRoom] = useState({});
   const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple"];
 
+// handlers
   function handleOnChangeCheckbox(e) {
     const name = e.target.name;
     const checked = e.target.checked;
@@ -42,7 +43,7 @@ export default function FormRooms({ handleOnChangeRoom }) {
 
       {typeRooms.map((typeRoom, index) => {
         return (
-          <Col>
+          <Col key={index}>
             <Form.Check
               name={typeRoom}
               type="checkbox"

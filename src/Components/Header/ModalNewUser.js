@@ -8,12 +8,12 @@ import { createUser } from "../../Redux/action";
 
 export default function ModalNewUser() {
   const [show, setShow] = useState(true);
-  const [categoryUser, setCategoryUser] = useState(null);
+  const [category, setCategory] = useState(null);
   const { user, getAccessTokenSilently } = useAuth0();
+  const { name, nickname, sub, picture, email } = user; // destructuring user Auth0
   const dispatch = useDispatch();
 
-  const { name, nickname, sub, picture, email } = user;
-  const category = categoryUser;
+// data user
   const User = {
     name,
     nickname,
@@ -22,19 +22,18 @@ export default function ModalNewUser() {
     picture,
     email
   };
-  const handleSave = async() => {
+
+  //handlers
+  const handleSave = async () => {
     const token = await getAccessTokenSilently();
-    
-    dispatch(createUser(User,token));
+    dispatch(createUser(User, token));
     setShow(false);
   };
 
   const handleChange = (e) => {
     const category = e.target.value;
-    setCategoryUser(category);
+    setCategory(category);
   };
-
-  
 
   return (
     <div>
@@ -47,7 +46,7 @@ export default function ModalNewUser() {
             <Form.Group>
               <Form.Label>Elije tu categoria</Form.Label>
               <Form.Select onChange={handleChange}>
-              <option>Selecciona</option>
+                <option>Selecciona</option>
                 <option value="Proveedor">Proveedor</option>
                 <option value="Cotizador">Cotizador</option>
                 <option value="Asesor">Asesor</option>

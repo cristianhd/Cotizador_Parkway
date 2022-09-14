@@ -9,8 +9,8 @@ import whatsapp from "../../assets/footer/Whatsapp.svg";
 import facebook from "../../assets/footer/Facebook.svg";
 import youtube from "../../assets/footer/YouTube.svg";
 import logoFoot from "../../assets/footer/logo-foot.png";
-import "../../style/footer.css";
 import { Col, Row } from "react-bootstrap";
+import "../../style/footer.css";
 
 export default function Footer() {
   return (

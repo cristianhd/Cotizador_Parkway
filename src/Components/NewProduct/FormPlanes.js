@@ -1,18 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
-import {
-  ButtonGroup,
-  Col,
-  FloatingLabel,
-  FormGroup,
-  InputGroup,
-  Modal,
-  Row,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "react-bootstrap";
+import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
 import FormRooms from "./FormRooms";
 import FloatingInput from "./FloatingInput";
 
@@ -21,6 +10,7 @@ export default function FormPlanes({ handleSave }) {
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({});
   const [checkedItem, setCheckedItem] = useState({});
+
   const meses = [
     "Ene",
     "Feb",
@@ -37,7 +27,7 @@ export default function FormPlanes({ handleSave }) {
     "Todo el Año",
   ];
 
-  const Eventuales = [
+  const eventuales = [
     "Semana Santa",
     "Mitad Año",
     "Semana Receso",
@@ -45,6 +35,7 @@ export default function FormPlanes({ handleSave }) {
     "Temporada Ballenas",
   ];
 
+  //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
     e.preventDefault();
@@ -165,6 +156,7 @@ export default function FormPlanes({ handleSave }) {
           <Row className="m-1">
             <FormRooms handleOnChangeRoom={handleOnChangeRoom} />
           </Row>
+
           <Row className="m-1">
             <Col className="p-3">
               <Form.Label>APLICA</Form.Label>
@@ -195,7 +187,7 @@ export default function FormPlanes({ handleSave }) {
               <Form.Label>NO APLICA</Form.Label>
 
               <Form.Group className="p-1 m-1 ">
-                {Eventuales.map((evento, index) => {
+                {eventuales.map((evento, index) => {
                   let value = evento.replace(/\s/g, "");
                   return (
                     <ToggleButton
@@ -216,6 +208,7 @@ export default function FormPlanes({ handleSave }) {
               </Form.Group>
             </Col>
           </Row>
+
           <Row className="m-1">
             <Form.Group as={Col} className="p-3">
               <FloatingLabel required label="DESCRIPCION" className="m-1">

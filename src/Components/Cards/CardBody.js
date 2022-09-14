@@ -4,6 +4,7 @@ import { UpperCaseStr } from "../../utils/UpperCaseStr";
 
 export default function CardBody({ title, description, origin, destination }) {
   const UpperTitle = UpperCaseStr(title);
+
   return (
     <>
       <div className="mb-3">

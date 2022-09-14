@@ -4,21 +4,24 @@ import Button from "react-bootstrap/Button";
 import photos from "../../assets/card/camara-fotografica.svg";
 import { Modal } from "react-bootstrap";
 import CardBody from "./CardBody";
-import "../../style/card.css";
 import { UpperCaseStr } from "../../utils/UpperCaseStr";
+import "../../style/card.css";
 
 export default function CardComponent({ data }) {
   const [show, setShow] = useState();
   const UpperTitle = UpperCaseStr(data.title);
-  
+
   // format currency COP
-  var options = { style: "currency", currency: "COP",  minimumFractionDigits: "0" };
+  var options = {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: "0",
+  };
   var pesosFormat = new Intl.NumberFormat("es-CO", options);
 
-  //handlers 
+  //handlers
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-
 
   return (
     <Card className="h-auto">

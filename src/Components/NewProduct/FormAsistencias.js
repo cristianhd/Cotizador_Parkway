@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import FloatingInput from "./FloatingInput";
-import {
-  Button,
-  Col,
-  FloatingLabel,
-  Form,
-  InputGroup,
-  Modal,
-  Row,
-} from "react-bootstrap";
+import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 
 export default function FormAsistencia({ handleSave }) {
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({});
 
+  //handlers
   function handleOnChangeForm(e) {
     const name = e.target.name;
     const value = e.target.value;
@@ -23,9 +16,12 @@ export default function FormAsistencia({ handleSave }) {
       [name]: value,
     });
   }
+
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
     e.preventDefault();
+
+    // form validation
     if (formEvent.checkValidity() === false) {
       e.stopPropagation();
     } else {
