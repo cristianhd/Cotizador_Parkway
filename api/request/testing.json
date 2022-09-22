@@ -1,0 +1,124 @@
+[
+    {
+        "name": "Cristian Hernandez",
+        "nickname": "criselparce",
+        "sub": "12easda",
+        "category": "cotizador",
+        "picture": "-",
+        "email": "cristian@gmail.com",
+        "phone": "12345"
+    },
+    {
+        "region": "",
+        "daneDepartament": "",
+        "nameDepartment": "",
+        "daneCity": "",
+        "nameCity": ""
+    },
+    {
+        "name": "Bosa",
+        "typePlace" : "Zonas",
+        "daneCity": "1,001",
+        "daneDepartment": "1"
+    },
+    {
+        "table": "Traslados",
+        "title": "Aeropuerto el Dorado - Bosa",
+        "origin": "12",
+        "destination": "14",
+        "description": "esto es una descripción",
+        "price": [
+            {
+                "type": "adulto",
+                "price": "25400"
+            },
+            {
+                "type": "1-3",
+                "price": "22000"
+            },
+            {
+                "type": "3-4",
+                "price": "12000"
+            }
+          ],
+        "providerUser": "Trandecol",
+        "activeProduct": "true"
+    },
+    {
+        "table": "Hospedajes",
+        "title": "Titulo",
+        "destination": "1,001",
+        "photo": "-",
+        "description": "esto es una descripción",
+        "price":[
+          {
+            "type": "niños",
+            "price": "120000"
+          },
+          {
+            "type": "sencilla",
+            "price": "100000"
+          },
+          {
+            "type": "doble",
+            "price": "80000"
+          }
+        ],
+        "activeDate": "1,2,3",
+        "providerUser": "Trandecol",
+        "activeProduct": "true"
+    },
+    {
+        "table": "Planes",
+        "title": "Titulo",
+        "destination": "1,001",
+        "photo": "-",
+        "description": "esto es una descripción",
+        "transport": "avión",
+        "price":[
+          {
+            "type": "",
+            "price": ""
+          },
+          {
+            "type": "",
+            "price": ""
+          }
+        ],
+        "activeDate": "1,2,3,festivos",
+        "providerUser": "Trandecol",
+        "activeProduct": "true"
+    },
+    {
+        "table":"Asistencias",
+        "title": "Titulo",
+        "destination": "1,001",
+        "description": "esto es una descripción",
+        "price": "12000",
+        "providerUser": "Trandecol",
+        "activeProduct": "true",
+    },
+    {
+        "table": "Actividades",
+        "title": "Titulo" ,
+        "destination": "id ciudad/lugares",
+        "photo":"-",
+        "description": "esto es una descripción",
+        "price": [
+        {
+            "type": "adulto",
+            "price": "25000"
+        },
+        {
+            "type": "niños",
+            "price": "20000"
+        },
+        {
+            "type": "4-7",
+            "price": "12000"
+        }
+        ],
+        "providerUser": "Trandecol",
+        "activeProduct": "true"
+    }
+]
