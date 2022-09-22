@@ -1,4 +1,4 @@
-const Places = require("../models/Places");
+const Places = require("../models/Lugares");
 
 function findPlaces(req, res, next) {
   const { place } = req.query;

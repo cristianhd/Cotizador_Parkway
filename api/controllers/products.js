@@ -2,84 +2,94 @@ const Planes = require("../models/Planes");
 const Traslados = require("../models/Traslados");
 const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
-const Places = require("../models/Lugares");
+const Lugares = require("../models/Lugares");
 
 // controller query product
 
-function findExperiencias(req, res, next) {
-  const { origin, destination } = req.query;
+function findPlanes(req, res) {
+  const { destination } = req.query;
+  let lengthOfQuery = Object.keys(req.query).length;
 
-  try {
-    Planes.find({ origin, destination }).then((experiencias) => {
-      res.json(experiencias);
-    });
-  } catch (error) {
-    res.send(error.message);
+  if (lengthOfQuery !== 0) {
+    try {
+      Planes.find({ destination }).then((planes) => {
+        res.json(planes);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  } else {
+    // devuelve todos los Planes si no hay una query
+    Planes.find().then((planes) => res.json(planes));
   }
 }
 
 function findTraslados(req, res, next) {
   const { origin, destination } = req.query;
-  try {
-    Traslados.find({ origin, destination }).then((traslados) => {
-      res.json(traslados);
-    });
-  } catch (error) {
-    res.send(error.message);
+  let lengthOfQuery = Object.keys(req.query).length;
+
+  if (lengthOfQuery !== 0) {
+    try {
+      Traslados.find({ origin, destination }).then((traslados) => {
+        res.json(traslados);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  } else {
+    // devuelve todos los Traslados si no hay una query
+    Traslados.find().then((traslados) => res.json(traslados));
   }
 }
 
 function findActividades(req, res, next) {
   const { destination } = req.query;
+  let lengthOfQuery = Object.keys(req.query).length;
 
-  try {
-    Actividades.find({ destination }).then((actividades) => {
-      res.json(actividades);
-    });
-  } catch (error) {
-    res.send(error.message);
+  if (lengthOfQuery !== 0) {
+    try {
+      Actividades.find({ destination }).then((actividades) => {
+        res.json(actividades);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  } else {
+    // devuelve todas las Actividades si no hay una query
+    Actividades.find().then((actividades) => res.json(actividades));
   }
 }
 
 function findAsistencias(req, res, next) {
   const { destination } = req.query;
+  let lengthOfQuery = Object.keys(req.query).length;
 
-  try {
-    Asistencias.find({ destination }).then((asistencias) => {
-      res.json(asistencias);
-    });
-  } catch (error) {
-    res.send(error.message);
+  // devuelve todas las Asistencias si no hay una query
+  if (lengthOfQuery === 0) {
+    try {
+      Asistencias.find({ destination }).then((asistencias) => {
+        res.json(asistencias);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  } else {
+    Asistencias.find().then((asistencias) => res.json(asistencias));
   }
 }
 
 // controller add product
 
-async function addExperiencias(req, res, next) {
-  const { experiencias } = req.body;
-  const places = await Places.find();
+async function addPlanes(req, res, next) {
+  const { planes } = req.body;
 
-  if (experiencias === undefined) {
+  if (planes === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      experiencias.forEach(async (experiencia, index) => {
-        const { origin, destination, room } = experiencia;
-
-        if (!places.some((place) => place.name === origin)) {
-          places.push({ name: origin });
-        }
-        if (!places.some((place) => place.name === destination)) {
-          places.push({ name: destination });
-        }
-
-        room.map((room, index) => room.price.replace("$", "").replace(".", ""));
-      });
-
-      Planes.create(experiencias).then((result) => {
+      Planes.create(planes).then((result) => {
         res.json(result);
       });
-      await Places.create(places);
     } catch (error) {
       res.send(error.message);
     }
@@ -88,28 +98,14 @@ async function addExperiencias(req, res, next) {
 
 async function addTraslados(req, res, next) {
   const { traslados } = req.body;
-  const places = await Places.find();
 
   if (traslados === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      traslados.forEach(async (traslado, index) => {
-        const { origin, destination } = traslado;
-
-        if (!places.some((place) => place.name === origin)) {
-          places.push({ name: origin });
-        }
-        if (!places.some((place) => place.name === destination)) {
-          places.push({ name: destination });
-        }
-        traslado.price.replace("$", "").replace(".", "");
-      });
-
       Traslados.create(traslados).then((result) => {
         res.json(result);
       });
-      await Places.create(places);
     } catch (error) {
       res.send(error.message);
     }
@@ -118,24 +114,14 @@ async function addTraslados(req, res, next) {
 
 async function addActividades(req, res, next) {
   const { actividades } = req.body;
-  const places = await Places.find();
 
   if (actividades === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      actividades.forEach(async (actividad, index) => {
-        const { destination } = actividad;
-
-        if (!places.some((place) => place.name === destination)) {
-          places.push({ name: destination });
-        }
-      });
-
       Actividades.create(actividades).then((result) => {
         res.json(result);
       });
-      await Places.create(places);
     } catch (error) {
       res.send(error.message);
     }
@@ -157,11 +143,11 @@ async function addAsistencias(req, res, next) {
   }
 }
 module.exports = {
-  findExperiencias,
+  findPlanes,
   findTraslados,
   findActividades,
   findAsistencias,
-  addExperiencias,
+  addPlanes,
   addTraslados,
   addActividades,
   addAsistencias,

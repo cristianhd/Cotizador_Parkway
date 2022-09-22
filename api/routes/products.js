@@ -1,19 +1,19 @@
 const { Router } = require("express");
 
 const {
-  findExperiencias,
   findTraslados,
   findActividades,
   findAsistencias,
-  addExperiencias,
+  addPlanes,
   addTraslados,
   addActividades,
   addAsistencias,
+  findPlanes,
 } = require("../controllers/products.js");
 const router = Router();
 
-router.get("/experiencias", findExperiencias);
-router.post("/experiencias", addExperiencias);
+router.get("/planes", findPlanes);
+router.post("/planes", addPlanes);
 
 router.get("/traslados", findTraslados);
 router.post("/traslados", addTraslados);
@@ -23,7 +23,5 @@ router.post("/actividades", addActividades);
 
 router.get("/asistencias", findAsistencias);
 router.post("/asistencias", addAsistencias);
-
-
 
 module.exports = router;
