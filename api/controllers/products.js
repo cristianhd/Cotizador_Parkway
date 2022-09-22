@@ -1,8 +1,8 @@
-const Experiencias = require("../models/Experiencias");
+const Planes = require("../models/Planes");
 const Traslados = require("../models/Traslados");
 const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
-const Places = require("../models/Places");
+const Places = require("../models/Lugares");
 
 // controller query product
 
@@ -10,7 +10,7 @@ function findExperiencias(req, res, next) {
   const { origin, destination } = req.query;
 
   try {
-    Experiencias.find({ origin, destination }).then((experiencias) => {
+    Planes.find({ origin, destination }).then((experiencias) => {
       res.json(experiencias);
     });
   } catch (error) {
@@ -76,7 +76,7 @@ async function addExperiencias(req, res, next) {
         room.map((room, index) => room.price.replace("$", "").replace(".", ""));
       });
 
-      Experiencias.create(experiencias).then((result) => {
+      Planes.create(experiencias).then((result) => {
         res.json(result);
       });
       await Places.create(places);
