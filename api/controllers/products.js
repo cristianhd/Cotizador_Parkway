@@ -80,7 +80,7 @@ function findAsistencias(req, res, next) {
 
 // controller add product
 
-async function addPlanes(req, res, next) {
+function addPlanes(req, res, next) {
   const { planes } = req.body;
 
   if (planes === undefined) {
@@ -96,7 +96,7 @@ async function addPlanes(req, res, next) {
   }
 }
 
-async function addTraslados(req, res, next) {
+function addTraslados(req, res, next) {
   const { traslados } = req.body;
 
   if (traslados === undefined) {
@@ -112,7 +112,7 @@ async function addTraslados(req, res, next) {
   }
 }
 
-async function addActividades(req, res, next) {
+function addActividades(req, res, next) {
   const { actividades } = req.body;
 
   if (actividades === undefined) {
@@ -128,7 +128,7 @@ async function addActividades(req, res, next) {
   }
 }
 
-async function addAsistencias(req, res, next) {
+function addAsistencias(req, res, next) {
   const { asistencias } = req.body;
   if (asistencias === undefined) {
     res.status(200).send({ msg: "no data" });
