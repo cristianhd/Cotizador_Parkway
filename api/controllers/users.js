@@ -11,14 +11,14 @@ function findAllUser(req, res, next) {
 }
 
 function addUser(req, res, next) {
-  const user = req.body;
-  const { nickname } = user;
+  const users = req.body;
+  const { nickname } = users;
   try {
     User.exists({ nickname }, function (err, doc) {
       // si el usuario no existe creo el usuario
       if (doc === null) {
-        User.create(user).then((user) => {
-          res.json(user);
+        User.create(users).then((result) => {
+          res.json(result);
         });
       } else {
         // si el usuario existe envio msg al cliente
