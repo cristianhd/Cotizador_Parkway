@@ -1,12 +1,13 @@
 const Places = require("../models/Lugares");
 
 function findSuggestPlaces(req, res) {
-  const { namePlace } = req.query;
-  const namePlaceRegex = ".*" + namePlace.toLowerCase + ".*";
+  const { name } = req.query;
+  console.log(name);
+  const namePlaceRegex = ".*" + name.toLowerCase() + ".*";
 
   console.log(namePlaceRegex);
 
-  if (namePlace === undefined) {
+  if (name === undefined) {
     // cuando no viene ninguna consulta
     res.send({ msg: "no data query" });
   } else {
