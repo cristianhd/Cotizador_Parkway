@@ -1,16 +1,13 @@
 const Places = require("../models/Lugares");
 
-function findSuggestPlaces(req, res) {
+function suggestPlaces(req, res) {
   const { name } = req.query;
-  console.log(name);
-  const namePlaceRegex = ".*" + name.toLowerCase() + ".*";
-
-  console.log(namePlaceRegex);
 
   if (name === undefined) {
     // cuando no viene ninguna consulta
     res.send({ msg: "no data query" });
   } else {
+    const namePlaceRegex = ".*" + name.toLowerCase() + ".*";
     try {
       // consulta 5 primeros lugares
       Places.find({ name: { $regex: namePlaceRegex } })
@@ -36,21 +33,21 @@ function findAllPlaces(req, res) {
 
 function addPlace(req, res, next) {
   const place = req.body;
+  const emptyPlace = Object.entries(place).length === 0;
 
   try {
     // caso en el que viene multiples lugares en un array -> next()
     if (Array.isArray(place)) {
       next();
     } else {
-      // caso en el que viene un solo lugar
-      if (typeof place === "object") {
-        // guardado en minusculas
-        for (const property in place) {
-          place[property] = place[property].toLowerCase();
-        }
+      //caso en el que no hay datos
+      if (emptyPlace) res.send({ msg: "no data" });
+      // transforma todos los valores en minuscula
+      for (const property in place) {
+        place[property] = place[property].toLowerCase();
       }
       Places.exists({ name: place.name }, function (err, doc) {
-        // si el lugar no existe creo el lugar
+        // si el lugar no existe se crea
         if (doc === null) {
           Places.create(place).then((result) => {
             console.log(result);
@@ -74,7 +71,7 @@ async function addManyPlaces(req, res) {
   try {
     var namePlaces = await Promise.all(
       places.map(async (place) => {
-        // guardado en minusculas
+        // transforma todos los valores en minuscula
         for (const property in place) {
           place[property] = place[property].toLowerCase();
         }
@@ -103,7 +100,7 @@ async function addManyPlaces(req, res) {
 }
 
 module.exports = {
-  findSuggestPlaces,
+  suggestPlaces,
   findAllPlaces,
   addPlace,
   addManyPlaces,
