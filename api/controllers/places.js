@@ -1,6 +1,6 @@
 const Places = require("../models/Lugares");
 
-function findPlaces(req, res) {
+function findSuggestPlaces(req, res) {
   const { namePlace } = req.query;
   const namePlaceRegex = ".*" + namePlace.toLowerCase + ".*";
 
@@ -43,57 +43,58 @@ function addPlace(req, res, next) {
     } else {
       // caso en el que viene un solo lugar
       if (typeof place === "object") {
+        // guardado en minusculas
         for (const property in place) {
-          place[property] = place[property].toLowerCase(); // guardado en minusculas
+          place[property] = place[property].toLowerCase();
         }
       }
+      Places.exists({ name: place.name }, function (err, doc) {
+        // si el lugar no existe creo el lugar
+        if (doc === null) {
+          Places.create(place).then((result) => {
+            console.log(result);
+            res.json(result);
+          });
+        } else {
+          // si el lugar existe envio msg al cliente
+          res.send({ msg: "ya existe el lugar" });
+        }
+        if (err) console.log(err);
+      });
     }
-
-    Places.exists({ name: place.name }, function (err, doc) {
-      // si el lugar no existe creo el lugar
-      if (doc === null) {
-        Places.create(place).then((result) => {
-          res.json(result);
-        });
-      } else {
-        // si el lugar existe envio msg al cliente
-        res.send({ msg: "ya existe el lugar" });
-      }
-      if (err) console.log(err);
-    });
   } catch (error) {
     res.send(error.message);
   }
 }
 
-function addManyPlaces(req, res) {
+async function addManyPlaces(req, res) {
   const places = req.body;
-  const addedItemsPlaces = [];
 
   try {
-    places.forEach((place) => {
-      for (const property in place) {
-        place[property] = place[property].toLowerCase(); // guardado en minusculas
-      }
-
-      Places.exists({ name: place.name }, function (err, doc) {
-        // si el lugar no existe creo el lugar y lo guardo en los lugares agregados
-        if (doc === null) {
-          Places.create(place).then((result) => {
-            addedItemsPlaces.push(result);
-          });
-        } else {
-          // si el lugar existe se envia un msg a la consola con el nombre del lugar
-          console.log(`ya existe este lugar: ${place.name}`);
+    var namePlaces = await Promise.all(
+      places.map(async (place) => {
+        // guardado en minusculas
+        for (const property in place) {
+          place[property] = place[property].toLowerCase();
         }
-        if (err) console.log(err);
-      });
-    });
 
-    if (addedItemsPlaces.length > 0) {
-      res.send(addedItemsPlaces);
+        var exist = await Places.exists({ name: place.name });
+        // si no existe el lugar lo crea, muestra por consola y retorna; en caso contrario retorna null
+        if (exist === null) {
+          Places.create(place).then((result) => console.log(result));
+          return place.name;
+        } else {
+          return null;
+        }
+      })
+    );
+    // filtramos los null para saber cuales lugares agregamos
+    const addedPlaces = namePlaces.filter((name) => name !== null);
+
+    if (addedPlaces.length > 0) {
+      res.send(addedPlaces);
     } else {
-      res.send({ msg: "no se agrego ningun lugar" });
+      res.send({ msg: "no se agrego ningún lugar" });
     }
   } catch (error) {
     res.send(error.message);
@@ -101,7 +102,7 @@ function addManyPlaces(req, res) {
 }
 
 module.exports = {
-  findPlaces,
+  findSuggestPlaces,
   findAllPlaces,
   addPlace,
   addManyPlaces,

@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const {
-  findPlaces,
+  findSuggestPlaces,
   findAllPlaces,
   addPlace,
   addManyPlaces,
@@ -9,7 +9,7 @@ const {
 const router = Router();
 
 router.get("/all", findAllPlaces);
-router.get("/find", findPlaces);
+router.get("/find", findSuggestPlaces);
 router.post("/add", addPlace, addManyPlaces);
 
 module.exports = router;
