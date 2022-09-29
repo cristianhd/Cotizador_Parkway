@@ -1,7 +1,13 @@
-// const { Router } = require("express");
-// const {
-//   findPlaces,
-//   findAllPlaces,
-//   addPlace,
-//   addManyPlaces,
-// } = require("../controllers/places");
+const { Router } = require("express");
+const {
+  findAllCities,
+  addManyCities,
+  addCity,
+  suggestCities,
+} = require("../controllers/cities");
+
+const router = Router();
+
+router.get("/suggest", suggestCities);
+router.get("/all", findAllCities);
+router.post("add", addCity, addManyCities);
