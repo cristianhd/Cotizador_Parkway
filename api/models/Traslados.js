@@ -2,12 +2,15 @@ const { Schema, model } = require("mongoose");
 
 const trasladoSchema = new Schema({
   title: { type: String, require: true, unique: true },
-  origin: { type: String, require: true },
-  destination: { type: String, require: true },
+  originCode: { type: String, require: true },
+  originName: { type: String, require: true },
+  destinationCode: { type: String, require: true },
+  destinationName: { type: String, require: true },
   description: { type: String, require: true },
+  rangePeople: { type: String, require: true },
   price: [
     {
-      type: { type: String, require: true },
+      label: { type: String, require: true },
       price: { type: String, require: true },
     },
   ],
