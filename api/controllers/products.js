@@ -176,6 +176,163 @@ function addAsistencias(req, res, next) {
     }
   }
 }
+
+// controller update product
+
+function updatePlanes(req, res) {
+  const { _id, update } = req.body;
+
+  const opts = { new: true };
+
+  try {
+    Planes.findByIdAndUpdate(_id, update, opts, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when updating data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function updateHospedajes(req, res) {
+  const { _id, update } = req.body;
+
+  const opts = { new: true };
+
+  try {
+    Hospedajes.findByIdAndUpdate(_id, update, opts, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when updating data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function updateTraslados(req, res) {
+  const { _id, update } = req.body;
+
+  const opts = { new: true };
+
+  try {
+    Traslados.findByIdAndUpdate(_id, update, opts, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when updating data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function updateActividades(req, res) {
+  const { _id, update } = req.body;
+
+  const opts = { new: true };
+
+  try {
+    Actividades.findByIdAndUpdate(_id, update, opts, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when updating data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function updateAsistencias(req, res) {
+  const { _id, update } = req.body;
+
+  const opts = { new: true };
+
+  try {
+    Asistencias.findByIdAndUpdate(_id, update, opts, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when updating data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function deletePlanes(req, res) {
+  const { _id } = req.body;
+  try {
+    Planes.findByIdAndRemove(_id, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when delete data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function deleteHospedajes(req, res) {
+  const { _id } = req.body;
+  try {
+    Hospedajes.findByIdAndRemove(_id, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when delete data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function deleteTraslados(req, res) {
+  const { _id } = req.body;
+  try {
+    Traslados.findByIdAndRemove(_id, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when delete data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function deleteAsistencias(req, res) {
+  const { _id } = req.body;
+  try {
+    Asistencias.findByIdAndRemove(_id, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when delete data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
+
+function deleteActividades(req, res) {
+  const { _id } = req.body;
+  try {
+    Actividades.findByIdAndRemove(_id, (err, doc) => {
+      if (err) {
+        console.log("Something wrong when delete data!");
+      }
+      res.send(doc);
+    });
+  } catch (error) {
+    res.sen(error.message);
+  }
+}
 module.exports = {
   findPlanes,
   findTraslados,
@@ -187,4 +344,14 @@ module.exports = {
   addTraslados,
   addActividades,
   addAsistencias,
+  updatePlanes,
+  updateTraslados,
+  updateHospedajes,
+  updateActividades,
+  updateAsistencias,
+  deletePlanes,
+  deleteHospedajes,
+  deleteTraslados,
+  deleteActividades,
+  deleteAsistencias,
 };
