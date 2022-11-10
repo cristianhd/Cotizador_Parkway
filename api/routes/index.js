@@ -10,6 +10,6 @@ const { VerifyToken } = require("../controllers/protected");
 router.use("/users", VerifyToken, usersRoutes);
 router.use("/products", productsRoutes);
 router.use("/places", placesRoutes);
-// router.use("/cities", citiesRoutes);
+router.use("/cities", citiesRoutes);
 
 module.exports = router;

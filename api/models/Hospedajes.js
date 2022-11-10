@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
 
 const hospedajeSchema = new Schema({
-  nameAccommodation: { type: String, require: true },
-  categoryAccommodation: { type: String, require: true, unique: true },
+  nameAccommodation: { type: String, require: true, unique: true },
+  categoryAccommodation: { type: String, require: true },
   destinationCode: { type: String, require: true },
   destinationName: { type: String, require: true },
   photo: { data: Buffer, contentType: String },
