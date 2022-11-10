@@ -2,7 +2,7 @@ const Planes = require("../models/Planes");
 const Traslados = require("../models/Traslados");
 const Actividades = require("../models/Actividades");
 const Asistencias = require("../models/Asistencias");
-const Lugares = require("../models/Lugares");
+const Hospedajes = require("../models/Hospedajes");
 
 // controller query product
 
@@ -13,6 +13,24 @@ function findPlanes(req, res) {
   if (lengthOfQuery !== 0) {
     try {
       Planes.find({ destination }).then((planes) => {
+        res.json(planes);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  } else {
+    // devuelve todos los Planes si no hay una query
+    Planes.find().then((planes) => res.json(planes));
+  }
+}
+
+function findHospedajes(req, res) {
+  const { destination } = req.query;
+  let lengthOfQuery = Object.keys(req.query).length;
+
+  if (lengthOfQuery !== 0) {
+    try {
+      Hospedajes.find({ destination }).then((planes) => {
         res.json(planes);
       });
     } catch (error) {
@@ -96,6 +114,22 @@ function addPlanes(req, res, next) {
   }
 }
 
+function addHospedajes(req, res, next) {
+  const { hospedajes } = req.body;
+
+  if (hospedajes === undefined) {
+    res.status(200).send({ msg: "no data" });
+  } else {
+    try {
+      Hospedajes.create(hospedajes).then((result) => {
+        res.json(result);
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+  }
+}
+
 function addTraslados(req, res, next) {
   const { traslados } = req.body;
 
@@ -147,7 +181,9 @@ module.exports = {
   findTraslados,
   findActividades,
   findAsistencias,
+  findHospedajes,
   addPlanes,
+  addHospedajes,
   addTraslados,
   addActividades,
   addAsistencias,

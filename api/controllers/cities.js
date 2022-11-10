@@ -21,79 +21,34 @@ function suggestCities(req, res) {
   }
 }
 
-function findAllCities(res, req) {
+function findAllCities(req, res) {
   try {
     Cities.find().then((cities) => {
-      res.send(cities);
+     res.send(cities);
     });
   } catch (error) {
     res.send(error.message);
   }
 }
 
-function addCity(req, res, next) {
-  const city = req.body;
-  const emptyCity = Object.entries(city).length === 0;
-
-  try {
-    // caso en el que viene multiples ciudades en un array -> next()
-    if (Array.isArray(city)) {
-      next();
-    } else {
-      //caso en el que no hay datos
-      if (emptyCity) res.send({ msg: "no data" });
-      // transforma todos los valores en minuscula
-      for (const property in city) {
-        city[property] = city[property].toLowerCase();
-      }
-      Cities.exists({ name: city.name }, function (err, doc) {
-        // si la ciudad no existe se crea
-        if (doc === null) {
-          Cities.create(city).then((result) => {
-            console.log(result);
-            res.json(result);
-          });
-        } else {
-          // si la ciudad existe envio msg al cliente
-          res.send({ msg: "ya existe el ciudad" });
-        }
-        if (err) console.log(err);
-      });
-    }
-  } catch (error) {
-    res.send(error.message);
-  }
-}
-
-async function addManyCities(req, res) {
+function addCities(req, res, next) {
   const cities = req.body;
+  let emptyCities = Object.keys(cities).length > 0 ? false: true;
+
 
   try {
-    var namePlaces = await Promise.all(
-      cities.map(async (city) => {
-        var exist = await Cities.exists({ name: city.name });
-
-        // transforma todos los valores en minuscula
-        for (const property in city) {
-          city[property] = city[property].toLowerCase();
-        }
-
-        // si no existe la ciudad lo crea, muestra por consola y retorna; en caso contrario retorna null
-        if (exist === null) {
-          Cities.create(city).then((result) => console.log(result));
-          return city.name;
-        } else {
-          return null;
-        }
-      })
-    );
-    // filtramos los null para saber cuales ciudades agregamos
-    const addedCities = namePlaces.filter((name) => name !== null);
-
-    if (addedCities.length > 0) {
-      res.send(addedCities);
+    // Si viene vacio devolver mensaje no data
+    if (emptyCities) {
+      res.status(200).send({ msg: "no data" });
     } else {
-      res.send({ msg: "no se agrego ningún ciudad" });
+    // De lo contrario crear la ciudad
+      try {
+        Cities.create(cities).then((result) => {
+          res.json(result);
+        });
+      } catch (error) {
+        res.send(error.message);
+      }
     }
   } catch (error) {
     res.send(error.message);
@@ -102,7 +57,6 @@ async function addManyCities(req, res) {
 
 module.exports = {
   findAllCities,
-  addManyCities,
-  addCity,
+  addCities,
   suggestCities,
 };
