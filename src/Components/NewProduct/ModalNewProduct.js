@@ -21,7 +21,6 @@ export default function ModalNewProduct({ typeProduct }) {
     setShow(false);
     alert("Producto Creado");
   };
-
   return (
     <>
       <Modal show={show} onHide={handleClose} size="lg">
@@ -29,9 +28,7 @@ export default function ModalNewProduct({ typeProduct }) {
           <Modal.Title>Agregar {UpperCaseStr(typeProduct)}</Modal.Title>
         </Modal.Header>
 
-        {typeProduct === "experiencias" && (
-          <FormPlanes handleSave={handleSave} />
-        )}
+        {typeProduct === "planes" && <FormPlanes handleSave={handleSave} />}
         {typeProduct === "traslados" && (
           <FormTraslados handleSave={handleSave} />
         )}

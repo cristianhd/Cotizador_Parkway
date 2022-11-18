@@ -7,7 +7,7 @@ export default function FormRooms({ handleOnChangeRoom }) {
   const [checkedItem, setCheckedItem] = useState({});
   const [currentChecked, setCurrentChecked] = useState([]);
   const [room, setRoom] = useState({});
-  const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple"];
+  const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple", "niños"];
 
 // handlers
   function handleOnChangeCheckbox(e) {
