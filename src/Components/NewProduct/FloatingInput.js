@@ -22,7 +22,6 @@ export default function FloatingInput({
           className="shadow-none"
           name={name}
           type={type}
-          step="1"
           placeholder={`Ingrese el ${labelName}`}
           value={UpperCaseStr(value)}
           onChange={onChange}
