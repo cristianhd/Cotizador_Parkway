@@ -23,7 +23,7 @@ export default function ModalNewProduct({ typeProduct }) {
   };
   return (
     <>
-      <Modal show={show} onHide={handleClose} size="lg">
+      <Modal show={show} onHide={handleClose} size="lg" backdrop="static">
         <Modal.Header closeButton>
           <Modal.Title>Agregar {UpperCaseStr(typeProduct)}</Modal.Title>
         </Modal.Header>
