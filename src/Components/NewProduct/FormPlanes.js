@@ -6,59 +6,60 @@ import FormRooms from "./FormRooms";
 import FloatingInput from "./FloatingInput";
 import InfoGeneralFormPlanes from "./InfoGeneralFormPlanes";
 import RoomsFormPlanes from "./RoomsFormPlanes";
+import ProgressNavigation from "../FormNavigation/ProgressNavigation";
+import { ProgressBar, Step } from "react-step-progress-bar";
+import ActiveDateFormPlanes from "./ActiveDateFormPlanes";
+import DescriptionFormPlanes from "./DescriptionFormPlanes";
+import FormActividades from "./FormActividades";
 
 export default function FormPlanes({ handleSave }) {
-  const [currentChecked, setCurrentChecked] = useState([]);
+  const labelStep = [
+    { step: "1", label: "Información General" },
+    { step: "2", label: "Información Hospedaje" },
+    { step: "3", label: "Seleccionar Fechas" },
+    { step: "4", label: "Descripción del Plan" },
+  ];
+  const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
     title: "",
-    destination: "",
+    destination: {},
     transport: "",
     providerUser: "",
-    nameAccomodation: "",
-    categoryAccomodation: "",
+    nameAccommodation: "",
+    categoryAccommodation: "",
     numberNigths: "",
+    minRangeKids: "",
+    maxRangeKids: "",
     priceKids: "",
-    priceAdult: [],
+    priceAdult: {},
+    activeDate: [],
   });
 
-  
-  const [checkedItem, setCheckedItem] = useState({});
+  const isFirstStep = currentIndexForm === 1;
+  const isLastStep = currentIndexForm === labelStep.length;
 
-  const meses = [
-    "Ene",
-    "Feb",
-    "Mar",
-    "Abr",
-    "May",
-    "Jun",
-    "Jul",
-    "Agos",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dic",
-    "Todo el Año",
-  ];
-
-  const eventuales = [
-    "Semana Santa",
-    "Mitad Año",
-    "Semana Receso",
-    "Fin Año",
-    "Temporada Ballenas",
-  ];
-
+  const [currentChecked, setCurrentChecked] = useState([]);
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
+
     e.preventDefault();
     if (formEvent.checkValidity() === false) {
       e.stopPropagation();
+      setValidated(true);
     } else {
-      handleSave(form);
+      setValidated(false);
+      if (!isLastStep) updateIndexForm(currentIndexForm + 1);
+      if (isLastStep) {
+        if (Object.keys(form.priceAdult).length && form.activeDate.length) {
+          handleSave(form);
+        } else {
+          if(!Object.keys(form.priceAdult).length) alert("falta Precio Adultos");
+          if(!form.activeDate.length) alert("falta fechas")
+        }
+      }
     }
-    setValidated(true);
   }
 
   function handleOnChangeForm(e) {
@@ -71,62 +72,130 @@ export default function FormPlanes({ handleSave }) {
     });
   }
 
-  function handleonChange(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-    const checked = e.target.checked;
-
-    if (currentChecked.includes(value)) {
-      setCurrentChecked(currentChecked.filter((item) => item !== value));
-      setForm({
-        ...form,
-        [name]: form[name].filter((item) => item !== value),
-      });
-    } else {
-      setCurrentChecked([...currentChecked, value]);
-      setForm({
-        ...form,
-        [name]: form[name] ? [...form[name], value] : [value],
-      });
-    }
-    setCheckedItem({
-      ...checkedItem,
-      [value]: checked,
-    });
-  }
-
   function handleOnChangePriceAdult(room, price) {
-
     setForm({
       ...form,
       priceAdult: { ...form.priceAdult, [room]: price },
     });
   }
+  function handleOnChangePriceKids({ min, max, price, label }) {
+    let range = min + "-" + max;
+    setForm({
+      ...form,
+      priceKids: { ...form.priceKids, [label]: { range: price } },
+    });
+  }
+  function handleOnChangeDestination(label, destination) {
+    setForm({
+      ...form,
+      destination: { ...form.destination, [label]: destination },
+    });
+  }
 
+  function handleOnChangeDate(e) {
+    const value = e.target.value.toString();
+
+    if (value === "0") {
+      if (form.activeDate.includes("0")) {
+        setForm({
+          ...form,
+          activeDate: [],
+        });
+      } else {
+        setForm({
+          ...form,
+          activeDate: ["0"],
+        });
+      }
+    } else {
+      if (form.activeDate.includes(value)) {
+        setForm({
+          ...form,
+          activeDate: form.activeDate.filter((item) => item !== value),
+        });
+      } else {
+        setForm({
+          ...form,
+          activeDate: [...form.activeDate, value],
+        });
+      }
+    }
+  }
+
+  console.log(form);
+  console.log(currentIndexForm);
   return (
     <>
-      <Modal.Body>
-        <Form
-          noValidate
-          validated={validated}
-          onSubmit={handleOnSubmitForm}
-          autoComplete="off"
-        >
-          <InfoGeneralFormPlanes
-            handleOnChangeForm={handleOnChangeForm}
-            form={form}
-          />
-          <RoomsFormPlanes
-            handleOnChangePriceAdult={handleOnChangePriceAdult}
-            form={form}
-          />
-          <Modal.Footer>
-            <Button variant="primary" type="submit">
-              Guardar
-            </Button>
-          </Modal.Footer>
-        </Form>
-      </Modal.Body>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleOnSubmitForm}
+        autoComplete="off"
+      >
+        <Modal.Body>
+          {labelStep[currentIndexForm - 1].step}
+          {". "}
+          {labelStep[currentIndexForm - 1].label}
+          {labelStep[currentIndexForm - 1].step === "1" && (
+            <InfoGeneralFormPlanes
+              handleOnChangeForm={handleOnChangeForm}
+              handleOnChangeDestination={handleOnChangeDestination}
+              form={form}
+            />
+          )}
+          {labelStep[currentIndexForm - 1].step === "2" && (
+            <RoomsFormPlanes
+              handleOnChangePriceAdult={handleOnChangePriceAdult}
+              handleOnChangeForm={handleOnChangeForm}
+              form={form}
+            />
+          )}
+          {labelStep[currentIndexForm - 1].step === "3" && (
+            <ActiveDateFormPlanes
+              handleonChangeDate={handleOnChangeDate}
+              form={form}
+            />
+          )}
+          {labelStep[currentIndexForm - 1].step === "4" && (
+            <DescriptionFormPlanes
+              handleOnChangeForm={handleOnChangeForm}
+              form={form}
+            />
+          )}
+        </Modal.Body>
+        <Modal.Footer className="d-flex-column">
+          <Row className="m-1 p-1">
+            <div className="w-100 p-1 d-flex justify-content-end">
+              <Button variant="warning" className="m-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-pencil-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                </svg>{" "}
+                Editar{" "}
+              </Button>
+              <Button
+                disabled={isFirstStep}
+                onClick={() => updateIndexForm(currentIndexForm - 1)}
+              >
+                Anterior
+              </Button>
+              {isLastStep ? (
+                <Button variant="primary" type="submit">
+                  Guardar
+                </Button>
+              ) : (
+                <Button type="submit">Siguiente</Button>
+              )}
+            </div>
+          </Row>
+        </Modal.Footer>
+      </Form>
     </>
   );
 }

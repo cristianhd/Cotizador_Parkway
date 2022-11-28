@@ -17,7 +17,8 @@ export default function ModalNewProduct({ typeProduct }) {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
   const handleSave = (data) => {
-    dispatch(createProduct(data, typeProduct));
+    // dispatch(createProduct(data, typeProduct));
+    console.log(data);
     setShow(false);
     alert("Producto Creado");
   };

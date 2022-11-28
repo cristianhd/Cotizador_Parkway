@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, FloatingLabel, Form, Row, ToggleButton } from "react-bootstrap";
 import FloatingInput from "./FloatingInput";
 
-export default function ActiveDateFormPlanes({ form, handleOnChangeForm }) {
-  const [currentChecked, setCurrentChecked] = useState(["0"]);
+export default function ActiveDateFormPlanes({ form, handleonChangeDate }) {
   const meses = [
     "Todo el Año",
     "Enero",
@@ -20,25 +19,6 @@ export default function ActiveDateFormPlanes({ form, handleOnChangeForm }) {
     "Diciembre",
   ];
 
-  function handleonChange(e) {
-    const name = e.target.name;
-    const value = e.target.value.toString();
-
-    if (value === "0") {
-      if (currentChecked.includes("0")) {
-        setCurrentChecked([]);
-      } else {
-        setCurrentChecked(["0"]);
-      }
-    } else {
-      if (currentChecked.includes(value)) {
-        setCurrentChecked(currentChecked.filter((item) => item !== value));
-      } else {
-        setCurrentChecked([...currentChecked, value]);
-      }
-    }
-  }
-
   return (
     <>
       <Row className="m-1">
@@ -53,12 +33,12 @@ export default function ActiveDateFormPlanes({ form, handleOnChangeForm }) {
                 type="checkbox"
                 size="sm"
                 variant="outline-primary"
-                checked={currentChecked.includes(index.toString())}
+                checked={form.activeDate.includes(index.toString())}
                 value={index.toString()}
                 key={index}
-                onChange={(e) => handleonChange(e)}
+                onChange={(e) => handleonChangeDate(e)}
                 disabled={
-                  currentChecked.includes("0") && index.toString() !== "0"
+                  form.activeDate.includes("0") && index.toString() !== "0"
                 }
               >
                 {mes}
