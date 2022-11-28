@@ -6,10 +6,12 @@ import FloatingInput from "./FloatingInput";
 export default function RoomsFormPlanes({
   handleOnChangePriceAdult,
   handleOnChangeForm,
+  handleOnChangeCategory,
+  handleOnChangePriceKids,
   form,
 }) {
-  const [numberNigths, setNumberNigths] = useState("0");
   const [checkedItem, setCheckedItem] = useState({});
+  const [checkKids, setCheckKids] = useState(false);
   const [currentChecked, setCurrentChecked] = useState([]);
 
   const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple"];
@@ -30,19 +32,18 @@ export default function RoomsFormPlanes({
       [name]: checked,
     });
   }
-  console.log(checkedItem);
 
-  function handelOnChangePriceRooms(e) {
+  function handleOnChangePriceRooms(e) {
     const room = e.target.name;
     const price = e.target.value;
 
     handleOnChangePriceAdult(room, price);
   }
 
-  function handleOnChangeNumberNights(e) {
-    let newNumberNigths = e.target.value;
+  function handleOnChangeCheckCategory(e) {
+    const name = e.target.name;
 
-    setNumberNigths(newNumberNigths);
+    handleOnChangeCategory(name);
   }
 
   return (
@@ -57,85 +58,134 @@ export default function RoomsFormPlanes({
           />
         </Form.Group>
       </Row>
+
       <Row className="m-1">
-        <Form.Group className="w-100" as={Col}>
-          <Form.Label className="p-1">Categoria Hospedaje</Form.Label>
-          <Form.Group className="d-flex justify-content-between w-100 p-1">
-            <Form.Check type="radio" label="Superior" />
-            <Form.Check type="radio" label="Turista" />
-            <Form.Check type="radio" label="Ecoturismo" />
-            <Form.Check type="radio" label="Boutique" />
+        <Form.Group className="m-2" as={Col}>
+          <Form.Label className="">Categoria Hospedaje</Form.Label>
+          <Form.Group className="p-1">
+            <Form.Check
+              name="Superior"
+              type="radio"
+              label="Superior"
+              onChange={(e) => handleOnChangeCheckCategory(e)}
+              value={form.categoryAccomodation === "Superior"}
+              checked={form.categoryAccomodation === "Superior"}
+            />
+            <Form.Check
+              name="Turista"
+              type="radio"
+              label="Turista"
+              onChange={(e) => handleOnChangeCheckCategory(e)}
+              value={form.categoryAccomodation === "Turista"}
+              checked={form.categoryAccomodation === "Turista"}
+            />
+            <Form.Check
+              name="Ecoturismo"
+              type="radio"
+              label="Ecoturismo"
+              onChange={(e) => handleOnChangeCheckCategory(e)}
+              value={form.categoryAccomodation === "Ecoturismo"}
+              checked={form.categoryAccomodation === "Ecoturismo"}
+            />
+            <Form.Check
+              name="Boutique"
+              type="radio"
+              label="Boutique"
+              onChange={(e) => handleOnChangeCheckCategory(e)}
+              value={form.categoryAccomodation === "Boutique"}
+              checked={form.categoryAccomodation === "Boutique"}
+            />
           </Form.Group>
         </Form.Group>
-      </Row>
-      <Row className="m-1">
-        <Form.Group className="w-100" as={Col}>
-          <Form.Label>
-            Número de Noches
-            <span> {numberNigths}</span>
-          </Form.Label>
+        <Form.Group
+          className="m-2 d-flex flex-column align-items-center"
+          as={Col}
+        >
+          <Form.Label className="">Número de Noches:</Form.Label>
           <Form.Range
-            onChange={handleOnChangeNumberNights}
-            value={numberNigths}
+            className="w-50 m-1"
+            name="numberNigths"
+            onChange={(e) => handleOnChangeForm(e)}
+            value={form.numberNigths}
             min="0"
             max="10"
           ></Form.Range>
+          <span className="m-1"> {form.numberNigths} noche/s</span>
         </Form.Group>
       </Row>
-      <Form.Label>Habitaciones</Form.Label>
-
-      {typeRooms.map((typeRoom, index) => {
-        return (
-          <Col key={index}>
-            <Form.Check
-              name={typeRoom}
-              type="checkbox"
-              label={UpperCaseStr(typeRoom)}
-              onChange={handleOnChangeTypeRooms}
-            />
-            <InputGroup>
+      <Row className="m-1">
+        <Form.Group as={Col}>
+          <Form.Check
+            className="m-1"
+            type="switch"
+            label="Precio Niños"
+            onChange={() => setCheckKids(!checkKids)}
+          ></Form.Check>
+          <div className="p-1 d-flex justify-content-between ">
+            <InputGroup className="p-1">
               <InputGroup.Text>$</InputGroup.Text>
               <Form.Control
-                required
-                name={typeRoom}
+                name="priceKids"
+                value={form.priceKids}
                 type="number"
-                value={form.priceAdult.typeRoom}
-                onChange={handelOnChangePriceRooms}
-                disabled={!currentChecked.includes(typeRoom)}
                 className="shadow-none"
+                disabled={!checkKids}
+                onChange={(e) => handleOnChangeForm(e)}
               />
             </InputGroup>
-          </Col>
-        );
-      })}
-      <Button variant="warning">
-        {" "}
-        Editar{" "}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-pencil-fill"
-          viewBox="0 0 16 16"
-        >
-          <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-        </svg>
-      </Button>
-      <Button variant="success">
-        {" "}
-        Hecho{" "}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-check-circle-fill"
-          viewBox="0 0 16 16"
-        >
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-        </svg>
-      </Button>
+            <div className="px-1 d-flex ">
+              <Form.Label>Rango Edad</Form.Label>
+              <InputGroup className=" p-1 d-flex jutify-content-center">
+                <Form.Control
+                  name="minRangeKids"
+                  value={form.minRangeKids}
+                  type="number"
+                  className="shadow-none"
+                  disabled={!checkKids}
+                  onChange={(e) => handleOnChangeForm(e)}
+                />
+                <InputGroup.Text>-</InputGroup.Text>
+                <Form.Control
+                  name="maxRangeKids"
+                  value={form.maxRangeKids}
+                  type="number"
+                  className="shadow-none"
+                  disabled={!checkKids}
+                  onChange={(e) => handleOnChangeForm(e)}
+                />
+              </InputGroup>
+            </div>
+          </div>
+        </Form.Group>
+      </Row>
+      <Row className="m-1 p-1 d-flex ">
+        <Form.Label>Precio Habitaciones</Form.Label>
+
+        {typeRooms.map((typeRoom, index) => {
+          return (
+            <div className="d-flex-row mx-1" key={index}>
+              <Form.Check
+                name={typeRoom}
+                type="checkbox"
+                label={UpperCaseStr(typeRoom)}
+                onChange={handleOnChangeTypeRooms}
+              />
+              <InputGroup>
+                <InputGroup.Text>$</InputGroup.Text>
+                <Form.Control
+                  required
+                  name={typeRoom}
+                  type="number"
+                  value={form.priceAdult.typeRoom}
+                  onChange={handleOnChangePriceRooms}
+                  disabled={!currentChecked.includes(typeRoom)}
+                  className="shadow-none"
+                />
+              </InputGroup>
+            </div>
+          );
+        })}
+      </Row>
     </>
   );
 }
