@@ -6,8 +6,7 @@ import FloatingInput from "./FloatingInput";
 export default function RoomsFormPlanes({
   handleOnChangePriceAdult,
   handleOnChangeForm,
-  handleOnChangeCategory,
-  handleOnChangePriceKids,
+
   form,
 }) {
   const [checkedItem, setCheckedItem] = useState({});
@@ -40,12 +39,6 @@ export default function RoomsFormPlanes({
     handleOnChangePriceAdult(room, price);
   }
 
-  function handleOnChangeCheckCategory(e) {
-    const name = e.target.name;
-
-    handleOnChangeCategory(name);
-  }
-
   return (
     <>
       <Row className="m-1">
@@ -60,57 +53,44 @@ export default function RoomsFormPlanes({
       </Row>
 
       <Row className="m-1">
-        <Form.Group className="m-2" as={Col}>
-          <Form.Label className="">Categoria Hospedaje</Form.Label>
+        <Form.Group className="" as={Col}>
           <Form.Group className="p-1">
-            <Form.Check
-              name="Superior"
-              type="radio"
-              label="Superior"
-              onChange={(e) => handleOnChangeCheckCategory(e)}
-              value={form.categoryAccomodation === "Superior"}
-              checked={form.categoryAccomodation === "Superior"}
-            />
-            <Form.Check
-              name="Turista"
-              type="radio"
-              label="Turista"
-              onChange={(e) => handleOnChangeCheckCategory(e)}
-              value={form.categoryAccomodation === "Turista"}
-              checked={form.categoryAccomodation === "Turista"}
-            />
-            <Form.Check
-              name="Ecoturismo"
-              type="radio"
-              label="Ecoturismo"
-              onChange={(e) => handleOnChangeCheckCategory(e)}
-              value={form.categoryAccomodation === "Ecoturismo"}
-              checked={form.categoryAccomodation === "Ecoturismo"}
-            />
-            <Form.Check
-              name="Boutique"
-              type="radio"
-              label="Boutique"
-              onChange={(e) => handleOnChangeCheckCategory(e)}
-              value={form.categoryAccomodation === "Boutique"}
-              checked={form.categoryAccomodation === "Boutique"}
-            />
+            <Form.Select
+              required
+              className="shadow-none"
+              name="categoryAccommodation"
+              value={form.categoryAccommodation}
+              onChange={(e) => handleOnChangeForm(e)}
+            >
+              <option selected disabled value="">
+                Selecione una categoria
+              </option>
+              <option value="Superior">Superior</option>
+              <option value="Turista">Turista</option>
+              <option value="Ecoturismo">Ecoturismo</option>
+              <option value="Boutique">Boutique</option>
+            </Form.Select>
           </Form.Group>
         </Form.Group>
-        <Form.Group
-          className="m-2 d-flex flex-column align-items-center"
-          as={Col}
-        >
-          <Form.Label className="">Número de Noches:</Form.Label>
+        <Form.Group className="d-flex flex-column align-items-center" as={Col}>
+          <FloatingInput
+            name="numberNigths"
+            type="number"
+            labelName="Numero de Noches"
+            value={form.numberNigths}
+            onChange={(e) => handleOnChangeForm(e)}
+          />
+
+          {/* <Form.Label className="">Número de Noches:</Form.Label>
           <Form.Range
+            required
             className="w-50 m-1"
             name="numberNigths"
             onChange={(e) => handleOnChangeForm(e)}
             value={form.numberNigths}
             min="0"
             max="10"
-          ></Form.Range>
-          <span className="m-1"> {form.numberNigths} noche/s</span>
+          ></Form.Range> */}
         </Form.Group>
       </Row>
       <Row className="m-1">
@@ -125,6 +105,7 @@ export default function RoomsFormPlanes({
             <InputGroup className="p-1">
               <InputGroup.Text>$</InputGroup.Text>
               <Form.Control
+                required
                 name="priceKids"
                 value={form.priceKids}
                 type="number"
@@ -137,6 +118,7 @@ export default function RoomsFormPlanes({
               <Form.Label>Rango Edad</Form.Label>
               <InputGroup className=" p-1 d-flex jutify-content-center">
                 <Form.Control
+                  required
                   name="minRangeKids"
                   value={form.minRangeKids}
                   type="number"
@@ -146,6 +128,7 @@ export default function RoomsFormPlanes({
                 />
                 <InputGroup.Text>-</InputGroup.Text>
                 <Form.Control
+                  required
                   name="maxRangeKids"
                   value={form.maxRangeKids}
                   type="number"
