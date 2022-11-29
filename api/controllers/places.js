@@ -7,7 +7,7 @@ function suggestPlaces(req, res) {
     // cuando no viene ninguna consulta
     res.send({ msg: "no data query" });
   } else {
-    const namePlaceRegex = ".*" + name.toLowerCase() + ".*";
+    const namePlaceRegex = new RegExp(name, "i");
     try {
       // consulta 5 primeros lugares
       Places.find({ name: { $regex: namePlaceRegex } })
