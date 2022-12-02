@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import { UpperCaseStr } from "../../utils/UpperCaseStr";
 import "../../style/inputPlace.css";
 import { FloatingLabel, OverlayTrigger, Popover } from "react-bootstrap";
-import SuggestPlaces from "./SuggestPlaces";
+import Suggest from "./Suggest";
 import { useSelector } from "react-redux";
 
 export default function InputPlace({
@@ -14,37 +14,50 @@ export default function InputPlace({
   show,
   suggestOnclick,
 }) {
-  const [suggest, setSuggest] = useState([]);
-  const { queryPlaces } = useSelector((state) => state);
-  const suggestPlaces = queryPlaces.queryPlaces;
+  const [suggestPlaces, setSuggestPlaces] = useState([]);
+  const [suggestCities, setSuggestCities] = useState([]);
+
+  const { suggest5Places, suggest5Cities } = useSelector((state) => state);
+  const suggestFivePlaces = suggest5Places.suggest5Places || "";
+  const suggestFiveCities = suggest5Cities.suggest5Cities || "";
   const screenWidth = window.screen.width;
 
   // set suggest places in local state
   useEffect(() => {
-    setSuggest(suggestPlaces);
-  }, [suggestPlaces]);
+    setSuggestPlaces(suggestFivePlaces);
+    setSuggestCities(suggestFiveCities);
+  }, [suggestFiveCities, suggestFivePlaces]);
 
+  console.log(suggestCities.length);
   return (
     <div className="input-place p-1 d-flex flex-row align-items-center rounded">
       <OverlayTrigger
         show={show}
-        placement="auto"
+        placement="bottom"
         overlay={
           <Popover className="">
-            <Popover.Header>Ciudades</Popover.Header>
-            <SuggestPlaces
-              suggest={suggest}
-              onClick={suggestOnclick}
-              show={show}
-              name={name}
-            />
-            <Popover.Header>Lugares</Popover.Header>
-            <SuggestPlaces
-              suggest={suggest}
-              onClick={suggestOnclick}
-              show={show}
-              name={name}
-            />
+            {suggestCities.length > 0 && (
+              <>
+                <Popover.Header>Ciudades</Popover.Header>
+                <Suggest
+                  suggest={suggestCities}
+                  onClick={suggestOnclick}
+                  show={show}
+                  name={name}
+                />
+              </>
+            )}
+            {suggestPlaces.length > 0 && (
+              <>
+                <Popover.Header>Lugares</Popover.Header>
+                <Suggest
+                  suggest={suggestPlaces}
+                  onClick={suggestOnclick}
+                  show={show}
+                  name={name}
+                />
+              </>
+            )}
           </Popover>
         }
       >

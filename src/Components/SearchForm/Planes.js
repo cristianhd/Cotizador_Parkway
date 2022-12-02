@@ -8,7 +8,11 @@ import InputPlace from "./InputPlace";
 import Rooms from "./Rooms";
 import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
-import { getSearch, getSearchPlaces } from "../../Redux/action";
+import {
+  getSearch,
+  getSuggestCities,
+  getSuggestPlaces,
+} from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
 
@@ -52,6 +56,7 @@ export default function Planes() {
   };
 
   const handleSuggestOnclick = (name, value) => {
+    console.log(name, value);
     setForm({
       ...form,
       [name]: value,
@@ -75,7 +80,8 @@ export default function Planes() {
       setShowDestination(false);
     }
 
-    dispatch(getSearchPlaces(value));
+    dispatch(getSuggestPlaces(value));
+    dispatch(getSuggestCities(value));
 
     setForm({
       ...form,

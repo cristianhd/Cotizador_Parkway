@@ -1,7 +1,8 @@
 const intialState = {
   data: [],
   querySearch: [],
-  queryPlaces: [],
+  suggest5Places: [],
+  suggest5Cities: [],
 };
 
 export function rootReducer(state = intialState, action) {
@@ -11,12 +12,18 @@ export function rootReducer(state = intialState, action) {
         ...state,
         querySearch: action.payload,
         typeProduct: action.payload,
-        queryPlaces:[]
+        suggest5Places: [],
+        suggest5Cities: [],
       };
-    case "GET_SEARCH_PLACES":
+    case "GET_SUGGEST_PLACES":
       return {
         ...state,
-        queryPlaces: action.payload,
+        suggest5Places: action.payload,
+      };
+    case "GET_SUGGEST_CITIES":
+      return {
+        ...state,
+        suggest5Cities: action.payload,
       };
     case "CLEAN_QUERY_SEARCH":
       return {

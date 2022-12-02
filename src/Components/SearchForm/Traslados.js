@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import InputPlace from "./InputPlace";
 import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
-import { getSearch, getSearchPlaces } from "../../Redux/action";
+import { getSearch, getSuggestPlaces } from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
 
@@ -66,7 +66,7 @@ export default function Traslados() {
       setShowDestination(false);
     }
 
-    dispatch(getSearchPlaces(value));
+    dispatch(getSuggestPlaces(value));
 
     setForm({
       ...form,

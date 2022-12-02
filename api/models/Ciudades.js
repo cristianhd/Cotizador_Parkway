@@ -5,7 +5,7 @@ const ciudadeSchema = new Schema({
   daneDepartament: { type: String, require: true },
   nameDepartment: { type: String, require: true },
   daneCity: { type: String, require: true, unique: true },
-  nameCity: { type: String, require: true, unique: true },
+  name: { type: String, require: true, unique: true },
 });
 
 const Ciudades = model("ciudades", ciudadeSchema);

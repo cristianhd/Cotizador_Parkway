@@ -10,9 +10,9 @@ import {
   Tooltip,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchPlaces } from "../../Redux/action";
+import { getSuggestCities, getSuggestPlaces } from "../../Redux/action";
 import InputPlace from "../SearchForm/InputPlace";
-import SuggestPlaces from "../SearchForm/SuggestPlaces";
+
 import FloatingInput from "./FloatingInput";
 
 export default function InfoGeneralFormPlanes({
@@ -26,8 +26,9 @@ export default function InfoGeneralFormPlanes({
 
   const [showSuggest, setShowSuggest] = useState("");
   const [suggest, setSuggest] = useState([]);
-  const { queryPlaces } = useSelector((state) => state);
-  const suggestPlaces = queryPlaces.queryPlaces;
+  const { suggest5Places, suggest5Cities } = useSelector((state) => state);
+  const suggestPlaces = suggest5Places.suggest5Places;
+  const suggestCities = suggest5Cities.suggest5Cities;
   const dispatch = useDispatch();
 
   function handleOnChangeCheck(e) {
@@ -55,8 +56,8 @@ export default function InfoGeneralFormPlanes({
     const label = e.target.name;
     const destination = e.target.value;
 
-    console.log(index);
-    dispatch(getSearchPlaces(destination));
+    dispatch(getSuggestPlaces(destination));
+    dispatch(getSuggestCities(destination));
 
     handleOnChangeDestination(label, destination);
     setShowSuggest(index);
@@ -66,9 +67,9 @@ export default function InfoGeneralFormPlanes({
     setShowSuggest("");
   };
 
-  useEffect(() => {
-    setSuggest(suggestPlaces);
-  }, [suggestPlaces]);
+  // useEffect(() => {
+  //   setSuggest(suggestPlaces);
+  // }, [suggestPlaces]);
   console.log(showSuggest);
   return (
     <>

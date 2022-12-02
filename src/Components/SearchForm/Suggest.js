@@ -1,19 +1,19 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-export default function SuggestPlaces({ suggest, onClick, name }) {
+export default function Suggest({ suggest, onClick, name }) {
   return (
     <div className="suggest d-flex flex-column">
       {suggest &&
-        suggest.map((place, index) => {
+        suggest.map((suggest, index) => {
           return (
             <Button
               className="w-100 rounded-0 bg-gray"
               key={index}
               variant="dark"
-              onClick={() => onClick(name, place.name, place._id)}
+              onClick={() => onClick(name, suggest.name, suggest._id)}
             >
-              {place.name}
+              {suggest.name}
             </Button>
           );
         })}

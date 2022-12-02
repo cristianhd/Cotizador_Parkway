@@ -10,7 +10,7 @@ function suggestCities(req, res) {
     const nameCitiesRegex = new RegExp(name, "i");
     try {
       // consulta 5 primeros ciudades
-      Cities.find({ nameCity: { $regex: nameCitiesRegex } })
+      Cities.find({ name: { $regex: nameCitiesRegex } })
         .limit(5)
         .then((cities) => {
           res.json(cities);

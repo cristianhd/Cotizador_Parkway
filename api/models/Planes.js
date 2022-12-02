@@ -10,20 +10,13 @@ const planeSchema = new Schema({
   numberNights: { type: String, require: true },
   description: { type: String, require: true },
   transport: { type: String, require: true },
-  rangeKids: { type: String, require: true },
-  priceKids: [
-    {
-      label: { type: String, require: true },
-      price: { type: String, require: true },
-    },
-  ],
-  priceAdult: [
-    {
-      label: { type: String, require: true },
-      price: { type: String, require: true },
-    },
-  ],  
-  activeDate: { type: String, require: true },
+  maxRangeKids: { type: String },
+  minRangeKids: { type: String },
+  priceKids: { type: String },
+  priceAdult: {
+    price: { type: String, require: true },
+  },
+  activeDate: { type: [String], require: true },
   providerUser: { type: String, require: true },
   activeProduct: { type: Boolean, require: true },
 });

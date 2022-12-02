@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const GET_SEARCH = "GET_SEARCH",
-  GET_SEARCH_PLACES = "GET_SEARCH_PLACES",
+  GET_SUGGEST_PLACES = "GET_SUGGEST_PLACES",
+  GET_SUGGEST_CITIES = "GET_SUGGEST_CITIES",
   CREATE_USER = "CREATE_USER",
   CREATE_PRODUCT = "CREATE_PRODUCT";
 
@@ -22,12 +23,23 @@ export function getSearch(origin, destination, typeProduct) {
   };
 }
 
-export function getSearchPlaces(query) {
+export function getSuggestPlaces(query) {
   return (dispatch) => {
     axios.get(`/places/suggest?name=${query}`).then((res) => {
       dispatch({
-        type: GET_SEARCH_PLACES,
-        payload: { queryPlaces: res.data },
+        type: GET_SUGGEST_PLACES,
+        payload: { suggest5Places: res.data },
+      });
+    });
+  };
+}
+
+export function getSuggestCities(query) {
+  return (dispatch) => {
+    axios.get(`/cities/suggest?name=${query}`).then((res) => {
+      dispatch({
+        type: GET_SUGGEST_CITIES,
+        payload: { suggest5Cities: res.data },
       });
     });
   };
