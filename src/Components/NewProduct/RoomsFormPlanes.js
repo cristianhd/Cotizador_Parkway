@@ -62,7 +62,7 @@ export default function RoomsFormPlanes({
               value={form.categoryAccommodation}
               onChange={(e) => handleOnChangeForm(e)}
             >
-              <option selected disabled value="">
+              <option defaultValue selected disabled value="">
                 Selecione una categoria
               </option>
               <option value="Superior">Superior</option>
