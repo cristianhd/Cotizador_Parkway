@@ -1,5 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  FloatingLabel,
+  Form,
+  OverlayTrigger,
+  Popover,
+  Row,
+  Tooltip,
+} from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getSearchPlaces } from "../../Redux/action";
+import InputPlace from "../SearchForm/InputPlace";
+import SuggestPlaces from "../SearchForm/SuggestPlaces";
 import FloatingInput from "./FloatingInput";
 
 export default function InfoGeneralFormPlanes({
@@ -9,40 +22,54 @@ export default function InfoGeneralFormPlanes({
 }) {
   const [checkedMultiDestination, updateCheckedMultiDestination] =
     useState(false);
-  const [multiDestination, addMultiDestination] = useState([1]);
-  const [newDestination, setNewDestination] = useState({});
+  const [multiDestination, setMultiDestination] = useState([1]);
+
+  const [showSuggest, setShowSuggest] = useState("");
+  const [suggest, setSuggest] = useState([]);
+  const { queryPlaces } = useSelector((state) => state);
+  const suggestPlaces = queryPlaces.queryPlaces;
+  const dispatch = useDispatch();
 
   function handleOnChangeCheck(e) {
     const checked = e.target.checked;
     if (checked) {
-      addMultiDestination([...multiDestination, 2]);
+      setMultiDestination([...multiDestination, 2]);
     } else {
-      addMultiDestination([1]);
+      setMultiDestination([1]);
     }
     updateCheckedMultiDestination(checked);
   }
 
   function AddDestination() {
-    addMultiDestination([...multiDestination, multiDestination.length + 1]);
+    setMultiDestination([...multiDestination, multiDestination.length + 1]);
   }
   function RemoveDestination() {
     const label = "destino-" + multiDestination[multiDestination.length - 1];
     const destination = undefined;
 
-    addMultiDestination(multiDestination.slice(0, multiDestination.length - 1));
-    setNewDestination({ ...newDestination, [label]: " " });
+    setMultiDestination(multiDestination.slice(0, multiDestination.length - 1));
+
     handleOnChangeDestination(label, destination);
   }
-  function handleOnChangeMultiDestination(e) {
+  function handleOnChangeMultiDestination(e, index) {
     const label = e.target.name;
     const destination = e.target.value;
-    setNewDestination({ ...newDestination, [label]: destination });
+
+    console.log(index);
+    dispatch(getSearchPlaces(destination));
+
     handleOnChangeDestination(label, destination);
+    setShowSuggest(index);
   }
+  const handleSuggestOnClick = (label, destination, id) => {
+    handleOnChangeDestination(label, destination);
+    setShowSuggest("");
+  };
 
-  // handleOnChangeDestination(newDestination);
-
-  console.log(newDestination);
+  useEffect(() => {
+    setSuggest(suggestPlaces);
+  }, [suggestPlaces]);
+  console.log(showSuggest);
   return (
     <>
       <Row className="m-1">
@@ -59,14 +86,17 @@ export default function InfoGeneralFormPlanes({
       <Row className="m-1">
         <Form.Group className="" as={Col}>
           {multiDestination.map((destination, index) => (
-            <FloatingInput
+            <InputPlace
               key={index}
               name={`destino-${destination}`}
               labelName={`Destino ${destination}`}
               value={Object.values(form.destination)[index]}
-              onChange={(e) => handleOnChangeMultiDestination(e)}
+              onChange={(e) => handleOnChangeMultiDestination(e, index)}
+              suggestOnclick={handleSuggestOnClick}
+              show={showSuggest === index}
             />
           ))}
+
           <div className="p-1 d-flex justify-content-between">
             {checkedMultiDestination && multiDestination.length > 1 && (
               <span onClick={RemoveDestination}> - eliminar destino</span>

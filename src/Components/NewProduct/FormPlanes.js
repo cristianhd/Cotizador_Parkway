@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
-import FormRooms from "./FormRooms";
+
 import FloatingInput from "./FloatingInput";
 import InfoGeneralFormPlanes from "./InfoGeneralFormPlanes";
 import RoomsFormPlanes from "./RoomsFormPlanes";
@@ -39,7 +39,6 @@ export default function FormPlanes({ handleSave }) {
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
 
-  const [currentChecked, setCurrentChecked] = useState([]);
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
@@ -55,8 +54,9 @@ export default function FormPlanes({ handleSave }) {
         if (Object.keys(form.priceAdult).length && form.activeDate.length) {
           handleSave(form);
         } else {
-          if(!Object.keys(form.priceAdult).length) alert("falta Precio Adultos");
-          if(!form.activeDate.length) alert("falta fechas")
+          if (!Object.keys(form.priceAdult).length)
+            alert("falta Precio Adultos");
+          if (!form.activeDate.length) alert("falta fechas");
         }
       }
     }
@@ -123,7 +123,7 @@ export default function FormPlanes({ handleSave }) {
   }
 
   console.log(form);
-  console.log(currentIndexForm);
+
   return (
     <>
       <Form

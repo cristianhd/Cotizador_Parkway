@@ -24,7 +24,7 @@ export function getSearch(origin, destination, typeProduct) {
 
 export function getSearchPlaces(query) {
   return (dispatch) => {
-    axios.get(`/places?place=${query}`).then((res) => {
+    axios.get(`/places/suggest?name=${query}`).then((res) => {
       dispatch({
         type: GET_SEARCH_PLACES,
         payload: { queryPlaces: res.data },
