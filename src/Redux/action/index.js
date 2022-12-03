@@ -64,10 +64,11 @@ export function createProduct(data, typeProduct) {
   return (dispatch) => {
     axios
       .post(`/products/${typeProduct}`, {
-        [typeProduct]: [data],
+        [typeProduct]: data,
       })
       .then((res) => {
-        dispatch({ type: CREATE_PRODUCT });
+        console.log(res);
+        dispatch({ type: CREATE_PRODUCT, payload: res.data });
       });
   };
 }

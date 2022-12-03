@@ -3,6 +3,7 @@ const intialState = {
   querySearch: [],
   suggest5Places: [],
   suggest5Cities: [],
+  createProduct: {},
 };
 
 export function rootReducer(state = intialState, action) {
@@ -29,6 +30,11 @@ export function rootReducer(state = intialState, action) {
       return {
         ...state,
         querySearch: [],
+      };
+    case "CREATE_PRODUCT":
+      return {
+        ...state,
+        createProduct: action.payload,
       };
 
     default:
