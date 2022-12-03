@@ -33,7 +33,7 @@ export default function InputPlace({
     <div className="input-place p-1 d-flex flex-row align-items-center rounded">
       <OverlayTrigger
         show={show}
-        placement="bottom"
+        placement="auto"
         overlay={
           <Popover className="">
             {suggestCities.length > 0 && (
