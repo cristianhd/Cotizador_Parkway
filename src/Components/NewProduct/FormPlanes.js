@@ -32,7 +32,7 @@ export default function FormPlanes({ handleSave }) {
     minRangeKids: "",
     maxRangeKids: "",
     priceKids: "",
-    priceAdult: {},
+    priceAdult: [],
     activeDate: [],
   });
 
