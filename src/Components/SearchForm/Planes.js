@@ -56,7 +56,6 @@ export default function Planes() {
   };
 
   const handleSuggestOnclick = (name, value) => {
-    console.log(name, value);
     setForm({
       ...form,
       [name]: value,

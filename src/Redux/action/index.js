@@ -67,7 +67,6 @@ export function createProduct(data, typeProduct) {
         [typeProduct]: data,
       })
       .then((res) => {
-        console.log(res);
         dispatch({ type: CREATE_PRODUCT, payload: res.data });
       });
   };

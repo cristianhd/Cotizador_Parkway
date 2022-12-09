@@ -1,7 +1,11 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { UpperCaseStr } from "../../utils/UpperCaseStr";
+import AddPriceButton from "./AddPriceButton";
 import FloatingInput from "./FloatingInput";
+import RemovePriceButton from "./RemovePriceButton";
+import RoomPrice from "./RoomPrice";
 
 export default function RoomsFormPlanes({
   handleOnChangePriceAdult,
@@ -12,6 +16,7 @@ export default function RoomsFormPlanes({
   const [checkedItem, setCheckedItem] = useState({});
   const [checkKids, setCheckKids] = useState(false);
   const [currentChecked, setCurrentChecked] = useState([]);
+  const [amountRoomPrice, setamountRoomPrice] = useState([1]);
 
   const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple"];
 
@@ -36,6 +41,17 @@ export default function RoomsFormPlanes({
     const room = e.target.name;
     const price = e.target.value;
 
+    handleOnChangePriceAdult(room, price);
+  }
+  function AddRoom() {
+    setamountRoomPrice([...amountRoomPrice, amountRoomPrice.length + 1]);
+  }
+  function RemoveRoom() {
+    const room = Object.keys(form.priceAdult).find((room) =>
+      room.includes(amountRoomPrice.length)
+    );
+    const price = undefined;
+    setamountRoomPrice(amountRoomPrice.slice(0, amountRoomPrice.length - 1));
     handleOnChangePriceAdult(room, price);
   }
 
@@ -63,7 +79,7 @@ export default function RoomsFormPlanes({
               onChange={(e) => handleOnChangeForm(e)}
             >
               <option defaultValue selected disabled value="">
-                Selecione una categoria
+                Categoria Hospedaje
               </option>
               <option value="Superior">Superior</option>
               <option value="Turista">Turista</option>
@@ -80,17 +96,6 @@ export default function RoomsFormPlanes({
             value={form.numberNigths}
             onChange={(e) => handleOnChangeForm(e)}
           />
-
-          {/* <Form.Label className="">Número de Noches:</Form.Label>
-          <Form.Range
-            required
-            className="w-50 m-1"
-            name="numberNigths"
-            onChange={(e) => handleOnChangeForm(e)}
-            value={form.numberNigths}
-            min="0"
-            max="10"
-          ></Form.Range> */}
         </Form.Group>
       </Row>
       <Row className="m-1">
@@ -141,33 +146,21 @@ export default function RoomsFormPlanes({
           </div>
         </Form.Group>
       </Row>
-      <Row className="m-1 p-1 d-flex ">
+      <Row className="m-1">
         <Form.Label>Precio Habitaciones</Form.Label>
 
-        {typeRooms.map((typeRoom, index) => {
-          return (
-            <div className="d-flex-row mx-1" key={index}>
-              <Form.Check
-                name={typeRoom}
-                type="checkbox"
-                label={UpperCaseStr(typeRoom)}
-                onChange={handleOnChangeTypeRooms}
-              />
-              <InputGroup>
-                <InputGroup.Text>$</InputGroup.Text>
-                <Form.Control
-                  required
-                  name={typeRoom}
-                  type="number"
-                  value={form.priceAdult.typeRoom}
-                  onChange={handleOnChangePriceRooms}
-                  disabled={!currentChecked.includes(typeRoom)}
-                  className="shadow-none"
-                />
-              </InputGroup>
-            </div>
-          );
-        })}
+        {amountRoomPrice.map((room) => (
+          <RoomPrice
+            key={room}
+            handleOnChangePriceAdult={handleOnChangePriceAdult}
+            form={form}
+            indexRoom={room}
+          ></RoomPrice>
+        ))}
+        <div className="m-1 p-1 d-flex justify-content-between">
+          <AddPriceButton handleOnClick={AddRoom}></AddPriceButton>
+          <RemovePriceButton handleOnClick={RemoveRoom}></RemovePriceButton>
+        </div>
       </Row>
     </>
   );

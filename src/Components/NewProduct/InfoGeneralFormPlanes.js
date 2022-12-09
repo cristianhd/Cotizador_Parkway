@@ -12,8 +12,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { getSuggestCities, getSuggestPlaces } from "../../Redux/action";
 import InputPlace from "../SearchForm/InputPlace";
+import AddPriceButton from "./AddPriceButton";
 
 import FloatingInput from "./FloatingInput";
+import RemovePriceButton from "./RemovePriceButton";
+import RoomPrice from "./RoomPrice";
 
 export default function InfoGeneralFormPlanes({
   handleOnChangeForm,
@@ -70,7 +73,7 @@ export default function InfoGeneralFormPlanes({
   // useEffect(() => {
   //   setSuggest(suggestPlaces);
   // }, [suggestPlaces]);
-  console.log(showSuggest);
+
   return (
     <>
       <Row className="m-1">
@@ -100,10 +103,10 @@ export default function InfoGeneralFormPlanes({
 
           <div className="p-1 d-flex justify-content-between">
             {checkedMultiDestination && multiDestination.length > 1 && (
-              <span onClick={RemoveDestination}> - eliminar destino</span>
+              <span onClick={RemoveDestination}> - eliminar</span>
             )}
             {checkedMultiDestination && multiDestination.length < 5 && (
-              <span onClick={AddDestination}> + agregar destino</span>
+              <span onClick={AddDestination}> + agregar</span>
             )}
           </div>
           <Form.Group className="ps-1">

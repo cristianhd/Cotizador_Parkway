@@ -32,7 +32,7 @@ export default function FormPlanes({ handleSave }) {
     minRangeKids: "",
     maxRangeKids: "",
     priceKids: "",
-    priceAdult: [],
+    priceAdult: {},
     activeDate: [],
   });
 
@@ -72,11 +72,26 @@ export default function FormPlanes({ handleSave }) {
     });
   }
 
-  function handleOnChangePriceAdult(room, price) {
-    setForm({
-      ...form,
-      priceAdult: { ...form.priceAdult, [room]: price },
-    });
+  function handleOnChangePriceAdult(room, price, changeRoom) {
+    console.log(room, price, changeRoom);
+    if (changeRoom) {
+      setForm({
+        ...form,
+        priceAdult: {
+          ...form.priceAdult,
+          [changeRoom]: undefined,
+          [room]: price,
+        },
+      });
+    } else {
+      setForm({
+        ...form,
+        priceAdult: {
+          ...form.priceAdult,
+          [room]: price,
+        },
+      });
+    }
   }
   function handleOnChangePriceKids({ min, max, price, label }) {
     let range = min + "-" + max;
