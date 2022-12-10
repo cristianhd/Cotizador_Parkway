@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { UpperCaseStr } from "../../utils/UpperCaseStr";
+import { UpperCaseUpperCaseStr } from "../../utils/UpperCaseStr";
 import "../../style/inputPlace.css";
 import { FloatingLabel, OverlayTrigger, Popover } from "react-bootstrap";
 import Suggest from "./Suggest";
@@ -72,7 +72,7 @@ export default function InputPlace({
             name={name}
             type="text"
             placeholder={`Ingrese el ${labelName}`}
-            value={UpperCaseStr(value)}
+            value={value}
             onChange={onChange}
             autoComplete="off"
           />
