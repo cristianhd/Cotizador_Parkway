@@ -14,7 +14,7 @@ export default function RoomPrice({
   function handleOnChangeTypeRooms(e) {
     const currentSelectRoom = `${e.target.value}-${indexRoom}`;
 
-    if (selectRoom && currentSelectRoom !== selectRoom) {
+    if (selectRoom && priceRoom && currentSelectRoom !== selectRoom) {
       handleOnChangePriceAdult(currentSelectRoom, priceRoom, selectRoom);
     }
 
