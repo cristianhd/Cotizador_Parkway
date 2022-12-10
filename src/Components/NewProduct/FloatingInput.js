@@ -23,7 +23,7 @@ export default function FloatingInput({
           name={name}
           type={type}
           placeholder={`Ingrese el ${labelName}`}
-          value={UpperCaseStr(value)}
+          value={value}
           onChange={onChange}
           autoComplete="off"
           disabled={disabled}
