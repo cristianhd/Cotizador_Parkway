@@ -89,17 +89,18 @@ export default function FormPlanes({ handleSave }) {
       });
     }
   }
-  function handleOnChangePriceKids({ min, max, price, label }) {
-    let range = min + "-" + max;
-    setForm({
-      ...form,
-      priceKids: { ...form.priceKids, [label]: { range: price } },
-    });
-  }
+
   function handleOnChangeDestination(label, destination) {
     setForm({
       ...form,
       destination: { ...form.destination, [label]: destination },
+    });
+  }
+
+  function handleCleanPriceAdult() {
+    setForm({
+      ...form,
+      priceAdult: {},
     });
   }
 
@@ -157,7 +158,7 @@ export default function FormPlanes({ handleSave }) {
           {labelStep[currentIndexForm - 1].step === "2" && (
             <StepTwoFormPlanes
               handleOnChangePriceAdult={handleOnChangePriceAdult}
-              handleOnChangeForm={handleOnChangeForm}
+              handleCleanPriceAdult={handleCleanPriceAdult}
               form={form}
             />
           )}
