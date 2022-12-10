@@ -159,6 +159,7 @@ export default function FormPlanes({ handleSave }) {
             <StepTwoFormPlanes
               handleOnChangePriceAdult={handleOnChangePriceAdult}
               handleCleanPriceAdult={handleCleanPriceAdult}
+              handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
           )}
