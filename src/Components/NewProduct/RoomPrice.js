@@ -9,7 +9,7 @@ export default function RoomPrice({
 }) {
   const [selectRoom, setSelectRoom] = useState("Habitación 1");
   const [priceRoom, setPriceRoom] = useState();
-  const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple"];
+  const typeRooms = ["Sencilla", "Doble", "Triple", "Cuadruple", "Quintuple"];
 
   function handleOnChangeTypeRooms(e) {
     const currentSelectRoom = `${e.target.value}-${indexRoom}`;
