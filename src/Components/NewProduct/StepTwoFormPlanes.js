@@ -7,7 +7,7 @@ import FloatingInput from "./FloatingInput";
 import RemovePriceButton from "./RemovePriceButton";
 import RoomPrice from "./RoomPrice";
 
-export default function RoomsFormPlanes({
+export default function StepTwoFormPlanes({
   handleOnChangePriceAdult,
   handleOnChangeForm,
 

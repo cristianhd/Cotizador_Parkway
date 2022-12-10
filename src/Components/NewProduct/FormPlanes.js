@@ -3,14 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
 
-import FloatingInput from "./FloatingInput";
-import InfoGeneralFormPlanes from "./InfoGeneralFormPlanes";
-import RoomsFormPlanes from "./RoomsFormPlanes";
-import ProgressNavigation from "../FormNavigation/ProgressNavigation";
-import { ProgressBar, Step } from "react-step-progress-bar";
-import ActiveDateFormPlanes from "./ActiveDateFormPlanes";
-import DescriptionFormPlanes from "./DescriptionFormPlanes";
-import FormActividades from "./FormActividades";
+import StepTwoFormPlanes from "./StepTwoFormPlanes";
+import StepOneFormPlanes from "./StepOneFormPlanes";
+import StepThreeFormPlanes from "./StepThreeFormPlanes";
+import StepFourFormPlanes from "./StepFourFormPlanes";
 
 export default function FormPlanes({ handleSave }) {
   const labelStep = [
@@ -149,30 +145,29 @@ export default function FormPlanes({ handleSave }) {
       >
         <Modal.Body>
           {labelStep[currentIndexForm - 1].step}
-          {". "}
           {labelStep[currentIndexForm - 1].label}
           {labelStep[currentIndexForm - 1].step === "1" && (
-            <InfoGeneralFormPlanes
+            <StepOneFormPlanes
               handleOnChangeForm={handleOnChangeForm}
               handleOnChangeDestination={handleOnChangeDestination}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "2" && (
-            <RoomsFormPlanes
+            <StepTwoFormPlanes
               handleOnChangePriceAdult={handleOnChangePriceAdult}
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "3" && (
-            <ActiveDateFormPlanes
+            <StepThreeFormPlanes
               handleonChangeDate={handleOnChangeDate}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "4" && (
-            <DescriptionFormPlanes
+            <StepFourFormPlanes
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />

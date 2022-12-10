@@ -18,7 +18,7 @@ import FloatingInput from "./FloatingInput";
 import RemovePriceButton from "./RemovePriceButton";
 import RoomPrice from "./RoomPrice";
 
-export default function InfoGeneralFormPlanes({
+export default function StepOneFormPlanes({
   handleOnChangeForm,
   handleOnChangeDestination,
   form,

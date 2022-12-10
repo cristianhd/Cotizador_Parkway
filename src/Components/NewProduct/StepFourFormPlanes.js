@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
 
-export default function DescriptionFormPlanes({ form, handleOnChangeForm }) {
+export default function StepFourFormPlanes({ form, handleOnChangeForm }) {
   return (
     <>
       <Row className="m-1">
