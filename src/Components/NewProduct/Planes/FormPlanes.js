@@ -145,6 +145,7 @@ export default function FormPlanes({ handleSave }) {
       >
         <Modal.Body>
           {labelStep[currentIndexForm - 1].step}
+          {". "}
           {labelStep[currentIndexForm - 1].label}
           {labelStep[currentIndexForm - 1].step === "1" && (
             <StepOneFormPlanes
