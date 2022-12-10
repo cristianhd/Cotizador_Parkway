@@ -10,13 +10,10 @@ import {
   Tooltip,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getSuggestCities, getSuggestPlaces } from "../../Redux/action";
-import InputPlace from "../SearchForm/InputPlace";
-import AddPriceButton from "./AddPriceButton";
+import { getSuggestCities, getSuggestPlaces } from "../../../Redux/action";
+import InputPlace from "../../SearchForm/InputPlace";
 
-import FloatingInput from "./FloatingInput";
-import RemovePriceButton from "./RemovePriceButton";
-import RoomPrice from "./RoomPrice";
+import FloatingInput from "../FloatingInput";
 
 export default function StepOneFormPlanes({
   handleOnChangeForm,

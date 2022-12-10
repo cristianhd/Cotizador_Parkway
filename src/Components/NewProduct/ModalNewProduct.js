@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Button, Modal } from "react-bootstrap";
-import FormPlanes from "./FormPlanes";
+import FormPlanes from "./Planes/FormPlanes";
 import { useDispatch } from "react-redux";
 import FormTraslados from "./FormTraslados";
 import FormActividades from "./FormActividades";

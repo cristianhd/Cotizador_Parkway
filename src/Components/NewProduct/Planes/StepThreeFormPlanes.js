@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Col, FloatingLabel, Form, Row, ToggleButton } from "react-bootstrap";
-import FloatingInput from "./FloatingInput";
 
 export default function StepThreeFormPlanes({ form, handleonChangeDate }) {
   const meses = [

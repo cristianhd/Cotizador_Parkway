@@ -1,11 +1,11 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
-import { UpperCaseStr } from "../../utils/UpperCaseStr";
-import AddPriceButton from "./AddPriceButton";
-import FloatingInput from "./FloatingInput";
-import RemovePriceButton from "./RemovePriceButton";
-import RoomPrice from "./RoomPrice";
+
+import AddPriceButton from "../AddPriceButton";
+import FloatingInput from "../FloatingInput";
+import RemovePriceButton from "../RemovePriceButton";
+import RoomPrice from "../RoomPrice";
 
 export default function StepTwoFormPlanes({
   handleOnChangePriceAdult,
