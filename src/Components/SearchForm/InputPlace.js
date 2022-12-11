@@ -30,7 +30,7 @@ export default function InputPlace({
 
   console.log(suggestCities.length);
   return (
-    <div className="input-place p-1 d-flex flex-row align-items-center rounded">
+    <div className="input-place d-flex flex-row align-items-center rounded">
       <OverlayTrigger
         show={show}
         placement="auto"
