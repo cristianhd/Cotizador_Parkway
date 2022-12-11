@@ -69,24 +69,22 @@ export default function StepTwoFormPlanes({
       </Row>
 
       <Row className="m-1">
-        <Form.Group className="" as={Col}>
-          <Form.Group className="p-1">
-            <Form.Select
-              required
-              className="shadow-none"
-              name="categoryAccommodation"
-              value={form.categoryAccommodation}
-              onChange={(e) => handleOnChangeForm(e)}
-            >
-              <option defaultValue selected disabled value="">
-                Categoria Hospedaje
-              </option>
-              <option value="Superior">Superior</option>
-              <option value="Turista">Turista</option>
-              <option value="Ecoturismo">Ecoturismo</option>
-              <option value="Boutique">Boutique</option>
-            </Form.Select>
-          </Form.Group>
+        <Form.Group className="m-1" as={Col}>
+          <Form.Select
+            required
+            className="shadow-none"
+            name="categoryAccommodation"
+            value={form.categoryAccommodation}
+            onChange={(e) => handleOnChangeForm(e)}
+          >
+            <option defaultValue selected disabled value="">
+              Categoria Hospedaje
+            </option>
+            <option value="Superior">Superior</option>
+            <option value="Turista">Turista</option>
+            <option value="Ecoturismo">Ecoturismo</option>
+            <option value="Boutique">Boutique</option>
+          </Form.Select>
         </Form.Group>
         <Form.Group className="d-flex flex-column align-items-center" as={Col}>
           <FloatingInput
