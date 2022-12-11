@@ -8,6 +8,7 @@ import FormActividades from "./FormActividades";
 import FormAsistencia from "./FormAsistencias";
 import { createProduct } from "../../Redux/action";
 import { UpperCaseStr } from "../../utils/UpperCaseStr";
+import FormHospedajes from "./Hospedajes/FormHospedajes";
 
 export default function ModalNewProduct({ typeProduct }) {
   const [show, setShow] = useState();
@@ -30,6 +31,9 @@ export default function ModalNewProduct({ typeProduct }) {
         </Modal.Header>
 
         {typeProduct === "planes" && <FormPlanes handleSave={handleSave} />}
+        {typeProduct === "hospedajes" && (
+          <FormHospedajes handleSave={handleSave} />
+        )}
         {typeProduct === "traslados" && (
           <FormTraslados handleSave={handleSave} />
         )}
