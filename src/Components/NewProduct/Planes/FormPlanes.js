@@ -19,7 +19,7 @@ export default function FormPlanes({ handleSave }) {
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
     title: "",
-    destination: {},
+    destinationName: {},
     transport: "",
     providerUser: "",
     nameAccommodation: "",
@@ -93,7 +93,7 @@ export default function FormPlanes({ handleSave }) {
   function handleOnChangeDestination(label, destination) {
     setForm({
       ...form,
-      destination: { ...form.destination, [label]: destination },
+      destinationName: { ...form.destinationName, [label]: destination },
     });
   }
 
