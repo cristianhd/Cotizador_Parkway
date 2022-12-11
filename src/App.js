@@ -10,6 +10,7 @@ import Cards from "./Components/Cards/Cards";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./App.css";
+import Hospedajes from "./Components/SearchForm/Hospedajes";
 
 function App() {
   // local state
@@ -42,6 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Planes />}></Route>
           <Route path="/planes" element={<Planes />}></Route>
+          <Route path="/Hospedajes" element={<Hospedajes />}></Route>
           <Route path="/traslados" element={<Traslados />}></Route>
           <Route path="/actividades" element={<Actividades />}></Route>
           <Route path="/asistencias" element={<Asistencias />}></Route>

@@ -11,6 +11,12 @@ export const MenuItems = [
     img: experiencias,
   },
   {
+    name_category: "Hospedaje",
+    url: "/hospedajes",
+    img: hospedaje,
+    cName: "nav-links",
+  },
+  {
     name_category: "Traslados",
     url: "/traslados",
     img: traslado,
