@@ -3,17 +3,15 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
 
-import StepTwoFormPlanes from "./StepTwoFormPlanes";
-import StepOneFormPlanes from "./StepOneFormPlanes";
-import StepThreeFormPlanes from "./StepThreeFormPlanes";
-import StepFourFormPlanes from "./StepFourFormPlanes";
+import StepTwoFormTraslados from "./StepTwoFormTraslados";
+import StepOneFormTraslados from "./StepOneFormTraslados";
+import StepThreeFormTraslados from "./StepThreeFormTraslados";
 
 export default function FormTraslados({ handleSave }) {
   const labelStep = [
     { step: "1", label: "Información General" },
     { step: "2", label: "Información Hospedaje" },
     { step: "3", label: "Seleccionar Fechas" },
-    { step: "4", label: "Descripción del Plan" },
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
@@ -149,14 +147,14 @@ export default function FormTraslados({ handleSave }) {
           {". "}
           {labelStep[currentIndexForm - 1].label}
           {labelStep[currentIndexForm - 1].step === "1" && (
-            <StepOneFormPlanes
+            <StepOneFormTraslados
               handleOnChangeForm={handleOnChangeForm}
               handleOnChangeDestination={handleOnChangeDestination}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "2" && (
-            <StepTwoFormPlanes
+            <StepTwoFormTraslados
               handleOnChangePriceAdult={handleOnChangePriceAdult}
               handleCleanPriceAdult={handleCleanPriceAdult}
               handleOnChangeForm={handleOnChangeForm}
@@ -164,14 +162,8 @@ export default function FormTraslados({ handleSave }) {
             />
           )}
           {labelStep[currentIndexForm - 1].step === "3" && (
-            <StepThreeFormPlanes
+            <StepThreeFormTraslados
               handleonChangeDate={handleOnChangeDate}
-              form={form}
-            />
-          )}
-          {labelStep[currentIndexForm - 1].step === "4" && (
-            <StepFourFormPlanes
-              handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
           )}

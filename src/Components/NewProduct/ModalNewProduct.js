@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-
 import { Button, Modal } from "react-bootstrap";
-import FormPlanes from "./Planes/FormPlanes";
 import { useDispatch } from "react-redux";
-import FormTraslados from "./FormTraslados";
-import FormActividades from "./FormActividades";
-import FormAsistencia from "./FormAsistencias";
+import FormPlanes from "./Planes/FormPlanes";
+import FormHospedajes from "./Hospedajes/FormHospedajes";
+import FormTraslados from "./Traslados/FormTraslados";
+import FormActividades from "./Actividades/FormActividades";
+import FormAsistencia from "./Asistencias/FormAsistencias";
 import { createProduct } from "../../Redux/action";
 import { UpperCaseStr } from "../../utils/UpperCaseStr";
-import FormHospedajes from "./Hospedajes/FormHospedajes";
 
 export default function ModalNewProduct({ typeProduct }) {
   const [show, setShow] = useState();

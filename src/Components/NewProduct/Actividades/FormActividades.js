@@ -3,10 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
 
-import StepTwoFormPlanes from "./StepTwoFormPlanes";
-import StepOneFormPlanes from "./StepOneFormPlanes";
-import StepThreeFormPlanes from "./StepThreeFormPlanes";
-import StepFourFormPlanes from "./StepFourFormPlanes";
+import StepTwoFormActividades from "./StepTwoFormActividades";
+import StepOneFormActividades from "./StepOneFormActividades";
+import StepThreeFormActividades from "./StepThreeFormActividades";
+import StepFourFormActividades from "./StepFourFormActividades";
 
 export default function FormActividades({ handleSave }) {
   const labelStep = [
@@ -149,14 +149,14 @@ export default function FormActividades({ handleSave }) {
           {". "}
           {labelStep[currentIndexForm - 1].label}
           {labelStep[currentIndexForm - 1].step === "1" && (
-            <StepOneFormPlanes
+            <StepOneFormActividades
               handleOnChangeForm={handleOnChangeForm}
               handleOnChangeDestination={handleOnChangeDestination}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "2" && (
-            <StepTwoFormPlanes
+            <StepTwoFormActividades
               handleOnChangePriceAdult={handleOnChangePriceAdult}
               handleCleanPriceAdult={handleCleanPriceAdult}
               handleOnChangeForm={handleOnChangeForm}
@@ -164,13 +164,13 @@ export default function FormActividades({ handleSave }) {
             />
           )}
           {labelStep[currentIndexForm - 1].step === "3" && (
-            <StepThreeFormPlanes
+            <StepThreeFormActividades
               handleonChangeDate={handleOnChangeDate}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "4" && (
-            <StepFourFormPlanes
+            <StepFourFormActividades
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
