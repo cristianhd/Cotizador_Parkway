@@ -22,7 +22,7 @@ export default function RoomPrice({
   }
   function handleOnChangeRoomPrice(e) {
     const room = e.target.name;
-    const price = e.target.value.replace(/./g, "");
+    const price = e.target.value;
 
     setPriceRoom(price);
     handleOnChangePriceAdult(room, price);
