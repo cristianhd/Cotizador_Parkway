@@ -40,15 +40,7 @@ export default function FormHospedajes({ handleSave }) {
     } else {
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
-      if (isLastStep) {
-        if (Object.keys(form.priceAdult).length && form.activeDate.length) {
-          handleSave(form);
-        } else {
-          if (!Object.keys(form.priceAdult).length)
-            alert("falta Precio Adultos");
-          if (!form.activeDate.length) alert("falta fechas");
-        }
-      }
+      if (isLastStep) handleSave(form);
     }
   }
 

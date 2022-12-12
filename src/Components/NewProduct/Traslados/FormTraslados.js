@@ -16,7 +16,6 @@ export default function FormTraslados({ handleSave }) {
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
-    title: "",
     originName: "",
     destinationName: {},
     description: "",
@@ -41,15 +40,7 @@ export default function FormTraslados({ handleSave }) {
     } else {
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
-      if (isLastStep) {
-        if (Object.keys(form.priceAdult).length && form.activeDate.length) {
-          handleSave(form);
-        } else {
-          if (!Object.keys(form.priceAdult).length)
-            alert("falta Precio Adultos");
-          if (!form.activeDate.length) alert("falta fechas");
-        }
-      }
+      if (isLastStep) handleSave(form);
     }
   }
 
