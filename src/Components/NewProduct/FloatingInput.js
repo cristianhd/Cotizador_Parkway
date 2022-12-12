@@ -9,6 +9,7 @@ export default function FloatingInput({
   onChange,
   disabled,
   type,
+  min,
 }) {
   return (
     <>
@@ -22,6 +23,7 @@ export default function FloatingInput({
           className="shadow-none"
           name={name}
           type={type}
+          min={min}
           placeholder={`Ingrese el ${labelName}`}
           value={value}
           onChange={onChange}

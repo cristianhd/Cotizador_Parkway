@@ -6,7 +6,7 @@ export default function RangePrice({
   form,
   indexRange,
   typeRange,
-  price,
+  typePrice,
   disabled,
 }) {
   const [minRange, setMinRange] = useState();
@@ -35,27 +35,36 @@ export default function RangePrice({
     <div className="d-flex">
       <FloatingInput
         disabled={disabled}
-        labelName={`min ${typeRange}`}
+        labelName={`Min ${typeRange}`}
         name={`min-${indexRange}`}
-        type="text"
+        type="number"
+        min={typeRange === "Edad" ? 0 : 1}
         onChange={(e) => handleOnChangeRangePrice(e)}
-        value={price === "kids" ? form.priceKids.label : form.priceAdult.label}
+        value={
+          typePrice === "kids" ? form.priceKids.label : form.priceAdult.label
+        }
       ></FloatingInput>
       <FloatingInput
         disabled={disabled}
-        labelName={`max ${typeRange}`}
+        labelName={`Max ${typeRange}`}
         name={`max-${indexRange}`}
-        type="text"
+        type="number"
+        min="1"
         onChange={(e) => handleOnChangeRangePrice(e)}
-        value={price === "kids" ? form.priceKids.label : form.priceAdult.label}
+        value={
+          typePrice === "kids" ? form.priceKids.label : form.priceAdult.label
+        }
       ></FloatingInput>
       <FloatingInput
         disabled={disabled}
         labelName={"Precio"}
         name={`precio-${indexRange}`}
-        type="text"
+        type="number"
+        min="0"
         onChange={(e) => handleOnChangeRangePrice(e)}
-        value={price === "kids" ? form.priceKids.label : form.priceAdult.label}
+        value={
+          typePrice === "kids" ? form.priceKids.label : form.priceAdult.label
+        }
       ></FloatingInput>
     </div>
   );

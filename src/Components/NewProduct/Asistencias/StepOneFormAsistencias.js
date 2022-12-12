@@ -29,6 +29,8 @@ export default function StepOneFormAsistencias({ form, handleOnChangeForm }) {
         <Form.Group className="m-1" as={Col}>
           <FloatingInput
             name="priceAdult"
+            type="number"
+            min="0"
             labelName="Precio"
             value={form.priceAdult}
             onChange={(e) => handleOnChangeForm(e)}

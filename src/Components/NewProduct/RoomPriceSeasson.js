@@ -62,14 +62,16 @@ export default function RoomPriceSeasson({
       <FloatingInput
         labelName={`Habitación ${indexRoom} (TB)`}
         name={`${selectRoom} (TB)`}
-        type="text"
+        type="number"
+        min="0"
         onChange={(e) => handleOnChangeRoomPrice(e)}
         value={form.priceAdult.selectRoom}
       ></FloatingInput>
       <FloatingInput
         labelName={`Habitación ${indexRoom} (TA)`}
         name={`${selectRoom} (TA)`}
-        type="text"
+        type="number"
+        min="0"
         onChange={(e) => handleOnChangeRoomPrice(e)}
         value={form.priceAdult.selectRoom}
       ></FloatingInput>

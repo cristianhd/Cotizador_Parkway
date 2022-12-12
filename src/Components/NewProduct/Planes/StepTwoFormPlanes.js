@@ -103,6 +103,7 @@ export default function StepTwoFormPlanes({
           <FloatingInput
             name="numberNigths"
             type="number"
+            min="1"
             labelName="Numero de Noches"
             value={form.numberNigths}
             onChange={(e) => handleOnChangeForm(e)}
@@ -125,8 +126,8 @@ export default function StepTwoFormPlanes({
               form={form}
               handleOnChangePrice={handleOnChangePriceKids}
               indexRange={range}
-              typeRange="edad"
-              price="kids"
+              typeRange="Edad"
+              typePrice="kids        "
             ></RangePrice>
           ))}
           {checkKids && (

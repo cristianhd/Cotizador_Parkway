@@ -54,7 +54,8 @@ export default function RoutePrice({
                 handleOnChangePrice={handleOnChangePriceAdult}
                 form={form}
                 indexRange={range}
-                typeRange="personas"
+                typeRange="Personas"
+                typePrice="adult"
               ></RangePrice>
             </div>
           ))}
@@ -66,16 +67,18 @@ export default function RoutePrice({
       ) : (
         <>
           <FloatingInput
-            labelName="Ida"
+            labelName="Precio Ida"
             name="going"
-            type="text"
+            type="number"
+            min="0"
             value={form.priceAdult.going}
             onChange={(e) => handleOnChangeInput(e)}
           ></FloatingInput>
           <FloatingInput
-            labelName="Vuelta"
+            labelName="Precio Vuelta"
             name="return"
-            type="text"
+            type="number"
+            min="0"
             value={form.priceAdult.return}
             onChange={(e) => handleOnChangeInput(e)}
           ></FloatingInput>

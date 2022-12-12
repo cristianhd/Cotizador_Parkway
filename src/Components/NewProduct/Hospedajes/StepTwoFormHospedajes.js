@@ -55,8 +55,8 @@ export default function StepTwoFormHospedajes({
               form={form}
               handleOnChangePrice={handleOnChangePriceKids}
               indexRange={range}
-              typeRange="edad"
-              price="kids"
+              typeRange="Edad"
+              typePrice="kids        "
             ></RangePrice>
           ))}
           {checkKids && (

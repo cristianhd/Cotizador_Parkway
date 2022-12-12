@@ -44,6 +44,8 @@ export default function StepTwoFormActividades({
         <Form.Group className="m-1" as={Col}>
           <FloatingInput
             name="minPeople"
+            type="number"
+            min="1"
             labelName="Min Personas"
             value={form.minPeople}
             onChange={(e) => handleOnChangeForm(e)}
@@ -52,6 +54,8 @@ export default function StepTwoFormActividades({
         <Form.Group className="m-1" as={Col}>
           <FloatingInput
             name="maxPeople"
+            type="number"
+            min="1"
             labelName="Max Personas"
             value={form.maxPeople}
             onChange={(e) => handleOnChangeForm(e)}
@@ -74,8 +78,8 @@ export default function StepTwoFormActividades({
               form={form}
               handleOnChangePrice={handleOnChangePriceKids}
               indexRange={range}
-              typeRange="edad"
-              price="kids"
+              typeRange="Edad"
+              typePrice="kids        "
             ></RangePrice>
           ))}
           {checkKids && (

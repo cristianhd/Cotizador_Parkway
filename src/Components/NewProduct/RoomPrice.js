@@ -22,7 +22,7 @@ export default function RoomPrice({
   }
   function handleOnChangeRoomPrice(e) {
     const room = e.target.name;
-    const price = e.target.value;
+    const price = e.target.value.replace(/./g, "");
 
     setPriceRoom(price);
     handleOnChangePriceAdult(room, price);
@@ -45,9 +45,10 @@ export default function RoomPrice({
         ))}
       </Form.Select>
       <FloatingInput
-        labelName={`Habitación ${indexRoom}`}
+        labelName={`Precio Habitación ${indexRoom}`}
         name={selectRoom}
-        type="text"
+        type="number"
+        min="0"
         onChange={(e) => handleOnChangeRoomPrice(e)}
         value={form.priceAdult.selectRoom}
       ></FloatingInput>
