@@ -11,8 +11,8 @@ export default function StepTwoFormTraslados({
 }) {
   return (
     <>
-      <Row classname="m-1 d-flex">
-        <Form.Group classname="m-1" as={Col}>
+      <Row className="m-1 d-flex">
+        <Form.Group className="m-1" as={Col}>
           <FloatingInput
             name="minPeople"
             labelName="Min Personas"
@@ -20,7 +20,7 @@ export default function StepTwoFormTraslados({
             onChange={(e) => handleOnChangeForm(e)}
           />
         </Form.Group>
-        <Form.Group classname="m-1" as={Col}>
+        <Form.Group className="m-1" as={Col}>
           <FloatingInput
             name="maxPeople"
             labelName="Max Personas"
@@ -29,8 +29,8 @@ export default function StepTwoFormTraslados({
           />
         </Form.Group>
       </Row>
-      <Row classname="m-1">
-        <Form.Group classname="m-1" as={Col}>
+      <Row className="m-1">
+        <Form.Group className="m-1" as={Col}>
           <RoutePrice
             form={form}
             handleCleanPriceAdult={handleCleanPriceAdult}
