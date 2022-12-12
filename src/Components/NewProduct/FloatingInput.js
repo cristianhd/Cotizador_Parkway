@@ -13,7 +13,7 @@ export default function FloatingInput({
   return (
     <>
       <FloatingLabel
-        className="w-100 p-1"
+        className="w-100"
         id={`input-${labelName}`}
         label={labelName}
       >
