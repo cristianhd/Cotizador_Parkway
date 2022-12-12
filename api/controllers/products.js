@@ -101,22 +101,22 @@ function findAsistencias(req, res, next) {
 function addPlanes(req, res, next) {
   const { planes } = req.body;
 
-  // const destinationName = Object.entries(planes.destination);
-  // const priceAdult = Object.entries(planes.priceAdult);
+  const destinationName = Object.entries(planes.destinationName);
+  const priceAdult = Object.entries(planes.priceAdult);
+  const priceKids = Object.entries(planes.priceKids);
 
-  // const newPlan = {
-  //   ...planes,
-  //   destinationName: destinationName,
-  //   priceAdult: priceAdult,
-  // };
-
-  // console.log(newPlan);
+  const newPlan = {
+    ...planes,
+    destinationName,
+    priceKids,
+    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
+  };
 
   if (planes === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Planes.create(planes).then((result) => {
+      Planes.create(newPlan).then((result) => {
         res.json(result);
       });
     } catch (error) {
@@ -128,11 +128,20 @@ function addPlanes(req, res, next) {
 function addHospedajes(req, res, next) {
   const { hospedajes } = req.body;
 
+  const priceAdult = Object.entries(hospedajes.priceAdult);
+  const priceKids = Object.entries(hospedajes.priceKids);
+
+  const newHospedaje = {
+    ...hospedajes,
+    priceKids,
+    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
+  };
+
   if (hospedajes === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Hospedajes.create(hospedajes).then((result) => {
+      Hospedajes.create(newHospedaje).then((result) => {
         res.json(result);
       });
     } catch (error) {
@@ -148,10 +157,14 @@ function addTraslados(req, res, next) {
   );
   const title =
     traslados.originName + destinations.toString().replace(/,/g, "");
+  const destinationName = Object.entries(traslados.destinationName);
+  const priceAdult = Object.entries(traslados.priceAdult);
 
   const newTraslados = {
     ...traslados,
     title,
+    destinationName,
+    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
   };
 
   if (traslados === undefined) {
@@ -170,11 +183,22 @@ function addTraslados(req, res, next) {
 function addActividades(req, res, next) {
   const { actividades } = req.body;
 
+  const destinationName = Object.entries(actividades.destinationName);
+  const priceAdult = Object.entries(actividades.priceAdult);
+  const priceKids = Object.entries(actividades.priceKids);
+
+  const newHospedaje = {
+    ...actividades,
+    destinationName,
+    priceKids,
+    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
+  };
+
   if (actividades === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Actividades.create(actividades).then((result) => {
+      Actividades.create(newHospedaje).then((result) => {
         res.json(result);
       });
     } catch (error) {
