@@ -17,13 +17,13 @@ export default function FormHospedajes({ handleSave }) {
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
     title: "",
-    destination: "",
+    destinationName: "",
     providerUser: "",
-    nameAccommodation: "",
     categoryAccommodation: "",
     priceKids: {},
     priceAdult: {},
-    activeDate: [],
+    highSeassonDate: "",
+    description: "",
   });
 
   const isFirstStep = currentIndexForm === 1;
@@ -62,6 +62,15 @@ export default function FormHospedajes({ handleSave }) {
     });
   }
 
+  function handleOnChangePriceKids(room, price) {
+    setForm({
+      ...form,
+      priceKids: {
+        ...form.priceKids,
+        [room]: price,
+      },
+    });
+  }
   function handleOnChangePriceAdult(room, price, changeRoom) {
     console.log(room, price, changeRoom);
     if (changeRoom) {
@@ -84,10 +93,10 @@ export default function FormHospedajes({ handleSave }) {
     }
   }
 
-  function handleOnChangeDestination(label, destination) {
+  function handleOnChangeDestination(name, destination) {
     setForm({
       ...form,
-      destination: { ...form.destination, [label]: destination },
+      [name]: destination,
     });
   }
 
@@ -143,13 +152,25 @@ export default function FormHospedajes({ handleSave }) {
           {". "}
           {labelStep[currentIndexForm - 1].label}
           {labelStep[currentIndexForm - 1].step === "1" && (
-            <StepOneFormHospedajes form={form} />
+            <StepOneFormHospedajes
+              form={form}
+              handleOnChangeForm={handleOnChangeForm}
+              handleOnChangeDestination={handleOnChangeDestination}
+            />
           )}
           {labelStep[currentIndexForm - 1].step === "2" && (
-            <StepTwoFormHospedajes form={form} />
+            <StepTwoFormHospedajes
+              form={form}
+              handleOnChangePriceKids={handleOnChangePriceKids}
+              handleOnChangePriceAdult={handleOnChangePriceAdult}
+              handleOnChangeForm={handleOnChangeForm}
+            />
           )}
           {labelStep[currentIndexForm - 1].step === "3" && (
-            <StepThreeFormHospedajes form={form} />
+            <StepThreeFormHospedajes
+              form={form}
+              handleOnChangeForm={handleOnChangeForm}
+            />
           )}
         </Modal.Body>
         <Modal.Footer className="d-flex-column">
