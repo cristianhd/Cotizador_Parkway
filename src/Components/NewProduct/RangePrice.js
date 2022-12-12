@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import FloatingInput from "./FloatingInput";
 
 export default function RangePrice({
-  handleOnChangePriceAdult,
+  handleOnChangePrice,
   form,
   indexRange,
   typeRange,
+  price,
+  disabled,
 }) {
   const [minRange, setMinRange] = useState();
   const [maxRange, setMaxRange] = useState();
@@ -25,32 +27,35 @@ export default function RangePrice({
 
     console.log(min, max, price);
     if (min && max && price) {
-      handleOnChangePriceAdult(label, [min, max, price]);
+      handleOnChangePrice(label, [min, max, price]);
     }
   }
-
+  console.log(disabled);
   return (
     <div className="d-flex">
       <FloatingInput
+        disabled={disabled}
         labelName={`min ${typeRange}`}
         name={`min-${indexRange}`}
         type="text"
         onChange={(e) => handleOnChangeRangePrice(e)}
-        value={form.priceAdult.label}
+        value={price === "kids" ? form.priceKids.label : form.priceAdult.label}
       ></FloatingInput>
       <FloatingInput
+        disabled={disabled}
         labelName={`max ${typeRange}`}
         name={`max-${indexRange}`}
         type="text"
         onChange={(e) => handleOnChangeRangePrice(e)}
-        value={form.priceAdult.label}
+        value={price === "kids" ? form.priceKids.label : form.priceAdult.label}
       ></FloatingInput>
       <FloatingInput
+        disabled={disabled}
         labelName={"Precio"}
         name={`precio-${indexRange}`}
         type="text"
         onChange={(e) => handleOnChangeRangePrice(e)}
-        value={form.priceAdult.label}
+        value={price === "kids" ? form.priceKids.label : form.priceAdult.label}
       ></FloatingInput>
     </div>
   );
