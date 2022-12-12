@@ -143,12 +143,22 @@ function addHospedajes(req, res, next) {
 
 function addTraslados(req, res, next) {
   const { traslados } = req.body;
+  const destinations = Object.values(traslados.destinationName).map(
+    (destination) => "-" + destination
+  );
+  const title =
+    traslados.originName + destinations.toString().replace(/,/g, "");
+
+  const newTraslados = {
+    ...traslados,
+    title,
+  };
 
   if (traslados === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Traslados.create(traslados).then((result) => {
+      Traslados.create(newTraslados).then((result) => {
         res.json(result);
       });
     } catch (error) {
