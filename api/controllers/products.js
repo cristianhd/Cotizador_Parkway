@@ -101,22 +101,22 @@ function findAsistencias(req, res, next) {
 function addPlanes(req, res, next) {
   const { planes } = req.body;
 
-  const destinationName = Object.entries(planes.destination);
-  const priceAdult = Object.entries(planes.priceAdult);
+  // const destinationName = Object.entries(planes.destination);
+  // const priceAdult = Object.entries(planes.priceAdult);
 
-  const newPlan = {
-    ...planes,
-    destinationName: destinationName,
-    priceAdult: priceAdult,
-  };
+  // const newPlan = {
+  //   ...planes,
+  //   destinationName: destinationName,
+  //   priceAdult: priceAdult,
+  // };
 
-  console.log(newPlan);
+  // console.log(newPlan);
 
   if (planes === undefined) {
     res.status(200).send({ msg: "no data" });
   } else {
     try {
-      Planes.create(newPlan).then((result) => {
+      Planes.create(planes).then((result) => {
         res.json(result);
       });
     } catch (error) {
