@@ -5,7 +5,6 @@ import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
 
 import StepTwoFormAsistencias from "./StepTwoFormAsistencias";
 import StepOneFormAsistencias from "./StepOneFormAsistencias";
-import StepThreeFormAsistencias from "./StepThreeFormAsistencias";
 
 export default function FormAsistencias({ handleSave }) {
   const labelStep = [
@@ -146,7 +145,6 @@ export default function FormAsistencias({ handleSave }) {
         <Modal.Footer className="d-flex-column">
           <Row className="m-1 p-1">
             <div className="w-100 p-1 d-flex justify-content-end">
-            
               {!isFirstStep && (
                 <Button onClick={() => updateIndexForm(currentIndexForm - 1)}>
                   Anterior
