@@ -3,7 +3,7 @@ import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import AddPriceButton from "../AddPriceButton";
 import RangePrice from "../RangePrice";
 import RemovePriceButton from "../RemovePriceButton";
-import RoomPrice from "../RoomPrice";
+import RoomPriceSeasson from "../RoomPriceSeasson";
 
 export default function StepTwoFormHospedajes({
   form,
@@ -73,12 +73,12 @@ export default function StepTwoFormHospedajes({
         <Form.Group className="m-1" as={Col}>
           <Form.Label className="p-1">Precio Adulto</Form.Label>
           {amountRoomPrice.map((room) => (
-            <RoomPrice
+            <RoomPriceSeasson
               key={room}
               handleOnChangePriceAdult={handleOnChangePriceAdult}
               form={form}
               indexRoom={room}
-            ></RoomPrice>
+            ></RoomPriceSeasson>
           ))}
           <div className="m-1 p-1 d-flex justify-content-between">
             <AddPriceButton handleOnClick={AddRoom}></AddPriceButton>
