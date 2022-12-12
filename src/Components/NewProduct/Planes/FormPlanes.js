@@ -25,11 +25,10 @@ export default function FormPlanes({ handleSave }) {
     nameAccommodation: "",
     categoryAccommodation: "",
     numberNigths: "",
-    minRangeKids: "",
-    maxRangeKids: "",
-    priceKids: "",
+    priceKids: {},
     priceAdult: {},
     activeDate: [],
+    description: "",
   });
 
   const isFirstStep = currentIndexForm === 1;
@@ -88,6 +87,15 @@ export default function FormPlanes({ handleSave }) {
         },
       });
     }
+  }
+  function handleOnChangePriceKids(room, price) {
+    setForm({
+      ...form,
+      priceKids: {
+        ...form.priceKids,
+        [room]: price,
+      },
+    });
   }
 
   function handleOnChangeDestination(label, destination) {
@@ -158,7 +166,7 @@ export default function FormPlanes({ handleSave }) {
           {labelStep[currentIndexForm - 1].step === "2" && (
             <StepTwoFormPlanes
               handleOnChangePriceAdult={handleOnChangePriceAdult}
-              handleCleanPriceAdult={handleCleanPriceAdult}
+              handleOnChangePriceKids={handleOnChangePriceKids}
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
