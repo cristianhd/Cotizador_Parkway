@@ -13,7 +13,9 @@ export default function Suggest({ suggest, onClick, name }) {
               variant="dark"
               onClick={() => onClick(name, suggest.name, suggest._id)}
             >
-              {suggest.name} {suggest.typePlace && ` (${suggest.typePlace})`}
+              {suggest.name}{" "}
+              {suggest.nameDepartment && ` , ${suggest.nameDepartment}`}{" "}
+              {suggest.typePlace && ` ( ${suggest.typePlace} )`}{" "}
             </Button>
           );
         })}
