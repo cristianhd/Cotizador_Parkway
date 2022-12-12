@@ -9,25 +9,22 @@ import StepThreeFormTraslados from "./StepThreeFormTraslados";
 
 export default function FormTraslados({ handleSave }) {
   const labelStep = [
-    { step: "1", label: "Información General" },
-    { step: "2", label: "Información Hospedaje" },
-    { step: "3", label: "Seleccionar Fechas" },
+    { step: "1", label: "Información Traslado" },
+    { step: "2", label: "Precios" },
+    { step: "3", label: "Descripción del Hospedaje" },
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
     title: "",
-    destination: {},
-    transport: "",
-    providerUser: "",
-    nameAccommodation: "",
-    categoryAccommodation: "",
-    numberNigths: "",
-    minRangeKids: "",
-    maxRangeKids: "",
-    priceKids: "",
+    originName: "",
+    destinationName: {},
+    description: "",
+    minPeople: "",
+    maxPeople: "",
     priceAdult: {},
-    activeDate: [],
+    rountrip: false,
+    providerUser: "",
   });
 
   const isFirstStep = currentIndexForm === 1;
@@ -66,70 +63,33 @@ export default function FormTraslados({ handleSave }) {
     });
   }
 
-  function handleOnChangePriceAdult(room, price, changeRoom) {
-    console.log(room, price, changeRoom);
-    if (changeRoom) {
-      setForm({
-        ...form,
-        priceAdult: {
-          ...form.priceAdult,
-          [changeRoom]: undefined,
-          [room]: price,
-        },
-      });
-    } else {
-      setForm({
-        ...form,
-        priceAdult: {
-          ...form.priceAdult,
-          [room]: price,
-        },
-      });
-    }
+  function handleOnChangePriceAdult(name, price, changeRoom) {
+    setForm({
+      ...form,
+      priceAdult: {
+        ...form.priceAdult,
+        [name]: price,
+      },
+    });
   }
 
   function handleOnChangeDestination(label, destination) {
     setForm({
       ...form,
-      destination: { ...form.destination, [label]: destination },
+      destinationName: { ...form.destinationName, [label]: destination },
     });
   }
-
+  function handleOnChangeOrigin(origin) {
+    setForm({
+      ...form,
+      originName: origin,
+    });
+  }
   function handleCleanPriceAdult() {
     setForm({
       ...form,
       priceAdult: {},
     });
-  }
-
-  function handleOnChangeDate(e) {
-    const value = e.target.value.toString();
-
-    if (value === "0") {
-      if (form.activeDate.includes("0")) {
-        setForm({
-          ...form,
-          activeDate: [],
-        });
-      } else {
-        setForm({
-          ...form,
-          activeDate: ["0"],
-        });
-      }
-    } else {
-      if (form.activeDate.includes(value)) {
-        setForm({
-          ...form,
-          activeDate: form.activeDate.filter((item) => item !== value),
-        });
-      } else {
-        setForm({
-          ...form,
-          activeDate: [...form.activeDate, value],
-        });
-      }
-    }
   }
 
   console.log(form);
@@ -150,20 +110,21 @@ export default function FormTraslados({ handleSave }) {
             <StepOneFormTraslados
               handleOnChangeForm={handleOnChangeForm}
               handleOnChangeDestination={handleOnChangeDestination}
+              handleOnChangeOrigin={handleOnChangeOrigin}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "2" && (
             <StepTwoFormTraslados
-              handleOnChangePriceAdult={handleOnChangePriceAdult}
               handleCleanPriceAdult={handleCleanPriceAdult}
+              handleOnChangePriceAdult={handleOnChangePriceAdult}
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "3" && (
             <StepThreeFormTraslados
-              handleonChangeDate={handleOnChangeDate}
+              handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
           )}
