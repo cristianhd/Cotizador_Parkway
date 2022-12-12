@@ -38,7 +38,7 @@ function findHospedajes(req, res) {
     }
   } else {
     // devuelve todos los Planes si no hay una query
-    Planes.find().then((planes) => res.json(planes));
+    Hospedajes.find().then((planes) => res.json(planes));
   }
 }
 
