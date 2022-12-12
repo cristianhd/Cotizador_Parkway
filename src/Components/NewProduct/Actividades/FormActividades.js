@@ -101,6 +101,16 @@ export default function FormActividades({ handleSave }) {
     });
   }
 
+  function handleOnChangePriceKids(room, price) {
+    setForm({
+      ...form,
+      priceKids: {
+        ...form.priceKids,
+        [room]: price,
+      },
+    });
+  }
+
   function handleOnChangeDate(e) {
     const value = e.target.value.toString();
 
@@ -155,7 +165,7 @@ export default function FormActividades({ handleSave }) {
           {labelStep[currentIndexForm - 1].step === "2" && (
             <StepTwoFormActividades
               handleOnChangePriceAdult={handleOnChangePriceAdult}
-              handleCleanPriceAdult={handleCleanPriceAdult}
+              handleOnChangePriceKids={handleOnChangePriceKids}
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
