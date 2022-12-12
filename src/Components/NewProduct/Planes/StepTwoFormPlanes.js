@@ -4,19 +4,21 @@ import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 
 import AddPriceButton from "../AddPriceButton";
 import FloatingInput from "../FloatingInput";
+import RangePrice from "../RangePrice";
 import RemovePriceButton from "../RemovePriceButton";
 import RoomPrice from "../RoomPrice";
 
 export default function StepTwoFormPlanes({
+  form,
+  handleOnChangePriceKids,
   handleOnChangePriceAdult,
   handleOnChangeForm,
-
-  form,
 }) {
   const [checkedItem, setCheckedItem] = useState({});
   const [checkKids, setCheckKids] = useState(false);
   const [currentChecked, setCurrentChecked] = useState([]);
   const [amountRoomPrice, setamountRoomPrice] = useState([1]);
+  const [amountRangePrice, setamountRangePrice] = useState([1]);
 
   const typeRooms = ["sencilla", "doble", "triple", "cuadruple", "quintuple"];
 
@@ -53,6 +55,17 @@ export default function StepTwoFormPlanes({
     const price = undefined;
     setamountRoomPrice(amountRoomPrice.slice(0, amountRoomPrice.length - 1));
     handleOnChangePriceAdult(room, price);
+  }
+  function addRange() {
+    setamountRangePrice([...amountRangePrice, amountRangePrice.length + 1]);
+  }
+  function removeRange() {
+    const range = Object.keys(form.priceAdult).find((range) =>
+      range.includes(amountRangePrice.length)
+    );
+    const price = undefined;
+    setamountRangePrice(amountRangePrice.slice(0, amountRangePrice.length - 1));
+    handleOnChangePriceKids(range, price);
   }
 
   return (
@@ -97,68 +110,51 @@ export default function StepTwoFormPlanes({
         </Form.Group>
       </Row>
       <Row className="m-1">
-        <Form.Group as={Col}>
+        <Form.Group className="m-1" as={Col}>
           <Form.Check
             className="m-1"
             type="switch"
             label="Precio Niños"
             onChange={() => setCheckKids(!checkKids)}
           ></Form.Check>
-          <div className="p-1 d-flex justify-content-between ">
-            <InputGroup className="p-1">
-              <InputGroup.Text>$</InputGroup.Text>
-              <Form.Control
-                required
-                name="priceKids"
-                value={form.priceKids}
-                type="number"
-                className="shadow-none"
-                disabled={!checkKids}
-                onChange={(e) => handleOnChangeForm(e)}
-              />
-            </InputGroup>
-            <div className="px-1 d-flex ">
-              <Form.Label>Rango Edad</Form.Label>
-              <InputGroup className=" p-1 d-flex jutify-content-center">
-                <Form.Control
-                  required
-                  name="minRangeKids"
-                  value={form.minRangeKids}
-                  type="number"
-                  className="shadow-none"
-                  disabled={!checkKids}
-                  onChange={(e) => handleOnChangeForm(e)}
-                />
-                <InputGroup.Text>-</InputGroup.Text>
-                <Form.Control
-                  required
-                  name="maxRangeKids"
-                  value={form.maxRangeKids}
-                  type="number"
-                  className="shadow-none"
-                  disabled={!checkKids}
-                  onChange={(e) => handleOnChangeForm(e)}
-                />
-              </InputGroup>
+
+          {amountRangePrice.map((range) => (
+            <RangePrice
+              disabled={!checkKids}
+              key={range}
+              form={form}
+              handleOnChangePrice={handleOnChangePriceKids}
+              indexRange={range}
+              typeRange="edad"
+              price="kids"
+            ></RangePrice>
+          ))}
+          {checkKids && (
+            <div className="m-1 p-1 d-flex justify-content-between">
+              <AddPriceButton handleOnClick={addRange}></AddPriceButton>
+              <RemovePriceButton
+                handleOnClick={removeRange}
+              ></RemovePriceButton>
             </div>
-          </div>
+          )}
         </Form.Group>
       </Row>
       <Row className="m-1">
-        <Form.Label>Precio Habitaciones</Form.Label>
-
-        {amountRoomPrice.map((room) => (
-          <RoomPrice
-            key={room}
-            handleOnChangePriceAdult={handleOnChangePriceAdult}
-            form={form}
-            indexRoom={room}
-          ></RoomPrice>
-        ))}
-        <div className="m-1 p-1 d-flex justify-content-between">
-          <AddPriceButton handleOnClick={AddRoom}></AddPriceButton>
-          <RemovePriceButton handleOnClick={RemoveRoom}></RemovePriceButton>
-        </div>
+        <Form.Group className="m-1" as={Col}>
+          <Form.Label className="p-1">Precio Adulto</Form.Label>
+          {amountRoomPrice.map((room) => (
+            <RoomPrice
+              key={room}
+              handleOnChangePriceAdult={handleOnChangePriceAdult}
+              form={form}
+              indexRoom={room}
+            ></RoomPrice>
+          ))}
+          <div className="m-1 p-1 d-flex justify-content-between">
+            <AddPriceButton handleOnClick={AddRoom}></AddPriceButton>
+            <RemovePriceButton handleOnClick={RemoveRoom}></RemovePriceButton>
+          </div>
+        </Form.Group>
       </Row>
     </>
   );
