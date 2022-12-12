@@ -51,7 +51,7 @@ export default function RoutePrice({
           {amountRangePrice.map((range) => (
             <div key={range}>
               <RangePrice
-                handleOnChangePriceAdult={handleOnChangePriceAdult}
+                handleOnChangePrice={handleOnChangePriceAdult}
                 form={form}
                 indexRange={range}
                 typeRange="personas"
