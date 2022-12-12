@@ -9,25 +9,17 @@ import StepThreeFormAsistencias from "./StepThreeFormAsistencias";
 
 export default function FormAsistencias({ handleSave }) {
   const labelStep = [
-    { step: "1", label: "Información General" },
-    { step: "2", label: "Información Hospedaje" },
-    { step: "3", label: "Seleccionar Fechas" },
+    { step: "1", label: "Información Asistencia y Precio" },
+    { step: "2", label: "Descripción de la Asistencia" },
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
     title: "",
-    destination: {},
-    transport: "",
+    destinationName: "",
+    description: "",
+    priceAdult: "",
     providerUser: "",
-    nameAccommodation: "",
-    categoryAccommodation: "",
-    numberNigths: "",
-    minRangeKids: "",
-    maxRangeKids: "",
-    priceKids: "",
-    priceAdult: {},
-    activeDate: [],
   });
 
   const isFirstStep = currentIndexForm === 1;
@@ -149,21 +141,12 @@ export default function FormAsistencias({ handleSave }) {
           {labelStep[currentIndexForm - 1].step === "1" && (
             <StepOneFormAsistencias
               handleOnChangeForm={handleOnChangeForm}
-              handleOnChangeDestination={handleOnChangeDestination}
               form={form}
             />
           )}
           {labelStep[currentIndexForm - 1].step === "2" && (
             <StepTwoFormAsistencias
-              handleOnChangePriceAdult={handleOnChangePriceAdult}
-              handleCleanPriceAdult={handleCleanPriceAdult}
               handleOnChangeForm={handleOnChangeForm}
-              form={form}
-            />
-          )}
-          {labelStep[currentIndexForm - 1].step === "3" && (
-            <StepThreeFormAsistencias
-              handleonChangeDate={handleOnChangeDate}
               form={form}
             />
           )}
