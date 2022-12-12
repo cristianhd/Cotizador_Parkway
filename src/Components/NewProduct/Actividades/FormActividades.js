@@ -10,8 +10,8 @@ import StepFourFormActividades from "./StepFourFormActividades";
 
 export default function FormActividades({ handleSave }) {
   const labelStep = [
-    { step: "1", label: "Información General" },
-    { step: "2", label: "Información Hospedaje" },
+    { step: "1", label: "Información Actividad" },
+    { step: "2", label: "Precios" },
     { step: "3", label: "Seleccionar Fechas" },
     { step: "4", label: "Descripción del Plan" },
   ];
@@ -19,17 +19,14 @@ export default function FormActividades({ handleSave }) {
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
     title: "",
-    destination: {},
-    transport: "",
-    providerUser: "",
-    nameAccommodation: "",
-    categoryAccommodation: "",
-    numberNigths: "",
-    minRangeKids: "",
-    maxRangeKids: "",
-    priceKids: "",
+    destinationName: {},
+    description: "",
+    priceKids: {},
     priceAdult: {},
+    maxPeople: "",
+    minPeople: "",
     activeDate: [],
+    providerUser: "",
   });
 
   const isFirstStep = currentIndexForm === 1;
@@ -93,7 +90,7 @@ export default function FormActividades({ handleSave }) {
   function handleOnChangeDestination(label, destination) {
     setForm({
       ...form,
-      destination: { ...form.destination, [label]: destination },
+      destinationName: { ...form.destinationName, [label]: destination },
     });
   }
 
