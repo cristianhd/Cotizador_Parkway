@@ -18,8 +18,8 @@ export default function RoutePrice({
   function handleOnChangeInput(e) {
     const nameInput = e.target.name;
     const price = e.target.value;
-    if (nameInput === "going") handleOnChangePriceAdult(nameInput, price);
-    if (nameInput === "return") handleOnChangePriceAdult(nameInput, price);
+    if (nameInput === "going") handleOnChangePriceAdult("ida", price);
+    if (nameInput === "return") handleOnChangePriceAdult("vuelta", price);
   }
   function handleOnChangeSwitchRoundTrip(e) {
     setRoundTrip(!roundTrip);
