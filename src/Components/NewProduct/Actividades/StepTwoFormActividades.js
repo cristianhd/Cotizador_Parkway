@@ -14,7 +14,6 @@ export default function StepTwoFormActividades({
 }) {
   const [checkKids, setCheckKids] = useState(false);
   const [amountRangePrice, setamountRangePrice] = useState([1]);
-  const [amountRoomPrice, setamountRoomPrice] = useState([1]);
 
   function addRange() {
     setamountRangePrice([...amountRangePrice, amountRangePrice.length + 1]);
@@ -27,17 +26,7 @@ export default function StepTwoFormActividades({
     setamountRangePrice(amountRangePrice.slice(0, amountRangePrice.length - 1));
     handleOnChangePriceKids(range, price);
   }
-  function AddRoom() {
-    setamountRoomPrice([...amountRoomPrice, amountRoomPrice.length + 1]);
-  }
-  function RemoveRoom() {
-    const room = Object.keys(form.priceAdult).find((room) =>
-      room.includes(amountRoomPrice.length)
-    );
-    const price = undefined;
-    setamountRoomPrice(amountRoomPrice.slice(0, amountRoomPrice.length - 1));
-    handleOnChangePriceAdult(room, price);
-  }
+
   return (
     <>
       <Row className="m-1">
@@ -95,17 +84,20 @@ export default function StepTwoFormActividades({
       <Row className="m-1">
         <Form.Group className="m-1" as={Col}>
           <Form.Label className="p-1">Precio Adulto</Form.Label>
-          {amountRoomPrice.map((room) => (
-            <RoomPrice
-              key={room}
-              handleOnChangePriceAdult={handleOnChangePriceAdult}
-              form={form}
-              indexRoom={room}
-            ></RoomPrice>
+          {amountRangePrice.map((range) => (
+            <div key={range}>
+              <RangePrice
+                handleOnChangePrice={handleOnChangePriceAdult}
+                form={form}
+                indexRange={range}
+                typeRange="Personas"
+                typePrice="adult"
+              ></RangePrice>
+            </div>
           ))}
           <div className="m-1 p-1 d-flex justify-content-between">
-            <AddPriceButton handleOnClick={AddRoom}></AddPriceButton>
-            <RemovePriceButton handleOnClick={RemoveRoom}></RemovePriceButton>
+            <AddPriceButton handleOnClick={addRange}></AddPriceButton>
+            <RemovePriceButton handleOnClick={removeRange}></RemovePriceButton>
           </div>
         </Form.Group>
       </Row>
