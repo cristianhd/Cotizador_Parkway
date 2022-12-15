@@ -1,7 +1,7 @@
-
 .cards-flex {
-    width: 77%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  
+  border-radius: 75px 15px 15px 30px;
+  border: solid gray 0.2px;
+  height: 300px;
+  width: 700px;
 }
