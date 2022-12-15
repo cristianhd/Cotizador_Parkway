@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Col } from "react-bootstrap";
 
 export default function PriceKidsCard({ priceKids }) {
+  console.log(priceKids);
   return (
     <Col className="m-1">
       <Card.Title>Precios Niños</Card.Title>
