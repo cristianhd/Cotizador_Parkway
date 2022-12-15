@@ -25,7 +25,7 @@ export default function Nav() {
     <Row className="nav-bar">
       {MenuItems.map((item, index) => {
         return (
-          <Col md={3} sm={3} xs={3} className="p-0" key={index}>
+          <Col md={2} sm={3} xs={3} className="p-0" key={index}>
             <NavLink to={item.url} className="w-100 text-decoration-none">
               <div className="w-100 d-flex justify-content-center ">
                 <Button
