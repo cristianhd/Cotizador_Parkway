@@ -12,7 +12,7 @@ export default function CardHorizontal({
   listSpanText,
 }) {
   return (
-    <div className="cards-flex">
+    <div className="card-horizontal">
       <div className="d-flex w-100">
         <PhotoCard
           photo="https://i.pinimg.com/564x/dc/a2/04/dca2046e6525ed56ca76c76f724cae0c.jpg"
