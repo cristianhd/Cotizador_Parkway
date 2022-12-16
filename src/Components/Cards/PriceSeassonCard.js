@@ -8,7 +8,7 @@ export default function PriceSeassonCard({ priceAdult }) {
       <div className="m-1">
         {priceAdult.map((priceRoom, index) => (
           <ul key={index} className="px-1">
-            <Card.Subtitle>{priceRoom[0]}</Card.Subtitle>
+            <Card.Subtitle>{priceRoom[0].slice(0,-2)}</Card.Subtitle>
             <Card.Text>
               Temporada Baja : {priceRoom[1][0]} Temporada Alta:
               {priceRoom[1][1]}
