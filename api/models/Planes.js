@@ -5,7 +5,7 @@ const planeSchema = new Schema({
   nameAccommodation: { type: String, require: true },
   categoryAccommodation: { type: String, require: true },
   destinationName: { type: Array, required: true },
-  numberNights: { type: String, require: true },
+  numberNigths: { type: String, require: true },
   description: { type: String, require: true },
   transport: { type: String, require: true },
   priceKids: { type: Array, required: true },
