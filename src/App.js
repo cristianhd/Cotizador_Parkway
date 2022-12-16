@@ -49,7 +49,7 @@ function App() {
           <Route path="/asistencias" element={<Asistencias />}></Route>
         </Routes>
       </section>
-      <section className="m-5 p-1">
+      <section className="m-5">
         <Cards data={data} typeProduct={currentTypeProduct} />
       </section>
       <section className="">
