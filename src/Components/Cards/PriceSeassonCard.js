@@ -16,7 +16,7 @@ export default function PriceSeassonCard({ priceAdult }) {
           <ul key={index} className="px-1">
             <Card.Subtitle>{priceRoom[0].slice(0, -2)}</Card.Subtitle>
             <Card.Text>
-              Temporada Baja : {priceRoom[1][0]} Temporada Alta:
+              Baja :{pesosFormat.format(priceRoom[1][0])} Alta:
               {pesosFormat.format(priceRoom[1][1])}
             </Card.Text>
           </ul>
