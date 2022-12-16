@@ -4,26 +4,41 @@ import NavigationCard from "./NavigationCard";
 import PhotoCard from "./PhotoCard";
 
 export default function CardHorizontal({
+  title,
+  photo,
+  categoryAccommodation,
+  destinationName,
+  numberNigths,
+  description,
+  transport,
   priceKids,
   priceAdult,
-  roundTrip,
   typeProduct,
-  description,
-  listSpanText,
 }) {
+  console.log(categoryAccommodation);
+  const listSpanText = [
+    categoryAccommodation,
+    `${numberNigths} noches`,
+    transport,
+  ];
+  const destination = destinationName.map((destination, index) =>
+    destinationName.length - 1 === index
+      ? destination[1]
+      : `${destination[1]} - `
+  );
+
   return (
-    <div className="card-horizontal">
-      <div className="d-flex w-100">
+    <div className="d-flex m-2 justify-content-center">
+      <div className="card-horizontal d-flex">
         <PhotoCard
-          photo="https://i.pinimg.com/564x/dc/a2/04/dca2046e6525ed56ca76c76f724cae0c.jpg"
-          pricipalText="Conoce la Güajira"
-          subtitleText="Guajira,Colombia"
+          photo={photo}
+          pricipalText={title}
+          subtitleText={destination}
           listSpanText={listSpanText}
         ></PhotoCard>
         <NavigationCard
           priceKids={priceKids}
           priceAdult={priceAdult}
-          roundTrip={roundTrip}
           typeProduct={typeProduct}
           description={description}
         ></NavigationCard>
