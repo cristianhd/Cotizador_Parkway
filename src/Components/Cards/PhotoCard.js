@@ -17,10 +17,12 @@ export default function PhotoCard({
           <h3>{pricipalText && pricipalText}</h3>
           <span>{subtitleText && subtitleText}</span>
         </div>
-        <div className="m-1 span-card d-flex flex-row">
+        <div className="my-1 d-flex flex-row">
           {listSpanText &&
             listSpanText.map((text, index) => (
-              <SpanCard key={index} text={text}></SpanCard>
+              <div key={index} className=" m-1 span-card ">
+                <SpanCard  text={text}></SpanCard>
+              </div>
             ))}
         </div>
       </div>
