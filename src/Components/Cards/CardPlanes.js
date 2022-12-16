@@ -2,13 +2,6 @@ import React from "react";
 import CardHorizontal from "./CardHorizontal";
 
 export default function CardPlanes({ data, typeProduct }) {
-  // const listSpanText = [
-  //   data.categoryAccomodation && data.categoryAccomodation,
-  //   data.numberNight && data.numberNight,
-  //   data.transport && data.transport,
-  // ];
-  console.log(data);
-
   return (
     <div className="d-flex flex-column">
       {data.length > 0 &&
