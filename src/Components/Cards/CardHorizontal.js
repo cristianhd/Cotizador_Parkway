@@ -14,18 +14,22 @@ export default function CardHorizontal({
   priceKids,
   priceAdult,
   typeProduct,
+  minPeople,
+  maxPeople,
+  roundTrip,
 }) {
-  console.log(categoryAccommodation);
-  const listSpanText = [
-    categoryAccommodation,
-    `${numberNigths} noches`,
-    transport,
-  ];
-  const destination = destinationName.map((destination, index) =>
-    destinationName.length - 1 === index
-      ? destination[1]
-      : `${destination[1]} - `
-  );
+  // const listSpanText = [
+  //   categoryAccommodation,
+  //   `${numberNigths} noches`,
+  //   transport,
+  // ];
+  const destination =
+    Array.isArray(destinationName) &&
+    destinationName.map((destination, index) =>
+      destinationName.length - 1 === index
+        ? destination[1]
+        : `${destination[1]} - `
+    );
 
   return (
     <div className="d-flex m-2 justify-content-center">
@@ -33,8 +37,17 @@ export default function CardHorizontal({
         <PhotoCard
           photo={photo}
           pricipalText={title}
-          subtitleText={destination}
-          listSpanText={listSpanText}
+          subtitleText={
+            typeProduct === ("hospedajes" || "asistencias")
+              ? destinationName
+              : destination
+          }
+          categoryAccommodation={categoryAccommodation}
+          numberNigths={numberNigths}
+          transport={transport}
+          roundTrip={roundTrip}
+          maxPeople={maxPeople}
+          minPeople={minPeople}
         ></PhotoCard>
         <NavigationCard
           priceKids={priceKids}
