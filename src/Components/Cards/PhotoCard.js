@@ -6,8 +6,13 @@ import { Card } from "react-bootstrap";
 export default function PhotoCard({
   pricipalText,
   photo,
-  listSpanText,
   subtitleText,
+  categoryAccommodation,
+  numberNigths,
+  transport,
+  roundTrip,
+  maxPeople,
+  minPeople,
 }) {
   return (
     <div className="photo-card">
@@ -18,12 +23,15 @@ export default function PhotoCard({
           <span>{subtitleText && subtitleText}</span>
         </div>
         <div className="my-1 d-flex flex-row">
-          {listSpanText &&
-            listSpanText.map((text, index) => (
-              <div key={index} className=" m-1 span-card ">
-                <SpanCard  text={text}></SpanCard>
-              </div>
-            ))}
+          {categoryAccommodation && (
+            <SpanCard text={categoryAccommodation}></SpanCard>
+          )}
+          {numberNigths && <SpanCard text={`${numberNigths} noches`}></SpanCard>}
+          {transport && <SpanCard text={transport}></SpanCard>}
+          {roundTrip && <SpanCard text={roundTrip}></SpanCard>}
+          {minPeople && maxPeople && (
+            <SpanCard text={`${minPeople}-${maxPeople}`}></SpanCard>
+          )}
         </div>
       </div>
     </div>
