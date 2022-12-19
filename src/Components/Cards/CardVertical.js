@@ -14,7 +14,8 @@ export default function CardVertical({
   priceAdult,
   typeProduct,
   roundTrip,
-  listSpanText,
+  maxPeople,
+  minPeople,
 }) {
   return (
     <div className="card-vertical">
@@ -22,8 +23,12 @@ export default function CardVertical({
         <PhotoCard
           photo={photo}
           pricipalText={title}
-          subtitleText={destinationName}
-          listSpanText={listSpanText}
+          categoryAccommodation={categoryAccommodation}
+          numberNigths={numberNigths}
+          transport={transport}
+          roundTrip={roundTrip}
+          maxPeople={maxPeople}
+          minPeople={minPeople}
         ></PhotoCard>
         <NavigationCard
           priceKids={priceKids}
