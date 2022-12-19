@@ -8,11 +8,11 @@ const GET_SEARCH = "GET_SEARCH",
 
 const BaseUrl = process.env.REACT_APP_BASE_URL;
 
-export function getSearch(origin, destination, typeProduct) {
+export function getSearch(origin, destination, date, typeProduct) {
   return (dispatch) => {
     axios
       .get(
-        `/products/${typeProduct}?origin=${origin}&destination=${destination}`
+        `/products/${typeProduct}?origin=${origin}&destination=${destination}&date=${date}`
       )
       .then((res) => {
         dispatch({
