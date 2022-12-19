@@ -9,7 +9,7 @@ import RemovePriceButton from "./RemovePriceButton";
 export default function RoutePrice({
   form,
   handleOnChangePriceAdult,
-
+  handleOnChangeRoundTrip,
   handleCleanPriceAdult,
 }) {
   const [roundTrip, setRoundTrip] = useState(false);
@@ -23,7 +23,7 @@ export default function RoutePrice({
   }
   function handleOnChangeSwitchRoundTrip(e) {
     setRoundTrip(!roundTrip);
-    handleCleanPriceAdult();
+    handleOnChangeRoundTrip(!roundTrip);
   }
   function addRange() {
     setamountRangePrice([...amountRangePrice, amountRangePrice.length + 1]);
@@ -42,9 +42,9 @@ export default function RoutePrice({
       <Form.Check
         type="switch"
         label="Ida y Vuelta"
-        name="priceAdult"
+        name="roundTrip"
         onChange={handleOnChangeSwitchRoundTrip}
-        checked={roundTrip}
+        checked={form.roundTrip}
       ></Form.Check>
       {roundTrip ? (
         <>

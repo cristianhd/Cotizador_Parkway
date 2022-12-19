@@ -22,7 +22,7 @@ export default function FormTraslados({ handleSave }) {
     minPeople: "",
     maxPeople: "",
     priceAdult: {},
-    rountrip: false,
+    roundTrip: false,
     providerUser: "",
   });
 
@@ -82,6 +82,20 @@ export default function FormTraslados({ handleSave }) {
       priceAdult: {},
     });
   }
+  function handleOnChangeRoundTrip(state) {
+    if (state) {
+      setForm({
+        ...form,
+        roundTrip: state,
+      });
+    } else {
+      setForm({
+        ...form,
+        priceAdult: {},
+        roundTrip: state,
+      });
+    }
+  }
 
   console.log(form);
 
@@ -110,6 +124,7 @@ export default function FormTraslados({ handleSave }) {
               handleCleanPriceAdult={handleCleanPriceAdult}
               handleOnChangePriceAdult={handleOnChangePriceAdult}
               handleOnChangeForm={handleOnChangeForm}
+              handleOnChangeRoundTrip={handleOnChangeRoundTrip}
               form={form}
             />
           )}
@@ -123,7 +138,6 @@ export default function FormTraslados({ handleSave }) {
         <Modal.Footer className="d-flex-column">
           <Row className="m-1 p-1">
             <div className="w-100 p-1 d-flex justify-content-end">
-            
               {!isFirstStep && (
                 <Button onClick={() => updateIndexForm(currentIndexForm - 1)}>
                   Anterior

@@ -8,6 +8,7 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
     minimumFractionDigits: "0",
   };
   var pesosFormat = new Intl.NumberFormat("es-CO", options);
+console.log(roundTrip)
   return (
     <Col className="m-1">
       <Card.Title>Precios Adulto</Card.Title>
@@ -23,10 +24,10 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
         </div>
       ) : (
         <div className="m-1">
-          {priceAdult.map((priceRoom, index) => (
+          {priceAdult.map((price, index) => (
             <ul key={index} className="px-1">
               <Card.Text>
-                {priceRoom[0]} : {pesosFormat.format(priceRoom[1])}
+                {price[0]} : {pesosFormat.format(price[1])}
               </Card.Text>
             </ul>
           ))}

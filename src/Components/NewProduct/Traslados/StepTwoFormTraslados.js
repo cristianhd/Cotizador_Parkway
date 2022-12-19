@@ -8,6 +8,7 @@ export default function StepTwoFormTraslados({
   handleCleanPriceAdult,
   handleOnChangePriceAdult,
   handleOnChangeForm,
+  handleOnChangeRoundTrip
 }) {
   return (
     <>
@@ -39,6 +40,7 @@ export default function StepTwoFormTraslados({
             form={form}
             handleCleanPriceAdult={handleCleanPriceAdult}
             handleOnChangePriceAdult={handleOnChangePriceAdult}
+            handleOnChangeRoundTrip={handleOnChangeRoundTrip}
           ></RoutePrice>
         </Form.Group>
       </Row>
