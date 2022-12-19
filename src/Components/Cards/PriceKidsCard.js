@@ -13,8 +13,8 @@ export default function PriceKidsCard({ priceKids }) {
     <Col className="m-1">
       <Card.Title>Precios Niños</Card.Title>
       <div className="m-1">
-        {priceKids.length === 0 && <ul>n/a</ul>}
-        {priceKids.map((priceKids, index) => (
+        {priceKids && priceKids.length === 0 && <ul>n/a</ul>}
+        {priceKids && priceKids.map((priceKids, index) => (
           <ul key={index} className="px-1">
             <Card.Text>
               {priceKids[1][0]}-{priceKids[1][1]} años :{" "}
