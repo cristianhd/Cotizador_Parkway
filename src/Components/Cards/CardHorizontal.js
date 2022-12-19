@@ -38,9 +38,7 @@ export default function CardHorizontal({
           photo={photo}
           pricipalText={title}
           subtitleText={
-            typeProduct === ("hospedajes" || "asistencias")
-              ? destinationName
-              : destination
+            typeProduct === "hospedajes" ? destinationName : destination
           }
           categoryAccommodation={categoryAccommodation}
           numberNigths={numberNigths}
