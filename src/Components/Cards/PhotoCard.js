@@ -28,7 +28,7 @@ export default function PhotoCard({
           )}
           {numberNigths && <SpanCard text={`${numberNigths} noches`}></SpanCard>}
           {transport && <SpanCard text={transport}></SpanCard>}
-          {roundTrip && <SpanCard text={roundTrip}></SpanCard>}
+          {roundTrip && <SpanCard text="Ida y Vuelta"></SpanCard>}
           {minPeople && maxPeople && (
             <SpanCard text={`${minPeople}-${maxPeople}`}></SpanCard>
           )}
