@@ -16,6 +16,8 @@ export default function CardTraslados({ data, typeProduct }) {
             typeProduct={typeProduct}
             description={card.description}
             roundTrip={card.roundTrip}
+            maxPeople={card.maxPeople}
+            minPeople={card.minPeople}
           ></CardVertical>
         ))}
     </div>
