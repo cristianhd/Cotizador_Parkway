@@ -16,7 +16,11 @@ export default function Asistencias() {
   const dispatch = useDispatch();
 
   // local state
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    destination: undefined,
+    date: undefined,
+    pax: undefined,
+  });
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
@@ -36,7 +40,7 @@ export default function Asistencias() {
       setValidated(true);
       e.stopPropagation();
     } else {
-      dispatch(getSearch(form.origin, form.destination, typeProduct));
+      dispatch(getSearch(undefined, form.destination, undefined, typeProduct)); // (origin,destination,date,typeProduct)
       setValidated(false);
     }
   };

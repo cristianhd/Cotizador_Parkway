@@ -6,9 +6,14 @@ import Button from "react-bootstrap/Button";
 import InputPlace from "./InputPlace";
 import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
-import { getSearch, getSuggestPlaces } from "../../Redux/action";
+import {
+  getSearch,
+  getSuggestCities,
+  getSuggestPlaces,
+} from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
+import DatePicker from "./DatePicker";
 
 export default function Actividades() {
   const typeProduct = window.location.pathname.slice(1);
@@ -16,7 +21,11 @@ export default function Actividades() {
   const dispatch = useDispatch();
 
   // local state
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    destination: undefined,
+    date: undefined,
+    pax: undefined,
+  });
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
 
@@ -35,7 +44,7 @@ export default function Actividades() {
       setValidated(true);
       e.stopPropagation();
     } else {
-      dispatch(getSearch(form.origin, form.destination, typeProduct));
+      dispatch(getSearch(undefined, form.destination, form.date, typeProduct)); // (origin,destination,date,typeProduct)
       setValidated(false);
     }
   };
@@ -60,6 +69,7 @@ export default function Actividades() {
     }
 
     dispatch(getSuggestPlaces(value));
+    dispatch(getSuggestCities(value));
 
     setForm({
       ...form,
@@ -81,7 +91,7 @@ export default function Actividades() {
             <Form.Group
               className="gap-1 p-1 d-flex flex-row justify-content-between"
               as={Col}
-              md={8}
+              md={6}
             >
               <InputPlace
                 name="destination"
@@ -92,10 +102,12 @@ export default function Actividades() {
                 show={showDestination}
               />
             </Form.Group>
-
+            <Form.Group as={Col} md={3} className="p-1">
+              <DatePicker handleOnChange={handleOnChange} value={form.date} />
+            </Form.Group>
             <Form.Group
               as={Col}
-              md={3}
+              md={2}
               className="gap-1 p-1 d-flex flex-row justify-content-between"
             >
               <Pax handleOnChange={handleOnChange} value={form.pax} />

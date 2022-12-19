@@ -26,12 +26,11 @@ export default function Planes() {
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
-    origin: "",
-    destination: "",
-    date: "",
-    rooms: "",
-    pax: "",
+    destination: undefined,
+    date: undefined,
+    pax: undefined,
   });
+  console.log(form);
 
   // window scroll top-smooth
   useEffect(() => {
@@ -49,10 +48,9 @@ export default function Planes() {
       setValidated(true);
       e.stopPropagation();
     } else {
-      dispatch(getSearch(form.origin, form.destination, typeProduct));
+      dispatch(getSearch(undefined, form.destination, form.date, typeProduct)); // (origin,destination,date,typeProduct)
       setValidated(false);
     }
-    setForm({ origin: "", destination: "", date: "", rooms: "", pax: "" });
   };
 
   const handleSuggestOnclick = (name, value) => {
@@ -105,14 +103,6 @@ export default function Planes() {
               md={6}
             >
               <InputPlace
-                name="origin"
-                labelName="Origen"
-                value={form.origin}
-                onChange={handleOnChange}
-                suggestOnclick={handleSuggestOnclick}
-                show={showOrigin}
-              />
-              <InputPlace
                 name="destination"
                 labelName="Destino"
                 value={form.destination}
@@ -131,7 +121,6 @@ export default function Planes() {
               md={2}
               className="gap-1 p-1 d-flex flex-row justify-content-between"
             >
-              <Rooms handleOnChange={handleOnChange} value={form.rooms} />
               <Pax handleOnChange={handleOnChange} value={form.pax} />
             </Form.Group>
             <Form.Group as={Col} md={1} className="p-1 ">

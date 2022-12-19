@@ -6,7 +6,11 @@ import Button from "react-bootstrap/Button";
 import InputPlace from "./InputPlace";
 import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
-import { getSearch, getSuggestPlaces } from "../../Redux/action";
+import {
+  getSearch,
+  getSuggestCities,
+  getSuggestPlaces,
+} from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
 
@@ -16,7 +20,11 @@ export default function Traslados() {
   const dispatch = useDispatch();
 
   // local state
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    origin: undefined,
+    destination: undefined,
+    pax: undefined,
+  });
   const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
@@ -37,7 +45,9 @@ export default function Traslados() {
       setValidated(true);
       e.stopPropagation();
     } else {
-      dispatch(getSearch(form.origin, form.destination, typeProduct));
+      dispatch(
+        getSearch(form.origin, form.destination, undefined, typeProduct) // (origin,destination,date,typeProduct)
+      );
       setValidated(false);
     }
   };
@@ -67,6 +77,7 @@ export default function Traslados() {
     }
 
     dispatch(getSuggestPlaces(value));
+    dispatch(getSuggestCities(value));
 
     setForm({
       ...form,
