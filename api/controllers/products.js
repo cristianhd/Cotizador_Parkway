@@ -7,12 +7,19 @@ const Hospedajes = require("../models/Hospedajes");
 // controller query product
 
 function findPlanes(req, res) {
-  const { destination } = req.query;
-  let lengthOfQuery = Object.keys(req.query).length;
+  const { destination, date } = req.query;
 
-  if (lengthOfQuery !== 0) {
+  if (destination && date) {
     try {
-      Planes.find({ destination }).then((planes) => {
+      let activeDate = date.split(" - ");
+      let regex = new RegExp("^0+(?!$)", "g");
+      let monthsActiveDate = activeDate.map((date) =>
+        date.slice(3, 5).replace(regex, "")
+      );
+      Planes.find({
+        destinationName: { $in: [destination] },
+        activeDate: { $in: monthsActiveDate },
+      }).then((planes) => {
         res.json(planes);
       });
     } catch (error) {
@@ -26,11 +33,10 @@ function findPlanes(req, res) {
 
 function findHospedajes(req, res) {
   const { destination } = req.query;
-  let lengthOfQuery = Object.keys(req.query).length;
 
-  if (lengthOfQuery !== 0) {
+  if (destination) {
     try {
-      Hospedajes.find({ destination }).then((planes) => {
+      Hospedajes.find({ destinationName: destination }).then((planes) => {
         res.json(planes);
       });
     } catch (error) {
@@ -44,11 +50,13 @@ function findHospedajes(req, res) {
 
 function findTraslados(req, res, next) {
   const { origin, destination } = req.query;
-  let lengthOfQuery = Object.keys(req.query).length;
 
-  if (lengthOfQuery !== 0) {
+  if (origin && destination) {
     try {
-      Traslados.find({ origin, destination }).then((traslados) => {
+      Traslados.find({
+        originName: origin,
+        destinationName: { $in: [destination] },
+      }).then((traslados) => {
         res.json(traslados);
       });
     } catch (error) {
@@ -61,12 +69,19 @@ function findTraslados(req, res, next) {
 }
 
 function findActividades(req, res, next) {
-  const { destination } = req.query;
-  let lengthOfQuery = Object.keys(req.query).length;
+  const { destination, date } = req.query;
 
-  if (lengthOfQuery !== 0) {
+  if (destination && date) {
     try {
-      Actividades.find({ destination }).then((actividades) => {
+      let activeDate = date.split(" - ");
+      let regex = new RegExp("^0+(?!$)", "g");
+      let monthsActiveDate = activeDate.map((date) =>
+        date.slice(3, 5).replace(regex, "")
+      );
+      Actividades.find({
+        destinationName: { $in: [destination] },
+        activeDate: { $in: monthsActiveDate },
+      }).then((actividades) => {
         res.json(actividades);
       });
     } catch (error) {
@@ -80,18 +95,17 @@ function findActividades(req, res, next) {
 
 function findAsistencias(req, res, next) {
   const { destination } = req.query;
-  let lengthOfQuery = Object.keys(req.query).length;
 
-  // devuelve todas las Asistencias si no hay una query
-  if (lengthOfQuery === 0) {
+  if (destination) {
     try {
-      Asistencias.find({ destination }).then((asistencias) => {
+      Asistencias.find({ destinationName: destination }).then((asistencias) => {
         res.json(asistencias);
       });
     } catch (error) {
       res.send(error.message);
     }
   } else {
+    // devuelve todas las Asistencias si no hay una query
     Asistencias.find().then((asistencias) => res.json(asistencias));
   }
 }
@@ -101,7 +115,7 @@ function findAsistencias(req, res, next) {
 function addPlanes(req, res, next) {
   const { planes } = req.body;
 
-  const destinationName = Object.entries(planes.destinationName);
+  const destinationName = Object.values(planes.destinationName);
   const priceAdult = Object.entries(planes.priceAdult);
   const priceKids = Object.entries(planes.priceKids);
 
@@ -157,7 +171,7 @@ function addTraslados(req, res, next) {
   );
   const title =
     traslados.originName + destinations.toString().replace(/,/g, "");
-  const destinationName = Object.entries(traslados.destinationName);
+  const destinationName = Object.values(traslados.destinationName);
   const priceAdult = Object.entries(traslados.priceAdult);
 
   const newTraslados = {
@@ -183,7 +197,7 @@ function addTraslados(req, res, next) {
 function addActividades(req, res, next) {
   const { actividades } = req.body;
 
-  const destinationName = Object.entries(actividades.destinationName);
+  const destinationName = Object.values(actividades.destinationName);
   const priceAdult = Object.entries(actividades.priceAdult);
   const priceKids = Object.entries(actividades.priceKids);
 
