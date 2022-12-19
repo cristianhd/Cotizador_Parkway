@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
-import CardComponent from "./Card";
+
 import NewProduct from "../NewProduct/NewProduct";
 import "../../style/cards.css";
+import CardPlanes from "./CardPlanes";
+import CardHospedajes from "./CardHospedajes";
+import CardTraslados from "./CardTraslados";
+import CardActividades from "./CardActividades";
+import CardAsistencias from "./CardAsistencias";
 
 export default function Cards({ data, typeProduct }) {
   // window scroll top-smooth
@@ -9,14 +14,27 @@ export default function Cards({ data, typeProduct }) {
     if (data && data.length > 0)
       window.scroll({ top: 750, behavior: "smooth" });
   }, [data]);
+  console.log(data);
 
   return (
-    <div className="cards-flex m-auto gap-5">
-      {data &&
-        data.map((data, index) => (
-          <CardComponent key={index} data={data}></CardComponent>
-        ))}
+    <>
+      {data && typeProduct === "planes" && (
+        <CardPlanes data={data} typeProduct={typeProduct} />
+      )}
+      {data && typeProduct === "hospedajes" && (
+        <CardHospedajes data={data} typeProduct={typeProduct} />
+      )}
+      {data && typeProduct === "traslados" && (
+        <CardTraslados data={data} typeProduct={typeProduct} />
+      )}
+      {data && typeProduct === "actividades" && (
+        <CardActividades data={data} typeProduct={typeProduct} />
+      )}
+      {data && typeProduct === "asistencias" && (
+        <CardAsistencias data={data} typeProduct={typeProduct} />
+      )}
+
       <NewProduct typeProduct={typeProduct}></NewProduct>
-    </div>
+    </>
   );
 }
