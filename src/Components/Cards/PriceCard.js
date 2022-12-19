@@ -13,8 +13,10 @@ export default function PriceCard({
   typeProduct,
   roundTrip,
 }) {
+  console.log(typeProduct);
   const renderPriceKids =
-    typeProduct !== "traslados" || "asistencias" ? false : true;
+    (typeProduct === "traslados" || typeProduct ==="asistencias") ? false : true;
+  console.log(renderPriceKids);
   return (
     <Card.Body className="w-100 m-2 p-2" as={Row}>
       {renderPriceKids && <PriceKidsCard priceKids={priceKids}></PriceKidsCard>}
