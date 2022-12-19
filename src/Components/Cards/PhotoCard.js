@@ -26,11 +26,13 @@ export default function PhotoCard({
           {categoryAccommodation && (
             <SpanCard text={categoryAccommodation}></SpanCard>
           )}
-          {numberNigths && <SpanCard text={`${numberNigths} noches`}></SpanCard>}
+          {numberNigths && (
+            <SpanCard text={`${numberNigths} noches`}></SpanCard>
+          )}
           {transport && <SpanCard text={transport}></SpanCard>}
           {roundTrip && <SpanCard text="Ida y Vuelta"></SpanCard>}
           {minPeople && maxPeople && (
-            <SpanCard text={`${minPeople}-${maxPeople}`}></SpanCard>
+            <SpanCard text={`${minPeople}-${maxPeople} personas`}></SpanCard>
           )}
         </div>
       </div>
