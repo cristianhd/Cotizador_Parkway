@@ -8,7 +8,7 @@ const trasladoSchema = new Schema({
   minPeople: { type: String, require: true },
   maxPeople: { type: String, require: true },
   priceAdult: { type: Array, require: true },
-  rountrip: { type: Boolean, require: true },
+  roundTrip: { type: Boolean, require: true },
   providerUser: { type: String, require: true },
 });
 
