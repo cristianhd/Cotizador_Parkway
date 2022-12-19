@@ -27,8 +27,8 @@ export default function CardHorizontal({
     Array.isArray(destinationName) &&
     destinationName.map((destination, index) =>
       destinationName.length - 1 === index
-        ? destination[1]
-        : `${destination[1]} - `
+        ? destination
+        : `${destination} - `
     );
 
   return (
