@@ -15,6 +15,8 @@ export default function CardActividades({ data, typeProduct }) {
             priceAdult={card.priceAdult}
             typeProduct={typeProduct}
             description={card.description}
+            maxPeople={card.maxPeople}
+            minPeople={card.minPeople}
           ></CardHorizontal>
         ))}
     </div>
