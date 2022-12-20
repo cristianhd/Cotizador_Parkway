@@ -35,5 +35,15 @@
 }
 
 .nav-card {
-width: 400px;
+  width: 400px;
+}
+
+.card-f {
+  position: absolute;
+  right: 0rem;
+}
+
+.description {
+  font-size: 14px;
+  text-align: start;
 }

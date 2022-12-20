@@ -1,4 +1,5 @@
 .card-horizontal {
+  position: relative;
   border-radius: 75px 15px 15px 30px;
   border: solid gray 0.2px;
   height: 300px;
