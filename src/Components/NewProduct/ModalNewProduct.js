@@ -26,7 +26,7 @@ export default function ModalNewProduct({ typeProduct }) {
     <>
       <Modal show={show} onHide={handleClose} size="lg" backdrop="static">
         <Modal.Header closeButton>
-          <Modal.Title>Agregar {UpperCaseStr(typeProduct)}</Modal.Title>
+          <Modal.Title>Crear Producto</Modal.Title>
         </Modal.Header>
 
         {typeProduct === "planes" && <FormPlanes handleSave={handleSave} />}
