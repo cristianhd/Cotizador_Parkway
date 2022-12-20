@@ -16,6 +16,8 @@ function findPlanes(req, res) {
       let monthsActiveDate = activeDate.map((date) =>
         date.slice(3, 5).replace(regex, "")
       );
+      monthsActiveDate.push("0");
+
       Planes.find({
         destinationName: { $in: [destination] },
         activeDate: { $in: monthsActiveDate },
@@ -324,9 +326,10 @@ function updateAsistencias(req, res) {
 }
 
 function deletePlanes(req, res) {
-  const { _id } = req.body;
+  const { id } = req.body;
+
   try {
-    Planes.findByIdAndRemove(_id, (err, doc) => {
+    Planes.findByIdAndRemove({ _id: id }, (err, doc) => {
       if (err) {
         console.log("Something wrong when delete data!");
       }
