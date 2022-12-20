@@ -35,13 +35,7 @@ function existUser(req, res, next) {
   const { nickname } = req.query;
 
   try {
-    User.exists({ nickname }, function (err, doc) {
-      // si no existe el documento es null -> false
-      const exist = doc === null ? false : true;
-
-      if (err) console.log(err);
-      res.send(exist);
-    });
+    User.exists({ nickname }).then((res) => console.log(res));
   } catch (error) {
     res.send(error.message);
   }
