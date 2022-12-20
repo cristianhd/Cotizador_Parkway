@@ -25,7 +25,7 @@ export default function PriceRoomCard({ priceAdult }) {
       <div className="m-1">
         {priceAdult &&
           priceAdult.map((priceRoom, index) => (
-            <ul key={index} className="px-1">
+            <ul key={index} className="px-1 m-0">
               <span onClick={() => handleActiveCollapse(index)}>
                 {priceRoom[0].slice(0, -2)}
               </span>

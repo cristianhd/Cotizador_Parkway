@@ -15,7 +15,7 @@ export default function PriceKidsCard({ priceKids }) {
       <div className="m-1">
         {priceKids && priceKids.length === 0 && <ul>n/a</ul>}
         {priceKids && priceKids.map((priceKids, index) => (
-          <ul key={index} className="px-1">
+          <ul key={index} className="px-1 m-0">
             <Card.Text>
               {priceKids[1][0]}-{priceKids[1][1]} años :{" "}
               {pesosFormat.format(priceKids[1][2])}

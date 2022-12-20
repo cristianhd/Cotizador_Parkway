@@ -23,7 +23,7 @@ export default function PriceRangeCard({ priceAdult }) {
       <Card.Title>Precios Adulto</Card.Title>
       <div className="m-1">
         {priceAdult.map((priceRange, index) => (
-          <ul key={index} className="px-1">
+          <ul key={index} className="px-1 m-0">
             <span onClick={() => handleActiveCollapse(index)}>
               {priceRange[1][0]}-{priceRange[1][1]} persona(s)
             </span>

@@ -25,7 +25,7 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
       {roundTrip ? (
         <div className="m-1">
           {priceAdult.map((priceRange, index) => (
-            <ul key={index} className="px-1">
+            <ul key={index} className="px-1 m-0">
               <span onClick={() => handleActiveCollapse(index)}>
                 {priceRange[1][0]}-{priceRange[1][1]} años
               </span>
@@ -38,7 +38,7 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
       ) : (
         <div className="m-1">
           {priceAdult.map((price, index) => (
-            <ul key={index} className="px-1">
+            <ul key={index} className="px-1 m-0">
               <Card.Text>
                 {price[0]} : {pesosFormat.format(price[1])}
               </Card.Text>
