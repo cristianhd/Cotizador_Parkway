@@ -11,7 +11,7 @@ export default function StepThreeFormHospedajes({ form, handleOnChangeForm }) {
               required
               className="shadow-none"
               as="textarea"
-              maxLength="50"
+              maxLength="500"
               placeholder="Escribe una descripción"
               name="description"
               value={form.description}
