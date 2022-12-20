@@ -43,15 +43,8 @@ export default function ModalNewProduct({ typeProduct }) {
           <FormAsistencia handleSave={handleSave} />
         )}
       </Modal>
-      <div className="w-50 m-auto">
-        <Button
-          className="w-100 rounded-pill"
-          variant="primary"
-          onClick={handleShow}
-        >
-          +
-        </Button>
-      </div>
+
+      <span onClick={handleShow}>+ Agregar Producto</span>
     </>
   );
 }
