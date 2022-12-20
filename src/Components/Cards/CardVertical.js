@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../../Redux/action";
+import ModalDelete from "./ModalDelete";
 import NavigationCard from "./NavigationCard";
 import PhotoCard from "./PhotoCard";
 
 export default function CardVertical({
+  id,
   title,
   photo,
   categoryAccommodation,
@@ -17,6 +22,15 @@ export default function CardVertical({
   maxPeople,
   minPeople,
 }) {
+  const [show, setShow] = useState();
+  const dispatch = useDispatch();
+
+  function handleOnDelete() {
+    dispatch(deleteProduct(id, typeProduct));
+  }
+  function handleShowModal() {
+    setShow(!show);
+  }
   return (
     <div className="card-vertical">
       <div className="d-flex flex-column w-100">
@@ -37,6 +51,16 @@ export default function CardVertical({
           typeProduct={typeProduct}
           description={description}
         ></NavigationCard>
+        <div className="m-1 p-1">
+          <Button variant="danger" active onClick={() => handleShowModal()}>
+            Eliminar
+          </Button>
+        </div>
+        <ModalDelete
+          showModal={show}
+          handleOnDelete={handleOnDelete}
+          handleShowModal={handleShowModal}
+        ></ModalDelete>
       </div>
     </div>
   );

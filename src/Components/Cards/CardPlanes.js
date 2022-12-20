@@ -7,6 +7,7 @@ export default function CardPlanes({ data, typeProduct }) {
       {data.length > 0 &&
         data.map((card, index) => (
           <CardHorizontal
+            id={card._id}
             photo="https://i.pinimg.com/564x/dc/a2/04/dca2046e6525ed56ca76c76f724cae0c.jpg"
             key={index}
             title={card.title}

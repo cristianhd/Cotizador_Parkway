@@ -1,9 +1,13 @@
-import React from "react";
-import { Card } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Card } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../../Redux/action";
+import ModalDelete from "./ModalDelete";
 import NavigationCard from "./NavigationCard";
 import PhotoCard from "./PhotoCard";
 
 export default function CardHorizontal({
+  id,
   title,
   photo,
   categoryAccommodation,
@@ -18,18 +22,20 @@ export default function CardHorizontal({
   maxPeople,
   roundTrip,
 }) {
-  // const listSpanText = [
-  //   categoryAccommodation,
-  //   `${numberNigths} noches`,
-  //   transport,
-  // ];
   const destination =
     Array.isArray(destinationName) &&
     destinationName.map((destination, index) =>
-      destinationName.length - 1 === index
-        ? destination
-        : `${destination} - `
+      destinationName.length - 1 === index ? destination : `${destination} - `
     );
+  const [show, setShow] = useState();
+  const dispatch = useDispatch();
+
+  function handleOnDelete() {
+    dispatch(deleteProduct(id, typeProduct));
+  }
+  function handleShowModal() {
+    setShow(!show);
+  }
 
   return (
     <div className="d-flex m-2 justify-content-center">
@@ -53,6 +59,16 @@ export default function CardHorizontal({
           typeProduct={typeProduct}
           description={description}
         ></NavigationCard>
+        <div className="m-1 p-1">
+          <Button variant="danger" active onClick={() => handleShowModal()}>
+            Eliminar
+          </Button>
+        </div>
+        <ModalDelete
+          showModal={show}
+          handleOnDelete={handleOnDelete}
+          handleShowModal={handleShowModal}
+        ></ModalDelete>
       </div>
     </div>
   );
