@@ -50,7 +50,6 @@ export default function Hospedajes() {
       dispatch(getSearch(undefined, form.destination, undefined, typeProduct)); // (origin,destination,date,typeProduct)
       setValidated(false);
     }
-    setForm({ origin: "", destination: "", date: "", rooms: "", pax: "" });
   };
 
   const handleSuggestOnclick = (name, value) => {
