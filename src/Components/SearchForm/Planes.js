@@ -17,7 +17,10 @@ import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
 
 export default function Planes() {
-  const typeProduct = window.location.pathname.slice(1);
+  const typeProduct =
+    window.location.pathname === "/"
+      ? "planes"
+      : window.location.pathname.slice(1);
   const title = typeProduct.charAt(0).toUpperCase() + typeProduct.slice(1);
   const dispatch = useDispatch();
 
@@ -30,7 +33,7 @@ export default function Planes() {
     date: undefined,
     pax: undefined,
   });
-  console.log(form);
+  console.log(typeProduct);
 
   // window scroll top-smooth
   useEffect(() => {
