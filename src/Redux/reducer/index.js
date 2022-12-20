@@ -36,7 +36,11 @@ export function rootReducer(state = intialState, action) {
         ...state,
         createProduct: action.payload,
       };
-
+    case "DELETE_PRODUCT":
+      return {
+        ...state,
+        querySearch: [],
+      };
     default:
       return state;
   }

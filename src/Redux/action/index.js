@@ -4,9 +4,8 @@ const GET_SEARCH = "GET_SEARCH",
   GET_SUGGEST_PLACES = "GET_SUGGEST_PLACES",
   GET_SUGGEST_CITIES = "GET_SUGGEST_CITIES",
   CREATE_USER = "CREATE_USER",
-  CREATE_PRODUCT = "CREATE_PRODUCT";
-
-const BaseUrl = process.env.REACT_APP_BASE_URL;
+  CREATE_PRODUCT = "CREATE_PRODUCT",
+  DELETE_PRODUCT = "DELETE_PRODUCT";
 
 export function getSearch(origin, destination, date, typeProduct) {
   return (dispatch) => {
@@ -68,6 +67,20 @@ export function createProduct(data, typeProduct) {
       })
       .then((res) => {
         dispatch({ type: CREATE_PRODUCT, payload: res.data });
+      });
+  };
+}
+
+export function deleteProduct(id, typeProduct) {
+  return (dispatch) => {
+    axios
+      .delete(`/products/${typeProduct}`, {
+        data: {
+          id,
+        },
+      })
+      .then((res) => {
+        dispatch({ type: DELETE_PRODUCT, payload: res.data });
       });
   };
 }
