@@ -11,8 +11,8 @@ export default function NavigationCard({
   description,
 }) {
   return (
-    <div className="nav-card w-100 m-1 p-1 d-flex flex-column">
-      <Tabs defaultActiveKey="description" className="mb-3">
+    <div className="nav-card m-1 p-1 d-flex flex-column">
+      <Tabs defaultActiveKey="description" className="">
         <Tab eventKey="description" title="Descripción">
           <DescriptionCard description={description}></DescriptionCard>
         </Tab>
