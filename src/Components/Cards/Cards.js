@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-import NewProduct from "../NewProduct/NewProduct";
 import "../../style/cards.css";
 import CardPlanes from "./CardPlanes";
 import CardHospedajes from "./CardHospedajes";
@@ -33,8 +32,6 @@ export default function Cards({ data, typeProduct }) {
       {data && typeProduct === "asistencias" && (
         <CardAsistencias data={data} typeProduct={typeProduct} />
       )}
-
-      <NewProduct typeProduct={typeProduct}></NewProduct>
     </>
   );
 }
