@@ -6,7 +6,11 @@ import Button from "react-bootstrap/Button";
 import InputPlace from "./InputPlace";
 import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
-import { getSearch, getSuggestPlaces } from "../../Redux/action";
+import {
+  getSearch,
+  getSuggestCities,
+  getSuggestPlaces,
+} from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
 
@@ -58,13 +62,10 @@ export default function Asistencias() {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (value !== "") {
-      setShowDestination(true);
-    } else {
-      setShowDestination(false);
-    }
+    if (name === "destination") setShowDestination(true);
 
     dispatch(getSuggestPlaces(value));
+    dispatch(getSuggestCities(value));
 
     setForm({
       ...form,
