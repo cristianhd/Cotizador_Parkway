@@ -21,10 +21,11 @@ const {
   deleteTraslados,
   deleteActividades,
   deleteAsistencias,
+  findById,
 } = require("../controllers/products.js");
 const router = Router();
 
-router.get("/planes", findPlanes);
+router.get("/planes", findPlanes, findById);
 router.post("/planes", addPlanes);
 router.put("/planes", updatePlanes);
 router.delete("/planes", deletePlanes);

@@ -1,6 +1,7 @@
 const intialState = {
   data: [],
   querySearch: [],
+  productById: {},
   suggest5Places: [],
   suggest5Cities: [],
   createProduct: {},
@@ -15,6 +16,11 @@ export function rootReducer(state = intialState, action) {
         typeProduct: action.payload,
         suggest5Places: [],
         suggest5Cities: [],
+      };
+    case "GET_PRODUCT_ID":
+      return {
+        ...state,
+        productById: action.payload,
       };
     case "GET_SUGGEST_PLACES":
       return {
@@ -39,6 +45,12 @@ export function rootReducer(state = intialState, action) {
     case "DELETE_PRODUCT":
       return {
         ...state,
+        querySearch: [],
+      };
+    case "UPDATE_PRODUCT":
+      return {
+        ...state,
+        productById: {},
         querySearch: [],
       };
     default:

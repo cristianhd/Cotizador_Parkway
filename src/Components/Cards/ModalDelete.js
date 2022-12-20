@@ -5,13 +5,13 @@ export default function ModalDelete({
   id,
   showModal,
   handleOnDelete,
-  handleShowModal,
+  handleShowDelete,
 }) {
   return (
     <Modal show={showModal}>
       <Modal.Body>Estas seguro que deseas eliminar el producto</Modal.Body>
       <Modal.Footer>
-        <Button onClick={() => handleShowModal()}>Cancelar</Button>
+        <Button onClick={() => handleShowDelete()}>Cancelar</Button>
         <Button onClick={() => handleOnDelete(id)}>Aceptar</Button>
       </Modal.Footer>
     </Modal>

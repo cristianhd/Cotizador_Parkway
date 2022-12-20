@@ -8,7 +8,7 @@ import StepOneFormPlanes from "./StepOneFormPlanes";
 import StepThreeFormPlanes from "./StepThreeFormPlanes";
 import StepFourFormPlanes from "./StepFourFormPlanes";
 
-export default function FormPlanes({ handleSave }) {
+export default function FormPlanes({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información General" },
     { step: "2", label: "Información Hospedaje" },
@@ -17,7 +17,7 @@ export default function FormPlanes({ handleSave }) {
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
-  const [form, setForm] = useState({
+  const initialForm = {
     title: "",
     destinationName: {},
     transport: "",
@@ -29,11 +29,18 @@ export default function FormPlanes({ handleSave }) {
     priceAdult: {},
     activeDate: [],
     description: "",
-  });
+  };
+  const editData = {
+    ...data,
+    priceAdult: {},
+    priceKids: {},
+  };
+  console.log(edit);
+  const [form, setForm] = useState(edit ? editData : initialForm);
 
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
-
+  console.log(form);
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;

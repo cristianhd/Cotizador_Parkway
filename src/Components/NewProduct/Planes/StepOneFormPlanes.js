@@ -91,7 +91,10 @@ export default function StepOneFormPlanes({
               key={index}
               name={`destino-${destination}`}
               labelName={`Destino ${destination}`}
-              value={Object.values(form.destinationName)[index]}
+              value={
+                Object.values(form.destinationName)[index] ||
+                form.destinationName[index]
+              }
               onChange={(e) => handleOnChangeMultiDestination(e, index)}
               suggestOnclick={handleSuggestOnClick}
               show={showSuggest === index}

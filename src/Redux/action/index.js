@@ -1,13 +1,16 @@
 import axios from "axios";
 
 const GET_SEARCH = "GET_SEARCH",
+  GET_PRODUCT_ID = "GET_PRODUCT_ID",
   GET_SUGGEST_PLACES = "GET_SUGGEST_PLACES",
   GET_SUGGEST_CITIES = "GET_SUGGEST_CITIES",
   CREATE_USER = "CREATE_USER",
   CREATE_PRODUCT = "CREATE_PRODUCT",
-  DELETE_PRODUCT = "DELETE_PRODUCT";
+  DELETE_PRODUCT = "DELETE_PRODUCT",
+  UPDATE_PRODUCT = "UPDATE_PRODUCT";
 
 export function getSearch(origin, destination, date, typeProduct) {
+  console.log(typeProduct);
   return (dispatch) => {
     axios
       .get(
@@ -19,6 +22,17 @@ export function getSearch(origin, destination, date, typeProduct) {
           payload: { querySearch: res.data },
         });
       });
+  };
+}
+
+export function getProductbyId(id, typeProduct) {
+  return (dispatch) => {
+    axios.get(`/products/${typeProduct}?id=${id}`).then((res) => {
+      dispatch({
+        type: GET_PRODUCT_ID,
+        payload: { productById: res.data },
+      });
+    });
   };
 }
 
@@ -81,6 +95,21 @@ export function deleteProduct(id, typeProduct) {
       })
       .then((res) => {
         dispatch({ type: DELETE_PRODUCT, payload: res.data });
+      });
+  };
+}
+
+export function updateProduct(id, update, typeProduct) {
+  return (dispatch) => {
+    axios
+      .put(`/products/${typeProduct}`, {
+        data: {
+          id,
+          update,
+        },
+      })
+      .then((res) => {
+        dispatch({ type: UPDATE_PRODUCT });
       });
   };
 }

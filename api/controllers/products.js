@@ -6,33 +6,47 @@ const Hospedajes = require("../models/Hospedajes");
 
 // controller query product
 
-function findPlanes(req, res) {
-  const { destination, date } = req.query;
-
-  if (destination && date) {
-    try {
-      let activeDate = date.split(" - ");
-      let regex = new RegExp("^0+(?!$)", "g");
-      let monthsActiveDate = activeDate.map((date) =>
-        date.slice(3, 5).replace(regex, "")
-      );
-      monthsActiveDate.push("0");
-
-      Planes.find({
-        destinationName: { $in: [destination] },
-        activeDate: { $in: monthsActiveDate },
-      }).then((planes) => {
-        res.json(planes);
-      });
-    } catch (error) {
-      res.send(error.message);
-    }
+function findPlanes(req, res, next) {
+  const { destination, date, id } = req.query;
+  console.log(id);
+  if (id) {
+    next();
   } else {
-    // devuelve todos los Planes si no hay una query
-    Planes.find().then((planes) => res.json(planes));
+    if (destination && date) {
+      try {
+        let activeDate = date.split(" - ");
+        let regex = new RegExp("^0+(?!$)", "g");
+        let monthsActiveDate = activeDate.map((date) =>
+          date.slice(3, 5).replace(regex, "")
+        );
+        monthsActiveDate.push("0");
+
+        Planes.find({
+          destinationName: { $in: [destination] },
+          activeDate: { $in: monthsActiveDate },
+        }).then((planes) => {
+          res.json(planes);
+        });
+      } catch (error) {
+        res.send(error.message);
+      }
+    } else {
+      // devuelve todos los Planes si no hay una query
+      Planes.find().then((planes) => res.json(planes));
+    }
   }
 }
 
+function findById(req, res) {
+  const { id } = req.query;
+  try {
+    Planes.findById(id).then((plan) => {
+      res.json(plan);
+    });
+  } catch (error) {
+    res.send(error.message);
+  }
+}
 function findHospedajes(req, res) {
   const { destination } = req.query;
 
@@ -241,12 +255,23 @@ function addAsistencias(req, res, next) {
 // controller update product
 
 function updatePlanes(req, res) {
-  const { _id, update } = req.body;
+  const { data } = req.body;
+  const id = data.id;
+  const destinationName = Object.values(data.update.destinationName);
+  const priceAdult = Object.entries(data.update.priceAdult);
+  const priceKids = Object.entries(data.update.priceKids);
+
+  const updatePlan = {
+    ...data.update,
+    destinationName,
+    priceKids,
+    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
+  };
 
   const opts = { new: true };
 
   try {
-    Planes.findByIdAndUpdate(_id, update, opts, (err, doc) => {
+    Planes.findByIdAndUpdate({ _id: id }, updatePlan, opts, (err, doc) => {
       if (err) {
         console.log("Something wrong when updating data!");
       }
@@ -341,9 +366,9 @@ function deletePlanes(req, res) {
 }
 
 function deleteHospedajes(req, res) {
-  const { _id } = req.body;
+  const { id } = req.body;
   try {
-    Hospedajes.findByIdAndRemove(_id, (err, doc) => {
+    Hospedajes.findByIdAndRemove({ _id: id }, (err, doc) => {
       if (err) {
         console.log("Something wrong when delete data!");
       }
@@ -355,9 +380,9 @@ function deleteHospedajes(req, res) {
 }
 
 function deleteTraslados(req, res) {
-  const { _id } = req.body;
+  const { id } = req.body;
   try {
-    Traslados.findByIdAndRemove(_id, (err, doc) => {
+    Traslados.findByIdAndRemove({ _id: id }, (err, doc) => {
       if (err) {
         console.log("Something wrong when delete data!");
       }
@@ -369,9 +394,9 @@ function deleteTraslados(req, res) {
 }
 
 function deleteAsistencias(req, res) {
-  const { _id } = req.body;
+  const { id } = req.body;
   try {
-    Asistencias.findByIdAndRemove(_id, (err, doc) => {
+    Asistencias.findByIdAndRemove({ _id: id }, (err, doc) => {
       if (err) {
         console.log("Something wrong when delete data!");
       }
@@ -383,9 +408,9 @@ function deleteAsistencias(req, res) {
 }
 
 function deleteActividades(req, res) {
-  const { _id } = req.body;
+  const { id } = req.body;
   try {
-    Actividades.findByIdAndRemove(_id, (err, doc) => {
+    Actividades.findByIdAndRemove({ _id: id }, (err, doc) => {
       if (err) {
         console.log("Something wrong when delete data!");
       }
@@ -397,6 +422,7 @@ function deleteActividades(req, res) {
 }
 module.exports = {
   findPlanes,
+  findById,
   findTraslados,
   findActividades,
   findAsistencias,
