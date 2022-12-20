@@ -12,6 +12,8 @@ import { useSelector } from "react-redux";
 import "./App.css";
 import Hospedajes from "./Components/SearchForm/Hospedajes";
 
+import ModalNewProduct from "./Components/NewProduct/ModalNewProduct";
+
 function App() {
   // local state
   const [data, setData] = useState([]);
@@ -48,6 +50,10 @@ function App() {
           <Route path="/actividades" element={<Actividades />}></Route>
           <Route path="/asistencias" element={<Asistencias />}></Route>
         </Routes>
+      </section>
+      <section className="mx-5 px-5 d-flex justify-content-between">
+        <ModalNewProduct typeProduct={currentTypeProduct} />
+        <span>Mostrar todos</span>
       </section>
       <section className="m-5">
         <Cards data={data} typeProduct={currentTypeProduct} />
