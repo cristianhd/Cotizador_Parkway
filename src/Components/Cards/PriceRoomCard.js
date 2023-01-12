@@ -35,7 +35,7 @@ export default function PriceRoomCard({ priceAdult }) {
                   <span className="spanPrice">
                     {pesosFormat.format(priceRoom[1])}
                   </span>
-                  <span className="spanLigth">/persona</span>
+                  <span className="spanLigth"> /persona</span>
                 </Card.Text>
               </Collapse>
             </ul>

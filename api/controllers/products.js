@@ -208,8 +208,11 @@ function addPlan(req, res, next) {
   const { planes } = req.body;
 
   const destinationName = Object.values(planes.destinationName);
-  const priceAdult = Object.entries(planes.priceAdult);
-  const priceKids = Object.entries(planes.priceKids);
+  const priceAdult = Object.entries(planes.priceAdult).map((price) => [
+    price[0].slice(0, -2),
+    price[1],
+  ]);
+  const priceKids = Object.entries(planes.priceKids).map((price) => price[1]);
 
   const newPlan = {
     ...planes,
@@ -250,13 +253,20 @@ function addManyHospedajes(req, res, next) {
 function addHospedajes(req, res, next) {
   const { hospedajes } = req.body;
 
-  const priceAdult = Object.entries(hospedajes.priceAdult);
-  const priceKids = Object.entries(hospedajes.priceKids);
+  const priceAdult = Object.entries(hospedajes.priceAdult).map((price) => [
+    price[0].slice(0, -2),
+    price[1][0],
+    price[1][1],
+  ]);
+  const priceKids = Object.entries(hospedajes.priceKids).map(
+    (price) => price[1]
+  );
+  console.log(priceAdult);
 
   const newHospedaje = {
     ...hospedajes,
     priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
+    priceAdult: priceAdult.filter((price) => price[0] !== undefined),
   };
 
   if (hospedajes === undefined) {
@@ -296,7 +306,9 @@ function addTraslados(req, res, next) {
   const title =
     traslados.originName + destinations.toString().replace(/,/g, "");
   const destinationName = Object.values(traslados.destinationName);
-  const priceAdult = Object.entries(traslados.priceAdult);
+  const priceAdult = Object.entries(traslados.priceAdult).map(
+    (price) => price[1]
+  );
 
   const newTraslados = {
     ...traslados,
@@ -338,8 +350,12 @@ function addActividades(req, res, next) {
   const { actividades } = req.body;
 
   const destinationName = Object.values(actividades.destinationName);
-  const priceAdult = Object.entries(actividades.priceAdult);
-  const priceKids = Object.entries(actividades.priceKids);
+  const priceAdult = Object.entries(actividades.priceAdult).map(
+    (price) => price[1]
+  );
+  const priceKids = Object.entries(actividades.priceKids).map(
+    (price) => price[1]
+  );
 
   const newHospedaje = {
     ...actividades,

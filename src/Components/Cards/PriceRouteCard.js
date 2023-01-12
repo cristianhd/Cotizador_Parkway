@@ -45,7 +45,8 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
           {priceAdult.map((price, index) => (
             <ul key={index} className="px-1 m-0">
               <Card.Text>
-                {price[0]} :{" "}
+                {index === 0 ? <span>ida: </span> : <span>vuelta: </span>}
+
                 <span className="spanPrice">
                   {pesosFormat.format(price[1])}
                 </span>

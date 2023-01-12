@@ -59,7 +59,6 @@ export default function CardHorizontal({
           }
           categoryAccommodation={categoryAccommodation}
           numberNigths={numberNigths}
-          transport={transport}
           roundTrip={roundTrip}
           maxPeople={maxPeople}
           minPeople={minPeople}
