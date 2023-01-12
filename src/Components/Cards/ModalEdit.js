@@ -4,6 +4,10 @@ import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProduct } from "../../Redux/action";
 import FormPlanes from "../NewProduct/Planes/FormPlanes";
+import FormHospedajes from "../NewProduct/Hospedajes/FormHospedajes";
+import FormTraslados from "../NewProduct/Traslados/FormTraslados";
+import FormActividades from "../NewProduct/Actividades/FormActividades";
+import FormAsistencias from "../NewProduct/Asistencias/FormAsistencias";
 
 export default function ModalEdit({ id, show, handleShowEdit, typeProduct }) {
   const dispatch = useDispatch();
@@ -13,6 +17,7 @@ export default function ModalEdit({ id, show, handleShowEdit, typeProduct }) {
     dataEdit && Object.values(dataEdit).length > 0 ? false : true;
 
   //handlers
+  console.log(id);
 
   const handleUpdate = (data) => {
     const update = data;
@@ -30,6 +35,26 @@ export default function ModalEdit({ id, show, handleShowEdit, typeProduct }) {
 
       {typeProduct === "planes" && !emptyDataEdit && (
         <FormPlanes handleSave={handleUpdate} edit={true} data={dataEdit} />
+      )}
+      {typeProduct === "hospedajes" && !emptyDataEdit && (
+        <FormHospedajes handleSave={handleUpdate} edit={true} data={dataEdit} />
+      )}
+      {typeProduct === "traslados" && !emptyDataEdit && (
+        <FormTraslados handleSave={handleUpdate} edit={true} data={dataEdit} />
+      )}
+      {typeProduct === "actividades" && !emptyDataEdit && (
+        <FormActividades
+          handleSave={handleUpdate}
+          edit={true}
+          data={dataEdit}
+        />
+      )}
+      {typeProduct === "asistencias" && !emptyDataEdit && (
+        <FormAsistencias
+          handleSave={handleUpdate}
+          edit={true}
+          data={dataEdit}
+        />
       )}
     </Modal>
   );

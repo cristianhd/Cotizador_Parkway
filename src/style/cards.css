@@ -6,8 +6,18 @@
   width: 700px;
 }
 .card-vertical {
+  position: relative;
   border-radius: 75px 30px 15px 15px;
   border: solid gray 0.2px;
   width: 300px;
-  height: 550px;
+  height: 600px;
+}
+
+.spanLigth {
+  color: #0473a9;
+  font-size: 14px;
+}
+
+.spanPrice {
+  font-weight: bold;
 }

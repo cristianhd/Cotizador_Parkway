@@ -13,6 +13,8 @@ import {
 } from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
+import FloatingInput from "../NewProduct/FloatingInput";
+import { FloatingLabel } from "react-bootstrap";
 
 export default function Asistencias() {
   const typeProduct = window.location.pathname.slice(1);
@@ -105,6 +107,17 @@ export default function Asistencias() {
               className="gap-1 p-1 d-flex flex-row justify-content-between"
             >
               <Pax handleOnChange={handleOnChange} value={form.pax} />
+              <FloatingLabel className="pax w-100 m-0 p-1 rounded" label="Días">
+                <Form.Control
+                  required
+                  className="text-center border-0 shadow-none"
+                  type="number"
+                  name="days"
+                  min="1"
+                  placeholder="Ingrese la cantidad de días"
+                  autoComplete="off"
+                ></Form.Control>
+              </FloatingLabel>
             </Form.Group>
             <Form.Group as={Col} md={1} className="p-1 ">
               <div className="w-100 h-100 d-flex justify-content-center align-items-center">
@@ -119,6 +132,9 @@ export default function Asistencias() {
             </Form.Group>
           </Row>
         </Form>
+        <span className="d-flex justify-content-end">
+          * tarifas sujetas a cambios y a disponibilidad sin previo aviso
+        </span>
       </div>
     </div>
   );

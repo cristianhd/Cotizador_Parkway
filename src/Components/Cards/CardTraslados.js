@@ -4,7 +4,7 @@ import CardVertical from "./CardVertical";
 export default function CardTraslados({ data, typeProduct }) {
   console.log(data);
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-row flex-wrap justify-content-center">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardVertical

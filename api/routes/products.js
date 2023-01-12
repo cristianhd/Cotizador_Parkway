@@ -21,32 +21,42 @@ const {
   deleteTraslados,
   deleteActividades,
   deleteAsistencias,
-  findById,
+  findPlanesById,
+  findHospedajesById,
+  findTrasladosById,
+  findActividadesById,
+  findAsistenciasById,
+  addManyPlanes,
+  addPlan,
+  addManyHospedajes,
+  addManyTraslados,
+  addManyActividades,
+  addManyAsistencias,
 } = require("../controllers/products.js");
 const router = Router();
 
-router.get("/planes", findPlanes, findById);
-router.post("/planes", addPlanes);
+router.get("/planes", findPlanes, findPlanesById);
+router.post("/planes", addManyPlanes, addPlan);
 router.put("/planes", updatePlanes);
 router.delete("/planes", deletePlanes);
 
-router.get("/hospedajes", findHospedajes);
-router.post("/hospedajes", addHospedajes);
+router.get("/hospedajes", findHospedajes, findHospedajesById);
+router.post("/hospedajes", addManyHospedajes, addHospedajes);
 router.put("/hospedajes", updateHospedajes);
 router.delete("/hospedajes", deleteHospedajes);
 
-router.get("/traslados", findTraslados);
-router.post("/traslados", addTraslados);
+router.get("/traslados", findTraslados, findTrasladosById);
+router.post("/traslados", addManyTraslados, addTraslados);
 router.put("/traslados", updateTraslados);
 router.delete("/traslados", deleteTraslados);
 
-router.get("/actividades", findActividades);
-router.post("/actividades", addActividades);
+router.get("/actividades", findActividades, findActividadesById);
+router.post("/actividades", addManyActividades, addActividades);
 router.put("/actividades", updateActividades);
 router.delete("/actividades", deleteActividades);
 
-router.get("/asistencias", findAsistencias);
-router.post("/asistencias", addAsistencias);
+router.get("/asistencias", findAsistencias, findAsistenciasById);
+router.post("/asistencias", addManyAsistencias, addAsistencias);
 router.put("/asistencias", updateAsistencias);
 router.delete("/asistencias", deleteAsistencias);
 

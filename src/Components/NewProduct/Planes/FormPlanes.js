@@ -32,6 +32,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
   };
   const editData = {
     ...data,
+    destinationName: {},
     priceAdult: {},
     priceKids: {},
   };

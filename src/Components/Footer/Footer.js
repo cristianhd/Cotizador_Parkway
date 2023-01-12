@@ -83,7 +83,8 @@ export default function Footer() {
               </a>
             </div>
             <div className="links-rigth">
-              <a href="/#">Terminos y condiciones</a>
+              <a href="/#">Terminos y condiciones</a> <br></br>
+              <span>RNT 40101</span>
             </div>
           </div>
           <div className="f-down">

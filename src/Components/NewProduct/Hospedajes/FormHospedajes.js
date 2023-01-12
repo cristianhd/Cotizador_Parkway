@@ -7,7 +7,7 @@ import StepTwoFormHospedajes from "./StepTwoFormHospedajes.js";
 import StepOneFormHospedajes from "./StepOneFormHospedajes";
 import StepThreeFormHospedajes from "./StepThreeFormHospedajes.js";
 
-export default function FormHospedajes({ handleSave }) {
+export default function FormHospedajes({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información Hospedaje" },
     { step: "2", label: "Precios" },
@@ -15,7 +15,7 @@ export default function FormHospedajes({ handleSave }) {
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
-  const [form, setForm] = useState({
+  const initialForm = {
     title: "",
     destinationName: "",
     providerUser: "",
@@ -24,7 +24,13 @@ export default function FormHospedajes({ handleSave }) {
     priceAdult: {},
     highSeassonDate: "",
     description: "",
-  });
+  };
+  const editData = {
+    ...data,
+    priceAdult: {},
+    priceKids: {},
+  };
+  const [form, setForm] = useState(edit ? editData : initialForm);
 
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
@@ -168,7 +174,6 @@ export default function FormHospedajes({ handleSave }) {
         <Modal.Footer className="d-flex-column">
           <Row className="m-1 p-1">
             <div className="w-100 p-1 d-flex justify-content-end">
-            
               {!isFirstStep && (
                 <Button onClick={() => updateIndexForm(currentIndexForm - 1)}>
                   Anterior

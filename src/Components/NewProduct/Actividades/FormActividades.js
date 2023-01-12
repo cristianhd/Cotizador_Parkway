@@ -8,7 +8,7 @@ import StepOneFormActividades from "./StepOneFormActividades";
 import StepThreeFormActividades from "./StepThreeFormActividades";
 import StepFourFormActividades from "./StepFourFormActividades";
 
-export default function FormActividades({ handleSave }) {
+export default function FormActividades({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información Actividad" },
     { step: "2", label: "Precios" },
@@ -17,7 +17,7 @@ export default function FormActividades({ handleSave }) {
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
-  const [form, setForm] = useState({
+  const initialForm = {
     title: "",
     destinationName: {},
     description: "",
@@ -27,7 +27,15 @@ export default function FormActividades({ handleSave }) {
     minPeople: "",
     activeDate: [],
     providerUser: "",
-  });
+  };
+
+  const editData = {
+    ...data,
+    destinationName: {},
+    priceAdult: {},
+    priceKids: {},
+  };
+  const [form, setForm] = useState(edit ? editData : initialForm);
 
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
@@ -186,7 +194,6 @@ export default function FormActividades({ handleSave }) {
         <Modal.Footer className="d-flex-column">
           <Row className="m-1 p-1">
             <div className="w-100 p-1 d-flex justify-content-end">
-            
               {!isFirstStep && (
                 <Button onClick={() => updateIndexForm(currentIndexForm - 1)}>
                   Anterior

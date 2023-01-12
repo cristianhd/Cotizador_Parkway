@@ -6,20 +6,24 @@ import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
 import StepTwoFormAsistencias from "./StepTwoFormAsistencias";
 import StepOneFormAsistencias from "./StepOneFormAsistencias";
 
-export default function FormAsistencias({ handleSave }) {
+export default function FormAsistencias({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información Asistencia y Precio" },
     { step: "2", label: "Descripción de la Asistencia" },
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
-  const [form, setForm] = useState({
+  const initialForm = {
     title: "",
     destinationName: "",
     description: "",
     priceAdult: "",
     providerUser: "",
-  });
+  };
+  const editData = {
+    ...data,
+  };
+  const [form, setForm] = useState(edit ? editData : initialForm);
 
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
@@ -71,10 +75,10 @@ export default function FormAsistencias({ handleSave }) {
     }
   }
 
-  function handleOnChangeDestination(label, destination) {
+  function handleOnChangeDestination(name, destination) {
     setForm({
       ...form,
-      destination: { ...form.destination, [label]: destination },
+      [name]: destination,
     });
   }
 
@@ -131,6 +135,7 @@ export default function FormAsistencias({ handleSave }) {
           {labelStep[currentIndexForm - 1].label}
           {labelStep[currentIndexForm - 1].step === "1" && (
             <StepOneFormAsistencias
+            handleOnChangeDestination={handleOnChangeDestination}
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />

@@ -20,17 +20,22 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
   }
 
   return (
-    <Col className="m-1">
+    <Col className="m-1 p-0">
       <Card.Title>Precios Adulto</Card.Title>
       {roundTrip ? (
         <div className="m-1">
           {priceAdult.map((priceRange, index) => (
             <ul key={index} className="px-1 m-0">
               <span onClick={() => handleActiveCollapse(index)}>
-                {priceRange[1][0]}-{priceRange[1][1]} años
+                {priceRange[0]}-{priceRange[1]} personas
               </span>
               <Collapse in={open === index}>
-                <Card.Text>{priceRange[1][2]}</Card.Text>
+                <Card.Text>
+                  <span className="spanPrice">
+                    {pesosFormat.format(priceRange[2])}
+                  </span>
+                  <span className="spanLigth"> /grupo</span>
+                </Card.Text>
               </Collapse>
             </ul>
           ))}
@@ -40,7 +45,11 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
           {priceAdult.map((price, index) => (
             <ul key={index} className="px-1 m-0">
               <Card.Text>
-                {price[0]} : {pesosFormat.format(price[1])}
+                {price[0]} :{" "}
+                <span className="spanPrice">
+                  {pesosFormat.format(price[1])}
+                </span>
+                <span className="spanLigth"> /grupo</span>
               </Card.Text>
             </ul>
           ))}

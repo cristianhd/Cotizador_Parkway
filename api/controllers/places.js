@@ -32,21 +32,21 @@ function findAllPlaces(req, res) {
 }
 
 function addPlace(req, res, next) {
-  const place = req.body;
-  const emptyPlace = Object.keys(place).length > 0 ? false: true;
-
+  const {places} = req.body;
+  const emptyPlace = Object.keys(places).length > 0 ? false: true;
+console.log(places)
   try {
     // caso en el que viene multiples lugares en un array -> next()
-    if (Array.isArray(place)) {
+    if (Array.isArray(places)) {
       next();
     } else {
       //caso en el que no hay datos
       if (emptyPlace) res.send({ msg: "no data" });
 
-      Places.exists({ name: place.name }, function (err, doc) {
+      Places.exists({ name: places.name }, function (err, doc) {
         // si el lugar no existe se crea
         if (doc === null) {
-          Places.create(place).then((result) => {
+          Places.create(places).then((result) => {
             console.log(result);
             res.json(result);
           });
@@ -63,7 +63,7 @@ function addPlace(req, res, next) {
 }
 
 async function addManyPlaces(req, res) {
-  const places = req.body;
+  const {places} = req.body;
 
   try {
     var namePlaces = await Promise.all(

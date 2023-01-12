@@ -7,7 +7,7 @@ import StepTwoFormTraslados from "./StepTwoFormTraslados";
 import StepOneFormTraslados from "./StepOneFormTraslados";
 import StepThreeFormTraslados from "./StepThreeFormTraslados";
 
-export default function FormTraslados({ handleSave }) {
+export default function FormTraslados({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información Traslado" },
     { step: "2", label: "Precios" },
@@ -15,7 +15,7 @@ export default function FormTraslados({ handleSave }) {
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
-  const [form, setForm] = useState({
+  const initialForm = {
     originName: "",
     destinationName: {},
     description: "",
@@ -24,7 +24,15 @@ export default function FormTraslados({ handleSave }) {
     priceAdult: {},
     roundTrip: false,
     providerUser: "",
-  });
+  };
+
+  const editData = {
+    ...data,
+    destinationName: {},
+    priceAdult: {},
+    priceKids: {},
+  };
+  const [form, setForm] = useState(edit ? editData : initialForm);
 
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;

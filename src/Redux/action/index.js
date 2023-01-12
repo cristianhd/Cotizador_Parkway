@@ -26,8 +26,10 @@ export function getSearch(origin, destination, date, typeProduct) {
 }
 
 export function getProductbyId(id, typeProduct) {
+  console.log(id)
   return (dispatch) => {
     axios.get(`/products/${typeProduct}?id=${id}`).then((res) => {
+      console.log(res.data);
       dispatch({
         type: GET_PRODUCT_ID,
         payload: { productById: res.data },

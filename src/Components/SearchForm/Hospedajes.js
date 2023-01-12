@@ -99,7 +99,7 @@ export default function Hospedajes() {
             <Form.Group
               className="gap-1 p-1 d-flex flex-row justify-content-between"
               as={Col}
-              md={6}
+              md={8}
             >
               <InputPlace
                 name="destination"
@@ -113,7 +113,7 @@ export default function Hospedajes() {
 
             <Form.Group
               as={Col}
-              md={2}
+              md={3}
               className="gap-1 p-1 d-flex flex-row justify-content-between"
             >
               <Pax handleOnChange={handleOnChange} value={form.pax} />
@@ -131,6 +131,9 @@ export default function Hospedajes() {
             </Form.Group>
           </Row>
         </Form>
+        <span className="d-flex justify-content-end">
+          * tarifas sujetas a cambios y a disponibilidad sin previo aviso
+        </span>
       </div>
     </div>
   );

@@ -17,6 +17,11 @@ export default function Cards({ data, typeProduct }) {
 
   return (
     <>
+      {data && data.length === 0 && (
+        <span className="d-flex justify-content-center">
+          No hay coincidencias
+        </span>
+      )}
       {data && typeProduct === "planes" && (
         <CardPlanes data={data} typeProduct={typeProduct} />
       )}

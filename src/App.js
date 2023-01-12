@@ -13,6 +13,7 @@ import "./App.css";
 import Hospedajes from "./Components/SearchForm/Hospedajes";
 
 import ModalNewProduct from "./Components/NewProduct/ModalNewProduct";
+import AllProducts from "./Components/SearchForm/AllProducts";
 
 function App() {
   // local state
@@ -53,7 +54,8 @@ function App() {
       </section>
       <section className="mx-5 px-5 d-flex justify-content-between">
         <ModalNewProduct typeProduct={currentTypeProduct} />
-        <span>Mostrar todos</span>
+        <AllProducts typeProduct={currentTypeProduct}></AllProducts>
+        
       </section>
       <section className="m-5">
         <Cards data={data} typeProduct={currentTypeProduct} />

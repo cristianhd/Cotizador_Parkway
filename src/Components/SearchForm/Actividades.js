@@ -62,11 +62,7 @@ export default function Actividades() {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (value !== "") {
-      setShowDestination(true);
-    } else {
-      setShowDestination(false);
-    }
+    if (name === "destination") setShowDestination(true);
 
     dispatch(getSuggestPlaces(value));
     dispatch(getSuggestCities(value));
@@ -125,6 +121,9 @@ export default function Actividades() {
             </Form.Group>
           </Row>
         </Form>
+        <span className="d-flex justify-content-end">
+          * tarifas sujetas a cambios y a disponibilidad sin previo aviso
+        </span>
       </div>
     </div>
   );

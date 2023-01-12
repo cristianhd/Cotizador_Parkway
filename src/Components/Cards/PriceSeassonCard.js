@@ -20,18 +20,26 @@ export default function PriceSeassonCard({ priceAdult }) {
   }
 
   return (
-    <Col className="m-1">
+    <Col className="m-1 p-0">
       <Card.Title>Precios Adulto</Card.Title>
       <div className="m-1">
         {priceAdult.map((priceRoom, index) => (
           <ul key={index} className="px-1 m-0">
             <span onClick={() => handleActiveCollapse(index)}>
-              {priceRoom[0].slice(0, -2)}
+              {priceRoom[0]}
             </span>
             <Collapse in={open === index}>
               <Card.Text>
-                Baja :{pesosFormat.format(priceRoom[1][0])} <br></br>
-                Alta :{pesosFormat.format(priceRoom[1][1])}
+                Baja :
+                <span className="spanPrice">
+                  {pesosFormat.format(priceRoom[1])}
+                </span>
+                <span className="spanLigth"> /persona</span> <br></br>
+                Alta :
+                <span className="spanPrice">
+                  {pesosFormat.format(priceRoom[2])}
+                </span>
+                <span className="spanLigth"> /persona</span>
               </Card.Text>
             </Collapse>
           </ul>

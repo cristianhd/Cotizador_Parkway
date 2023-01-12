@@ -25,7 +25,7 @@ export default function Planes() {
   const dispatch = useDispatch();
 
   // local state
-  const [showOrigin, setShowOrigin] = useState(false);
+
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
@@ -61,7 +61,7 @@ export default function Planes() {
       ...form,
       [name]: value,
     });
-    setShowOrigin(false);
+
     setShowDestination(false);
   };
 
@@ -69,16 +69,7 @@ export default function Planes() {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (name === "origin" && value !== "") {
-      setShowOrigin(true);
-    } else {
-      setShowOrigin(false);
-    }
-    if (name === "destination" && value !== "") {
-      setShowDestination(true);
-    } else {
-      setShowDestination(false);
-    }
+    if (name === "destination") setShowDestination(true);
 
     dispatch(getSuggestPlaces(value));
     dispatch(getSuggestCities(value));
@@ -139,6 +130,9 @@ export default function Planes() {
             </Form.Group>
           </Row>
         </Form>
+        <span className="d-flex justify-content-end">
+          * tarifas sujetas a cambios y a disponibilidad sin previo aviso
+        </span>
       </div>
     </div>
   );

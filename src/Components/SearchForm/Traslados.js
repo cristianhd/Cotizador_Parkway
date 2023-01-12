@@ -139,6 +139,9 @@ export default function Traslados() {
             </Form.Group>
           </Row>
         </Form>
+        <span className="d-flex justify-content-end">
+          * tarifas sujetas a cambios y a disponibilidad sin previo aviso
+        </span>
       </div>
     </div>
   );
