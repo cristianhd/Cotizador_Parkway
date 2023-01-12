@@ -17,7 +17,6 @@ export default function ModalEdit({ id, show, handleShowEdit, typeProduct }) {
     dataEdit && Object.values(dataEdit).length > 0 ? false : true;
 
   //handlers
-  console.log(id);
 
   const handleUpdate = (data) => {
     const update = data;
@@ -26,7 +25,6 @@ export default function ModalEdit({ id, show, handleShowEdit, typeProduct }) {
     handleShowEdit();
     alert("Producto Editado Correctamente");
   };
-  console.log(dataEdit);
   return (
     <Modal show={show} onHide={handleShowEdit} size="lg" backdrop="static">
       <Modal.Header closeButton>

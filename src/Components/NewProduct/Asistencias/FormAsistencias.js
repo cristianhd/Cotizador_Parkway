@@ -54,7 +54,6 @@ export default function FormAsistencias({ handleSave, edit, data }) {
   }
 
   function handleOnChangePriceAdult(room, price, changeRoom) {
-    console.log(room, price, changeRoom);
     if (changeRoom) {
       setForm({
         ...form,
@@ -118,9 +117,6 @@ export default function FormAsistencias({ handleSave, edit, data }) {
       }
     }
   }
-
-  console.log(form);
-
   return (
     <>
       <Form
@@ -135,7 +131,7 @@ export default function FormAsistencias({ handleSave, edit, data }) {
           {labelStep[currentIndexForm - 1].label}
           {labelStep[currentIndexForm - 1].step === "1" && (
             <StepOneFormAsistencias
-            handleOnChangeDestination={handleOnChangeDestination}
+              handleOnChangeDestination={handleOnChangeDestination}
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />

@@ -25,12 +25,11 @@ export default function RangePrice({
     setMinRange(min);
     setPriceRange(price);
 
-    console.log(min, max, price);
     if (min && max && price) {
       handleOnChangePrice(label, [min, max, price]);
     }
   }
-  console.log(disabled);
+
   return (
     <div className="d-flex">
       <FloatingInput

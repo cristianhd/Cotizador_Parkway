@@ -17,8 +17,6 @@ export default function PriceRangeCard({ priceAdult }) {
       setOpen(index);
     }
   }
-  console.log("price", priceAdult);
-
   return (
     <Col className="m-1 p-0">
       <Card.Title>Precios Adulto</Card.Title>
@@ -34,7 +32,7 @@ export default function PriceRangeCard({ priceAdult }) {
                   <span className="spanPrice">
                     {pesosFormat.format(priceRange[2])}
                   </span>
-                <span className="spanLigth"> /persona</span>
+                  <span className="spanLigth"> /persona</span>
                 </Card.Text>
               </Collapse>
             </ul>

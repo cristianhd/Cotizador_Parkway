@@ -18,7 +18,6 @@ export default function CardAsistencias({ data, typeProduct }) {
   }
 
   function handleModalEdit(id) {
-    console.log(id);
     dispatch(getProductbyId(id, typeProduct));
     setShowEdit(true);
   }

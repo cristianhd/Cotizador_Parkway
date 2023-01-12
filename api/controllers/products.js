@@ -112,7 +112,6 @@ function findTrasladosById(req, res) {
 
 function findActividades(req, res, next) {
   const { destination, date, id } = req.query;
-  console.log(req.query);
   if (id) {
     next();
   } else {
@@ -128,7 +127,6 @@ function findActividades(req, res, next) {
           destinationName: { $in: [destination] },
           activeDate: { $in: monthsActiveDate },
         }).then((actividades) => {
-          console.log(actividades);
           res.json(actividades);
         });
       } catch (error) {
@@ -261,7 +259,6 @@ function addHospedajes(req, res, next) {
   const priceKids = Object.entries(hospedajes.priceKids).map(
     (price) => price[1]
   );
-  console.log(priceAdult);
 
   const newHospedaje = {
     ...hospedajes,

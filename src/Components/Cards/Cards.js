@@ -13,7 +13,6 @@ export default function Cards({ data, typeProduct }) {
     if (data && data.length > 0)
       window.scroll({ top: 750, behavior: "smooth" });
   }, [data]);
-  console.log(data);
 
   return (
     <>

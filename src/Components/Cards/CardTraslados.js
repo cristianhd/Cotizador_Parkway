@@ -2,7 +2,6 @@ import React from "react";
 import CardVertical from "./CardVertical";
 
 export default function CardTraslados({ data, typeProduct }) {
-  console.log(data);
   return (
     <div className="d-flex flex-row flex-wrap justify-content-center">
       {data.length > 0 &&

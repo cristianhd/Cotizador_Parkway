@@ -33,7 +33,6 @@ export default function Planes() {
     date: undefined,
     pax: undefined,
   });
-  console.log(typeProduct);
 
   // window scroll top-smooth
   useEffect(() => {

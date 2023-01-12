@@ -11,7 +11,6 @@ export default function PriceSeassonCard({ priceAdult }) {
   const [open, setOpen] = useState("");
 
   function handleActiveCollapse(index) {
-    console.log("open", open, "index", index);
     if (index === open) {
       setOpen("");
     } else {

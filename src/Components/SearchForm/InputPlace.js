@@ -28,7 +28,6 @@ export default function InputPlace({
     setSuggestCities(suggestFiveCities);
   }, [suggestFiveCities, suggestFivePlaces]);
 
-  console.log(suggestCities.length);
   return (
     <div className="input-place d-flex flex-row align-items-center rounded">
       <OverlayTrigger

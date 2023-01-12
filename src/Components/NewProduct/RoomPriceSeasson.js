@@ -35,14 +35,12 @@ export default function RoomPriceSeasson({
 
     setPriceRoomTA(priceTA);
     setPriceRoomTB(priceTB);
-    console.log(priceTA, priceTB);
     if (priceTA && priceTB) {
       let room = nameInput.slice(0, -5);
 
       handleOnChangePriceAdult(room, [priceTA, priceTB]);
     }
   }
-  console.log(selectRoom);
   return (
     <div className="d-flex">
       <Form.Select

@@ -105,8 +105,6 @@ export default function FormTraslados({ handleSave, edit, data }) {
     }
   }
 
-  console.log(form);
-
   return (
     <>
       <Form

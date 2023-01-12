@@ -27,7 +27,7 @@ export default function RoomPrice({
     setPriceRoom(price);
     handleOnChangePriceAdult(room, price);
   }
-  console.log(selectRoom);
+
   return (
     <div className="d-flex">
       <Form.Select

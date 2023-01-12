@@ -36,12 +36,12 @@ export default function FormPlanes({ handleSave, edit, data }) {
     priceAdult: {},
     priceKids: {},
   };
-  console.log(edit);
+
   const [form, setForm] = useState(edit ? editData : initialForm);
 
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
-  console.log(form);
+
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
@@ -76,7 +76,6 @@ export default function FormPlanes({ handleSave, edit, data }) {
   }
 
   function handleOnChangePriceAdult(room, price, changeRoom) {
-    console.log(room, price, changeRoom);
     if (changeRoom) {
       setForm({
         ...form,
@@ -149,8 +148,6 @@ export default function FormPlanes({ handleSave, edit, data }) {
       }
     }
   }
-
-  console.log(form);
 
   return (
     <>

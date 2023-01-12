@@ -70,7 +70,6 @@ export default function FormHospedajes({ handleSave, edit, data }) {
     });
   }
   function handleOnChangePriceAdult(room, price, changeRoom) {
-    console.log(room, price, changeRoom);
     if (changeRoom) {
       setForm({
         ...form,
@@ -134,8 +133,6 @@ export default function FormHospedajes({ handleSave, edit, data }) {
       }
     }
   }
-
-  console.log(form);
 
   return (
     <>

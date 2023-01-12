@@ -10,7 +10,6 @@ const GET_SEARCH = "GET_SEARCH",
   UPDATE_PRODUCT = "UPDATE_PRODUCT";
 
 export function getSearch(origin, destination, date, typeProduct) {
-  console.log(typeProduct);
   return (dispatch) => {
     axios
       .get(
@@ -26,10 +25,8 @@ export function getSearch(origin, destination, date, typeProduct) {
 }
 
 export function getProductbyId(id, typeProduct) {
-  console.log(id)
   return (dispatch) => {
     axios.get(`/products/${typeProduct}?id=${id}`).then((res) => {
-      console.log(res.data);
       dispatch({
         type: GET_PRODUCT_ID,
         payload: { productById: res.data },
