@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { deleteProduct, getProductbyId } from "../../Redux/action";
 import ModalDelete from "./ModalDelete";

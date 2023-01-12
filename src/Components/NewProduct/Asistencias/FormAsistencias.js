@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
+import { Modal, Row } from "react-bootstrap";
 
 import StepTwoFormAsistencias from "./StepTwoFormAsistencias";
 import StepOneFormAsistencias from "./StepOneFormAsistencias";
@@ -53,27 +53,6 @@ export default function FormAsistencias({ handleSave, edit, data }) {
     });
   }
 
-  function handleOnChangePriceAdult(room, price, changeRoom) {
-    if (changeRoom) {
-      setForm({
-        ...form,
-        priceAdult: {
-          ...form.priceAdult,
-          [changeRoom]: undefined,
-          [room]: price,
-        },
-      });
-    } else {
-      setForm({
-        ...form,
-        priceAdult: {
-          ...form.priceAdult,
-          [room]: price,
-        },
-      });
-    }
-  }
-
   function handleOnChangeDestination(name, destination) {
     setForm({
       ...form,
@@ -81,42 +60,6 @@ export default function FormAsistencias({ handleSave, edit, data }) {
     });
   }
 
-  function handleCleanPriceAdult() {
-    setForm({
-      ...form,
-      priceAdult: {},
-    });
-  }
-
-  function handleOnChangeDate(e) {
-    const value = e.target.value.toString();
-
-    if (value === "0") {
-      if (form.activeDate.includes("0")) {
-        setForm({
-          ...form,
-          activeDate: [],
-        });
-      } else {
-        setForm({
-          ...form,
-          activeDate: ["0"],
-        });
-      }
-    } else {
-      if (form.activeDate.includes(value)) {
-        setForm({
-          ...form,
-          activeDate: form.activeDate.filter((item) => item !== value),
-        });
-      } else {
-        setForm({
-          ...form,
-          activeDate: [...form.activeDate, value],
-        });
-      }
-    }
-  }
   return (
     <>
       <Form

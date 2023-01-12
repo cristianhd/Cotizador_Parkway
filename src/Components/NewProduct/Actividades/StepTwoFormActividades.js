@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import AddPriceButton from "../AddPriceButton";
 import FloatingInput from "../FloatingInput";
 import RangePrice from "../RangePrice";
 import RemovePriceButton from "../RemovePriceButton";
-import RoomPrice from "../RoomPrice";
 
 export default function StepTwoFormActividades({
   form,

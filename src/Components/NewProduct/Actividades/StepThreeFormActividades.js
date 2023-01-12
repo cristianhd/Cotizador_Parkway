@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Col, FloatingLabel, Form, Row, ToggleButton } from "react-bootstrap";
+import React from "react";
+import { Form, Row, ToggleButton } from "react-bootstrap";
 
 export default function StepThreeFormActividades({ form, handleonChangeDate }) {
   const meses = [
@@ -23,7 +23,6 @@ export default function StepThreeFormActividades({ form, handleonChangeDate }) {
       <Row className="m-1">
         <Form.Group className="p-1 m-1">
           {meses.map((mes, index) => {
-            let value = mes.replace(/\s/g, "");
             return (
               <ToggleButton
                 className="p-3 m-1 shadow-none"

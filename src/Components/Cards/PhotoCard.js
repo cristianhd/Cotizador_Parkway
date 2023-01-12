@@ -1,7 +1,6 @@
 import React from "react";
 import SpanCard from "./SpanCard";
 import "../../style/card.css";
-import { Card } from "react-bootstrap";
 
 export default function PhotoCard({
   pricipalText,

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { UpperCaseUpperCaseStr } from "../../utils/UpperCaseStr";
 import "../../style/inputPlace.css";
 import { FloatingLabel, OverlayTrigger, Popover } from "react-bootstrap";
 import Suggest from "./Suggest";
@@ -20,7 +19,6 @@ export default function InputPlace({
   const { suggest5Places, suggest5Cities } = useSelector((state) => state);
   const suggestFivePlaces = suggest5Places.suggest5Places || "";
   const suggestFiveCities = suggest5Cities.suggest5Cities || "";
-  const screenWidth = window.screen.width;
 
   // set suggest places in local state
   useEffect(() => {

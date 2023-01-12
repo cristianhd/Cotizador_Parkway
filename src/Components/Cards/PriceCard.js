@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 import PriceSeassonCard from "./PriceSeassonCard";
 import PriceRoomCard from "./PriceRoomCard";
 import PriceRouteCard from "./PriceRouteCard";

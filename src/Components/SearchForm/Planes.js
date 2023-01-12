@@ -5,7 +5,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import DatePicker from "./DatePicker";
 import InputPlace from "./InputPlace";
-import Rooms from "./Rooms";
 import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
 import {

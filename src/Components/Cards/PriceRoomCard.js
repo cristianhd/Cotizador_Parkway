@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card, Col, Collapse } from "react-bootstrap";
+import { Card, Col, Collapse } from "react-bootstrap";
 
 export default function PriceRoomCard({ priceAdult }) {
   var options = {

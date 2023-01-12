@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
+import { Modal, Row } from "react-bootstrap";
 
 import StepTwoFormActividades from "./StepTwoFormActividades";
 import StepOneFormActividades from "./StepOneFormActividades";
@@ -98,13 +98,6 @@ export default function FormActividades({ handleSave, edit, data }) {
     setForm({
       ...form,
       destinationName: { ...form.destinationName, [label]: destination },
-    });
-  }
-
-  function handleCleanPriceAdult() {
-    setForm({
-      ...form,
-      priceAdult: {},
     });
   }
 

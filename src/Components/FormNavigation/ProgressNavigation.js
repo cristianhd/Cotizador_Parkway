@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import React from "react";
 import StepNavigation from "./StepNavigation";
 
 export default function ProgressNavigation({ labelStep, currentStep }) {

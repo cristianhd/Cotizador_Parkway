@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Nav, Row, Tab, Tabs } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
 import DescriptionCard from "./DescriptionCard";
 import PriceCard from "./PriceCard";
 

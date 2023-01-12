@@ -3,9 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import DatePicker from "./DatePicker";
 import InputPlace from "./InputPlace";
-import Rooms from "./Rooms";
 import Pax from "./Pax";
 import lupa from "../../assets/card_product/lupa.svg";
 import {
@@ -22,7 +20,6 @@ export default function Hospedajes() {
   const dispatch = useDispatch();
 
   // local state
-  const [showOrigin, setShowOrigin] = useState(false);
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({
@@ -57,7 +54,7 @@ export default function Hospedajes() {
       ...form,
       [name]: value,
     });
-    setShowOrigin(false);
+
     setShowDestination(false);
   };
 
@@ -65,11 +62,6 @@ export default function Hospedajes() {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (name === "origin" && value !== "") {
-      setShowOrigin(true);
-    } else {
-      setShowOrigin(false);
-    }
     if (name === "destination" && value !== "") {
       setShowDestination(true);
     } else {
