@@ -12,15 +12,15 @@ ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <BrowserRouter>
-        <Auth0Provider
+        {/* <Auth0Provider
           domain="dev-ascvuavf.us.auth0.com"
           clientId="uUrXX199qFCQUOV5i94fc47p2sBTR27b"
           redirectUri={window.location.origin}
           audience="https:/www.cotizador-api.com"
           scope="openid profile email"
-        >
+        > */}
           <App />
-        </Auth0Provider>
+        {/* </Auth0Provider> */}
       </BrowserRouter>
     </React.StrictMode>
   </Provider>,
