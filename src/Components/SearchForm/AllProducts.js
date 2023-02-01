@@ -9,5 +9,9 @@ export default function AllProducts({ typeProduct }) {
     dispatch(getSearch("", "", "", typeProduct));
   }
 
-  return <span onClick={handleShowAllProducts}>Mostrar todos</span>;
+  return (
+    <span className="span-pointer" onClick={handleShowAllProducts}>
+      Mostrar todos
+    </span>
+  );
 }

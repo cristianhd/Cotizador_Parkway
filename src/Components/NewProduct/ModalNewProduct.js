@@ -8,7 +8,6 @@ import FormActividades from "./Actividades/FormActividades";
 import FormAsistencia from "./Asistencias/FormAsistencias";
 import { createProduct } from "../../Redux/action";
 
-
 export default function ModalNewProduct({ typeProduct }) {
   const [show, setShow] = useState();
   const dispatch = useDispatch();
@@ -43,7 +42,9 @@ export default function ModalNewProduct({ typeProduct }) {
         )}
       </Modal>
 
-      <span onClick={handleShow}>+ Agregar Producto</span>
+      <span className="span-pointer" onClick={handleShow}>
+        + Agregar Producto
+      </span>
     </>
   );
 }

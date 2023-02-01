@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.span-pointer {
+  cursor: pointer;
+}
+
 .App {
   min-width: 400px;
   color: #04101c;
