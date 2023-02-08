@@ -2,13 +2,15 @@ import React from "react";
 import CardHorizontal from "./CardHorizontal";
 
 export default function CardActividades({ data, typeProduct }) {
+  const photo =
+    "http://drive.google.com/uc?export=view&id=1PEpLiDAuR0GPjLxJZ1s35fpADM-jYHNU";
   return (
     <div className="d-flex flex-column">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardHorizontal
             id={card._id}
-            photo="https://i.pinimg.com/564x/dc/a2/04/dca2046e6525ed56ca76c76f724cae0c.jpg"
+            photo={photo}
             key={index}
             title={card.title}
             destinationName={card.destinationName}
