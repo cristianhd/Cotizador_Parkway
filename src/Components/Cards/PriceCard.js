@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import PriceSeassonCard from "./PriceSeassonCard";
 import PriceRoomCard from "./PriceRoomCard";
 import PriceRouteCard from "./PriceRouteCard";
@@ -18,24 +18,27 @@ export default function PriceCard({
   return (
     <Card.Body className="w-100 m-2 p-2" as={Row}>
       {renderPriceKids && <PriceKidsCard priceKids={priceKids}></PriceKidsCard>}
-      {typeProduct === "planes" && (
-        <PriceRoomCard priceAdult={priceAdult}></PriceRoomCard>
-      )}
-      {typeProduct === "hospedajes" && (
-        <PriceSeassonCard priceAdult={priceAdult}></PriceSeassonCard>
-      )}
-      {typeProduct === "traslados" && (
-        <PriceRouteCard
-          priceAdult={priceAdult}
-          roundTrip={roundTrip}
-        ></PriceRouteCard>
-      )}
-      {typeProduct === "actividades" && (
-        <PriceRangeCard priceAdult={priceAdult}></PriceRangeCard>
-      )}
-      {typeProduct === "asistencias" && (
-        <PriceAsistenciaCard priceAdult={priceAdult}></PriceAsistenciaCard>
-      )}
+      <Col className="price-adult m-1 p-0">
+        <Card.Title>Adulto</Card.Title>
+        {typeProduct === "planes" && (
+          <PriceRoomCard priceAdult={priceAdult}></PriceRoomCard>
+        )}
+        {typeProduct === "hospedajes" && (
+          <PriceSeassonCard priceAdult={priceAdult}></PriceSeassonCard>
+        )}
+        {typeProduct === "traslados" && (
+          <PriceRouteCard
+            priceAdult={priceAdult}
+            roundTrip={roundTrip}
+          ></PriceRouteCard>
+        )}
+        {typeProduct === "actividades" && (
+          <PriceRangeCard priceAdult={priceAdult}></PriceRangeCard>
+        )}
+        {typeProduct === "asistencias" && (
+          <PriceAsistenciaCard priceAdult={priceAdult}></PriceAsistenciaCard>
+        )}
+      </Col>
     </Card.Body>
   );
 }

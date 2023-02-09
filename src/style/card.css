@@ -1,18 +1,17 @@
 .card {
   width: 700px;
-
   font-family: SFProDisplay;
 }
 
 .photo-card {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
 }
 
 .img-card {
-  width: 300px;
-  height: 300px;
+  width: inherit;
+  height: 100%;
   border-radius: 25% 10%;
 }
 
@@ -30,7 +29,7 @@
 .span-card {
   font-size: 14px;
 }
-.text-card > h3 {
+.principal-text > h4 {
   font-size: 22px;
 }
 

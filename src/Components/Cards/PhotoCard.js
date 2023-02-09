@@ -17,7 +17,7 @@ export default function PhotoCard({
     <div className="photo-card">
       <img className="img-card" src={photo} alt="photoCard"></img>
       <div className="text-card p-2 d-flex flex-column justify-content-center">
-        <div className="mx-2">
+        <div className="principal-text mx-2">
           <h4>{pricipalText && pricipalText}</h4>
           <span>{subtitleText && subtitleText}</span>
         </div>

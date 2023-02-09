@@ -112,12 +112,6 @@ export default function CardHorizontal({
           handleOnDelete={handleOnDelete}
           handleShowDelete={handleShowDelete}
         ></ModalDelete>
-        <ModalEdit
-          id={id}
-          show={showEdit}
-          handleShowEdit={handleShowEdit}
-          typeProduct={typeProduct}
-        ></ModalEdit>
       </div>
     </div>
   );

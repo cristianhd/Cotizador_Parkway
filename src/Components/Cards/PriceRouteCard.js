@@ -19,8 +19,7 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
   }
 
   return (
-    <Col className="m-1 p-0">
-      <Card.Title>Precios Adulto</Card.Title>
+    <div>
       {roundTrip ? (
         <div className="m-1">
           {priceAdult.map((priceRange, index) => (
@@ -55,6 +54,6 @@ export default function PriceRouteCard({ roundTrip, priceAdult }) {
           ))}
         </div>
       )}
-    </Col>
+    </div>
   );
 }

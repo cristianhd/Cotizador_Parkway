@@ -2,15 +2,29 @@
   position: relative;
   border-radius: 75px 15px 15px 30px;
   border: solid gray 0.2px;
-  height: 300px;
-  width: 700px;
+  height: 250px;
+  width: 600px;
 }
 .card-vertical {
   position: relative;
   border-radius: 75px 30px 15px 15px;
   border: solid gray 0.2px;
-  width: 300px;
-  height: 600px;
+  width: 250px;
+  height: 550px;
+}
+
+.price-kids {
+  border-right: 1px solid black;
+  width: 80px;
+}
+
+.price-kids > ul {
+  font-size: 14px;
+}
+
+.price-kids > .card-title,
+.price-adult > .card-title {
+  font-size: 18px;
 }
 
 .spanLigth {
@@ -20,4 +34,5 @@
 
 .spanPrice {
   font-weight: bold;
+  font-size: 14px;
 }

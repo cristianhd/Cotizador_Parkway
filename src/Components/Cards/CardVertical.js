@@ -43,7 +43,7 @@ export default function CardVertical({
     setShowEdit(false);
   }
   return (
-    <div className="card-vertical m-2">
+    <div className="card-vertical m-3">
       <div className="d-flex flex-column w-100">
         <PhotoCard
           photo={photo}
