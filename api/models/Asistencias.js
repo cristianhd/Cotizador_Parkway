@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const asistenciaSchema = new Schema({
-  title: { type: String, require: true, unique: true },
-  destinationName: { type: String, require: true },
-  description: { type: String, require: true },
-  priceAdult: { type: String, require: true },
-  providerUser: { type: String, require: true },
+  title: { type: String, required: true, unique: true },
+  destinationName: { type: String, required: true },
+  description: { type: String, required: true },
+  priceAdult: { type: String, required: true },
+  providerUser: { type: String, required: true },
 });
 
 const Asistencia = model("asistencia", asistenciaSchema);

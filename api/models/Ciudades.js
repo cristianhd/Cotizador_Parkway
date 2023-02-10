@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const ciudadeSchema = new Schema({
-  region: { type: String, require: true },
-  daneDepartament: { type: String, require: true },
-  nameDepartment: { type: String, require: true },
-  daneCity: { type: String, require: true, unique: true },
-  name: { type: String, require: true, unique: true },
+  region: { type: String, required: true },
+  daneDepartament: { type: String, required: true },
+  nameDepartment: { type: String, required: true },
+  daneCity: { type: String, required: true, unique: true },
+  name: { type: String, required: true, unique: true },
 });
 
 const Ciudades = model("ciudades", ciudadeSchema);
