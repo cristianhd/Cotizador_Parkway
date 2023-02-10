@@ -407,63 +407,131 @@ function addAsistencias(req, res, next) {
 
 // controller update product
 
-function updatePlanes(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const destinationName = Object.values(data.update.destinationName);
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
-
-  const updatePlan = {
-    ...data.update,
-    destinationName,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
-
-  const opts = { new: true };
-
-  try {
-    Planes.findByIdAndUpdate({ _id: id }, updatePlan, opts, (err, doc) => {
-      if (err) {
-        console.log("Something wrong when updating data!");
-      }
-      res.send(doc);
-    });
-  } catch (error) {
-    res.sen(error.message);
+function updatePlanes(req, res, next) {
+  const { planes } = req.body;
+  if (planes === undefined) {
+    res.send("Something wrong with the data (planes)!");
   }
-}
 
-function updateHospedajes(req, res) {
-  const { data } = req.body;
-  const id = data.id;
+  if (Array.isArray(planes)) {
+    next();
+  } else {
+    const id = planes.id;
+    const destinationName = Object.values(planes.update.destinationName);
+    const priceAdult = Object.entries(planes.update.priceAdult);
+    const priceKids = Object.entries(planes.update.priceKids);
 
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
+    const updatePlan = {
+      ...planes.update,
+      destinationName,
+      priceKids,
+      priceAdult: priceAdult.filter((price) => price[1] !== undefined),
+    };
 
-  const updateHospedaje = {
-    ...data.update,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
+    const opts = { new: true };
 
-  const opts = { new: true };
-
-  try {
-    Hospedajes.findByIdAndUpdate(
-      { _id: id },
-      updateHospedaje,
-      opts,
-      (err, doc) => {
+    try {
+      Planes.findByIdAndUpdate({ _id: id }, updatePlan, opts, (err, doc) => {
         if (err) {
           console.log("Something wrong when updating data!");
         }
         res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+      });
+    } catch (error) {
+      res.sen(error.message);
+    }
+  }
+}
+
+function updateManyPlanes(req, res) {
+  const { planes } = req.body;
+  const isEmpty = planes.length === 0;
+
+  if (!isEmpty) {
+    try {
+      planes.map((updatePlan) => {
+        return Planes.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+      res.send(planes);
+    } catch (error) {
+      res.send(error.message);
+    }
+  } else {
+  }
+}
+
+function updateHospedajes(req, res, next) {
+  const { hospedajes } = req.body;
+  if (hospedajes === undefined) {
+    res.send("Something wrong with the data (hospedajes)!");
+    return;
+  }
+
+  if (Array.isArray(hospedajes)) {
+    next();
+  } else {
+    const id = hospedajes.id;
+    const priceAdult = Object.entries(hospedajes.update.priceAdult);
+    const priceKids = Object.entries(hospedajes.update.priceKids);
+
+    const updateHospedaje = {
+      ...hospedajes.update,
+      priceKids,
+      priceAdult: priceAdult.filter((price) => price[1] !== undefined),
+    };
+
+    const opts = { new: true };
+
+    try {
+      Hospedajes.findByIdAndUpdate(
+        { _id: id },
+        updateHospedaje,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
+        }
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
+  }
+}
+
+function updateManyHospedajes(req, res) {
+  const { hospedajes } = req.body;
+  const isEmpty = hospedajes.length === 0;
+  if (!isEmpty) {
+    try {
+      hospedajes.map((updatePlan) => {
+        return Hospedajes.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(hospedajes);
+  } else {
+    res.send("the data is empty");
   }
 }
 
@@ -653,8 +721,10 @@ module.exports = {
   addAsistencias,
   addManyAsistencias,
   updatePlanes,
+  updateManyPlanes,
   updateTraslados,
   updateHospedajes,
+  updateManyHospedajes,
   updateActividades,
   updateAsistencias,
   deletePlanes,

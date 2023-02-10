@@ -32,17 +32,19 @@ const {
   addManyTraslados,
   addManyActividades,
   addManyAsistencias,
+  updateManyPlanes,
+  updateManyHospedajes,
 } = require("../controllers/products.js");
 const router = Router();
 
 router.get("/planes", findPlanes, findPlanesById);
 router.post("/planes", addManyPlanes, addPlan);
-router.put("/planes", updatePlanes);
+router.patch("/planes", updatePlanes, updateManyPlanes);
 router.delete("/planes", deletePlanes);
 
 router.get("/hospedajes", findHospedajes, findHospedajesById);
 router.post("/hospedajes", addManyHospedajes, addHospedajes);
-router.put("/hospedajes", updateHospedajes);
+router.patch("/hospedajes", updateHospedajes, updateManyHospedajes);
 router.delete("/hospedajes", deleteHospedajes);
 
 router.get("/traslados", findTraslados, findTrasladosById);
