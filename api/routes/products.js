@@ -4,7 +4,6 @@ const {
   findTraslados,
   findActividades,
   findAsistencias,
-  addPlanes,
   addTraslados,
   addActividades,
   addAsistencias,
