@@ -2,6 +2,7 @@ import React from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import DescriptionCard from "./DescriptionCard";
 import PriceCard from "./PriceCard";
+import BARCO from "../../assets/BARCO.svg";
 
 export default function NavigationCard({
   priceKids,
@@ -11,8 +12,8 @@ export default function NavigationCard({
   description,
 }) {
   return (
-    <div className="nav-card w-100 m-1 p-1 d-flex flex-column">
-      <Tabs defaultActiveKey="description" className="">
+    <div className="m-1 p-1 d-flex flex-column">
+      <Tabs defaultActiveKey="description">
         <Tab eventKey="description" title="Descripción">
           <DescriptionCard description={description}></DescriptionCard>
         </Tab>
