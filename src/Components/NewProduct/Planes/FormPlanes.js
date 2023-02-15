@@ -7,19 +7,22 @@ import StepTwoFormPlanes from "./StepTwoFormPlanes";
 import StepOneFormPlanes from "./StepOneFormPlanes";
 import StepThreeFormPlanes from "./StepThreeFormPlanes";
 import StepFourFormPlanes from "./StepFourFormPlanes";
+import StepFiveFormPlanes from "./StepFiveFormPlanes";
 
 export default function FormPlanes({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información General" },
     { step: "2", label: "Información Hospedaje" },
     { step: "3", label: "Seleccionar Fechas" },
-    { step: "4", label: "Descripción del Plan" },
+    { step: "4", label: "Carga de Fotografías" },
+    { step: "5", label: "Descripción del Plan" },
   ];
   const [currentIndexForm, updateIndexForm] = useState(1);
   const [validated, setValidated] = useState(false);
   const initialForm = {
     title: "",
     destinationName: {},
+    photos: [],
     transport: "",
     providerUser: "",
     nameAccommodation: "",
@@ -29,6 +32,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
     priceAdult: {},
     activeDate: [],
     description: "",
+    includes: {},
   };
   const editData = {
     ...data,
@@ -41,6 +45,8 @@ export default function FormPlanes({ handleSave, edit, data }) {
 
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
+
+  console.log(form);
 
   //handlers
   function handleOnSubmitForm(e) {
@@ -69,6 +75,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
     const name = e.target.name;
     const value = e.target.value;
 
+    console.log(name, value);
     setForm({
       ...form,
       [name]: value,
@@ -112,13 +119,6 @@ export default function FormPlanes({ handleSave, edit, data }) {
     });
   }
 
-  function handleCleanPriceAdult() {
-    setForm({
-      ...form,
-      priceAdult: {},
-    });
-  }
-
   function handleOnChangeDate(e) {
     const value = e.target.value.toString();
 
@@ -147,6 +147,13 @@ export default function FormPlanes({ handleSave, edit, data }) {
         });
       }
     }
+  }
+
+  function handleSavePhotos(photos) {
+    setForm({
+      ...form,
+      photos,
+    });
   }
 
   return (
@@ -184,8 +191,14 @@ export default function FormPlanes({ handleSave, edit, data }) {
           )}
           {labelStep[currentIndexForm - 1].step === "4" && (
             <StepFourFormPlanes
-              handleOnChangeForm={handleOnChangeForm}
+              handleSavePhotos={handleSavePhotos}
               form={form}
+            />
+          )}
+          {labelStep[currentIndexForm - 1].step === "5" && (
+            <StepFiveFormPlanes
+              form={form}
+              handleOnChangeForm={handleOnChangeForm}
             />
           )}
         </Modal.Body>
