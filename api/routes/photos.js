@@ -7,12 +7,14 @@ const router = Router();
 
 router.post("/upload", function (req, res) {
   upload(req, res, function (err) {
+    console.log(req.files);
     if (err instanceof multer.MulterError) {
       res.send(err.code);
     } else if (err) {
       res.send(err.message);
     } else {
-      res.send(req.files);
+      const fileNames = req.files.map((photo) => photo.filename);
+      res.send(fileNames);
     }
   });
 });
