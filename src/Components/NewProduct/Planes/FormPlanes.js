@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
+import { Modal, Row } from "react-bootstrap";
 
 import StepTwoFormPlanes from "./StepTwoFormPlanes";
 import StepOneFormPlanes from "./StepOneFormPlanes";
@@ -17,8 +17,6 @@ export default function FormPlanes({ handleSave, edit, data }) {
     { step: "4", label: "Carga de Fotografías" },
     { step: "5", label: "Descripción del Plan" },
   ];
-  const [currentIndexForm, updateIndexForm] = useState(1);
-  const [validated, setValidated] = useState(false);
   const initialForm = {
     title: "",
     destinationName: {},
@@ -41,18 +39,27 @@ export default function FormPlanes({ handleSave, edit, data }) {
     priceKids: {},
   };
 
+  const [validated, setValidated] = useState(false);
   const [form, setForm] = useState(edit ? editData : initialForm);
+  const [includes, setIncludes] = useState({
+    transport: "",
+    route: "",
+    visit: "",
+    food: "",
+  });
 
+  const [currentIndexForm, updateIndexForm] = useState(1);
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
 
-  console.log(form);
-
+  const existPriceAdult = Object.keys(form.priceAdult).length;
+  const existPhotos = form.photos.length;
+  const existActiveDate = form.activeDate.length;
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
-
     e.preventDefault();
+
     if (formEvent.checkValidity() === false) {
       e.stopPropagation();
       setValidated(true);
@@ -60,22 +67,29 @@ export default function FormPlanes({ handleSave, edit, data }) {
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
       if (isLastStep) {
-        if (Object.keys(form.priceAdult).length && form.activeDate.length) {
-          handleSave(form);
-        } else {
-          if (!Object.keys(form.priceAdult).length)
-            alert("falta Precio Adultos");
-          if (!form.activeDate.length) alert("falta fechas");
-        }
+        errorFieldsEmpty();
       }
+    }
+  }
+
+  function errorFieldsEmpty() {
+    const fieldsEmpty = {
+      photos: existPhotos ? "" : "fotografías",
+      activeDate: existActiveDate ? "" : "fechas",
+      priceAdult: existPriceAdult ? "" : "precios",
+    };
+    const message = `Llenar los siguientes campos obligatorios: \n ${fieldsEmpty.photos} \n ${fieldsEmpty.activeDate} \n ${fieldsEmpty.priceAdult}`;
+
+    if (existPhotos && existActiveDate && existPriceAdult) {
+      handleSave(form);
+    } else {
+      alert(message);
     }
   }
 
   function handleOnChangeForm(e) {
     const name = e.target.name;
     const value = e.target.value;
-
-    console.log(name, value);
     setForm({
       ...form,
       [name]: value,
@@ -156,6 +170,14 @@ export default function FormPlanes({ handleSave, edit, data }) {
     });
   }
 
+  function handleOnChangeIncludes(name, includesInput) {
+    setIncludes({
+      ...includes,
+      [name]: includesInput,
+    });
+  }
+  console.log(form);
+
   return (
     <>
       <Form
@@ -199,6 +221,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
             <StepFiveFormPlanes
               form={form}
               handleOnChangeForm={handleOnChangeForm}
+              handleOnChangeIncludes={handleOnChangeIncludes}
             />
           )}
         </Modal.Body>

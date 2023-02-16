@@ -1,11 +1,16 @@
-import React from 'react'
-import { Col, FloatingLabel, Form, Row } from 'react-bootstrap'
+import React from "react";
+import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
+import Includes from "../Includes";
 
-export default function StepFiveFormPlanes({form, handleOnChangeForm}) {
+export default function StepFiveFormPlanes({
+  form,
+  handleOnChangeForm,
+  handleOnChangeIncludes,
+}) {
   return (
     <>
       <Row className="m-1">
-        <Form.Group as={Col} className="p-3">
+        <Form.Group className="p-3">
           <FloatingLabel label="Descripción" className="m-1">
             <Form.Control
               required
@@ -19,7 +24,13 @@ export default function StepFiveFormPlanes({form, handleOnChangeForm}) {
             />
           </FloatingLabel>
         </Form.Group>
+        <Form.Group className="p-3">
+          <Includes
+            handleOnChangeIncludes={handleOnChangeIncludes}
+            form={form}
+          />
+        </Form.Group>
       </Row>
     </>
-  )
+  );
 }
