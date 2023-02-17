@@ -26,7 +26,7 @@ export default function ModalNewProduct({ typeProduct }) {
   return (
     <>
       <Modal
-        showModal={showModal}
+        show={showModal}
         onHide={handleCloseModal}
         size="lg"
         backdrop="static"
