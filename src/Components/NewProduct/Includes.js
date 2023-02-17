@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 
-export default function Includes({ includes, handleOnChangeIncludes }) {
+export default function Includes({ includesForm, handleOnChangeIncludes }) {
   console.log(handleOnChangeIncludes);
   const includesItems = [
     { label: "Tranporte", name: "transport" },
@@ -9,7 +9,19 @@ export default function Includes({ includes, handleOnChangeIncludes }) {
     { label: "Recorridos", name: "route" },
     { label: "Visitas", name: "visit" },
   ];
+
   const [currentCheck, setCurrentCheck] = useState([]);
+
+  useEffect(() => {
+    let includesCheck = [];
+    for (const categoryIncludes in includesForm) {
+      if (includesForm[categoryIncludes] !== "") {
+        includesCheck.push(categoryIncludes);
+      }
+    }
+    setCurrentCheck(currentCheck.concat(includesCheck));
+  }, []);
+  console.log(currentCheck);
 
   function handleOnCheck(e) {
     const nameCheck = e.target.name;
@@ -25,6 +37,15 @@ export default function Includes({ includes, handleOnChangeIncludes }) {
     handleOnChangeIncludes(name, includesInput);
   }
 
+  function setValueInput(item) {
+    const nameInput = item.name;
+
+    if (nameInput === "transport") return includesForm.transport;
+    if (nameInput === "food") return includesForm.food;
+    if (nameInput === "route") return includesForm.route;
+    if (nameInput === "visit") return includesForm.visit;
+  }
+
   return (
     <div className="m-1">
       {includesItems.map((item, index) => (
@@ -37,12 +58,14 @@ export default function Includes({ includes, handleOnChangeIncludes }) {
             label={item.label}
             name={item.name}
             onChange={(e) => handleOnCheck(e)}
+            checked={currentCheck.includes(item.name)}
           />
           <Form.Control
+            className="w-75 shadow-none"
             required
             name={item.name}
+            value={setValueInput(item)}
             onChange={(e) => handleOnChangeInput(e)}
-            className="w-75 shadow-none"
             disabled={!currentCheck.includes(item.name)}
           />
         </div>
