@@ -103,15 +103,6 @@ export default function StepOneFormPlanes({
       <Row className="m-1">
         <Form.Group className="" as={Col}>
           <FloatingInput
-            name="transport"
-            labelName="Transporte"
-            value={form.transport}
-            onChange={(e) => handleOnChangeForm(e)}
-          />
-        </Form.Group>
-
-        <Form.Group className="" as={Col}>
-          <FloatingInput
             name="providerUser"
             labelName="Proveedor"
             value={form.providerUser}

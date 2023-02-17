@@ -21,7 +21,6 @@ export default function FormPlanes({ handleSave, edit, data }) {
     title: "",
     destinationName: {},
     photos: [],
-    transport: "",
     providerUser: "",
     nameAccommodation: "",
     categoryAccommodation: "",
