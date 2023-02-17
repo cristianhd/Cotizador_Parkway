@@ -30,7 +30,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
     priceAdult: {},
     activeDate: [],
     description: "",
-    includes: {},
+    includesForm: {},
   };
   const editData = {
     ...data,
@@ -41,7 +41,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
 
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState(edit ? editData : initialForm);
-  const [includes, setIncludes] = useState({
+  const [includesForm, setIncludesForm] = useState({
     transport: "",
     route: "",
     visit: "",
@@ -64,6 +64,10 @@ export default function FormPlanes({ handleSave, edit, data }) {
       e.stopPropagation();
       setValidated(true);
     } else {
+      setForm({
+        ...form,
+        includesForm,
+      });
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
       if (isLastStep) {
@@ -171,8 +175,8 @@ export default function FormPlanes({ handleSave, edit, data }) {
   }
 
   function handleOnChangeIncludes(name, includesInput) {
-    setIncludes({
-      ...includes,
+    setIncludesForm({
+      ...includesForm,
       [name]: includesInput,
     });
   }
@@ -220,6 +224,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
           {labelStep[currentIndexForm - 1].step === "5" && (
             <StepFiveFormPlanes
               form={form}
+              includesForm={includesForm}
               handleOnChangeForm={handleOnChangeForm}
               handleOnChangeIncludes={handleOnChangeIncludes}
             />

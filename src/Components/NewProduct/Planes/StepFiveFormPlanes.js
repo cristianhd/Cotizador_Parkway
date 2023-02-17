@@ -4,6 +4,7 @@ import Includes from "../Includes";
 
 export default function StepFiveFormPlanes({
   form,
+  includesForm,
   handleOnChangeForm,
   handleOnChangeIncludes,
 }) {
@@ -28,6 +29,7 @@ export default function StepFiveFormPlanes({
           <Includes
             handleOnChangeIncludes={handleOnChangeIncludes}
             form={form}
+            includesForm={includesForm}
           />
         </Form.Group>
       </Row>
