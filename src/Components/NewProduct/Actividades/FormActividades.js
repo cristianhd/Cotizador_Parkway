@@ -7,19 +7,21 @@ import StepTwoFormActividades from "./StepTwoFormActividades";
 import StepOneFormActividades from "./StepOneFormActividades";
 import StepThreeFormActividades from "./StepThreeFormActividades";
 import StepFourFormActividades from "./StepFourFormActividades";
+import StepFiveFormActividades from "./StepFiveFormActividades";
 
 export default function FormActividades({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información Actividad" },
     { step: "2", label: "Precios" },
     { step: "3", label: "Seleccionar Fechas" },
-    { step: "4", label: "Descripción del Plan" },
+    { step: "4", label: "Carga de Fotografías" },
+    { step: "5", label: "Descripción del Plan" },
   ];
-  const [currentIndexForm, updateIndexForm] = useState(1);
-  const [validated, setValidated] = useState(false);
+
   const initialForm = {
     title: "",
     destinationName: {},
+    photos: [],
     description: "",
     priceKids: {},
     priceAdult: {},
@@ -36,15 +38,20 @@ export default function FormActividades({ handleSave, edit, data }) {
     priceKids: {},
   };
   const [form, setForm] = useState(edit ? editData : initialForm);
+  const [validated, setValidated] = useState(false);
 
+  const [currentIndexForm, updateIndexForm] = useState(1);
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
+
+  const existPriceAdult = Object.keys(form.priceAdult).length;
+  const existPhotos = form.photos.length;
 
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
-
     e.preventDefault();
+
     if (formEvent.checkValidity() === false) {
       e.stopPropagation();
       setValidated(true);
@@ -52,17 +59,24 @@ export default function FormActividades({ handleSave, edit, data }) {
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
       if (isLastStep) {
-        if (Object.keys(form.priceAdult).length && form.activeDate.length) {
-          handleSave(form);
-        } else {
-          if (!Object.keys(form.priceAdult).length)
-            alert("falta Precio Adultos");
-          if (!form.activeDate.length) alert("falta fechas");
-        }
+        errorFieldsEmpty();
       }
     }
   }
 
+  function errorFieldsEmpty() {
+    const fieldsEmpty = {
+      photos: existPhotos ? "" : "fotografías",
+      priceAdult: existPriceAdult ? "" : "precios",
+    };
+    const message = `Llenar los siguientes campos obligatorios: \n ${fieldsEmpty.photos} \n ${fieldsEmpty.activeDate} \n ${fieldsEmpty.priceAdult}`;
+
+    if (existPhotos && existPriceAdult) {
+      handleSave(form);
+    } else {
+      alert(message);
+    }
+  }
   function handleOnChangeForm(e) {
     const name = e.target.name;
     const value = e.target.value;
@@ -140,6 +154,13 @@ export default function FormActividades({ handleSave, edit, data }) {
       }
     }
   }
+
+  function handleSavePhotos(photos) {
+    setForm({
+      ...form,
+      photos,
+    });
+  }
   return (
     <>
       <Form
@@ -175,6 +196,12 @@ export default function FormActividades({ handleSave, edit, data }) {
           )}
           {labelStep[currentIndexForm - 1].step === "4" && (
             <StepFourFormActividades
+              handleSavePhotos={handleSavePhotos}
+              form={form}
+            />
+          )}
+          {labelStep[currentIndexForm - 1].step === "5" && (
+            <StepFiveFormActividades
               handleOnChangeForm={handleOnChangeForm}
               form={form}
             />
