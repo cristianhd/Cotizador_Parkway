@@ -9,20 +9,28 @@ import FormAsistencia from "./Asistencias/FormAsistencias";
 import { createProduct } from "../../Redux/action";
 
 export default function ModalNewProduct({ typeProduct }) {
-  const [show, setShow] = useState();
+  const [showModal, setShowModal] = useState();
   const dispatch = useDispatch();
 
-  //handlers
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  //handlers show and close modal
+  const handleshowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
   const handleSave = (data) => {
-    // dispatch(createProduct(data, typeProduct));
-    setShow(false);
+    dispatch(createProduct(data, typeProduct));
     alert("Producto Creado");
+
+    setShowModal(false);
   };
+
   return (
     <>
-      <Modal show={show} onHide={handleClose} size="lg" backdrop="static">
+      <Modal
+        showModal={showModal}
+        onHide={handleCloseModal}
+        size="lg"
+        backdrop="static"
+      >
         <Modal.Header closeButton>
           <Modal.Title>Crear Producto</Modal.Title>
         </Modal.Header>
@@ -42,7 +50,7 @@ export default function ModalNewProduct({ typeProduct }) {
         )}
       </Modal>
 
-      <span className="span-pointer" onClick={handleShow}>
+      <span className="span-pointer" onClick={handleshowModal}>
         + Agregar Producto
       </span>
     </>
