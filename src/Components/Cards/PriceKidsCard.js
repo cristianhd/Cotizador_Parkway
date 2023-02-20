@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Collapse } from "react-bootstrap";
 
 export default function PriceKidsCard({ priceKids }) {
   var options = {
@@ -8,26 +8,43 @@ export default function PriceKidsCard({ priceKids }) {
     minimumFractionDigits: "0",
   };
   var pesosFormat = new Intl.NumberFormat("es-CO", options);
+  const [open, setOpen] = useState("");
+  const existPriceKids = priceKids && priceKids[0] ? true : false;
+
+  function handleActiveCollapse(index) {
+    if (index === open) {
+      setOpen("");
+    } else {
+      setOpen(index);
+    }
+  }
 
   return (
-    <Col className="price-kids m-1 p-0 ">
+    <div className="price-kids w-50 m-1 p-0">
+      {existPriceKids && <Card.Title>Niño</Card.Title>}
       {priceKids &&
         priceKids.map((priceKids, index) => (
-          <ul key={index} className="p-1 m-1">
+          <ul key={index} className="p-0 m-0">
             {priceKids.length > 0 && (
-              <>
-                <Card.Title>Niño</Card.Title>
-                <div>
-                  {priceKids[0]} - {priceKids[1]} años: <br></br>
-                  <span className="spanPrice">
-                    {pesosFormat.format(priceKids[2])}
-                  </span>
-                  <span className="spanLigth"> /niño</span>
-                </div>
-              </>
+              <div className="mx-2">
+                <span
+                  className="span-pointer"
+                  onClick={() => handleActiveCollapse(index)}
+                >
+                  {priceKids[0]} - {priceKids[1]} años
+                </span>
+                <Collapse in={open === index}>
+                  <Card.Text>
+                    <span className="spanPrice">
+                      {pesosFormat.format(priceKids[2])}
+                    </span>
+                    <span className="spanLigth"> /niño</span>
+                  </Card.Text>
+                </Collapse>
+              </div>
             )}
           </ul>
         ))}
-    </Col>
+    </div>
   );
 }

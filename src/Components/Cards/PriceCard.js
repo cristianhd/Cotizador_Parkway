@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import PriceSeassonCard from "./PriceSeassonCard";
 import PriceRoomCard from "./PriceRoomCard";
 import PriceRouteCard from "./PriceRouteCard";
@@ -13,10 +13,9 @@ export default function PriceCard({
   typeProduct,
   roundTrip,
 }) {
-  const renderPriceKids = priceKids ? priceKids.length > 0 : undefined;
   return (
-    <Card.Body className="w-100 m-2 p-2" as={Row}>
-      <Col className="price-adult m-1 p-1">
+    <Card.Body className="price-card w-100 m-2 p-2 d-flex flex-column flex-sm-column flex-md-row justify-content-around">
+      <div className="price-adult w-50 m-1 p-0">
         <Card.Title>Adulto</Card.Title>
         {typeProduct === "planes" && (
           <PriceRoomCard priceAdult={priceAdult}></PriceRoomCard>
@@ -36,8 +35,8 @@ export default function PriceCard({
         {typeProduct === "asistencias" && (
           <PriceAsistenciaCard priceAdult={priceAdult}></PriceAsistenciaCard>
         )}
-      </Col>
-      {renderPriceKids && <PriceKidsCard priceKids={priceKids}></PriceKidsCard>}
+      </div>
+      <PriceKidsCard priceKids={priceKids}></PriceKidsCard>
     </Card.Body>
   );
 }
