@@ -43,7 +43,7 @@ export default function CardAsistencias({ data, typeProduct }) {
                 typeProduct={typeProduct}
                 description={card.description}
               ></NavigationCard>
-              <div className=" card-fv m-1 p-1">
+              <div className=" delete-vertical m-1 p-1">
                 <Button
                   className="mx-1"
                   variant="danger"

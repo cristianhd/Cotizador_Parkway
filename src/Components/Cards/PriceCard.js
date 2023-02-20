@@ -13,12 +13,10 @@ export default function PriceCard({
   typeProduct,
   roundTrip,
 }) {
-  const renderPriceKids =
-    typeProduct === "traslados" || typeProduct === "asistencias" ? false : true;
+  const renderPriceKids = priceKids ? priceKids.length > 0 : undefined;
   return (
     <Card.Body className="w-100 m-2 p-2" as={Row}>
-      {renderPriceKids && <PriceKidsCard priceKids={priceKids}></PriceKidsCard>}
-      <Col className="price-adult m-1 p-0">
+      <Col className="price-adult m-1 p-1">
         <Card.Title>Adulto</Card.Title>
         {typeProduct === "planes" && (
           <PriceRoomCard priceAdult={priceAdult}></PriceRoomCard>
@@ -39,6 +37,7 @@ export default function PriceCard({
           <PriceAsistenciaCard priceAdult={priceAdult}></PriceAsistenciaCard>
         )}
       </Col>
+      {renderPriceKids && <PriceKidsCard priceKids={priceKids}></PriceKidsCard>}
     </Card.Body>
   );
 }

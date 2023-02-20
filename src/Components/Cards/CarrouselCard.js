@@ -3,17 +3,16 @@ import { Carousel } from "react-bootstrap";
 
 export default function CarrouselCard() {
   const photos = [
-    "http://drive.google.com/uc?export=view&id=1PEpLiDAuR0GPjLxJZ1s35fpADM-jYHNU",
-    "http://drive.google.com/uc?export=view&id=1PEpLiDAuR0GPjLxJZ1s35fpADM-jYHNU",
-    "http://drive.google.com/uc?export=view&id=1PEpLiDAuR0GPjLxJZ1s35fpADM-jYHNU",
+    "http://drive.google.com/uc?export=view&id=1iVI9FGh6FvXM0IB_IlFihwPO3TdWefzm",
+    "http://drive.google.com/uc?export=view&id=1JnzX6nPUztFu_u0K2r4hlYbbwNqrTYc3",
   ]; // test parameter
 
   return (
-    <Carousel className="photo-card">
+    <Carousel fade className="h-100">
       {photos &&
         photos.map((URL, index) => (
-          <Carousel.Item key={index}>
-            <img className="d-block w-100" src={URL} alt="item-card-img" />
+          <Carousel.Item className="h-100" key={index}>
+            <img className="img-card" src={URL} alt="item-card-img" />
           </Carousel.Item>
         ))}
     </Carousel>

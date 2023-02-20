@@ -1,12 +1,27 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import FooterDescription from "./FooterDescription";
 
-export default function DescriptionCard({ description }) {
+export default function DescriptionCard({
+  description,
+  categoryAccommodation,
+  numberNigths,
+  roundTrip,
+  maxPeople,
+  minPeople,
+  includes,
+}) {
   return (
-    <Card.Body className="m-1 p-1" as={Row}>
-      <Col>
-        <div className="m-1 description">{description}</div>
-      </Col>
-    </Card.Body>
+    <div className="m-1 p-1 h-100 d-flex flex-column justify-content-around">
+      <p className="description m-1">{description}</p>
+      <FooterDescription
+        categoryAccommodation={categoryAccommodation}
+        numberNigths={numberNigths}
+        roundTrip={roundTrip}
+        maxPeople={maxPeople}
+        minPeople={minPeople}
+        includes={includes}
+      />
+    </div>
   );
 }

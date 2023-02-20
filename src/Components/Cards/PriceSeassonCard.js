@@ -22,7 +22,7 @@ export default function PriceSeassonCard({ priceAdult }) {
     <div className="m-1">
       {priceAdult.map((priceRoom, index) => (
         <ul key={index} className="px-1 m-0">
-          <span onClick={() => handleActiveCollapse(index)}>
+          <span className="span-pointer" onClick={() => handleActiveCollapse(index)}>
             {priceRoom[0]}
           </span>
           <Collapse in={open === index}>

@@ -3,7 +3,7 @@ import CardVertical from "./CardVertical";
 
 export default function CardTraslados({ data, typeProduct }) {
   return (
-    <div className="d-flex flex-row flex-wrap justify-content-center">
+    <div className="d-flex flex-row flex-wrap justify-content-center gap-3">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardVertical

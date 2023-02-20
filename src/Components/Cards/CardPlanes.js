@@ -6,7 +6,7 @@ export default function CardPlanes({ data, typeProduct }) {
     "http://drive.google.com/uc?export=view&id=1PEpLiDAuR0GPjLxJZ1s35fpADM-jYHNU";
 
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column align-items-center justify-content-center gap-3">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardHorizontal
