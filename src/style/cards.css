@@ -13,17 +13,13 @@
   height: 560px;
 }
 
-.price-adult {
-  border-right: 2px double #c0c0c0;
-}
-
 .price-kids > ul {
   font-size: 14px;
 }
 
-.price-kids > ul > .card-title,
+.price-kids > .card-title,
 .price-adult > .card-title {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .spanLigth {
@@ -38,6 +34,7 @@
 
 /* Breackpoints media queries */
 
+/* small and medium devices */
 @media (max-width: 800px) {
   .card-horizontal {
     position: relative;
@@ -46,5 +43,22 @@
     width: 250px;
     height: 650px;
     min-width: 250px;
+  }
+  .price-adult {
+    border-bottom: 2px double #c0c0c0;
+    height: 50%;
+  }
+  .price-kids {
+    height: 50%;
+  }
+  .price-card {
+    height: 100%;
+  }
+}
+
+/* more than large devices */
+@media (min-width: 800px) {
+  .price-adult {
+    border-right: 2px double #c0c0c0;
   }
 }
