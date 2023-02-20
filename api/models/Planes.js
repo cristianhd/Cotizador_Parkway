@@ -10,7 +10,6 @@ const planeSchema = new Schema({
   numberNigths: { type: String, required: true },
   description: { type: String, required: true },
   includes: Includes,
-  transport: { type: String, required: true },
   priceKids: { type: Array, required: true },
   priceAdult: { type: Array, required: true },
   activeDate: { type: Array, required: true },
