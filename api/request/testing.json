@@ -1,124 +1,1143 @@
 [
-    {
-        "name": "Cristian Hernandez",
-        "nickname": "criselparce",
-        "sub": "12easda",
-        "category": "cotizador",
-        "picture": "-",
-        "email": "cristian@gmail.com",
-        "phone": "12345"
-    },
-    {
-        "region": "",
-        "daneDepartament": "",
-        "nameDepartment": "",
-        "daneCity": "",
-        "nameCity": ""
-    },
-    {
-        "name": "Bosa",
-        "typePlace" : "Zonas",
-        "daneCity": "1,001",
-        "daneDepartment": "1"
-    },
-    {
-        "table": "Traslados",
-        "title": "Aeropuerto el Dorado - Bosa",
-        "origin": "12",
-        "destination": "14",
-        "description": "esto es una descripción",
-        "price": [
-            {
-                "type": "adulto",
-                "price": "25400"
-            },
-            {
-                "type": "1-3",
-                "price": "22000"
-            },
-            {
-                "type": "3-4",
-                "price": "12000"
-            }
-          ],
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
-    },
-    {
-        "table": "Hospedajes",
-        "title": "Titulo",
-        "destination": "1,001",
-        "photo": "-",
-        "description": "esto es una descripción",
-        "price":[
-          {
-            "type": "niños",
-            "price": "120000"
-          },
-          {
-            "type": "sencilla",
-            "price": "100000"
-          },
-          {
-            "type": "doble",
-            "price": "80000"
-          }
-        ],
-        "activeDate": "1,2,3",
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
-    },
-    {
-        "table": "Planes",
-        "title": "Titulo",
-        "destination": "1,001",
-        "photo": "-",
-        "description": "esto es una descripción",
-        "transport": "avión",
-        "price":[
-          {
-            "type": "",
-            "price": ""
-          },
-          {
-            "type": "",
-            "price": ""
-          }
-        ],
-        "activeDate": "1,2,3,festivos",
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
-    },
-    {
-        "table":"Asistencias",
-        "title": "Titulo",
-        "destination": "1,001",
-        "description": "esto es una descripción",
-        "price": "12000",
-        "providerUser": "Trandecol",
-        "activeProduct": "true",
-    },
-    {
-        "table": "Actividades",
-        "title": "Titulo" ,
-        "destination": "id ciudad/lugares",
-        "photo":"-",
-        "description": "esto es una descripción",
-        "price": [
-        {
-            "type": "adulto",
-            "price": "25000"
-        },
-        {
-            "type": "niños",
-            "price": "20000"
-        },
-        {
-            "type": "4-7",
-            "price": "12000"
-        }
-        ],
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
-    }
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb1",
+    "title": "Explorando las playas caribeñas",
+    "nameAccommodation": "Tacarcuna",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Capurganá"],
+    "numberNigths": "4",
+    "description": "No te pierdas del encanto que ofrece este lugar rodeado de inmensas playas y naturaleza. ",
+    "transport": "vehiculo,avión",
+    "priceKids": [["4", "11", "950000"]],
+    "priceAdult": [
+      ["doble", "1350000"],
+      ["triple", "1230000"],
+      ["cuadruple", "1175000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "6", "7", "8", "9", "10", "11", "12"],
+    "providerUser": "Tacarcuna",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fab",
+    "title": "Camino del Huito",
+    "nameAccommodation": "Reserva Natural Marasha",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Amazonas"],
+    "numberNigths": "3",
+    "description": "Una mágica travesía que te llevara por la rivera del Gran Río Amazonas,conociendo la selva sus habitantes,sus constumbres y ancestralidad. ",
+    "transport": "avión",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["doble", "980000 "],
+      ["triple", "845000 "]
+    ],
+    "activeDate": ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    "providerUser": "Siempre Colombia",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb2",
+    "title": "Gastronomía, cultura y playa",
+    "nameAccommodation": "Bernalo hotels",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Coveñas"],
+    "numberNigths": "3",
+    "description": "Es un destino rodeado de una biodiversidad espectacular que además brinda distintos tonos de verde al mar, apto para disfrutar en familia y amigos y dejarse sorprender de lo que puede ofrecer este destino.",
+    "transport": "avión",
+    "priceKids": [["4", "11", "860000"]],
+    "priceAdult": [
+      ["doble", "1495000"],
+      ["triple", "1190000"],
+      ["cuadruple", "1170000"]
+    ],
+    "activeDate": ["2", "3", "5", "7", "8", "9", "11", "12"],
+    "providerUser": "Barracuda, bernalo hotels",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fad",
+    "title": "La mágica travesia en el Amazonas",
+    "nameAccommodation": "Waira Suite",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Amazonas"],
+    "numberNigths": "3",
+    "description": "Conéctate con la naturaleza que despliega el Amazonas, la fauna y flora el escenario principal. ",
+    "transport": "avión",
+    "priceKids": [["2", "12", "1240000"]],
+    "priceAdult": [
+      ["sencilla", "2080000 "],
+      ["doble", "1480000"],
+      ["triple", "1240000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Siempre Colombia",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb0",
+    "title": "El paraíso caribeño",
+    "nameAccommodation": "Tacarcuna",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Capurganá"],
+    "numberNigths": "3",
+    "description": "Un lugar donde se puede vivir la naturaleza al máximo, es uno de los lugares mas hermosos de Colombia en donde las playas conservan abundantes ecosistemas que hacen de este sitio uno de los mejores destinos ecoturísticos. ",
+    "transport": "vehículo-avión",
+    "priceKids": [["4", "11", "625000"]],
+    "priceAdult": [
+      ["doble", "1050000"],
+      ["triple", "990000"],
+      ["cuadruple", "945000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "6", "7", "8", "9", "10", "11", "12"],
+    "providerUser": "Tacarcuna",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fac",
+    "title": "Conociendo la selva Amazónica",
+    "nameAccommodation": "Waira Suite",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Amazonas"],
+    "numberNigths": "4",
+    "description": "Dejate llevar por los caminos que recorre la selva amazónica. ",
+    "transport": "avión",
+    "priceKids": [["2", "12", "1920000"]],
+    "priceAdult": [
+      ["sencilla", "3630000 "],
+      ["doble", "2340000"],
+      ["triple", "1920000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Siempre Colombia",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268faf",
+    "title": "Al natural Villa de Leyva, glamping",
+    "nameAccommodation": "Genki Luxury",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Villa de Leyva"],
+    "numberNigths": "2",
+    "description": "Imagínate descansar en el mejor Glamping de lujo de Villa de Leyva con la mejor vista y disfrutar de la naturaleza que lo rodea ",
+    "transport": "vehículo",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["doble", "535000"],
+      ["triple", "510000"],
+      ["cuadruple", "490000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11", "12"],
+    "providerUser": "Genky luxury",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb3",
+    "title": "La mejor vista al mar, Coveñas",
+    "nameAccommodation": "hotel villa real tolú,Bernalo hotels",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Coveñas"],
+    "numberNigths": "4",
+    "description": "Coveñas destino rodeado de una biodiversidad espectacular que además brinda distintos tonos de verde al mar, apto para disfrutar en familia y amigos.",
+    "transport": "avión",
+    "priceKids": [["3", "8", "1170000"]],
+    "priceAdult": [
+      ["doble", "1040000"],
+      ["triple", "930000"],
+      ["cuadruple", "860000"]
+    ],
+    "activeDate": ["2", "3", "5", "7", "8", "9", "11", "12"],
+    "providerUser": "Barracuda, bernalo hotels, hotel villa real tolú",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fae",
+    "title": "Vive en el mundo amazónico",
+    "nameAccommodation": "Reserva Natural Tarimboca",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Amazonas"],
+    "numberNigths": "3",
+    "description": "¿Hace cuanto tiempo no te conectas con la naturaleza? Cultura, naturaleza y ancestralidad forman parte del Amazonas",
+    "transport": "avión",
+    "priceKids": [["2", "12", "1899000"]],
+    "priceAdult": [
+      ["sencilla", "3370000 "],
+      ["doble", "2230000"],
+      ["triple", "1899000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Siempre Colombia",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb7",
+    "title": "Desierto y  cascadas. Una aventura total",
+    "nameAccommodation": "Hotel Yuma",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Huila"],
+    "numberNigths": "4",
+    "description": "Huila es un destino con grandes lugares por descubrir desde sus hermosas cascadas, hasta su incleible mano gigante.¿Que estas esperando para recorrer estos hermosos lugares?. ",
+    "transport": "avión",
+    "priceKids": [["5", "8", "2250000"]],
+    "priceAdult": [
+      ["doble", "2932000"],
+      ["triple", "2830000"],
+      ["cuadruple", "2699000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11"],
+    "providerUser": "Yimmy tours",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fbd",
+    "title": "El mágico recorrido por la Guajira",
+    "nameAccommodation": "hotel taroa",
+    "categoryAccommodation": "superior",
+    "destinationName": ["La Guajira"],
+    "numberNigths": "4",
+    "description": "Un destino con imperdibles paisajes que te dejaran asombrado.Asi mismo las comunidades con sus diferentes culturas.Incuye: Uribía, Punta Gallinas, Cabo de la Vela, Salinas de Manaure, ranchería wayüü",
+    "transport": "avión",
+    "priceKids": [["5", "10", "985000"]],
+    "priceAdult": [
+      ["sencilla", "3830000"],
+      ["doble", "2415000"],
+      ["triple", "1999000"],
+      ["cuadruple", "1785000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Solera travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb4",
+    "title": "Las ballenas en Isla Gorgona",
+    "nameAccommodation": "Destino pacifico",
+    "categoryAccommodation": "ecoturismo",
+    "destinationName": ["Guapi"],
+    "numberNigths": "3",
+    "description": "Si te apasiona el ecoturismo y el buceo este el destino indicado para ti.Gorgona es un destino encantador y oculto, ubicado en la mitad del pacifico colombiano. ",
+    "transport": "lancha",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["doble", "1940000 "],
+      ["triple", "1880000"],
+      ["cuadruple", "1880000"]
+    ],
+    "activeDate": ["7", "8", "9", "10"],
+    "providerUser": "Destino pacifico",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fba",
+    "title": "Comparte con la comunidad Wayüü",
+    "nameAccommodation": "hotel taroa",
+    "categoryAccommodation": "superior",
+    "destinationName": ["La Guajira"],
+    "numberNigths": "3",
+    "description": "La Guajira un lugar ancestral en la que el mar y el desierto se unen para formar el hogar de la cultura Wayüü. ",
+    "transport": "avión",
+    "priceKids": [["5", "10", "1045000"]],
+    "priceAdult": [
+      ["sencilla", "2785000"],
+      ["doble", "1775000"],
+      ["triple", "1455000"],
+      ["cuadruple", "1400000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Solera travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fbb",
+    "title": "Atardecer en el cabo de la vela",
+    "nameAccommodation": "hotel arimaca",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["La Guajira"],
+    "numberNigths": "3",
+    "description": "La Guajira un lugar ancestral en la que el mar y el desierto se unen para formar el hogar de diferentes culturas. ",
+    "transport": "avión",
+    "priceKids": [["5", "10", "885000 "]],
+    "priceAdult": [
+      ["sencilla", "2600000"],
+      ["doble", "2575000"],
+      ["triple", "1415000"],
+      ["cuadruple", "1359000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Solera travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb9",
+    "title": "San agustin ancestral y majestuoso",
+    "nameAccommodation": "Posada Camino a Guanaca",
+    "categoryAccommodation": "Tursita",
+    "destinationName": ["Huila"],
+    "numberNigths": "3",
+    "description": "¡Ven y conoce Huila!te dejara asombrado con sus magnificos lugares.",
+    "transport": "avión",
+    "priceKids": [["5", "8", "1540000"]],
+    "priceAdult": [
+      ["doble", "1995000"],
+      ["triple", "1770000"],
+      ["cuadruple", "1529000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11"],
+    "providerUser": "Yimmy tours",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb8",
+    "title": "Mano gigante una vista increible",
+    "nameAccommodation": "Casa de campo Villa Sonia",
+    "categoryAccommodation": "Turista",
+    "destinationName": ["Huila"],
+    "numberNigths": "3",
+    "description": "¡Ven y conoce Huila!te dejara asombrado con sus magnificos lugares.",
+    "transport": "avión",
+    "priceKids": [["5", "8", "1540000"]],
+    "priceAdult": [
+      ["doble", "1995000"],
+      ["triple", "1770000"],
+      ["cuadruple", "1529000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11"],
+    "providerUser": "Yimmy tours",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fbc",
+    "title": "Explorando la Guajira",
+    "nameAccommodation": "hotel gimaura",
+    "categoryAccommodation": "turista",
+    "destinationName": ["La Guajira"],
+    "numberNigths": "3",
+    "description": "La Guajira un lugar ancestral en la que el mar y el desierto se unen para formar el hogar de diferentes culturas. ",
+    "transport": "avión",
+    "priceKids": [["5", "10", "830000"]],
+    "priceAdult": [
+      ["sencilla", "2545000"],
+      ["doble", "1615000"],
+      ["triple", "1359000"],
+      ["cuadruple", "1315000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Solera travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb5",
+    "title": "Un paraíso por descubrir",
+    "nameAccommodation": "Hotel Sueño Real",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Huila"],
+    "numberNigths": "4",
+    "description": "Huila es un destino con grandes lugares por descubrir desde sus hermosas cascadas, hasta su incleible sitio arqueologico San Agustín.¿Que estas esperando para recorrer estos hermosos lugares?. ",
+    "transport": "avión",
+    "priceKids": [["5", "8", "2250000"]],
+    "priceAdult": [
+      ["doble", "2932000"],
+      ["triple", "2830000"],
+      ["cuadruple", "2699000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11"],
+    "providerUser": "Yimmy tours",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fb6",
+    "title": "Huila Místico y ancestral",
+    "nameAccommodation": "El portal del Ángel",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Huila"],
+    "numberNigths": "4",
+    "description": "Huila es un destino con grandes lugares por descubrir desde sus hermosas cascadas, hasta su incleible mano gigante.¿Que estas esperando para recorrer estos hermosos lugares?. ",
+    "transport": "avión",
+    "priceKids": [["5", "8", "2250000"]],
+    "priceAdult": [
+      ["doble", "2932000"],
+      ["triple", "2830000"],
+      ["cuadruple", "2699000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11"],
+    "providerUser": "Yimmy tours",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc2",
+    "title": "Tierra de la fé. Santuario de las Lajas",
+    "nameAccommodation": "Hotel Villaviciosa/Palermo",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Nariño"],
+    "numberNigths": "4",
+    "description": "Nariño es un destino lleno de contrastes cubiertos por paramos, montañas y volcanes en donde posee lugares ideales para los viajeros, así como una cultura de legados indígenas y afrodescendientes..",
+    "transport": "avión",
+    "priceKids": [["4", "12", "2565000"]],
+    "priceAdult": [
+      ["sencilla", "5812000"],
+      ["doble", "3245000"],
+      ["triple", "2705000"],
+      ["cuadruple", "2565000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc0",
+    "title": "Cultura e historia de no olvidar",
+    "nameAccommodation": "casa amarilla",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["Mompox"],
+    "numberNigths": "3",
+    "description": "La arquitectura y la historia de Mompox.Patrimonio Arquitectonico de la Humanidad;hacen de este un lugar lleno de aventuras por recorrer. ",
+    "transport": "avión",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["sencilla", "1821000"],
+      ["doble", "1430000"],
+      ["triple", "1190000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "12"],
+    "providerUser": "Casa amarilla",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fbf",
+    "title": "Descubre los paisajes imperdibles",
+    "nameAccommodation": "hotel gimaura",
+    "categoryAccommodation": "turista",
+    "destinationName": ["La Guajira"],
+    "numberNigths": "4",
+    "description": "Un destino con imperdibles paisajes que te dejaran asombrado.Asi mismo las comunidades con sus diferentes culturas.Incuye: Uribía, Punta Gallinas, Cabo de la Vela, Salinas de Manaure, ranchería wayüü",
+    "transport": "avión",
+    "priceKids": [["5", "10", "830000"]],
+    "priceAdult": [
+      ["sencilla", "3400000"],
+      ["doble", "2259000"],
+      ["triple", "1845000"],
+      ["cuadruple", "1615000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Solera travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc6",
+    "title": "Visitando Pasto",
+    "nameAccommodation": "Hotel Palermo",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Pasto"],
+    "numberNigths": "3",
+    "description": "¿Que estas esperando para descubir la cuidad sorpresa?Pasto esta llena de magníficos lugares que resaltan entre sus paisajes, es un destino donde puedes descubrir una cultura sorprendente.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "1714000"]],
+    "priceAdult": [
+      ["doble", "2165000"],
+      ["triple", "1799000"],
+      ["cuadruple", "1714000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc1",
+    "title": "Pasto místico y ancestral",
+    "nameAccommodation": "Hotel Carnaval plaza/ Dorado",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Pasto"],
+    "numberNigths": "4",
+    "description": "Pasto un destino lleno de contrastes cubiertos por paramos, montañas y volcanes en donde posee lugares ideales para los viajeros, así como una cultura de legados indígenas y afrodescendientes.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "2245000"]],
+    "priceAdult": [
+      ["sencilla", "4959000"],
+      ["doble", "2935000"],
+      ["triple", "2395000"],
+      ["cuadruple", "2245000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc7",
+    "title": "Pasto dulce y Putumayo místico",
+    "nameAccommodation": "Cuellar",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Pasto"],
+    "numberNigths": "5",
+    "description": "Conoce los diferentes lugares que tiene Pasto y Putumayo desde su cultura, hasta sus increibles paisajes, dejate llevar por su increible gastronomia.Asi mismo como de las comunidades indigenas llenas de sabiduría ancestral y conexión con la naturaleza.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "2975000"]],
+    "priceAdult": [
+      ["doble", "3788000"],
+      ["triple", "2795000"],
+      ["cuadruple", "2610000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc4",
+    "title": "Tierra dulce y panalera, Pasto",
+    "nameAccommodation": "Hotel Cuellar",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["Pasto"],
+    "numberNigths": "3",
+    "description": "¿Que estas esperando para descubir la cuidad sorpresa?Pasto esta llena de magníficos lugares que resaltan entre sus paisajes, es un destino donde puedes descubrir una cultura sorprendente.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "1714000"]],
+    "priceAdult": [
+      ["doble", "2165000"],
+      ["triple", "1799000"],
+      ["cuadruple", "1714000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc3",
+    "title": "Pasto la ciudad Sorpresa",
+    "nameAccommodation": "Hotel Don Saul",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["Pasto"],
+    "numberNigths": "4",
+    "description": "Pasto es un destino lleno de contrastes cubiertos por paramos, montañas y volcanes en donde posee lugares ideales para los viajeros, así como una cultura de legados indígenas y afrodescendientes.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "2485000"]],
+    "priceAdult": [
+      ["sencilla", "5269000"],
+      ["doble", "3165000"],
+      ["triple", "2628000"],
+      ["cuadruple", "2485000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fbe",
+    "title": "Nos vamos a la Guajira",
+    "nameAccommodation": "hotel arimaca",
+    "categoryAccommodation": "superior",
+    "destinationName": ["La Guajira"],
+    "numberNigths": "4",
+    "description": "Un destino con imperdibles paisajes que te dejaran asombrado.Asi mismo las comunidades con sus diferentes culturas.Incuye: Uribía, Punta Gallinas, Cabo de la Vela, Salinas de Manaure, ranchería wayüü",
+    "transport": "avión",
+    "priceKids": [["5", "10", "885000"]],
+    "priceAdult": [
+      ["sencilla", "3559000"],
+      ["doble", "2315000"],
+      ["triple", "1975000"],
+      ["cuadruple", "1745000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Solera travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc8",
+    "title": "Interactuando con comunidades",
+    "nameAccommodation": "Dorado",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Pasto"],
+    "numberNigths": "5",
+    "description": "Conoce los diferentes lugares que tiene Pasto y Putumayo desde su cultura, hasta sus increibles paisajes, dejate llevar por su increible gastronomia.Asi mismo como de las comunidades indigenas llenas de sabiduría ancestral y conexión con la naturaleza.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "2610000"]],
+    "priceAdult": [
+      ["doble", "3535000 "],
+      ["triple", "2795000"],
+      ["cuadruple", "2610000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc5",
+    "title": "Recorriendo Pasto",
+    "nameAccommodation": "Hotel Dorado",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Pasto"],
+    "numberNigths": "3",
+    "description": "¿Que estas esperando para descubir la cuidad sorpresa?Pasto esta llena de magníficos lugares que resaltan entre sus paisajes, es un destino donde puedes descubrir una cultura sorprendente.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "1495000"]],
+    "priceAdult": [
+      ["doble", "1950000"],
+      ["triple", "1595000"],
+      ["cuadruple", "1495000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fc9",
+    "title": "Místico y Ancestral, Pasto y Putumayo",
+    "nameAccommodation": "Plaza Carnaval",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Pasto"],
+    "numberNigths": "5",
+    "description": "Conoce los diferentes lugares que tiene Pasto y Putumayo desde su cultura, hasta sus increibles paisajes, dejate llevar por su increible gastronomia.Asi mismo como de las comunidades indigenas llenas de sabiduría ancestral y conexión con la naturaleza.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "2610000"]],
+    "priceAdult": [
+      ["doble", "3535000"],
+      ["triple", "2795000"],
+      ["cuadruple", "2610000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Tapiz de retazos",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fcf",
+    "title": "Las playas de Santa Marta",
+    "nameAccommodation": "Sansiraka",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Santa Marta"],
+    "numberNigths": "3",
+    "description": "Santa Marta un lugar que lo tiene todo, desde sus montañas hasta su mar; disfruta de las mejores playas del rodadero.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "989000"]],
+    "priceAdult": [
+      ["doble", "1020000"],
+      ["triple", "1020000"],
+      ["cuadruple", "1020000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11"],
+    "providerUser": "sansiraka",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fce",
+    "title": "Santa Marta de Regalo",
+    "nameAccommodation": "Sansiraka",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Santa Marta"],
+    "numberNigths": "4",
+    "description": "Santa Marta un lugar que lo tiene todo, desde sus montañas hasta su mar; disfruta de las mejores playas del rodadero.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "849000"]],
+    "priceAdult": [
+      ["doble", "895000"],
+      ["triple", "895000"],
+      ["cuadruple", "895000"]
+    ],
+    "activeDate": ["1", "2", "3", "5", "8", "9", "11"],
+    "providerUser": "sansiraka",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fcc",
+    "title": "Agua y selva en Putumayo",
+    "nameAccommodation": "Hotel Mocoa Samay",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Putumayo"],
+    "numberNigths": "3",
+    "description": "Putumayo donde puedes aventurarte en las cascadas del Fin del Mundo,conocer y conectarte con la cultura Local y la naturalezaTe invitamos a vivir esta experiencia llena de música, danza, sabores y colores con la comunidad Inga de Mocoa Putumayo.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "1155000"]],
+    "priceAdult": [
+      ["doble", "2525000"],
+      ["triple", "1530000"],
+      ["cuadruple", "1155000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Rioselva",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fcb",
+    "title": "Experiencias y danza con las comunidades",
+    "nameAccommodation": "Posada Dantayaco",
+    "categoryAccommodation": "turista",
+    "destinationName": ["Putumayo"],
+    "numberNigths": "3",
+    "description": "Putumayo donde puedes conocer y conectarte con la cultura Local, participar de sus tradiciones ancestrales, llevarte una artesanía, conocer su simbología.Te invitamos a vivir esta experiencia llena de música, danza, sabores y colores con la comunidad Inga de Mocoa Putumayo.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "1676000"]],
+    "priceAdult": [
+      ["doble", "2595000"],
+      ["triple", "1999000"],
+      ["cuadruple", "1676000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Rioselva",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd4",
+    "title": "Avistamiento en Bahía Málaga",
+    "nameAccommodation": "Agua marina",
+    "categoryAccommodation": "Turista",
+    "destinationName": ["Buenaventura"],
+    "numberNigths": "3",
+    "description": "Bahía Málaga muy cerca de Buenaventura es un paraíso escondido en el pacifico colombiano en el que disfrutaras de la biodiversidad que rodea este destino como de lo sorprendente que es poder apreciar las ballenas.",
+    "transport": "lancha",
+    "priceKids": [["4", "10", "985000"]],
+    "priceAdult": [
+      ["doble", "1095000"],
+      ["triple", "1050000"]
+    ],
+    "activeDate": ["7", "8", "9", "10"],
+    "providerUser": "Destino pacifico",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fca",
+    "title": "Cultura ancestral Mocoa",
+    "nameAccommodation": "Ecohotel samawe",
+    "categoryAccommodation": "ecoturismo",
+    "destinationName": ["Putumayo"],
+    "numberNigths": "3",
+    "description": "Putumayo donde puedes conocer y conectarte con la cultura Local, participar de sus tradiciones ancestrales, llevarte una artesanía, conocer su simbología.Te invitamos a vivir esta experiencia llena de música, danza, sabores y colores con la comunidad Inga de Mocoa Putumayo.",
+    "transport": "avión",
+    "priceKids": [["4", "12", "1750000"]],
+    "priceAdult": [
+      ["doble", "2695000"],
+      ["triple", "2080000"],
+      ["cuadruple", "1750000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "Rioselva",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd2",
+    "title": "Ballenas a la vista",
+    "nameAccommodation": "playa de oro, vista a la selva",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["Bahía Solano"],
+    "numberNigths": "3",
+    "description": "Llega el momento de ver lo hermosas que son las ballenas. Bahia solano es uno de los lugares indicados para el avistamiento de ballenas y disfrutar de sus playas.",
+    "transport": "avión",
+    "priceKids": [["2", "12", "1060000"]],
+    "priceAdult": [
+      ["doble", "1550000"],
+      ["triple", "1390000"],
+      ["cuadruple", "1312000"]
+    ],
+    "activeDate": ["7", "8", "9", "10"],
+    "providerUser": "De costa a costa",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd0",
+    "title": "Cali, sabor y Salsa",
+    "nameAccommodation": "cali Travel",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Cali"],
+    "numberNigths": "3",
+    "description": "Cali la ciudad de la salsa y el sabor en donde conocerás y disfrutaras de la inmensa cultura, sabor y ritmo de este lugar.",
+    "transport": "avión",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["doble", "4150000"],
+      ["triple", "4150000"],
+      ["cuadruple", "4150000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "cali Travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd3",
+    "title": "Aventura con las ballenas",
+    "nameAccommodation": "El Almejal",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["Bahía Solano"],
+    "numberNigths": "4",
+    "description": "Llega el momento de ver lo hermosas que son las ballenas. Bahia solano es uno de los lugares indicados para el avistamiento de ballenas y disfrutar de sus playas.",
+    "transport": "avión",
+    "priceKids": [["2", "12", "1540000"]],
+    "priceAdult": [
+      ["doble", "1920000"],
+      ["triple", "1580000"],
+      ["cuadruple", "1580000"]
+    ],
+    "activeDate": ["6", "7", "8", "9", "10"],
+    "providerUser": "El Almejal",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd1",
+    "title": "El momento de las ballenas",
+    "nameAccommodation": "playa de oro, vista al mar",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["Bahía Solano"],
+    "numberNigths": "3",
+    "description": "Llega el momento de ver lo hermosas que son las ballenas. Bahia solano es uno de los lugares indicados para el avistamiento de ballena y disfrutar de sus playas.",
+    "transport": "avión",
+    "priceKids": [["2", "12", "1210000"]],
+    "priceAdult": [
+      ["doble", "1718000"],
+      ["triple", "1550000"],
+      ["cuadruple", "1450000"]
+    ],
+    "activeDate": ["7", "8", "9", "10"],
+    "providerUser": "De costa a costa",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fcd",
+    "title": "Ciudad Perdida",
+    "nameAccommodation": "magic tour",
+    "categoryAccommodation": "ecoturismo",
+    "destinationName": ["Santa Marta"],
+    "numberNigths": "3",
+    "description": "Tayrona un lugar que lo tiene todo, desde sus montañas hasta su mar. Un territorio en el que la fauna y la flora forman uno de los destinos para hacer ecoturismo.",
+    "transport": "avión",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["sencilla", "2300000"],
+      ["doble", "2200000"],
+      ["triple", "21000000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "magic tour",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd5",
+    "title": "Bahía Málaga y sus ballenas",
+    "nameAccommodation": "Agua marina Balcon Privado",
+    "categoryAccommodation": "Turista",
+    "destinationName": ["Buenaventura"],
+    "numberNigths": "3",
+    "description": "Bahía Málaga muy cerca de Buenaventura es un paraíso escondido en el pacifico colombiano en el que disfrutaras de la biodiversidad que rodea este destino como de lo sorprendente que es poder apreciar las ballenas desde una lancha.",
+    "transport": "lancha",
+    "priceKids": [["4", "10", "1045000"]],
+    "priceAdult": [
+      ["doble", "1160000"],
+      ["triple", "1090000"]
+    ],
+    "activeDate": ["7", "8", "9", "10"],
+    "providerUser": "Destino pacifico",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd6",
+    "title": "Las ballenas de Bahía Málaga",
+    "nameAccommodation": "Costa real",
+    "categoryAccommodation": "Turista",
+    "destinationName": ["Buenaventura"],
+    "numberNigths": "3",
+    "description": "Bahía Málaga muy cerca de Buenaventura es un paraíso escondido en el pacifico colombiano en el que disfrutaras de la biodiversidad que rodea este destino como de lo sorprendente que es poder apreciar las ballenas desde una lancha.",
+    "transport": "lancha",
+    "priceKids": [["4", "10", "805000"]],
+    "priceAdult": [
+      ["doble", "889000"],
+      ["triple", "875000"]
+    ],
+    "activeDate": ["7", "8", "9", "10"],
+    "providerUser": "Destino pacifico",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd7",
+    "title": "Las yubartas de Bahia Solano",
+    "nameAccommodation": "El Almejal",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["Bahía Solano"],
+    "numberNigths": "3",
+    "description": "Llega el momento de ver lo hermosas que son las ballenas. Bahia solano es uno de los lugares indicados para el avistamiento de ballenas.",
+    "transport": "avión",
+    "priceKids": [["2", "12", "1135000"]],
+    "priceAdult": [
+      ["doble", "2680000 "],
+      ["triple", "2150000"],
+      ["cuadruple", "2150000"]
+    ],
+    "activeDate": ["6", "7", "8", "9", "10"],
+    "providerUser": "El Almejal",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd8",
+    "title": "Naturaleza y aventura",
+    "nameAccommodation": "Playa de oro",
+    "categoryAccommodation": "superior",
+    "destinationName": ["Bahía Solano"],
+    "numberNigths": "3",
+    "description": "Bahía Solano es un lugar con playas paradisiacas en donde se puede admirar la belleza de los arrecifes de coral y las ballenas; Hermosas cascadas y arroyos son actividades que se pueden disfrutar.",
+    "transport": "avión",
+    "priceKids": [["4", "11", "964000"]],
+    "priceAdult": [
+      ["doble", "1376000"],
+      ["triple", "1252000"],
+      ["cuadruple", "1200000"]
+    ],
+    "activeDate": ["1", "2", "3", "4", "5", "9", "10", "11", "12"],
+    "providerUser": "De costa a costa",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fda",
+    "title": "Pinturas rupestres",
+    "nameAccommodation": "Hotel quinto nivel",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["San José del Guaviare"],
+    "numberNigths": "3",
+    "description": "San José del Guaviare es un destino de cultura ancestral. Un destino emergente inexplorado en el que es posible conocer la hermosa biodiversidad y la conexión entre las personas y la naturaleza.",
+    "transport": "avión",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["sencilla", "5450000"],
+      ["doble", "3300000"],
+      ["triple", "2649000"]
+    ],
+    "activeDate": ["1", "2", "3", "4", "5"],
+    "providerUser": "Biodiverso Travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63c04f34c89a31dd93268fd9",
+    "title": "Una tierra ancestral y cultural",
+    "nameAccommodation": "Hotel quinto nivel",
+    "categoryAccommodation": "Superior",
+    "destinationName": ["San José del Guaviare"],
+    "numberNigths": "2",
+    "description": "San José del Guaviare es un destino de cultura ancestral. Un destino emergente inexplorado en el que es posible conocer la hermosa biodiversidad y la conexión entre las personas y la naturaleza.",
+    "transport": "avión",
+    "priceKids": [[]],
+    "priceAdult": [
+      ["sencilla", "3990000"],
+      ["doble", "2460000"],
+      ["triple", "1940000"]
+    ],
+    "activeDate": ["1", "2", "3", "4", "5"],
+    "providerUser": "Biodiverso Travel",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63dd7ff0388fefe180d0fe52",
+    "title": "San José, un viaje ancestral y natural ",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["San José del Guaviare"],
+    "numberNigths": "3",
+    "description": "San José del Guaviare tiene una ubicación privilegiada entre tres ecosistemas. Esto lo hace un lugar único que ofrece de todo para todos. Está Conformado por la Amazonía, las llanuras de la Orinoquía y el escudo Guayanés.",
+    "transport": "Avion ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla-1", "3670000"],
+      ["Doble-2", "2433000"],
+      ["Triple-3", "1945000"],
+      ["Cuadruple-4", "1698000"],
+      ["Quintuple-5", "1547000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "ACOTUR",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63dd82fa388fefe180d0fea1",
+    "title": "Los cantos de la selva y Gorgona  ",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["Guapi"],
+    "numberNigths": "2",
+    "description": "Disfruta del pacífico colombiano, sumérgete en los saberes y tradiciones autóctonas de esta región, contágiate de la alegría y disfruta de lugares paradisíacos.",
+    "transport": "Avion ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla-1", "3930000"],
+      ["Doble-2", "2487000"],
+      ["Triple-3", "1910000"],
+      ["Cuadruple-4", "1730000"],
+      ["Quintuple-5", "1540000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "ACOTUR",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63de659b388fefe180d0ff0e",
+    "title": "Conociendo la sierra de la Macarena ",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["La Macarena"],
+    "numberNigths": "3",
+    "description": "En 4 días tendrás la posibilidad de disfrutar el destino a tu ritmo, si prefieres explorar con calma, o vas con un objetivo más especializado, por ejemplo: geológico, paisajismo, avistamiento de flora, avifauna, este es el viaje perfecto para ti.",
+    "transport": "avión ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla-1", "2990000"],
+      ["Doble-2", "2990000"],
+      ["Triple-3", "2990000"],
+      ["Cuadruple-4", "2990000"],
+      ["Quintuple-5", "2990000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "ACOTUR",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63de6754388fefe180d0ff4a",
+    "title": "Expedición de vida silvestre",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["Vista Hermosa"],
+    "numberNigths": "3",
+    "description": "Vive una conexión natural pasando tiempo en el bosque, disfrutando de las frescas aguas que nacen en La Sierra de La Macarena. Activa los sentidos en la selva húmeda tropical.Inculye: Cascadas, Laguna Madroño, Rio Guejar,Finca Agroturstica.",
+    "transport": "avión ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla", "3393000"],
+      ["Doble", "2338000"],
+      ["Triple", "1991000"],
+      ["Cuadruple", "1719000"],
+      ["Quintuple", "1587000"]
+    ],
+    "activeDate": ["0"],
+    "providerUser": "ACOTUR",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63de684c388fefe180d0ff63",
+    "title": "Los cantos de la selva y Gorgona 1",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["Guapi"],
+    "numberNigths": "2",
+    "description": "Disfruta del pacífico colombiano, sumérgete en los saberes y tradiciones autóctonas de esta región, contágiate de la alegría y disfruta de lugares paradisíacos.",
+    "transport": "Avión ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla", "1237000"],
+      ["Doble", "1237000"],
+      ["Triple", "1237000"],
+      ["Cuadruple", "1237000"],
+      ["Quintuple", "1237000"]
+    ],
+    "activeDate": ["1", "3", "4"],
+    "providerUser": "ACOTUR",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63de698b388fefe180d0ff7e",
+    "title": "Conociendo la sierra de la Macarena 1",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["La Macarena"],
+    "numberNigths": "3",
+    "description": "En 4 días tendrás la posibilidad de disfrutar el destino a tu ritmo, si prefieres explorar con calma, o vas con un objetivo más especializado, por ejemplo: geológico, paisajismo, avistamiento de flora, avifauna, este es el viaje perfecto para ti.",
+    "transport": "Avión ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla", "2609000"],
+      ["Doble", "2609000"],
+      ["Triple", "2609000"],
+      ["Cuadruple", "2609000"],
+      ["Quintuple", "2609000"]
+    ],
+    "activeDate": ["2", "3", "4"],
+    "providerUser": "ACOTUR ",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63de6a97388fefe180d0ffdb",
+    "title": "San José, un viaje ancestral y natural 1",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["San José del Guaviare"],
+    "numberNigths": "3",
+    "description": "San José del Guaviare tiene una ubicación privilegiada entre tres ecosistemas. Esto lo hace un lugar único que ofrece de todo para todos. Está Conformado por la Amazonía, las llanuras de la Orinoquía y el escudo Guayanés.",
+    "transport": "Avión ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla", "1375000"],
+      ["Doble", "1375000"],
+      ["Triple", "1375000"],
+      ["Cuadruple", "1375000"],
+      ["Quintuple", "1375000"]
+    ],
+    "activeDate": ["2", "3", "4"],
+    "providerUser": "ACOTUR",
+    "__v": 0
+  },
+  {
+    "photos": [],
+    "_id": "63de6c79388fefe180d0ffe8",
+    "title": "Expedición de vida silvestre 1",
+    "nameAccommodation": "ACOTUR",
+    "categoryAccommodation": "Ecoturismo",
+    "destinationName": ["Vista Hermosa"],
+    "numberNigths": "3",
+    "description": "Vive una conexión natural pasando tiempo en el bosque, disfrutando de las frescas aguas que nacen en La Sierra de La Macarena. Activa los sentidos en la selva húmeda tropical.",
+    "transport": "Avión ",
+    "priceKids": [],
+    "priceAdult": [
+      ["Sencilla", "1420000"],
+      ["Doble", "1420000"],
+      ["Triple", "1420000"],
+      ["Cuadruple", "1420000"],
+      ["Quintuple", "1420000"]
+    ],
+    "activeDate": ["2", "3", "4"],
+    "providerUser": "ACOTUR",
+    "__v": 0
+  }
 ]
