@@ -5,7 +5,7 @@ export default function CardHospedajes({ data, typeProduct }) {
   const photo =
     "http://drive.google.com/uc?export=view&id=1PEpLiDAuR0GPjLxJZ1s35fpADM-jYHNU";
   return (
-    <div className="d-flex flex-column align-items-center justify-content-center gap-3">
+    <div className="m-1 p-1 d-flex flex-column align-items-center justify-content-center gap-3">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardHorizontal
