@@ -1,15 +1,15 @@
 const { Schema, model } = require("mongoose");
 
 const trasladoSchema = new Schema({
-  title: { type: String, require: true, unique: true },
-  originName: { type: String, require: true },
-  destinationName: { type: Array, require: true },
-  description: { type: String, require: true },
-  minPeople: { type: String, require: true },
-  maxPeople: { type: String, require: true },
-  priceAdult: { type: Array, require: true },
-  roundTrip: { type: Boolean, require: true },
-  providerUser: { type: String, require: true },
+  title: { type: String, required: true, unique: true },
+  originName: { type: String, required: true },
+  destinationName: { type: Array, required: true },
+  description: { type: String, required: true },
+  minPeople: { type: String, required: true },
+  maxPeople: { type: String, required: true },
+  priceAdult: { type: Array, required: true },
+  roundTrip: { type: Boolean, required: true },
+  providerUser: { type: String, required: true },
 });
 
 const Traslados = model("traslados", trasladoSchema);

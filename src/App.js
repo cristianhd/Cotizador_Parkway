@@ -55,9 +55,8 @@ function App() {
       <section className="mx-5 px-5 d-flex justify-content-between">
         <ModalNewProduct typeProduct={currentTypeProduct} />
         <AllProducts typeProduct={currentTypeProduct}></AllProducts>
-        
       </section>
-      <section className="m-5">
+      <section className="m-0 m-sm-4 m-md-5">
         <Cards data={data} typeProduct={currentTypeProduct} />
       </section>
       <section className="">

@@ -39,8 +39,8 @@ app.use(logger("dev"));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-app.use(jwtVerify);
+app.use(express.static(path.join(__dirname, "public/images")));
+// app.use(jwtVerify);
 
 // routes
 app.get("/api", (req, res, next) => {

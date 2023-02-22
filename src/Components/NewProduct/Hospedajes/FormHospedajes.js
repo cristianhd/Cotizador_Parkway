@@ -1,29 +1,31 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
+import { Modal, Row } from "react-bootstrap";
 
 import StepTwoFormHospedajes from "./StepTwoFormHospedajes.js";
 import StepOneFormHospedajes from "./StepOneFormHospedajes";
 import StepThreeFormHospedajes from "./StepThreeFormHospedajes.js";
+import StepFourFormHospedajes from "./StepFourFormHospedajes.js";
 
 export default function FormHospedajes({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información Hospedaje" },
     { step: "2", label: "Precios" },
-    { step: "3", label: "Descripción del Hospedaje" },
+    { step: "3", label: "Carga de Fotografías" },
+    { step: "4", label: "Descripción del Hospedaje" },
   ];
-  const [currentIndexForm, updateIndexForm] = useState(1);
-  const [validated, setValidated] = useState(false);
   const initialForm = {
     title: "",
     destinationName: "",
+    photos: [],
     providerUser: "",
     categoryAccommodation: "",
     priceKids: {},
     priceAdult: {},
     highSeassonDate: "",
     description: "",
+    includes: { transport: "", route: "", visit: "", food: "" },
   };
   const editData = {
     ...data,
@@ -31,22 +33,43 @@ export default function FormHospedajes({ handleSave, edit, data }) {
     priceKids: {},
   };
   const [form, setForm] = useState(edit ? editData : initialForm);
+  console.log(form);
+  const [validated, setValidated] = useState(false);
 
+  const [currentIndexForm, updateIndexForm] = useState(1);
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
+
+  const existPriceAdult = Object.keys(form.priceAdult).length;
+  const existPhotos = form.photos.length;
 
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
-
     e.preventDefault();
+
     if (formEvent.checkValidity() === false) {
       e.stopPropagation();
       setValidated(true);
     } else {
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
-      if (isLastStep) handleSave(form);
+      if (isLastStep) {
+        errorFieldsEmpty();
+        handleSave(form);
+      }
+    }
+  }
+
+  function errorFieldsEmpty() {
+    const fieldsEmpty = {
+      photos: existPhotos ? "" : "fotografías",
+      priceAdult: existPriceAdult ? "" : "precios",
+    };
+    const message = `Llenar los siguientes campos obligatorios: \n ${fieldsEmpty.photos} \n ${fieldsEmpty.activeDate} \n ${fieldsEmpty.priceAdult}`;
+
+    if (!existPhotos && !existPriceAdult) {
+      alert(message);
     }
   }
 
@@ -97,41 +120,18 @@ export default function FormHospedajes({ handleSave, edit, data }) {
     });
   }
 
-  function handleCleanPriceAdult() {
+  function handleSavePhotos(photos) {
     setForm({
       ...form,
-      priceAdult: {},
+      photos,
     });
   }
 
-  function handleOnChangeDate(e) {
-    const value = e.target.value.toString();
-
-    if (value === "0") {
-      if (form.activeDate.includes("0")) {
-        setForm({
-          ...form,
-          activeDate: [],
-        });
-      } else {
-        setForm({
-          ...form,
-          activeDate: ["0"],
-        });
-      }
-    } else {
-      if (form.activeDate.includes(value)) {
-        setForm({
-          ...form,
-          activeDate: form.activeDate.filter((item) => item !== value),
-        });
-      } else {
-        setForm({
-          ...form,
-          activeDate: [...form.activeDate, value],
-        });
-      }
-    }
+  function handleOnChangeIncludes(name, includesInput) {
+    setForm({
+      ...form,
+      includes: { ...form.includes, [name]: includesInput },
+    });
   }
 
   return (
@@ -164,7 +164,14 @@ export default function FormHospedajes({ handleSave, edit, data }) {
           {labelStep[currentIndexForm - 1].step === "3" && (
             <StepThreeFormHospedajes
               form={form}
+              handleSavePhotos={handleSavePhotos}
+            />
+          )}
+          {labelStep[currentIndexForm - 1].step === "4" && (
+            <StepFourFormHospedajes
+              form={form}
               handleOnChangeForm={handleOnChangeForm}
+              handleOnChangeIncludes={handleOnChangeIncludes}
             />
           )}
         </Modal.Body>

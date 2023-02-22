@@ -11,7 +11,7 @@ export default function StepTwoFormAsistencia({ form, handleOnChangeForm }) {
               required
               className="shadow-none"
               as="textarea"
-              maxLength="500"
+              maxLength="390"
               placeholder="Escribe una descripción"
               name="description"
               value={form.description}

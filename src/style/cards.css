@@ -1,16 +1,30 @@
 .card-horizontal {
   position: relative;
-  border-radius: 75px 15px 15px 30px;
-  border: solid gray 0.2px;
-  height: 300px;
-  width: 700px;
+  border-radius: 75px 15px 15px 0px;
+  border: solid #c0c0c0 1px;
+  height: 250px;
+  width: 650px;
 }
 .card-vertical {
   position: relative;
-  border-radius: 75px 30px 15px 15px;
-  border: solid gray 0.2px;
-  width: 300px;
-  height: 600px;
+  border-radius: 75px 0px 15px 15px;
+  border: solid #c0c0c0 1px;
+  width: 250px;
+  height: 560px;
+}
+
+.price-card {
+  position: relative;
+  width: inherit;
+}
+
+.price-kids > ul {
+  font-size: 14px;
+}
+
+.price-kids > .card-title,
+.price-adult > .card-title {
+  font-size: 16px;
 }
 
 .spanLigth {
@@ -20,4 +34,36 @@
 
 .spanPrice {
   font-weight: bold;
+  font-size: 14px;
+}
+
+/* Breackpoints media queries */
+
+/* small and medium devices */
+@media (max-width: 800px) {
+  .card-horizontal {
+    position: relative;
+    border-radius: 75px 0px 15px 15px;
+    border: solid #c0c0c0 1px;
+    width: 250px;
+    height: 650px;
+    min-width: 250px;
+  }
+  .price-adult {
+    border-bottom: 2px double #c0c0c0;
+    height: 50%;
+  }
+  .price-kids {
+    height: 50%;
+  }
+  .price-card {
+    height: 100%;
+  }
+}
+
+/* more than large devices */
+@media (min-width: 800px) {
+  .price-adult {
+    border-right: 2px double #c0c0c0;
+  }
 }

@@ -1,14 +1,17 @@
 const { Schema, model } = require("mongoose");
+const Includes = require("./Includes");
 
 const hospedajeSchema = new Schema({
-  title: { type: String, require: true, unique: true },
-  categoryAccommodation: { type: String, require: true },
-  destinationName: { type: String, require: true },
-  description: { type: String, require: true },
+  title: { type: String, required: true, unique: true },
+  categoryAccommodation: { type: String, required: true },
+  destinationName: { type: String, required: true },
+  photos: { type: Array, required: true },
+  description: { type: String, required: true },
+  includes: Includes,
   priceKids: { type: Array },
-  priceAdult: { type: Array, require: true },
-  highSeassonDate: { type: String, require: true },
-  providerUser: { type: String, require: true },
+  priceAdult: { type: Array, required: true },
+  highSeassonDate: { type: String, required: true },
+  providerUser: { type: String, required: true },
 });
 
 const Hospedajes = model("hospedajes", hospedajeSchema);

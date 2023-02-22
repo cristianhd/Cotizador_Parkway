@@ -3,12 +3,12 @@ import CardHorizontal from "./CardHorizontal";
 
 export default function CardActividades({ data, typeProduct }) {
   return (
-    <div className="d-flex flex-column">
+    <div className="m-1 p-1 d-flex flex-column align-items-center justify-content-center gap-3">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardHorizontal
             id={card._id}
-            photo="https://i.pinimg.com/564x/dc/a2/04/dca2046e6525ed56ca76c76f724cae0c.jpg"
+            photos={card.photos}
             key={index}
             title={card.title}
             destinationName={card.destinationName}

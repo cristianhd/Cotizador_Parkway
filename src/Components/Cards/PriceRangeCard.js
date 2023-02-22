@@ -18,26 +18,23 @@ export default function PriceRangeCard({ priceAdult }) {
     }
   }
   return (
-    <Col className="m-1 p-0">
-      <Card.Title>Precios Adulto</Card.Title>
-      <div className="m-1">
-        {Array.isArray(priceAdult) > 0 &&
-          priceAdult.map((priceRange, index) => (
-            <ul key={index} className="px-1 m-0">
-              <span onClick={() => handleActiveCollapse(index)}>
-                {priceRange[0]}-{priceRange[1]} persona(s)
-              </span>
-              <Collapse in={open === index}>
-                <Card.Text>
-                  <span className="spanPrice">
-                    {pesosFormat.format(priceRange[2])}
-                  </span>
-                  <span className="spanLigth"> /persona</span>
-                </Card.Text>
-              </Collapse>
-            </ul>
-          ))}
-      </div>
-    </Col>
+    <div className="m-1">
+      {Array.isArray(priceAdult) > 0 &&
+        priceAdult.map((priceRange, index) => (
+          <ul key={index} className="px-1 m-0">
+            <span className="span-pointer" onClick={() => handleActiveCollapse(index)}>
+              {priceRange[0]}-{priceRange[1]} persona(s)
+            </span>
+            <Collapse in={open === index}>
+              <Card.Text>
+                <span className="spanPrice">
+                  {pesosFormat.format(priceRange[2])}
+                </span>
+                <span className="spanLigth"> /persona</span>
+              </Card.Text>
+            </Collapse>
+          </ul>
+        ))}
+    </div>
   );
 }

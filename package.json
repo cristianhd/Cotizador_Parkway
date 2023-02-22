@@ -50,12 +50,12 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://20.121.201.96:3001",
+  "proxy": "http://localhost:3001/",
   "devDependencies": {
     "css-loader": "^6.7.1",
     "node-sass": "^7.0.1",
+    "react-scripts": "5.0.0",
     "sass-loader": "^13.0.2",
-    "style-loader": "^3.3.1",
-    "react-scripts": "5.0.0"
+    "style-loader": "^3.3.1"
   }
 }

@@ -17,7 +17,7 @@ export default function FormAsistencias({ handleSave, edit, data }) {
     title: "",
     destinationName: "",
     description: "",
-    priceAdult: "",
+    priceAdult: [],
     providerUser: "",
   };
   const editData = {
@@ -47,10 +47,17 @@ export default function FormAsistencias({ handleSave, edit, data }) {
     const name = e.target.name;
     const value = e.target.value;
 
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    if (name === "priceAdult") {
+      setForm({
+        ...form,
+        priceAdult: [[value]],
+      });
+    } else {
+      setForm({
+        ...form,
+        [name]: value,
+      });
+    }
   }
 
   function handleOnChangeDestination(name, destination) {

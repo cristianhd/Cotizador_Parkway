@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Col, FloatingLabel, Modal, Row, ToggleButton } from "react-bootstrap";
+import { Modal, Row } from "react-bootstrap";
 
 import StepTwoFormPlanes from "./StepTwoFormPlanes";
 import StepOneFormPlanes from "./StepOneFormPlanes";
 import StepThreeFormPlanes from "./StepThreeFormPlanes";
 import StepFourFormPlanes from "./StepFourFormPlanes";
+import StepFiveFormPlanes from "./StepFiveFormPlanes";
 
 export default function FormPlanes({ handleSave, edit, data }) {
   const labelStep = [
     { step: "1", label: "Información General" },
     { step: "2", label: "Información Hospedaje" },
     { step: "3", label: "Seleccionar Fechas" },
-    { step: "4", label: "Descripción del Plan" },
+    { step: "4", label: "Carga de Fotografías" },
+    { step: "5", label: "Descripción del Plan" },
   ];
-  const [currentIndexForm, updateIndexForm] = useState(1);
-  const [validated, setValidated] = useState(false);
   const initialForm = {
     title: "",
     destinationName: {},
-    transport: "",
+    photos: [],
     providerUser: "",
     nameAccommodation: "",
     categoryAccommodation: "",
@@ -29,6 +29,7 @@ export default function FormPlanes({ handleSave, edit, data }) {
     priceAdult: {},
     activeDate: [],
     description: "",
+    includes: { transport: "", route: "", visit: "", food: "" },
   };
   const editData = {
     ...data,
@@ -37,16 +38,21 @@ export default function FormPlanes({ handleSave, edit, data }) {
     priceKids: {},
   };
 
+  const [validated, setValidated] = useState(false);
   const [form, setForm] = useState(edit ? editData : initialForm);
 
+  const [currentIndexForm, updateIndexForm] = useState(1);
   const isFirstStep = currentIndexForm === 1;
   const isLastStep = currentIndexForm === labelStep.length;
 
+  const existPriceAdult = Object.keys(form.priceAdult).length;
+  const existPhotos = form.photos.length;
+  const existActiveDate = form.activeDate.length;
   //handlers
   function handleOnSubmitForm(e) {
     const formEvent = e.currentTarget;
-
     e.preventDefault();
+
     if (formEvent.checkValidity() === false) {
       e.stopPropagation();
       setValidated(true);
@@ -54,21 +60,28 @@ export default function FormPlanes({ handleSave, edit, data }) {
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
       if (isLastStep) {
-        if (Object.keys(form.priceAdult).length && form.activeDate.length) {
-          handleSave(form);
-        } else {
-          if (!Object.keys(form.priceAdult).length)
-            alert("falta Precio Adultos");
-          if (!form.activeDate.length) alert("falta fechas");
-        }
+        errorFieldsEmpty();
+        handleSave(form);
       }
+    }
+  }
+
+  function errorFieldsEmpty() {
+    const fieldsEmpty = {
+      photos: existPhotos ? "" : "fotografías",
+      activeDate: existActiveDate ? "" : "fechas",
+      priceAdult: existPriceAdult ? "" : "precios",
+    };
+    const message = `Llenar los siguientes campos obligatorios: \n ${fieldsEmpty.photos} \n ${fieldsEmpty.activeDate} \n ${fieldsEmpty.priceAdult}`;
+
+    if (!existPhotos && !existActiveDate && !existPriceAdult) {
+      alert(message);
     }
   }
 
   function handleOnChangeForm(e) {
     const name = e.target.name;
     const value = e.target.value;
-
     setForm({
       ...form,
       [name]: value,
@@ -112,13 +125,6 @@ export default function FormPlanes({ handleSave, edit, data }) {
     });
   }
 
-  function handleCleanPriceAdult() {
-    setForm({
-      ...form,
-      priceAdult: {},
-    });
-  }
-
   function handleOnChangeDate(e) {
     const value = e.target.value.toString();
 
@@ -148,6 +154,21 @@ export default function FormPlanes({ handleSave, edit, data }) {
       }
     }
   }
+
+  function handleSavePhotos(photos) {
+    setForm({
+      ...form,
+      photos,
+    });
+  }
+
+  function handleOnChangeIncludes(name, includesInput) {
+    setForm({
+      ...form,
+      includes: { ...form.includes, [name]: includesInput },
+    });
+  }
+  console.log(form);
 
   return (
     <>
@@ -184,8 +205,15 @@ export default function FormPlanes({ handleSave, edit, data }) {
           )}
           {labelStep[currentIndexForm - 1].step === "4" && (
             <StepFourFormPlanes
-              handleOnChangeForm={handleOnChangeForm}
+              handleSavePhotos={handleSavePhotos}
               form={form}
+            />
+          )}
+          {labelStep[currentIndexForm - 1].step === "5" && (
+            <StepFiveFormPlanes
+              form={form}
+              handleOnChangeForm={handleOnChangeForm}
+              handleOnChangeIncludes={handleOnChangeIncludes}
             />
           )}
         </Modal.Body>

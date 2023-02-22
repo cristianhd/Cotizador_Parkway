@@ -56,16 +56,25 @@ export default function Footer() {
               </span>
             </div>
             <div className="social-links">
-              <a href="/#">
+              <a
+                href="https://www.instagram.com/ecoturismocolombia"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <img src={instagram} alt="instagram" />
               </a>
-              <a href="/#">
+              <a
+                href="https://www.facebook.com/ecoturismocolombia100/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <img src={facebook} alt="facebook" />
               </a>
-              <a href="/#">
-                <img src={whatsapp} alt="whatsapp" />
-              </a>
-              <a href="/#">
+              <a
+                href="https://www.youtube.com/ecoturismocolombia"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <img src={youtube} alt="youtube" />
               </a>
             </div>
@@ -83,7 +92,10 @@ export default function Footer() {
               </a>
             </div>
             <div className="links-rigth">
-              <a href="/#">Terminos y condiciones</a> <br></br>
+              <a href="https://www.ecoturismocolombia.com/terminos-y-condiciones/">
+                Terminos y condiciones
+              </a>{" "}
+              <br></br>
               <span>RNT 40101</span>
             </div>
           </div>

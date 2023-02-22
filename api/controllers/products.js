@@ -151,7 +151,7 @@ function findActividadesById(req, res) {
 }
 
 function findAsistencias(req, res, next) {
-  const { destination, id } = req.query;
+  const { destination, days, pax, id } = req.query;
 
   if (id) {
     next();
@@ -160,7 +160,8 @@ function findAsistencias(req, res, next) {
       try {
         Asistencias.find({ destinationName: destination }).then(
           (asistencias) => {
-            res.json(asistencias);
+            const newAsistencias = { asistencias: asistencias, days, pax };
+            res.json(newAsistencias);
           }
         );
       } catch (error) {
@@ -168,7 +169,7 @@ function findAsistencias(req, res, next) {
       }
     } else {
       // devuelve todas las Asistencias si no hay una query
-      Asistencias.find().then((asistencias) => res.json(asistencias));
+      Asistencias.find().then((asistencias) => res.json({ asistencias }));
     }
   }
 }
@@ -204,6 +205,7 @@ function addManyPlanes(req, res, next) {
 
 function addPlan(req, res, next) {
   const { planes } = req.body;
+  console.log(planes);
 
   const destinationName = Object.values(planes.destinationName);
   const priceAdult = Object.entries(planes.priceAdult).map((price) => [
@@ -407,157 +409,297 @@ function addAsistencias(req, res, next) {
 
 // controller update product
 
-function updatePlanes(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const destinationName = Object.values(data.update.destinationName);
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
-
-  const updatePlan = {
-    ...data.update,
-    destinationName,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
-
-  const opts = { new: true };
-
-  try {
-    Planes.findByIdAndUpdate({ _id: id }, updatePlan, opts, (err, doc) => {
-      if (err) {
-        console.log("Something wrong when updating data!");
-      }
-      res.send(doc);
-    });
-  } catch (error) {
-    res.sen(error.message);
+function updatePlanes(req, res, next) {
+  const { planes } = req.body;
+  console.log(planes);
+  if (planes === undefined) {
+    res.send("Something wrong with the data (planes)!");
   }
-}
 
-function updateHospedajes(req, res) {
-  const { data } = req.body;
-  const id = data.id;
+  if (Array.isArray(planes)) {
+    next();
+  } else {
+    const id = planes.id;
+    const opts = { new: true };
 
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
-
-  const updateHospedaje = {
-    ...data.update,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
-
-  const opts = { new: true };
-
-  try {
-    Hospedajes.findByIdAndUpdate(
-      { _id: id },
-      updateHospedaje,
-      opts,
-      (err, doc) => {
+    try {
+      Planes.findByIdAndUpdate({ _id: id }, planes.update, opts, (err, doc) => {
         if (err) {
           console.log("Something wrong when updating data!");
         }
         res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+      });
+    } catch (error) {
+      res.sen(error.message);
+    }
   }
 }
 
-function updateTraslados(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const destinationName = Object.values(data.update.destinationName);
-  const destinations = destinationName.map((destination) => "-" + destination);
-  const title =
-    data.update.originName + destinations.toString().replace(/,/g, "");
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
+function updateManyPlanes(req, res) {
+  const { planes } = req.body;
+  const isEmpty = planes.length === 0;
 
-  const updateTraslados = {
-    ...data.update,
-    title,
-    destinationName,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
-
-  const opts = { new: true };
-
-  try {
-    Traslados.findByIdAndUpdate(
-      { _id: id },
-      updateTraslados,
-      opts,
-      (err, doc) => {
-        if (err) {
-          console.log("Something wrong when updating data!");
-        }
-        res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+  if (!isEmpty) {
+    try {
+      planes.map((updatePlan) => {
+        console.log(updatePlan.id);
+        let includes = {
+          food: updatePlan.data.food,
+          transport: updatePlan.data.transport,
+          visit: updatePlan.data.visit,
+          route: updatePlan.data.route,
+        };
+        return Planes.findByIdAndUpdate(
+          updatePlan.id,
+          { ...updatePlan.data, includes },
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+      res.send(planes);
+    } catch (error) {
+      res.send(error.message);
+    }
+  } else {
   }
 }
 
-function updateActividades(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const destinationName = Object.values(data.update.destinationName);
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
+function updateHospedajes(req, res, next) {
+  const { hospedajes } = req.body;
+  if (hospedajes === undefined) {
+    res.send("Something wrong with the data (hospedajes)!");
+    return;
+  }
 
-  const updateActividad = {
-    ...data.update,
-    destinationName,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
+  if (Array.isArray(hospedajes)) {
+    next();
+  } else {
+    const id = hospedajes.id;
+    const opts = { new: true };
 
-  const opts = { new: true };
-
-  try {
-    Actividades.findByIdAndUpdate(
-      { _id: id },
-      updateActividad,
-      opts,
-      (err, doc) => {
-        if (err) {
-          console.log("Something wrong when updating data!");
+    try {
+      Hospedajes.findByIdAndUpdate(
+        { _id: id },
+        hospedajes.update,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
         }
-        res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
   }
 }
 
-function updateAsistencias(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const updateAsistencia = data.update;
+function updateManyHospedajes(req, res) {
+  const { hospedajes } = req.body;
+  const isEmpty = hospedajes.length === 0;
+  if (!isEmpty) {
+    try {
+      hospedajes.map((updatePlan) => {
+        let includes = {
+          food: updatePlan.data.food,
+          transport: "",
+          visit: "",
+          route: "",
+        };
 
-  const opts = { new: true };
+        return Hospedajes.findByIdAndUpdate(
+          { _id: updatePlan.id },
+          { ...updatePlan.data, includes },
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(hospedajes);
+  } else {
+    res.send("the data is empty");
+  }
+}
 
-  try {
-    Asistencias.findByIdAndUpdate(
-      { _id: id },
-      updateAsistencia,
-      opts,
-      (err, doc) => {
-        if (err) {
-          console.log("Something wrong when updating data!");
+function updateTraslados(req, res, next) {
+  const { traslados } = req.body;
+  if (traslados === undefined) {
+    res.send("Something wrong with the data (traslados)!");
+    return;
+  }
+
+  if (Array.isArray(traslados)) {
+    next();
+  } else {
+    const id = traslados.id;
+    const opts = { new: true };
+
+    try {
+      Traslados.findByIdAndUpdate(
+        { _id: id },
+        traslados.update,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
         }
-        res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
+  }
+}
+
+function updateManyTraslados(req, res) {
+  const { traslados } = req.body;
+  const isEmpty = traslados.length === 0;
+  if (!isEmpty) {
+    try {
+      traslados.map((updatePlan) => {
+        return Traslados.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(traslados);
+  } else {
+    res.send("the data is empty");
+  }
+}
+
+function updateActividades(req, res, next) {
+  const { actividades } = req.body;
+  if (actividades === undefined) {
+    res.send("Something wrong with the data (actividades)!");
+    return;
+  }
+
+  if (Array.isArray(actividades)) {
+    next();
+  } else {
+    const id = actividades.id;
+    const opts = { new: true };
+
+    try {
+      Actividades.findByIdAndUpdate(
+        { _id: id },
+        actividades.update,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
+        }
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
+  }
+}
+
+function updateManyActividades(req, res) {
+  const { actividades } = req.body;
+  const isEmpty = actividades.length === 0;
+  if (!isEmpty) {
+    try {
+      actividades.map((updatePlan) => {
+        return Actividades.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(actividades);
+  } else {
+    res.send("the data is empty");
+  }
+}
+
+function updateAsistencias(req, res, next) {
+  const { asistencias } = req.body;
+  if (asistencias === undefined) {
+    res.send("Something wrong with the data (asistencias)!");
+    return;
+  }
+
+  if (Array.isArray(asistencias)) {
+    next();
+  } else {
+    const id = asistencias.id;
+    const opts = { new: true };
+
+    try {
+      Asistencias.findByIdAndUpdate(
+        { _id: id },
+        asistencias.update,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
+        }
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
+  }
+}
+
+function updateManyAsistencias(req, res) {
+  const { asistencias } = req.body;
+  const isEmpty = asistencias.length === 0;
+  if (!isEmpty) {
+    try {
+      asistencias.map((updatePlan) => {
+        return Asistencias.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(asistencias);
+  } else {
+    res.send("the data is empty");
   }
 }
 
@@ -653,10 +795,15 @@ module.exports = {
   addAsistencias,
   addManyAsistencias,
   updatePlanes,
+  updateManyPlanes,
   updateTraslados,
+  updateManyTraslados,
   updateHospedajes,
+  updateManyHospedajes,
   updateActividades,
+  updateManyActividades,
   updateAsistencias,
+  updateManyAsistencias,
   deletePlanes,
   deleteHospedajes,
   deleteTraslados,

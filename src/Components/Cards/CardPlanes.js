@@ -2,13 +2,16 @@ import React from "react";
 import CardHorizontal from "./CardHorizontal";
 
 export default function CardPlanes({ data, typeProduct }) {
+  const photo =
+    "http://drive.google.com/uc?export=view&id=1PEpLiDAuR0GPjLxJZ1s35fpADM-jYHNU";
+
   return (
-    <div className="d-flex flex-column">
+    <div className="m-1 p-1 d-flex flex-column align-items-center justify-content-center gap-3">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardHorizontal
             id={card._id}
-            photo="https://i.pinimg.com/564x/dc/a2/04/dca2046e6525ed56ca76c76f724cae0c.jpg"
+            photos={card.photos}
             key={index}
             title={card.title}
             categoryAccommodation={card.categoryAccommodation}
@@ -19,6 +22,7 @@ export default function CardPlanes({ data, typeProduct }) {
             priceAdult={card.priceAdult}
             typeProduct={typeProduct}
             description={card.description}
+            includes={card.includes}
           ></CardHorizontal>
         ))}
     </div>

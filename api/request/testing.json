@@ -1,124 +1,371 @@
-[
+{
+  "actividades": [
     {
-        "name": "Cristian Hernandez",
-        "nickname": "criselparce",
-        "sub": "12easda",
-        "category": "cotizador",
-        "picture": "-",
-        "email": "cristian@gmail.com",
-        "phone": "12345"
+      "_id": "63bf1ecdb443739c4591417c",
+      "data": {
+        "photos": ["1YSbqwDZy_k7ugWtay6Bud6vz1qMapfeF"]
+      }
     },
     {
-        "region": "",
-        "daneDepartament": "",
-        "nameDepartment": "",
-        "daneCity": "",
-        "nameCity": ""
+      "_id": "63bf1ecdb443739c4591417e",
+      "data": {
+        "photos": ["1DDpCxTVN7XH0xgpw8kttjhNtIjLNm5ot"]
+      }
     },
     {
-        "name": "Bosa",
-        "typePlace" : "Zonas",
-        "daneCity": "1,001",
-        "daneDepartment": "1"
+      "_id": "63bf1ecdb443739c4591417b",
+      "data": {
+        "photos": ["1wm-ZmmuL4sBJObU6yEcQWdF6GIb9cena"]
+      }
     },
     {
-        "table": "Traslados",
-        "title": "Aeropuerto el Dorado - Bosa",
-        "origin": "12",
-        "destination": "14",
-        "description": "esto es una descripción",
-        "price": [
-            {
-                "type": "adulto",
-                "price": "25400"
-            },
-            {
-                "type": "1-3",
-                "price": "22000"
-            },
-            {
-                "type": "3-4",
-                "price": "12000"
-            }
-          ],
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
+      "_id": "63bf1ecdb443739c4591417d",
+      "data": {
+        "photos": ["14dWd0ToXGK7gaaPhtLb2OfMd3ndPDgpK"]
+      }
     },
     {
-        "table": "Hospedajes",
-        "title": "Titulo",
-        "destination": "1,001",
-        "photo": "-",
-        "description": "esto es una descripción",
-        "price":[
-          {
-            "type": "niños",
-            "price": "120000"
-          },
-          {
-            "type": "sencilla",
-            "price": "100000"
-          },
-          {
-            "type": "doble",
-            "price": "80000"
-          }
-        ],
-        "activeDate": "1,2,3",
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
+      "_id": "63bf1ecdb443739c4591417f",
+      "data": {
+        "photos": ["1zFmCWfh5JZ3XP-fuyg3co-NPUFPy3exF"]
+      }
     },
     {
-        "table": "Planes",
-        "title": "Titulo",
-        "destination": "1,001",
-        "photo": "-",
-        "description": "esto es una descripción",
-        "transport": "avión",
-        "price":[
-          {
-            "type": "",
-            "price": ""
-          },
-          {
-            "type": "",
-            "price": ""
-          }
-        ],
-        "activeDate": "1,2,3,festivos",
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
+      "_id": "63bf1ecdb443739c45914181",
+      "data": {
+        "photos": ["1b0fkDDJ7t8cc7XYq0_xDMkCS7JZ0j4aD"]
+      }
     },
     {
-        "table":"Asistencias",
-        "title": "Titulo",
-        "destination": "1,001",
-        "description": "esto es una descripción",
-        "price": "12000",
-        "providerUser": "Trandecol",
-        "activeProduct": "true",
+      "_id": "63bf1ecdb443739c45914180",
+      "data": {
+        "photos": ["1-y9BiAFVgN9hmDMizPXBa643GIH8_wYf"]
+      }
     },
     {
-        "table": "Actividades",
-        "title": "Titulo" ,
-        "destination": "id ciudad/lugares",
-        "photo":"-",
-        "description": "esto es una descripción",
-        "price": [
-        {
-            "type": "adulto",
-            "price": "25000"
-        },
-        {
-            "type": "niños",
-            "price": "20000"
-        },
-        {
-            "type": "4-7",
-            "price": "12000"
-        }
-        ],
-        "providerUser": "Trandecol",
-        "activeProduct": "true"
+      "_id": "63bf1ecdb443739c45914182",
+      "data": {
+        "photos": ["1b0fkDDJ7t8cc7XYq0_xDMkCS7JZ0j4aD"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914183",
+      "data": {
+        "photos": ["1JIZtxmu7EoRQjmUon_SVjeE5_wCT0Nb-"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914188",
+      "data": {
+        "photos": ["1doreBzTokjCM0SMDhDvt6kGB95b_ihhv"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914187",
+      "data": {
+        "photos": ["1oINB3-uW6Mn_BK2OiZxbYFbClI_BylR1"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914189",
+      "data": {
+        "photos": ["1QOWbqiAtQaITT8U_Rsl4rHTxPZReE6cN"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914184",
+      "data": {
+        "photos": ["160VjXsBA6x2T0JtflwaAlAkYcugMqs6r"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914185",
+      "data": {
+        "photos": ["1IzbSWqK57lg3G0BdI-IIbtQQdcmrJ5yJ"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914186",
+      "data": {
+        "photos": ["1z980QXBHdxLaZF-NUkVPhNCUhuCMEdBc"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591418a",
+      "data": {
+        "photos": ["1QOWbqiAtQaITT8U_Rsl4rHTxPZReE6cN"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591418b",
+      "data": {
+        "photos": ["1EbTcwTu6PxwjbNP8rzUDGuHGvbqwTT3F"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591418d",
+      "data": {
+        "photos": ["1t3kXAWxjwW1yWxdfmT7BgmlajFMHmrBt"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591418c",
+      "data": {
+        "photos": ["1-4RSIaGfXpi0MYm3cY8pRKQDT_op85-Q"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591418f",
+      "data": {
+        "photos": ["1VXyFYctJqtDc13JcUrTYLtJx_oy0uqp1"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591418e",
+      "data": {
+        "photos": ["9GkG7ALWbz-g5qAEXHfRBKqStQ_VBAeo"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914190",
+      "data": {
+        "photos": ["1ffUOsGAWh2inAYLWng1Hb86druqmwate"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914191",
+      "data": {
+        "photos": ["1PucOgseSlwiBlIm_5dB99vMlWA2ASSJU"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914194",
+      "data": {
+        "photos": ["1c6r7NJDOkagx_S0RkoGOKm19gNx4s84p"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914198",
+      "data": {
+        "photos": ["1tiZAj-Vyh2IxeOCSetruV7h8HqNq0MPw"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914197",
+      "data": {
+        "photos": ["1X5wvITxtei1TiAURzco7TxEPhxLYliR1"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914192",
+      "data": {
+        "photos": ["1PucOgseSlwiBlIm_5dB99vMlWA2ASSJU"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914196",
+      "data": {
+        "photos": ["1dIRvVYYAFwIVlRIkLoLKMCJnKj0n45Wj"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914193",
+      "data": {
+        "photos": ["1q9S7MrnV8p2fB_tbp4op-n9hj7f8zj1u"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914195",
+      "data": {
+        "photos": ["1IHAoT3R3e7QLHCDTgJGtB24kDiYBWeV5"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c45914199",
+      "data": {
+        "photos": [
+          "1-c-uxscm9KoHIsabGDJxaWzUWjDMXwoh",
+          "1tiZAj-Vyh2IxeOCSetruV7h8HqNq0MPw"
+        ]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a0",
+      "data": {
+        "photos": ["1nEXWcmCiZV4T_VmHpd2zfc6pqQW7u29I"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591419d",
+      "data": {
+        "photos": ["1ezESfXE-HQgujEeg8EERL6gL1cINYWCz"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591419c",
+      "data": {
+        "photos": ["1xhUTQaNRPJ_bWhavE50gep2ySFl6bgy"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a1",
+      "data": {
+        "photos": ["1lOf8zGhdN0I4DqJ5jpbdaNEPiu8vBKt1"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591419e",
+      "data": {
+        "photos": ["1ipS7zy1R6Mz4gULMBfulEj-56z7-r_GG"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591419a",
+      "data": {
+        "photos": ["1dIRvVYYAFwIVlRIkLoLKMCJnKj0n45Wj"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591419b",
+      "data": {
+        "photos": ["1dJUpPw-1bPhKVSO2pppFkGeoic3UrTTV"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c4591419f",
+      "data": {
+        "photos": ["127K06L_760G0rkF8SHrwaudYq0z6-HPm"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a2",
+      "data": {
+        "photos": ["1lOf8zGhdN0I4DqJ5jpbdaNEPiu8vBKt1"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141aa",
+      "data": {
+        "photos": ["1laEjkTdOmA4ktPbGSor3phu8uvcvmnnK"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a8",
+      "data": {
+        "photos": ["12DSep9d8BkTCBIiMNIUAI7doQqMsT5Sl"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a9",
+      "data": {
+        "photos": ["1lqtTAX6PnnondvBjDMs1R8VyGQi5bWJL"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a5",
+      "data": {
+        "photos": [
+          "1lOf8zGhdN0I4DqJ5jpbdaNEPiu8vBKt1",
+          "1nsopWN1gIWMqEmruzjanpTMOP19xeKvl"
+        ]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a3",
+      "data": {
+        "photos": ["1lOf8zGhdN0I4DqJ5jpbdaNEPiu8vBKt1"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a7",
+      "data": {
+        "photos": ["1bQ6XV3hNUxTzh-_ruFlw1Oat8t7-HD4P"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141ab",
+      "data": {
+        "photos": ["1I7aHzyMKoJpc61YR2VExyR5HxLGiTggG"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a6",
+      "data": {
+        "photos": [
+          "1b0fkDDJ7t8cc7XYq0_xDMkCS7JZ0j4aD",
+          "1JIZtxmu7EoRQjmUon_SVjeE5_wCT0Nb-",
+          "160VjXsBA6x2T0JtflwaAlAkYcugMqs6r"
+        ]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141a4",
+      "data": {
+        "photos": [
+          "1lOf8zGhdN0I4DqJ5jpbdaNEPiu8vBKt1",
+          "12DSep9d8BkTCBIiMNIUAI7doQqMsT5Sl"
+        ]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141b2",
+      "data": {
+        "photos": ["1iJ_Wi9YcK3RDzX9UyVBZuwexvBAr84Pw"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141af",
+      "data": {
+        "photos": ["127K06L_760G0rkF8SHrwaudYq0z6-HPm"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141ac",
+      "data": {
+        "photos": ["1vjxQe9nLyGIWGayuk4bs9OqICCLpFvlC"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141b0",
+      "data": {
+        "photos": ["1JIZtxmu7EoRQjmUon_SVjeE5_wCT0Nb-"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141ae",
+      "data": {
+        "photos": ["127K06L_760G0rkF8SHrwaudYq0z6-HPm"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141b1",
+      "data": {
+        "photos": ["1b0fkDDJ7t8cc7XYq0_xDMkCS7JZ0j4aD"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141b4",
+      "data": {
+        "photos": ["1DoSFB3cZDk1T7dOD2mOKUi_CSWwArD99"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141ad",
+      "data": {
+        "photos": ["12DSep9d8BkTCBIiMNIUAI7doQqMsT5Sl"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141b3",
+      "data": {
+        "photos": ["13qjddK7nH_dSMajL86GuoipCR9itXlpd"]
+      }
+    },
+    {
+      "_id": "63bf1ecdb443739c459141b5",
+      "data": {
+        "photos": ["1Fliu8sIvisg81xsBHeyQ6q5QPniqxz3T"]
+      }
     }
-]
+  ]
+}

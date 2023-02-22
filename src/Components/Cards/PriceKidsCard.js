@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Collapse } from "react-bootstrap";
 
 export default function PriceKidsCard({ priceKids }) {
   var options = {
@@ -8,30 +8,44 @@ export default function PriceKidsCard({ priceKids }) {
     minimumFractionDigits: "0",
   };
   var pesosFormat = new Intl.NumberFormat("es-CO", options);
+  const [open, setOpen] = useState("");
+  const existPriceKids =
+    priceKids && priceKids[0] && priceKids[0].length ? true : false;
+
+  function handleActiveCollapse(index) {
+    if (index === open) {
+      setOpen("");
+    } else {
+      setOpen(index);
+    }
+  }
 
   return (
-    <Col className="m-1 p-0">
-      <Card.Title>Precios Niños</Card.Title>
-      <div className="m-1">
-        {priceKids &&
-          priceKids.map((priceKids, index) => (
-            <ul key={index} className="px-1 m-0">
-              <Card.Text>
-                {priceKids.length === 0 ? (
-                  <ul>n/a</ul>
-                ) : (
-                  <div>
-                    {priceKids[0]} - {priceKids[1]} años: <br></br>
+    <div className="price-kids w-50 m-1 p-0">
+      {existPriceKids && <Card.Title>Niño</Card.Title>}
+      {priceKids &&
+        priceKids.map((priceKids, index) => (
+          <ul key={index} className="p-0 m-0">
+            {priceKids.length > 0 && (
+              <div className="mx-2">
+                <span
+                  className="span-pointer"
+                  onClick={() => handleActiveCollapse(index)}
+                >
+                  {priceKids[0]} - {priceKids[1]} años
+                </span>
+                <Collapse in={open === index}>
+                  <Card.Text>
                     <span className="spanPrice">
                       {pesosFormat.format(priceKids[2])}
                     </span>
                     <span className="spanLigth"> /niño</span>
-                  </div>
-                )}
-              </Card.Text>
-            </ul>
-          ))}
-      </div>
-    </Col>
+                  </Card.Text>
+                </Collapse>
+              </div>
+            )}
+          </ul>
+        ))}
+    </div>
   );
 }

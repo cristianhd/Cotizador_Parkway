@@ -1,41 +1,29 @@
 import React from "react";
-import { Card, Row } from "react-bootstrap";
-import PriceSeassonCard from "./PriceSeassonCard";
-import PriceRoomCard from "./PriceRoomCard";
-import PriceRouteCard from "./PriceRouteCard";
-import PriceRangeCard from "./PriceRangeCard";
+import { Card } from "react-bootstrap";
+import EditProduct from "./EditProduct";
+import PriceAdult from "./PriceAdult";
 import PriceKidsCard from "./PriceKidsCard";
-import PriceAsistenciaCard from "./PriceAsistenciaCard";
 
 export default function PriceCard({
+  id,
+  days,
+  pax,
   priceKids,
   priceAdult,
   typeProduct,
   roundTrip,
 }) {
-  const renderPriceKids =
-    typeProduct === "traslados" || typeProduct === "asistencias" ? false : true;
   return (
-    <Card.Body className="w-100 m-2 p-2" as={Row}>
-      {renderPriceKids && <PriceKidsCard priceKids={priceKids}></PriceKidsCard>}
-      {typeProduct === "planes" && (
-        <PriceRoomCard priceAdult={priceAdult}></PriceRoomCard>
-      )}
-      {typeProduct === "hospedajes" && (
-        <PriceSeassonCard priceAdult={priceAdult}></PriceSeassonCard>
-      )}
-      {typeProduct === "traslados" && (
-        <PriceRouteCard
-          priceAdult={priceAdult}
-          roundTrip={roundTrip}
-        ></PriceRouteCard>
-      )}
-      {typeProduct === "actividades" && (
-        <PriceRangeCard priceAdult={priceAdult}></PriceRangeCard>
-      )}
-      {typeProduct === "asistencias" && (
-        <PriceAsistenciaCard priceAdult={priceAdult}></PriceAsistenciaCard>
-      )}
+    <Card.Body className="price-card m-2 p-2 d-flex flex-column flex-sm-column flex-md-row justify-content-around">
+      <PriceAdult
+        days={days}
+        pax={pax}
+        priceAdult={priceAdult}
+        typeProduct={typeProduct}
+        roundTrip={roundTrip}
+      />
+      <PriceKidsCard priceKids={priceKids} />
+      <EditProduct id={id} typeProduct={id} nameItemEdit="Precios" />
     </Card.Body>
   );
 }

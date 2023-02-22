@@ -2,13 +2,15 @@ import React from "react";
 import CardHorizontal from "./CardHorizontal";
 
 export default function CardHospedajes({ data, typeProduct }) {
+  console.log(data);
   return (
-    <div className="d-flex flex-column">
+    <div className="m-1 p-1 d-flex flex-column align-items-center justify-content-center gap-3">
       {data.length > 0 &&
         data.map((card, index) => (
           <CardHorizontal
             id={card._id}
-            photo="https://i.pinimg.com/564x/d4/e6/d8/d4e6d84e0fc58034951f7555a092a6ae.jpg"
+            title={card.title}
+            photos={card.photos}
             key={index}
             categoryAccommodation={card.categoryAccommodation}
             destinationName={card.destinationName}
@@ -16,6 +18,7 @@ export default function CardHospedajes({ data, typeProduct }) {
             priceAdult={card.priceAdult}
             typeProduct={typeProduct}
             description={card.description}
+            includes={card.includes}
           ></CardHorizontal>
         ))}
     </div>

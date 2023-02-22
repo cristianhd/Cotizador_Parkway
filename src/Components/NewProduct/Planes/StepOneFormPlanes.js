@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Col,
-  FloatingLabel,
-  Form,
-  OverlayTrigger,
-  Popover,
-  Row,
-  Tooltip,
-} from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { Col, Form, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { getSuggestCities, getSuggestPlaces } from "../../../Redux/action";
 import InputPlace from "../../SearchForm/InputPlace";
-
 import FloatingInput from "../FloatingInput";
 
 export default function StepOneFormPlanes({
@@ -25,10 +15,7 @@ export default function StepOneFormPlanes({
   const [multiDestination, setMultiDestination] = useState([1]);
 
   const [showSuggest, setShowSuggest] = useState("");
-  const [suggest, setSuggest] = useState([]);
-  const { suggest5Places, suggest5Cities } = useSelector((state) => state);
-  const suggestPlaces = suggest5Places.suggest5Places;
-  const suggestCities = suggest5Cities.suggest5Cities;
+
   const dispatch = useDispatch();
 
   function handleOnChangeCheck(e) {
@@ -67,17 +54,13 @@ export default function StepOneFormPlanes({
     setShowSuggest("");
   };
 
-  // useEffect(() => {
-  //   setSuggest(suggestPlaces);
-  // }, [suggestPlaces]);
-
   return (
     <>
       <Row className="m-1">
         <Form.Group className="" as={Col}>
           <FloatingInput
             name="title"
-            labelName="Titulo"
+            labelName="Título"
             value={form.title}
             onChange={(e) => handleOnChangeForm(e)}
           />
@@ -118,15 +101,6 @@ export default function StepOneFormPlanes({
       </Row>
 
       <Row className="m-1">
-        <Form.Group className="" as={Col}>
-          <FloatingInput
-            name="transport"
-            labelName="Transporte"
-            value={form.transport}
-            onChange={(e) => handleOnChangeForm(e)}
-          />
-        </Form.Group>
-
         <Form.Group className="" as={Col}>
           <FloatingInput
             name="providerUser"
