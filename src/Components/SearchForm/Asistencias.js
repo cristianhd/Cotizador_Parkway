@@ -13,7 +13,6 @@ import {
 } from "../../Redux/action";
 import { useDispatch } from "react-redux";
 import "../../style/cardProduct.css";
-import FloatingInput from "../NewProduct/FloatingInput";
 import { FloatingLabel } from "react-bootstrap";
 
 export default function Asistencias() {
@@ -23,9 +22,9 @@ export default function Asistencias() {
 
   // local state
   const [form, setForm] = useState({
-    destination: undefined,
-    date: undefined,
-    pax: undefined,
+    destination: "",
+    days: "",
+    pax: "",
   });
   const [showDestination, setShowDestination] = useState(false);
   const [validated, setValidated] = useState(false);
@@ -46,7 +45,16 @@ export default function Asistencias() {
       setValidated(true);
       e.stopPropagation();
     } else {
-      dispatch(getSearch(undefined, form.destination, undefined, typeProduct)); // (origin,destination,date,typeProduct)
+      dispatch(
+        getSearch(
+          undefined,
+          form.destination,
+          undefined,
+          typeProduct,
+          form.pax,
+          form.days
+        )
+      ); // (origin,destination,date,typeProduct)
       setValidated(false);
     }
   };
@@ -74,6 +82,8 @@ export default function Asistencias() {
       [name]: value,
     });
   };
+
+  console.log(form);
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -113,6 +123,8 @@ export default function Asistencias() {
                   className="text-center border-0 shadow-none"
                   type="number"
                   name="days"
+                  value={form.days}
+                  onChange={handleOnChange}
                   min="1"
                   placeholder="Ingrese la cantidad de días"
                   autoComplete="off"

@@ -9,11 +9,11 @@ const GET_SEARCH = "GET_SEARCH",
   DELETE_PRODUCT = "DELETE_PRODUCT",
   UPDATE_PRODUCT = "UPDATE_PRODUCT";
 
-export function getSearch(origin, destination, date, typeProduct) {
+export function getSearch(origin, destination, date, typeProduct, pax, days) {
   return (dispatch) => {
     axios
       .get(
-        `/products/${typeProduct}?origin=${origin}&destination=${destination}&date=${date}`
+        `/products/${typeProduct}?origin=${origin}&destination=${destination}&date=${date}&pax=${pax}&days=${days}`
       )
       .then((res) => {
         dispatch({
@@ -101,8 +101,8 @@ export function deleteProduct(id, typeProduct) {
 export function updateProduct(id, update, typeProduct) {
   return (dispatch) => {
     axios
-      .put(`/products/${typeProduct}`, {
-        data: {
+      .patch(`/products/${typeProduct}`, {
+        [typeProduct]: {
           id,
           update,
         },
