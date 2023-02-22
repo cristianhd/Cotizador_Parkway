@@ -12,6 +12,7 @@ export default function ModalEdit({
   handleHideModal,
   typeProduct,
   nameItemEdit,
+  principalText,
 }) {
   const dispatch = useDispatch();
 
@@ -33,6 +34,7 @@ export default function ModalEdit({
             id={id}
             handleUpdate={handleUpdate}
             typeProduct={typeProduct}
+            principalText={principalText}
           />
         )}
         {nameItemEdit === "Descripción" && (

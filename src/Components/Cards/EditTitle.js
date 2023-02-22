@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import FloatingInput from "../NewProduct/FloatingInput";
 
-export default function EditTitle({ handleUpdate, id, typeProduct }) {
-  const [title, setTitle] = useState("");
+export default function EditTitle({
+  handleUpdate,
+  id,
+  typeProduct,
+  principalText,
+}) {
+  const [title, setTitle] = useState(principalText);
   const [validated, setValidated] = useState(false);
 
   function handleOnSubmitForm(e) {

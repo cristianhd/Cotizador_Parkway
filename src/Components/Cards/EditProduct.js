@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import ModalEdit from "./ModalEdit";
 import "../../../src/style/editProduct.css";
 
-export default function EditProduct({ id, typeProduct, nameItemEdit }) {
+export default function EditProduct({
+  id,
+  typeProduct,
+  nameItemEdit,
+  principalText,
+}) {
   const [ShowEdit, setShowEdit] = useState();
   const handleHideModal = () => setShowEdit(false);
 
@@ -26,6 +31,7 @@ export default function EditProduct({ id, typeProduct, nameItemEdit }) {
         show={ShowEdit}
         handleHideModal={handleHideModal}
         nameItemEdit={nameItemEdit}
+        principalText={principalText}
       ></ModalEdit>
     </div>
   );

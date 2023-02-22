@@ -22,6 +22,7 @@ export default function CaptionPhotoCard({
             id={id}
             typeProduct={typeProduct}
             nameItemEdit="Título"
+            principalText={principalText}
           />
         </div>
       )}
