@@ -2,11 +2,6 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 
 export default function CarrouselCard({ photos, typeProduct }) {
-  // const photos = [
-  //   "http://drive.google.com/uc?export=view&id=1iVI9FGh6FvXM0IB_IlFihwPO3TdWefzm",
-  //   "http://drive.google.com/uc?export=view&id=1JnzX6nPUztFu_u0K2r4hlYbbwNqrTYc3",
-  // ]; // test parameter
-
   const urlPhotos =
     photos &&
     photos.map((photo) => {
@@ -14,7 +9,7 @@ export default function CarrouselCard({ photos, typeProduct }) {
         return photo;
       }
       if (photo.includes("photos")) {
-        return `http://localhost:3001/${photo}`;
+        return `http://20.121.201.96:3001/${photo}`;
       }
       return `http://drive.google.com/uc?export=view&id=${photo}`;
     });
