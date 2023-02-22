@@ -60,7 +60,7 @@ export default function StepOneFormPlanes({
         <Form.Group className="" as={Col}>
           <FloatingInput
             name="title"
-            labelName="Titulo"
+            labelName="Título"
             value={form.title}
             onChange={(e) => handleOnChangeForm(e)}
           />

@@ -25,7 +25,7 @@ export default function FormHospedajes({ handleSave, edit, data }) {
     priceAdult: {},
     highSeassonDate: "",
     description: "",
-    includesForm: {},
+    includes: { transport: "", route: "", visit: "", food: "" },
   };
   const editData = {
     ...data,
@@ -35,12 +35,6 @@ export default function FormHospedajes({ handleSave, edit, data }) {
   const [form, setForm] = useState(edit ? editData : initialForm);
   console.log(form);
   const [validated, setValidated] = useState(false);
-  const [includesForm, setIncludesForm] = useState({
-    transport: "",
-    route: "",
-    visit: "",
-    food: "",
-  });
 
   const [currentIndexForm, updateIndexForm] = useState(1);
   const isFirstStep = currentIndexForm === 1;
@@ -58,14 +52,11 @@ export default function FormHospedajes({ handleSave, edit, data }) {
       e.stopPropagation();
       setValidated(true);
     } else {
-      setForm({
-        ...form,
-        includesForm,
-      });
       setValidated(false);
       if (!isLastStep) updateIndexForm(currentIndexForm + 1);
       if (isLastStep) {
         errorFieldsEmpty();
+        handleSave(form);
       }
     }
   }
@@ -77,9 +68,7 @@ export default function FormHospedajes({ handleSave, edit, data }) {
     };
     const message = `Llenar los siguientes campos obligatorios: \n ${fieldsEmpty.photos} \n ${fieldsEmpty.activeDate} \n ${fieldsEmpty.priceAdult}`;
 
-    if (existPhotos && existPriceAdult) {
-      handleSave(form);
-    } else {
+    if (!existPhotos && !existPriceAdult) {
       alert(message);
     }
   }
@@ -139,9 +128,9 @@ export default function FormHospedajes({ handleSave, edit, data }) {
   }
 
   function handleOnChangeIncludes(name, includesInput) {
-    setIncludesForm({
-      ...includesForm,
-      [name]: includesInput,
+    setForm({
+      ...form,
+      includes: { ...form.includes, [name]: includesInput },
     });
   }
 
@@ -181,7 +170,6 @@ export default function FormHospedajes({ handleSave, edit, data }) {
           {labelStep[currentIndexForm - 1].step === "4" && (
             <StepFourFormHospedajes
               form={form}
-              includesForm={includesForm}
               handleOnChangeForm={handleOnChangeForm}
               handleOnChangeIncludes={handleOnChangeIncludes}
             />

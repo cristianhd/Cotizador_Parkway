@@ -4,7 +4,6 @@ import Includes from "../Includes";
 
 export default function StepFourFormHospedajes({
   form,
-  includesForm,
   handleOnChangeForm,
   handleOnChangeIncludes,
 }) {
@@ -17,7 +16,7 @@ export default function StepFourFormHospedajes({
               required
               className="shadow-none"
               as="textarea"
-              maxLength="500"
+              maxLength="390"
               placeholder="Escribe una descripción"
               name="description"
               value={form.description}
@@ -29,7 +28,6 @@ export default function StepFourFormHospedajes({
           <Includes
             handleOnChangeIncludes={handleOnChangeIncludes}
             form={form}
-            includesForm={includesForm}
           />
         </Form.Group>
       </Row>

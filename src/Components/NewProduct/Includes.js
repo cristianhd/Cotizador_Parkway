@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
+import "../../../src/style/includes.css";
 
-export default function Includes({ includesForm, handleOnChangeIncludes }) {
-  console.log(handleOnChangeIncludes);
+export default function Includes({ form, handleOnChangeIncludes }) {
   const includesItems = [
-    { label: "Tranporte", name: "transport" },
+    { label: "Transporte", name: "transport" },
     { label: "Alimentación", name: "food" },
     { label: "Recorridos", name: "route" },
     { label: "Visitas", name: "visit" },
@@ -14,8 +14,8 @@ export default function Includes({ includesForm, handleOnChangeIncludes }) {
 
   useEffect(() => {
     let includesCheck = [];
-    for (const categoryIncludes in includesForm) {
-      if (includesForm[categoryIncludes] !== "") {
+    for (const categoryIncludes in form.includes) {
+      if (form.includes[categoryIncludes] !== "") {
         includesCheck.push(categoryIncludes);
       }
     }
@@ -27,6 +27,7 @@ export default function Includes({ includesForm, handleOnChangeIncludes }) {
     const nameCheck = e.target.name;
     if (currentCheck.includes(nameCheck)) {
       setCurrentCheck(currentCheck.filter((item) => item !== nameCheck));
+      handleOnChangeIncludes(nameCheck, "");
     } else {
       setCurrentCheck([...currentCheck, nameCheck]);
     }
@@ -40,36 +41,39 @@ export default function Includes({ includesForm, handleOnChangeIncludes }) {
   function setValueInput(item) {
     const nameInput = item.name;
 
-    if (nameInput === "transport") return includesForm.transport;
-    if (nameInput === "food") return includesForm.food;
-    if (nameInput === "route") return includesForm.route;
-    if (nameInput === "visit") return includesForm.visit;
+    if (nameInput === "transport" && form.includes)
+      return form.includes.transport;
+    if (nameInput === "food" && form.includes) return form.includes.food;
+    if (nameInput === "route" && form.includes) return form.includes.route;
+    if (nameInput === "visit" && form.includes) return form.includes.visit;
   }
 
   return (
-    <div className="m-1">
-      {includesItems.map((item, index) => (
-        <div
-          key={index}
-          className="d-flex flex-sm-column flex-md-row justify-content-between py-1 gap-2"
-        >
-          <Form.Check
-            type="switch"
-            label={item.label}
-            name={item.name}
-            onChange={(e) => handleOnCheck(e)}
-            checked={currentCheck.includes(item.name)}
-          />
-          <Form.Control
-            className="w-75 shadow-none"
-            required
-            name={item.name}
-            value={setValueInput(item)}
-            onChange={(e) => handleOnChangeInput(e)}
-            disabled={!currentCheck.includes(item.name)}
-          />
-        </div>
-      ))}
-    </div>
+    <>
+      <h6>Incluye:</h6>
+      <div className="m-1 d-flex flex-wrap gap-2">
+        {includesItems.map((item, index) => (
+          <div key={index} className="includes py-1">
+            <Form.Check
+              type="switch"
+              label={item.label}
+              name={item.name}
+              onChange={(e) => handleOnCheck(e)}
+              checked={currentCheck.includes(item.name)}
+            />
+            <Form.Control
+              required
+              as="textarea"
+              maxLength="390"
+              className="includes-control shadow-none"
+              name={item.name}
+              value={setValueInput(item)}
+              onChange={(e) => handleOnChangeInput(e)}
+              disabled={!currentCheck.includes(item.name)}
+            />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
