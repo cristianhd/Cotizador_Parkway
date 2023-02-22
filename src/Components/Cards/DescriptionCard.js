@@ -21,6 +21,8 @@ export default function DescriptionCard({
         id={id}
         typeProduct={typeProduct}
         nameItemEdit="Descripción"
+        description={description}
+        includes={includes}
       />
       <FooterDescription
         categoryAccommodation={categoryAccommodation}

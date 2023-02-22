@@ -7,6 +7,8 @@ export default function EditProduct({
   typeProduct,
   nameItemEdit,
   principalText,
+  description,
+  includes,
 }) {
   const [ShowEdit, setShowEdit] = useState();
   const handleHideModal = () => setShowEdit(false);
@@ -32,6 +34,8 @@ export default function EditProduct({
         handleHideModal={handleHideModal}
         nameItemEdit={nameItemEdit}
         principalText={principalText}
+        description={description}
+        includes={includes}
       ></ModalEdit>
     </div>
   );

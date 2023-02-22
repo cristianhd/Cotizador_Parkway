@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { Button, Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import Includes from "../NewProduct/Includes";
 
-export default function EditDescription({ id, typeProduct, handleUpdate }) {
+export default function EditDescription({
+  id,
+  typeProduct,
+  handleUpdate,
+  description,
+  includes,
+}) {
   const [form, setForm] = useState({
-    description: "",
-    includes: { food: "", route: "", visit: "", transport: "" },
+    description,
+    includes,
   });
   const [validated, setValidated] = useState(false);
 

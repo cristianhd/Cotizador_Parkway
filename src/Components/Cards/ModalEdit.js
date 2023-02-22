@@ -13,6 +13,8 @@ export default function ModalEdit({
   typeProduct,
   nameItemEdit,
   principalText,
+  description,
+  includes,
 }) {
   const dispatch = useDispatch();
 
@@ -42,6 +44,8 @@ export default function ModalEdit({
             id={id}
             handleUpdate={handleUpdate}
             typeProduct={typeProduct}
+            description={description}
+            includes={includes}
           />
         )}
         {nameItemEdit === "Precios" && <EditPrice />}
