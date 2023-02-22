@@ -9,7 +9,8 @@ export default function PriceKidsCard({ priceKids }) {
   };
   var pesosFormat = new Intl.NumberFormat("es-CO", options);
   const [open, setOpen] = useState("");
-  const existPriceKids = priceKids && priceKids[0] ? true : false;
+  const existPriceKids =
+    priceKids && priceKids[0] && priceKids[0].length ? true : false;
 
   function handleActiveCollapse(index) {
     if (index === open) {

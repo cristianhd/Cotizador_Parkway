@@ -9,11 +9,12 @@ import PhotoCard from "./PhotoCard";
 export default function CardHorizontal({
   id,
   title,
-  photo,
+  photos,
   categoryAccommodation,
   destinationName,
   numberNigths,
   description,
+  includes,
   priceKids,
   priceAdult,
   typeProduct,
@@ -32,7 +33,7 @@ export default function CardHorizontal({
       <div className="d-flex flex-column flex-sm-column flex-md-row">
         <PhotoCard
           id={id}
-          photo={photo}
+          photos={photos}
           principalText={title}
           subtitleText={
             typeProduct === "hospedajes" ? destinationName : destination
@@ -45,6 +46,7 @@ export default function CardHorizontal({
           priceAdult={priceAdult}
           typeProduct={typeProduct}
           description={description}
+          includes={includes}
           categoryAccommodation={categoryAccommodation}
           numberNigths={numberNigths}
           roundTrip={roundTrip}

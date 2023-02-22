@@ -11,7 +11,7 @@ export default function CardPlanes({ data, typeProduct }) {
         data.map((card, index) => (
           <CardHorizontal
             id={card._id}
-            photo={photo}
+            photos={card.photos}
             key={index}
             title={card.title}
             categoryAccommodation={card.categoryAccommodation}
@@ -22,6 +22,7 @@ export default function CardPlanes({ data, typeProduct }) {
             priceAdult={card.priceAdult}
             typeProduct={typeProduct}
             description={card.description}
+            includes={card.includes}
           ></CardHorizontal>
         ))}
     </div>

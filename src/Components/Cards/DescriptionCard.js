@@ -1,8 +1,11 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import EditProduct from "./EditProduct";
 import FooterDescription from "./FooterDescription";
 
 export default function DescriptionCard({
+  id,
+  typeProduct,
   description,
   categoryAccommodation,
   numberNigths,
@@ -12,8 +15,13 @@ export default function DescriptionCard({
   includes,
 }) {
   return (
-    <div className="m-1 p-1 h-100 d-flex flex-column justify-content-around">
-      <p className="description m-1">{description}</p>
+    <div className="description m-1 p-1 h-100 d-flex flex-column justify-content-around">
+      <p className=" m-1">{description} </p>
+      <EditProduct
+        id={id}
+        typeProduct={typeProduct}
+        nameItemEdit="Descripción"
+      />
       <FooterDescription
         categoryAccommodation={categoryAccommodation}
         numberNigths={numberNigths}

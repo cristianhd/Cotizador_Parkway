@@ -6,26 +6,24 @@ import BARCO from "../../assets/BARCO.svg";
 import FooterDescription from "./FooterDescription";
 
 export default function NavigationCard({
+  id,
+  days,
+  pax,
   priceKids,
   priceAdult,
   roundTrip,
   typeProduct,
   description,
+  includes,
   categoryAccommodation,
   numberNigths,
   maxPeople,
   minPeople,
 }) {
-  const includes = {
-    food: "Desayuno, almuerzo, Cena",
-    route: "Recorrido caminando por el municipio de Puerto Nariño",
-    visit:
-      "Visita a los lagos de Tarapoto, la ruta del delfín rosado, Visita a la comunidad de Mocagua, Visita a la fundación Maicuchiga, (historia de los micos), Parque ecológico Mundo Amazónico, Reserva peruana el Milagro de Marasha",
-  };
   return (
     <div
       className={
-        (typeProduct === "traslados"
+        (typeProduct === "traslados" || typeProduct === "asistencias"
           ? "navigation-vertical"
           : "navigation-horizontal") + " d-flex flex-column"
       }
@@ -33,6 +31,8 @@ export default function NavigationCard({
       <Tabs className="m-1" defaultActiveKey="description">
         <Tab eventKey="description" title="Descripción">
           <DescriptionCard
+            id={id}
+            typeProduct={typeProduct}
             description={description}
             categoryAccommodation={categoryAccommodation}
             numberNigths={numberNigths}
@@ -44,6 +44,9 @@ export default function NavigationCard({
         </Tab>
         <Tab eventKey="price" title="Precios">
           <PriceCard
+            id={id}
+            days={days}
+            pax={pax}
             priceKids={priceKids}
             priceAdult={priceAdult}
             roundTrip={roundTrip}

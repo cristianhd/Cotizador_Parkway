@@ -13,6 +13,11 @@
   height: 560px;
 }
 
+.price-card {
+  position: relative;
+  width: inherit;
+}
+
 .price-kids > ul {
   font-size: 14px;
 }

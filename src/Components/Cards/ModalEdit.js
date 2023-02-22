@@ -7,52 +7,37 @@ import FormHospedajes from "../NewProduct/Hospedajes/FormHospedajes";
 import FormTraslados from "../NewProduct/Traslados/FormTraslados";
 import FormActividades from "../NewProduct/Actividades/FormActividades";
 import FormAsistencias from "../NewProduct/Asistencias/FormAsistencias";
+import FormEdit from "./FormEdit";
 
-export default function ModalEdit({ id, show, handleShowEdit, typeProduct }) {
+export default function ModalEdit({
+  id,
+  show,
+  handleHideModal,
+  typeProduct,
+  nameItemEdit,
+}) {
   const dispatch = useDispatch();
-  const { productById } = useSelector((state) => state);
-  const dataEdit = productById.productById;
-  const emptyDataEdit =
-    dataEdit && Object.values(dataEdit).length > 0 ? false : true;
 
   //handlers
 
-  const handleUpdate = (data) => {
-    const update = data;
-    dispatch(updateProduct(id, update, typeProduct));
-
-    handleShowEdit();
+  const handleUpdate = (id, typeProduct, updateData) => {
+    dispatch(updateProduct(id, updateData, typeProduct));
+    handleHideModal();
     alert("Producto Editado Correctamente");
   };
   return (
-    <Modal show={show} onHide={handleShowEdit} size="lg" backdrop="static">
+    <Modal show={show} onHide={handleHideModal} size="lg" backdrop="static">
       <Modal.Header closeButton>
-        <Modal.Title>Editar Producto</Modal.Title>
+        <h6>Editar {nameItemEdit}</h6>
       </Modal.Header>
-
-      {typeProduct === "planes" && !emptyDataEdit && (
-        <FormPlanes handleSave={handleUpdate} edit={true} data={dataEdit} />
-      )}
-      {typeProduct === "hospedajes" && !emptyDataEdit && (
-        <FormHospedajes handleSave={handleUpdate} edit={true} data={dataEdit} />
-      )}
-      {typeProduct === "traslados" && !emptyDataEdit && (
-        <FormTraslados handleSave={handleUpdate} edit={true} data={dataEdit} />
-      )}
-      {typeProduct === "actividades" && !emptyDataEdit && (
-        <FormActividades
-          handleSave={handleUpdate}
-          edit={true}
-          data={dataEdit}
+      <Modal.Body>
+        <FormEdit
+          id={id}
+          typeProduct={typeProduct}
+          nameItemEdit={nameItemEdit}
+          handleUpdate={handleUpdate}
         />
-      )}
-      {typeProduct === "asistencias" && !emptyDataEdit && (
-        <FormAsistencias
-          handleSave={handleUpdate}
-          edit={true}
-          data={dataEdit}
-        />
-      )}
+      </Modal.Body>
     </Modal>
   );
 }

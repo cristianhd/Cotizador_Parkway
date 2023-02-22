@@ -1,22 +1,31 @@
 import React from "react";
-import SpanCard from "./SpanCard";
-
+import EditProduct from "./EditProduct";
 export default function CaptionPhotoCard({
+  id,
   principalText,
   subtitleText,
   typeProduct,
 }) {
-  console.log(principalText);
   return (
     <div
       className={
-        (typeProduct === "traslados"
+        (typeProduct === "traslados" || typeProduct === "asistencias"
           ? "caption-vertical"
           : "caption-horizontal") +
         " p-2 d-flex flex-column justify-content-around"
       }
     >
-      <h4>{principalText && principalText}</h4>
+      {principalText && (
+        <div className="principal-text">
+          <h4>{principalText}</h4>
+          <EditProduct
+            id={id}
+            typeProduct={typeProduct}
+            nameItemEdit="Título"
+          />
+        </div>
+      )}
+
       <div className="location">
         <svg
           xmlns="http://www.w3.org/2000/svg"

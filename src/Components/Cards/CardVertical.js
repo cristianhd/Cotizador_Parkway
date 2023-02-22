@@ -9,8 +9,10 @@ import PhotoCard from "./PhotoCard";
 
 export default function CardVertical({
   id,
+  days,
+  pax,
   title,
-  photo,
+  photos,
   categoryAccommodation,
   destinationName,
   numberNigths,
@@ -46,9 +48,9 @@ export default function CardVertical({
     <div className="card-vertical m-3">
       <div className="d-flex flex-column ">
         <PhotoCard
-          photo={photo}
-          principalText="Traslado"
-          subtitleText={title}
+          photos={photos}
+          principalText={title}
+          subtitleText={typeProduct === "traslados" ? title : destinationName}
           categoryAccommodation={categoryAccommodation}
           numberNigths={numberNigths}
           transport={transport}
@@ -58,6 +60,8 @@ export default function CardVertical({
           typeProduct={typeProduct}
         ></PhotoCard>
         <NavigationCard
+          days={days}
+          pax={pax}
           priceKids={priceKids}
           priceAdult={priceAdult}
           roundTrip={roundTrip}
