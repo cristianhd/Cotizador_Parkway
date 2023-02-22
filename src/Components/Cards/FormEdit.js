@@ -44,31 +44,5 @@ export default function FormEdit({
     });
   }
 
-  return (
-    <Form
-      noValidate
-      validated={validated}
-      onSubmit={handleOnSubmitForm}
-      autoComplete="off"
-    >
-      {nameItemEdit === "Título" && (
-        <EditTitle form={form} handleOnChangeForm={handleOnChangeForm} />
-      )}
-      {nameItemEdit === "Descripción" && (
-        <EditDescription
-          typeProduct={typeProduct}
-          form={form}
-          handleOnChangeForm={handleOnChangeForm}
-          handleOnChangeIncludes={handleOnChangeIncludes}
-        />
-      )}
-      {nameItemEdit === "Precios" && <EditPrice />}
-
-      <Row className="m-1 p-1">
-        <div className="w-100 m-1 p-1 d-flex justify-content-end">
-          <Button type="submit">Guardar</Button>
-        </div>
-      </Row>
-    </Form>
-  );
+  return <></>;
 }

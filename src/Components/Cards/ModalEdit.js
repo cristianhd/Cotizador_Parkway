@@ -1,13 +1,10 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateProduct } from "../../Redux/action";
-import FormPlanes from "../NewProduct/Planes/FormPlanes";
-import FormHospedajes from "../NewProduct/Hospedajes/FormHospedajes";
-import FormTraslados from "../NewProduct/Traslados/FormTraslados";
-import FormActividades from "../NewProduct/Actividades/FormActividades";
-import FormAsistencias from "../NewProduct/Asistencias/FormAsistencias";
-import FormEdit from "./FormEdit";
+import EditDescription from "./EditDescription";
+import EditPrice from "./EditPrice";
+import EditTitle from "./EditTitle";
 
 export default function ModalEdit({
   id,
@@ -31,12 +28,21 @@ export default function ModalEdit({
         <h6>Editar {nameItemEdit}</h6>
       </Modal.Header>
       <Modal.Body>
-        <FormEdit
-          id={id}
-          typeProduct={typeProduct}
-          nameItemEdit={nameItemEdit}
-          handleUpdate={handleUpdate}
-        />
+        {nameItemEdit === "Título" && (
+          <EditTitle
+            id={id}
+            handleUpdate={handleUpdate}
+            typeProduct={typeProduct}
+          />
+        )}
+        {nameItemEdit === "Descripción" && (
+          <EditDescription
+            id={id}
+            handleUpdate={handleUpdate}
+            typeProduct={typeProduct}
+          />
+        )}
+        {nameItemEdit === "Precios" && <EditPrice />}
       </Modal.Body>
     </Modal>
   );

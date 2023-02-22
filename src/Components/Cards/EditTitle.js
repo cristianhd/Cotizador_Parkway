@@ -1,18 +1,47 @@
-import React from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import FloatingInput from "../NewProduct/FloatingInput";
 
-export default function EditTitle({ form, handleOnChangeForm }) {
+export default function EditTitle({ handleUpdate, id, typeProduct }) {
+  const [title, setTitle] = useState("");
+  const [validated, setValidated] = useState(false);
+
+  function handleOnSubmitForm(e) {
+    const formEvent = e.currentTarget;
+    e.preventDefault();
+
+    if (formEvent.checkValidity() === false) {
+      e.stopPropagation();
+      setValidated(true);
+    } else {
+      const update = { title: title };
+      handleUpdate(id, typeProduct, update);
+      setValidated(false);
+    }
+  }
+
   return (
-    <Row className="m-1">
-      <Form.Group className="" as={Col}>
-        <FloatingInput
-          name="title"
-          labelName="Título"
-          value={form.title}
-          onChange={(e) => handleOnChangeForm(e)}
-        />
-      </Form.Group>
-    </Row>
+    <Form
+      noValidate
+      validated={validated}
+      onSubmit={handleOnSubmitForm}
+      autoComplete="off"
+    >
+      <Row className="m-1">
+        <Form.Group className="" as={Col}>
+          <FloatingInput
+            name="title"
+            labelName="Título"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </Form.Group>
+      </Row>
+      <Row className="m-1 p-1">
+        <div className="w-100 m-1 p-1 d-flex justify-content-end">
+          <Button type="submit">Guardar</Button>
+        </div>
+      </Row>
+    </Form>
   );
 }
