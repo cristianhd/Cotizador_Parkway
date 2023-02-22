@@ -151,7 +151,7 @@ function findActividadesById(req, res) {
 }
 
 function findAsistencias(req, res, next) {
-  const { destination, id } = req.query;
+  const { destination, days, pax, id } = req.query;
 
   if (id) {
     next();
@@ -160,7 +160,8 @@ function findAsistencias(req, res, next) {
       try {
         Asistencias.find({ destinationName: destination }).then(
           (asistencias) => {
-            res.json(asistencias);
+            const newAsistencias = { asistencias: asistencias, days, pax };
+            res.json(newAsistencias);
           }
         );
       } catch (error) {
@@ -168,7 +169,7 @@ function findAsistencias(req, res, next) {
       }
     } else {
       // devuelve todas las Asistencias si no hay una query
-      Asistencias.find().then((asistencias) => res.json(asistencias));
+      Asistencias.find().then((asistencias) => res.json({ asistencias }));
     }
   }
 }
@@ -204,6 +205,7 @@ function addManyPlanes(req, res, next) {
 
 function addPlan(req, res, next) {
   const { planes } = req.body;
+  console.log(planes);
 
   const destinationName = Object.values(planes.destinationName);
   const priceAdult = Object.entries(planes.priceAdult).map((price) => [
@@ -409,6 +411,7 @@ function addAsistencias(req, res, next) {
 
 function updatePlanes(req, res, next) {
   const { planes } = req.body;
+  console.log(planes);
   if (planes === undefined) {
     res.send("Something wrong with the data (planes)!");
   }
@@ -417,21 +420,10 @@ function updatePlanes(req, res, next) {
     next();
   } else {
     const id = planes.id;
-    const destinationName = Object.values(planes.update.destinationName);
-    const priceAdult = Object.entries(planes.update.priceAdult);
-    const priceKids = Object.entries(planes.update.priceKids);
-
-    const updatePlan = {
-      ...planes.update,
-      destinationName,
-      priceKids,
-      priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-    };
-
     const opts = { new: true };
 
     try {
-      Planes.findByIdAndUpdate({ _id: id }, updatePlan, opts, (err, doc) => {
+      Planes.findByIdAndUpdate({ _id: id }, planes.update, opts, (err, doc) => {
         if (err) {
           console.log("Something wrong when updating data!");
         }
@@ -450,9 +442,16 @@ function updateManyPlanes(req, res) {
   if (!isEmpty) {
     try {
       planes.map((updatePlan) => {
+        console.log(updatePlan.id);
+        let includes = {
+          food: updatePlan.data.food,
+          transport: updatePlan.data.transport,
+          visit: updatePlan.data.visit,
+          route: updatePlan.data.route,
+        };
         return Planes.findByIdAndUpdate(
-          updatePlan._id,
-          updatePlan.data,
+          updatePlan.id,
+          { ...updatePlan.data, includes },
           {
             new: true,
           },
@@ -480,21 +479,12 @@ function updateHospedajes(req, res, next) {
     next();
   } else {
     const id = hospedajes.id;
-    const priceAdult = Object.entries(hospedajes.update.priceAdult);
-    const priceKids = Object.entries(hospedajes.update.priceKids);
-
-    const updateHospedaje = {
-      ...hospedajes.update,
-      priceKids,
-      priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-    };
-
     const opts = { new: true };
 
     try {
       Hospedajes.findByIdAndUpdate(
         { _id: id },
-        updateHospedaje,
+        hospedajes.update,
         opts,
         (err, doc) => {
           if (err) {
@@ -515,9 +505,16 @@ function updateManyHospedajes(req, res) {
   if (!isEmpty) {
     try {
       hospedajes.map((updatePlan) => {
+        let includes = {
+          food: updatePlan.data.food,
+          transport: "",
+          visit: "",
+          route: "",
+        };
+
         return Hospedajes.findByIdAndUpdate(
-          updatePlan._id,
-          updatePlan.data,
+          { _id: updatePlan.id },
+          { ...updatePlan.data, includes },
           {
             new: true,
           },
@@ -535,97 +532,174 @@ function updateManyHospedajes(req, res) {
   }
 }
 
-function updateTraslados(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const destinationName = Object.values(data.update.destinationName);
-  const destinations = destinationName.map((destination) => "-" + destination);
-  const title =
-    data.update.originName + destinations.toString().replace(/,/g, "");
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
+function updateTraslados(req, res, next) {
+  const { traslados } = req.body;
+  if (traslados === undefined) {
+    res.send("Something wrong with the data (traslados)!");
+    return;
+  }
 
-  const updateTraslados = {
-    ...data.update,
-    title,
-    destinationName,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
+  if (Array.isArray(traslados)) {
+    next();
+  } else {
+    const id = traslados.id;
+    const opts = { new: true };
 
-  const opts = { new: true };
-
-  try {
-    Traslados.findByIdAndUpdate(
-      { _id: id },
-      updateTraslados,
-      opts,
-      (err, doc) => {
-        if (err) {
-          console.log("Something wrong when updating data!");
+    try {
+      Traslados.findByIdAndUpdate(
+        { _id: id },
+        traslados.update,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
         }
-        res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
   }
 }
 
-function updateActividades(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const destinationName = Object.values(data.update.destinationName);
-  const priceAdult = Object.entries(data.update.priceAdult);
-  const priceKids = Object.entries(data.update.priceKids);
-
-  const updateActividad = {
-    ...data.update,
-    destinationName,
-    priceKids,
-    priceAdult: priceAdult.filter((price) => price[1] !== undefined),
-  };
-
-  const opts = { new: true };
-
-  try {
-    Actividades.findByIdAndUpdate(
-      { _id: id },
-      updateActividad,
-      opts,
-      (err, doc) => {
-        if (err) {
-          console.log("Something wrong when updating data!");
-        }
-        res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+function updateManyTraslados(req, res) {
+  const { traslados } = req.body;
+  const isEmpty = traslados.length === 0;
+  if (!isEmpty) {
+    try {
+      traslados.map((updatePlan) => {
+        return Traslados.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(traslados);
+  } else {
+    res.send("the data is empty");
   }
 }
 
-function updateAsistencias(req, res) {
-  const { data } = req.body;
-  const id = data.id;
-  const updateAsistencia = data.update;
+function updateActividades(req, res, next) {
+  const { actividades } = req.body;
+  if (actividades === undefined) {
+    res.send("Something wrong with the data (actividades)!");
+    return;
+  }
 
-  const opts = { new: true };
+  if (Array.isArray(actividades)) {
+    next();
+  } else {
+    const id = actividades.id;
+    const opts = { new: true };
 
-  try {
-    Asistencias.findByIdAndUpdate(
-      { _id: id },
-      updateAsistencia,
-      opts,
-      (err, doc) => {
-        if (err) {
-          console.log("Something wrong when updating data!");
+    try {
+      Actividades.findByIdAndUpdate(
+        { _id: id },
+        actividades.update,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
         }
-        res.send(doc);
-      }
-    );
-  } catch (error) {
-    res.sen(error.message);
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
+  }
+}
+
+function updateManyActividades(req, res) {
+  const { actividades } = req.body;
+  const isEmpty = actividades.length === 0;
+  if (!isEmpty) {
+    try {
+      actividades.map((updatePlan) => {
+        return Actividades.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(actividades);
+  } else {
+    res.send("the data is empty");
+  }
+}
+
+function updateAsistencias(req, res, next) {
+  const { asistencias } = req.body;
+  if (asistencias === undefined) {
+    res.send("Something wrong with the data (asistencias)!");
+    return;
+  }
+
+  if (Array.isArray(asistencias)) {
+    next();
+  } else {
+    const id = asistencias.id;
+    const opts = { new: true };
+
+    try {
+      Asistencias.findByIdAndUpdate(
+        { _id: id },
+        asistencias.update,
+        opts,
+        (err, doc) => {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
+          res.send(doc);
+        }
+      );
+    } catch (error) {
+      res.sen(error.message);
+    }
+  }
+}
+
+function updateManyAsistencias(req, res) {
+  const { asistencias } = req.body;
+  const isEmpty = asistencias.length === 0;
+  if (!isEmpty) {
+    try {
+      asistencias.map((updatePlan) => {
+        return Asistencias.findByIdAndUpdate(
+          updatePlan._id,
+          updatePlan.data,
+          {
+            new: true,
+          },
+          (err, doc) => {
+            console.log(doc);
+          }
+        );
+      });
+    } catch (error) {
+      res.send(error.message);
+    }
+    res.send(asistencias);
+  } else {
+    res.send("the data is empty");
   }
 }
 
@@ -723,10 +797,13 @@ module.exports = {
   updatePlanes,
   updateManyPlanes,
   updateTraslados,
+  updateManyTraslados,
   updateHospedajes,
   updateManyHospedajes,
   updateActividades,
+  updateManyActividades,
   updateAsistencias,
+  updateManyAsistencias,
   deletePlanes,
   deleteHospedajes,
   deleteTraslados,
